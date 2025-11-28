@@ -1,0 +1,66 @@
+// ============================================================================
+// FILE: src/components/sections/SupportContact.js
+// ============================================================================
+import React from 'react';
+import './SupportContact.css';
+import { getIcon } from '../../../data/iconsData';
+
+const SupportContact = () => {
+  return (
+    <section className="support-contact">
+      <div className="support-contact__container">
+        {/* Call Banner */}
+        <div className="support-contact__banner">
+          <div className="support-contact__banner-content">
+            <div className="support-contact__banner-text">
+              <p className="support-contact__banner-label">For any assistance, call now</p>
+              <p className="support-contact__banner-subtitle">
+                Get assistance on Sales / Service / Product related issues. We ensure spare parts 
+                availability to all our customers in India.
+              </p>
+            </div>
+            <a href="tel:18002097979" className="support-contact__banner-phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79zm9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75zM7.5 3H4c-.55 0-1 .45-1 1c0 9.39 7.61 17 17 17c.55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1c-1.24 0-2.45-.2-3.57-.57a.8.8 0 0 0-.31-.05c-.26 0-.51.1-.71.29l-2.2 2.2a15.15 15.15 0 0 1-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.4 11.4 0 0 1 8.5 4c0-.55-.45-1-1-1" />
+              </svg>
+              1800 209 7979
+            </a>
+          </div>
+        </div>
+
+        {/* Support Info */}
+        <div className="support-contact__info">
+          <h3 className="support-contact__info-title">24*7 Service Assistance for every Proud EVall Owner</h3>
+          <p className="support-contact__info-text">
+            For assistance on the Sales / Services / Product related issues, get connected at given details.
+          </p>
+
+          <div className="support-contact__cards">
+          <a href="tel:0172 450 9386" className="support-contact__card">
+            <div className="support-contact__card-icon">
+            {getIcon('phone', 32)}
+            </div>
+            <div className="support-contact__card-content">
+              <h4 className="support-contact__card-title">Phone Support</h4>
+              <span className="support-contact__card-link">0172 450 9386</span>
+            </div>
+          </a>
+          <a href="mailto:sales@evall.co.in" className="support-contact__card">
+            <div className="support-contact__card-icon">
+              {getIcon('email', 32)}
+            </div>
+            <div className="support-contact__card-content">
+              <h4 className="support-contact__card-title">Email Support</h4>
+              <span className="support-contact__card-link">sales@evall.co.in</span>
+            </div>
+          </a>
+
+          
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SupportContact;

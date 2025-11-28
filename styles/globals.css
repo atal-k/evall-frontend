@@ -1,42 +1,279 @@
+/* // Global STYLES & CSS VARIABLES APP.css
+// ============================================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color Palette */
+  --color-primary: #00b300;
+  --color-primary-dark: #008f00;
+  --color-secondary: #1a8fb8;
+  --color-dark: #1a1a1a;
+  --color-light-green-fill: #effeef;
+  --color-light-green-fill2: #9cd59c;
+  --color-light-green: #29D023;
+  --color-light-green2: #42F705;
+  --color-dark-green: #3D923A;
+  --color-dark-green2: #043702;
+  --color-dark-green3: #113510;
+  --color-dark-green4: #066F29;
+  --color-gray-outline: #BBBBBB;
+  --color-gray-outline2: #737C8C;
+  --color-gray-100: #f3f3f3;
+  --color-gray-150: #EBEBEB;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-600: #666666;
+  --color-gray-650: #5a6370;
+  --color-gray-700: #4a4a4a;
+  --color-gray-800: #333333;
+--color-gray-850: #2c2c2c;
+  --color-gray-900: #222222;
+  --color-white: #ffffff;
+  --color-off-white: #FAFAFA;
+  --color-black: #000000;
+  
+
+  /* Comparison section */
+  --comparison-purple: #4E09A9;
+  --comparison-green: #2DB700;
+  --comparison-red: #9D0A0A;
+  --comparison-orange: #D37C25;
+  --comparison-card-bg: #ffffff;
+  --comparison-icon-bg-purple: #ede9fe;
+  --comparison-icon-bg-green: #d6fec9;
+  --comparison-icon-bg-red: #fee2e2;
+  --comparison-icon-bg-orange: #ffedd5;
+
+  /* IntelligenceSection */
+  --intelligence-magenta: #ff00cc;
+  --intelligence-blue: #405FF2;
+  --intelligence-silver: #C0C0C0;
+  --intelligence-green: #75E890;
+  --intelligence-gradient: linear-gradient(135deg, #4564EA 0%, #EA6FE3 100%);
+
+  --color-quote-blue: #1A2F4B;
+  --color-td: rgba(0, 0, 0, 0.87);
+
+  /* Vehicle Showcase */
+  --color-active: #5C6370;
+  --color-gray-spot: rgba(56, 56, 56, 0.4);
+  --color-blue-spot: #290BD3;
+
+  /* LeadershipSection colors */
+  --color-blue1: #2147FB;
+  --color-leadership-linkedin: #0a66c2;
+  --color-leadership-facebook: #3b5998;
+
+  /* Category Badge Colors */
+--category-tech-bg: #e0f2fe;
+--category-tech-color: #0369a1;
+
+--category-events-bg: #f3e8ff;
+--category-events-color: #7c3aed;
+
+--category-news-bg: #ffedd5;
+--category-news-color: #c2410c;
+
+  --color-green-banner: #066F29;
+  
+  /* Typography */
+  --font-primary: "DM Sans", sans-serif;
+  --font-Montserrat: "Montserrat", sans-serif;
+  --font-RobotoFlex: "Roboto Flex", sans-serif;
+  --font-Poppins: "Poppins", sans-serif;
+  --font-Inter: "Inter", sans-serif;
+  --font-Candal: "Candal", sans-serif;
+  --font-Cambria: "Cambria", "Times New Roman", serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm2: 0.85rem;
+  --font-size-sm: 0.9rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xlg: 1.2rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-2-5xl: 1.75rem;
+  --font-size-3xl: 2rem;
+  --font-size-3-5xl: 2.3rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-4-5xl: 3rem;
+  --font-size-5xl: 3.5rem;
+  --font-size-6xl: 4rem;
+  --font-size-7xl: 4.5rem;
+
+  
+  /* Spacing */
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-xsm: 0.75rem;
+  --spacing-sm: 1rem;
+  --spacing-smd: 1.25rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xlg: 2.5rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  --spacing-2-5xl: 5rem;
+  --spacing-3xl: 6rem;
+  --spacing-4xl: 8rem;
+  --spacing-5xl: 10rem;
+
+      /* Compact form spacing */
+  --form-spacing-xs: 0.35rem;
+  --form-spacing-sm: 0.6rem;
+  --form-spacing-md: 1rem;
+  --form-spacing-lg: 1.25rem;
+  --form-padding: 0.6rem 0.75rem;
+
+  /* Color form */
+  --color-form-title: #1D1B20;
+  --color-form-label: #5C6370;
+
+  /* result chart color */
+  --color-eve-green: #2eb502;
+  --color-ice-blue: #1d68ea;
+
+  /* TabView */
+  --color-tab-active: #00b300;
+  --color-tab-inactive: #777575;
+  --color-tab-hover: #444242;
+  --color-heading: #113510;
+  --color-text: #353940;
+
+  /* Blogs */
+  --color-para: #424648;
+
+  /* Feauture card padding */
+  --feature-card-padding: 30px 20px 20px;
+  
+  /* Layout */
+  --container-max-width: 1380px;
+  --header-height: 65px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+  --border-outline: 1px solid var(--color-gray-outline);
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-xsm: 6px;
+  --radius-md: 8px;
+  --radius-xmd: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-xxl: 20px;
+  --radius-full: 999px;
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-dark);
+  background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* Container constraint - add to existing App.css */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Currency sign */
+.currency-sign {
+  font-family: var(--font-Inter);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+button:hover {
+  cursor: pointer;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
+}
+/* Modern Minimal Scrollbar */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+width: 8px;
+height: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+::-webkit-scrollbar-track {
+background: var(--color-gray-100);
+border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+background: var(--color-gray-400);
+border-radius: 4px;
+transition: background var(--transition-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: var(--color-gray-600);
+}
+
+/* Firefox */
+* {
+scrollbar-width: thin;
+scrollbar-color: var(--color-gray-400) var(--color-gray-100);
+}
+  
+/* ========== RESPONSIVE DESIGN ========== */
+@media (min-width: 768px) {
+  .header__nav {
+    display: flex;
+  }
+  
+  .header__mobile-toggle {
+    display: none;
+  }
+  
+  .btn--small {
+    display: inline-flex;
+  }
+  
+  
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer__main {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

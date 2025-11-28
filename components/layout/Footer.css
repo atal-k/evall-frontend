@@ -1,0 +1,334 @@
+/* ========== FOOTER STYLES ========== */
+.footer {
+    background: #202120;
+    color: #ffffff;
+    padding: var(--spacing-xl) 0 0;
+  }
+  
+  .footer__main {
+    display: flex;           /* switch grid -> flex */
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;         /* keeps layout responsive */
+  }
+  /* ensure flex children are allowed to shrink (important for long text/SVGs) */
+  .footer__main > * {
+    min-width: 0; 
+  }
+
+  /* limit the brand so it doesn't hog the row */
+  .footer__brand {
+    flex: 0 1 300px;   /* do not grow, can shrink, initial basis 300px */
+    max-width: 320px;  /* hard cap so it never becomes huge */
+    min-width: 0;      /* allow inner content to shrink inside the flex item */
+  }
+
+  /* make the remaining sections behave predictably (optional but helpful) */
+  .footer__main > .footer__section {
+    flex: 0 1 250px;  /* don't grow, can shrink, give a sensible basis */
+  }
+  /* ADD: push child #2 (and the following siblings) to the right as a group */
+  .footer__main > :nth-child(2) {
+    margin-left: auto;
+  }
+  .footer__main > :nth-child(3){
+    margin-right: var(--spacing-2xl);
+  }
+  .footer__main > :nth-child(4){
+    flex: 0 1 200px;
+  }
+
+  .footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer__logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer__logo-text {
+    color: #ffffff;
+  }
+  
+  .footer__tagline {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+  }
+  
+  .footer__certifications {
+    margin-top: 1rem;
+  }
+  
+  .footer__cert-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: #ffffff;
+  }
+  
+  .footer__cert-icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .footer__cert-icon {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #ffffff;
+  }
+  
+  .footer__section-title {
+    font-size: var(--font-size-xlg);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: #ffffff;
+  }
+  
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer__link {
+    font-size: var(--font-size-sm);
+    opacity: 0.7;
+    transition: all 250ms ease;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .footer__link:hover {
+    opacity: 1;
+    color: #00b300;
+  }
+  
+  .footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .footer__contact-item {
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+  }
+  
+  .footer__contact-icon {
+    flex-shrink: 0;
+    color: #ffffff;
+    opacity: 0.9;
+  
+    margin-top: 2px;
+  }
+  
+  .footer__contact-text {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    color: #ffffff;
+  }
+  
+  .footer__contact-text p {
+    margin: 0;
+  }
+  
+  .footer__newsletter-text {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+  }
+  
+  .footer__newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer__newsletter-input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .footer__newsletter-input-wrapper .footer__newsletter-input {
+    padding-right: 3rem;
+  }
+  
+  .footer__newsletter-input-icon svg {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+  }
+  
+  .footer__newsletter-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #3B6A39;
+    color: #ffffff;
+    font-size: var(--font-size-sm);
+    font-family: inherit;
+    border-radius: 8px;
+  }
+  
+  .footer__newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .footer__newsletter-input:focus {
+    outline: none;
+  }
+  
+  .footer__newsletter-btn {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    background: var(--comparison-green);
+    color: #ffffff;
+    border: none;
+    letter-spacing: 0.6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 250ms ease;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+  }
+  
+  .footer__newsletter-btn:hover {
+    background: #008f00;
+  }
+  
+  .footer__newsletter-btn svg {
+    display: block;
+  }
+  .footer__divider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.7);
+  }
+  
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:var(--spacing-md) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .footer__copyright {
+    font-size: var(--font-size-sm);
+    opacity: 0.7;
+    margin: 0;
+    color: #ffffff;
+  }
+  
+  .footer__social {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .footer__social-link {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: all 250ms ease;
+    text-decoration: none;
+  }
+  
+  .footer__social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .footer__social-link svg {
+    display: block;
+  }
+/* ---------- TABLET (adjust sizing; prevent wrapping) ---------- */
+@media (max-width: 1024px) {
+  .footer__brand {
+    flex-basis: 300px;
+    max-width: 420px;
+  }
+  .footer__main > .footer__section {
+    flex-basis: 160px;
+  }
+  /* keep the margin-left auto behavior on tablet (horizontal axis) */
+}
+
+/* ---------- MOBILE (stack vertically & reset horizontal-only rules) ---------- */
+@media (max-width: 767px) {
+  /* stack all footer blocks vertically */
+  .footer__main {
+    flex-direction: column;
+    align-items: stretch; /* make children fill the container width */
+    gap: 1.25rem;
+  }
+
+  /* reset the horizontal push (no more margin-left auto) */
+  .footer__main > :nth-child(2) {
+    margin-left: 0;
+  }
+
+  /* make each child full-width and allow natural flow */
+  .footer__brand,
+  .footer__main > .footer__section {
+    flex: 0 1 100%;
+    max-width: none;
+  }
+
+  /* newsletter / last child should be full width on mobile */
+  .footer__main > :last-child {
+    max-width: none;
+    width: 100%;
+  }
+
+  /* original .footer mobile tweaks */
+  .footer {
+    padding: 4rem 0 0;
+  }
+
+  .footer__main {
+    gap: 2rem; /* if you prefer slightly larger gaps on mobile */
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+  }
+}

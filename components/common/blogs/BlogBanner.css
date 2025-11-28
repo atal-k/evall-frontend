@@ -1,0 +1,142 @@
+/* // ============================================================================
+// FILE: /src/components/common/blogs/BlogBanner.css
+// ============================================================================ */
+
+.blog-banner {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: linear-gradient(135deg, var(--color-dark-green) 0%, var(--color-primary) 100%);
+  background-image: url('/public/images/header-banner-van.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: var(--spacing-xl);
+}
+
+.blog-banner__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.blog-banner__content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-left: var(--spacing-md);
+  width: 100%;
+}
+
+.blog-banner__text {
+  max-width: 600px;
+}
+
+.blog-banner__title {
+  font-family: var(--font-Inter);
+  font-size: var(--font-size-2xl);
+  font-weight: 300;
+  color: var(--color-white);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.blog-banner__title .highlight {
+  color: var(--color-light-green);
+}
+
+.blog-banner__subtitle {
+  font-family: var(--font-Montserrat);
+  font-size: var(--font-size-5xl);
+  letter-spacing: 0.3px;
+  color: var(--color-white);
+  margin-top: var(--spacing-md);
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.blog-banner__cta {
+  display: inline-flex;
+  flex-direction: column;
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.blog-banner__cta-text {
+  display: inline-block;
+  font-family: var(--font-Montserrat);
+  font-size: var(--font-size-4xl);
+  color: var(--color-primary);
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.5);
+}
+
+.blog-banner__cta-text.bold {
+  font-weight: 800;
+  color: var(--color-white);
+  letter-spacing: 2.5px;
+  margin-bottom: -10px;
+  font-size: calc(var(--font-size-3-5xl) * 1.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-banner {
+    height: 350px;
+  }
+
+  .blog-banner__title {
+    font-size: var(--font-size-4xl);
+  }
+
+  .blog-banner__subtitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .blog-banner__cta-text {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-banner {
+    height: 280px;
+  }
+
+  .blog-banner__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .blog-banner__subtitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .blog-banner__cta-text {
+    font-size: var(--font-size-base);
+  }
+}

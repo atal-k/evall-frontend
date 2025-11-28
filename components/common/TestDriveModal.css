@@ -1,0 +1,244 @@
+/* ============================================================================
+   FILE: src/components/common/TestDriveModal.css
+   ============================================================================ */
+
+/* Modal Overlay */
+.test-drive-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Backdrop */
+.test-drive-modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+/* Modal Container */
+.test-drive-modal__container {
+  position: relative;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 750px;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.test-drive-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-xs);
+  border-bottom: 1px solid var(--color-gray-200);
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.test-drive-modal__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.test-drive-modal__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  line-height: 1.5;
+}
+
+.test-drive-modal__close {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-gray-100);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: var(--font-size-xl);
+  color: var(--color-gray-700);
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.test-drive-modal__close:hover {
+  background: var(--color-gray-200);
+  color: var(--color-dark);
+}
+
+/* Scrollable Body */
+.test-drive-modal__body {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Scrollbar */
+.test-drive-modal__body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.test-drive-modal__body::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+  border-radius: var(--radius-xl);
+}
+
+.test-drive-modal__body::-webkit-scrollbar-thumb {
+  background: var(--color-gray-400);
+  border-radius: var(--radius-full);
+}
+
+.test-drive-modal__body::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
+}
+
+/* ============================================================================
+   FORM STYLING INSIDE MODAL
+   ============================================================================ */
+
+/* Form Container in Modal */
+.test-drive-booking-form--modal {
+  padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+/* Section Titles */
+.test-drive-booking-form__section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--spacing-xxs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.test-drive-booking-form__section-title:not(:first-child) {
+  margin-top: var(--spacing-lg);
+}
+
+/* Form Row (2 columns) */
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm);
+}
+
+/* Submit Button */
+.test-drive-booking-form__submit {
+  width: 100%;
+  padding: 0.75rem var(--spacing-lg);
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-white);
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.test-drive-booking-form__submit:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.test-drive-booking-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Adjust field spacing in modal */
+.test-drive-booking-form--modal .form-field {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Adjust declaration section */
+.test-drive-booking-form--modal .form-field--consent {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .test-drive-modal {
+    padding: var(--spacing-sm);
+  }
+
+  .test-drive-modal__container {
+    max-width: 100%;
+    max-height: 90vh;
+  }
+
+  .test-drive-modal__header {
+    padding: var(--spacing-md);
+  }
+
+  .test-drive-booking-form--modal {
+    padding: var(--spacing-md);
+  }
+
+  .test-drive-booking-form__row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .test-drive-booking-form__section-title {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .test-drive-modal__title {
+    font-size: var(--font-size-lg);
+  }
+
+  .test-drive-modal__subtitle {
+    font-size: var(--font-size-xs);
+  }
+
+  .test-drive-modal__close {
+    width: 32px;
+    height: 32px;
+  }
+}

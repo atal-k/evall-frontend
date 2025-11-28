@@ -1,0 +1,71 @@
+// Hero Component
+import { useState } from 'react';
+import Button from "../common/Button";
+import './Hero.css'
+import TestDriveModal from '../common/TestDriveModal';
+const Hero = () => {
+  const [showTestDrive, setShowTestDrive] = useState(false);
+    return (
+      <section className="hero">
+        <video 
+          className="hero__video" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          poster=""
+        >
+          <source src="/video/promo.mp4" type="video/mp4" />
+        </video>
+        <div className="hero__overlay"></div>
+        
+        <div className="hero__content">
+          <h1 className="hero__title">
+            Presenting <span className="hero__title-highlight">EV Uday</span>
+            <p className="hero__title-slogan">Har Load Ka Saathi,</p>
+            <p className="hero__title-slogan">Har Mile Ka Vaada</p>
+          </h1>
+          <p className="hero__subtitle">
+            India's Most Trusted Electric Commercial Vehicle
+          </p>
+          
+          <div className="hero__cta">
+            <Button variant="primary" className="cta" onClick={() => setShowTestDrive(true)}>
+              <span className="cta_icon" aria-hidden="true"><img src="./icons/handle.svg" alt="handle icon" /></span>
+              <span className="cta__label">Drive EV Uday Now</span>
+            </Button>
+          </div>
+          <TestDriveModal 
+        isOpen={showTestDrive} 
+        onClose={() => setShowTestDrive(false)} 
+      />
+          <div className="hero__specs">
+            <div className="hero__spec">
+              <div className="hero__spec-value">
+                230<span style={{ fontSize: 'var(--font-size-xl)' }}>km</span>
+              </div>
+              <div className="hero__spec-label">Range</div>
+            </div>
+            <div className="hero__spec">
+              <div className="hero__spec-value">
+                60<span style={{ fontSize: 'var(--font-size-xl)' }}>min</span>
+              </div>
+              <div className="hero__spec-label">Fast Charging</div>
+            </div>
+            <div className="hero__spec">
+              <div className="hero__spec-value">
+                42<span style={{ fontSize: 'var(--font-size-xl)' }}>kw</span>
+              </div>
+              <div className="hero__spec-label">Battery</div>
+            </div>
+          </div>
+        </div>
+        {/* ADD THIS NEW PRICE TAG SECTION */}
+        <div className="hero__price-tag">
+            <div className="hero__price-label">Starting From</div>
+            <div className="hero__price-value"><span className="currency-sign">₹</span>15.5<span className="hero__price-asterisk">*</span> <span className="hero__price-unit">lacs</span></div>
+          </div>
+      </section>
+    );
+  };
+  export default Hero;
