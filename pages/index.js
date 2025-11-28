@@ -1,42 +1,36 @@
+// ============================================
 // pages/index.js
-import Head from 'next/head'; // ✅ NEW: Next.js Head component
+// ============================================
 
-// ✅ KEEP AS-IS: All component imports (update paths with @)
-import Hero from '@/components/sections/Hero';
-import Testimonials from '@/components/sections/Testimonials';
-import Comparison from '@/components/sections/Comparison';
-import Intelligence from '@/components/sections/Intelligence';
-import Features from '@/components/sections/Features';
-import About from '@/components/sections/About';
-import Callout from '@/components/sections/Callout';
-import CoreValues from '@/components/sections/CoreValues';
-import TCOCalculator from '@/components/pages/TCOCalculator';
+import Head from 'next/head';
+import HomePageComponent from '@/components/pages/Home';
 
-// ✅ NEW: Next.js page export with SEO
 export default function HomePage() {
   return (
     <>
       <Head>
-        <title>EVALL - Electric Vehicles for Last Mile Delivery</title>
-        <meta name="description" content="India's leading electric SCV manufacturer" />
-        <meta property="og:title" content="EVALL - Electric Vehicles" />
-        <meta property="og:image" content="/images/og-home.jpg" />
+        <title>EVALL - Smart Electric Commercial Vehicles for India</title>
+        <meta
+          name="description"
+          content="India's leading electric commercial vehicle manufacturer. Discover EVALL's smart SCVs for last-mile delivery with advanced vehicle intelligence, sustainable mobility solutions, and comprehensive after-sales support."
+        />
+        <meta property="og:title" content="EVALL - Electric Commercial Vehicles" />
+        <meta
+          property="og:description"
+          content="Revolutionizing last-mile delivery with smart electric commercial vehicles. Experience sustainable, efficient, and intelligent mobility solutions."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in" />
+        <meta property="og:image" content="https://www.evall.in/images/og-home.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="EVALL - Electric Commercial Vehicles" />
+        <meta
+          name="twitter:description"
+          content="India's leading electric SCV manufacturer for sustainable last-mile delivery."
+        />
+        <meta name="twitter:image" content="https://www.evall.in/images/og-home.jpg" />
       </Head>
-      
-      {/* ✅ KEEP AS-IS: All JSX structure */}
-      <div className="app">
-        <main>
-          <Hero />
-          <About />
-          <Intelligence />
-          <CoreValues />
-          <Features />
-          <TCOCalculator />
-          <Comparison />
-          <Testimonials />
-          <Callout />
-        </main>
-      </div>
+      <HomePageComponent />
     </>
   );
 }
