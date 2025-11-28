@@ -1,70 +1,28 @@
-  // ============================================================================
-  // FILE: src/pages/TCOCalculator.js
-  // ============================================================================
-  
-  import React, { useState, useEffect } from 'react';
-  import TCOForm from '../components/sections/tco-calculator/TCOForm';
-  import TCOResultPanel from '../components/sections/tco-calculator/TCOResultPanel';
-  import TCOCostTable from '../components/sections/tco-calculator/TCOCostTable';
-  import { DEFAULT_VALUES, getResultData } from '../utils/tcoCalculator';
-  import './TCOCalculator.css';
-  
-  const TCOCalculator = () => {
-    const [formData, setFormData] = useState(DEFAULT_VALUES);
-    const [tcoResults, setTcoResults] = useState(null);
-  
-    // Calculate results whenever form data changes
-    useEffect(() => {
-      const results = getResultData(formData);
-      setTcoResults(results);
-    }, [formData]);
-  
-    const handleInputChange = (field, value) => {
-      setFormData((prev) => ({
-        ...prev,
-        [field]: parseFloat(value) || 0,
-      }));
-    };
-  
-    const handleCalculate = () => {
-      const results = getResultData(formData);
-      setTcoResults(results);
-    };
-  
-    return (
-      <div className="tco-calculator-page">
-        <section className="tco-calculator">
-            <h1 className="tco-calculator__title">
-              TCO <span className="highlight">Calculator</span>
-            </h1>
-            <p className="tco-calculator__subtitle">
-              Understand why EV is more efficient compared to ICE vehicles
-            </p>
-  
-            <div className="tco-calculator__layout">
-              <TCOForm
-                formData={formData}
-                onInputChange={handleInputChange}
-                onCalculate={handleCalculate}
-              />
-              <div className="tco-calculator__results">
-                {tcoResults && (
-                  <>
-                    <TCOResultPanel tcoResults={tcoResults} />
-                    <div className="results-table-section">
-                      <h3 className="results-table-title">Yearly Cost Breakdown</h3>
-                      <TCOCostTable
-                        evData={tcoResults.yearlyBreakdown.evData}
-                        iceData={tcoResults.yearlyBreakdown.iceData}
-                      />
-                    </div>
-                  </>
-                )}
-              </div>
-          </div>
-        </section>
-      </div>
-    );
-  };
-  
-  export default TCOCalculator;
+// ============================================
+// pages/resources/tco-calculator.js
+// ============================================
+
+import Head from 'next/head';
+import TCOCalculatorPageComponent from '@/components/pages/tools/TCOCalculator';
+
+export default function TCOCalculatorPage() {
+  return (
+    <>
+      <Head>
+        <title>TCO Calculator | EVALL</title>
+        <meta
+          name="description"
+          content="Calculate Total Cost of Ownership and understand why electric vehicles are more efficient compared to ICE vehicles. Compare yearly cost breakdown between EV and traditional vehicles."
+        />
+        <meta property="og:title" content="TCO Calculator | EVALL" />
+        <meta
+          property="og:description"
+          content="Use EVALL's TCO Calculator to compare electric vehicle costs against traditional ICE vehicles and make informed business decisions."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in/tools/tco-calculator" />
+      </Head>
+      <TCOCalculatorPageComponent />
+    </>
+  );
+}

@@ -1,35 +1,28 @@
-// ============================================================================
-// FILE: src/pages/ChargingInfrastructure.js
-// ============================================================================
-import React from 'react';
-import HeaderBanner from '../components/layout/HeaderBanner';
+// ============================================
+// pages/services/charging-infrastructure.js
+// ============================================
 
-import Callout from '../components/sections/Callout';
+import Head from 'next/head';
+import ChargingInfrastructurePageComponent from '@/components/pages/services/ChargingInfrastructure';
 
-const ChargingInfrastructure = () => {
+export default function ChargingInfrastructurePage() {
   return (
-    <div className="charging-infra-page">
-      <HeaderBanner
-        variant="intelligence-banner"
-        title="Charging Infrastructure"
-        heading="Accessible and Reliable Charging for Every Journey "
-        backgroundImage="/images/charging-infra-banner1.webp"
-      />
-
-
-      {/* other sections here */}
-
-        <HeaderBanner
-            variant='intelligence-banner adv-intelligence-banner'
-            heading="Charging Infrastructure and Partnerships"
-            subtitle="Our strong charging infrastructure at EVall Mobility guarantees that your electric car is always prepared for use. Our quickly growing network meets your mobility needs, whether you're making deliveries in cities or traveling long distances."
-        backgroundImage="/images/charging-infra-banner2.webp"
-
-          />
-
-      <Callout />
-    </div>
+    <>
+      <Head>
+        <title>Charging Infrastructure | EVALL</title>
+        <meta
+          name="description"
+          content="Accessible and reliable charging infrastructure for every journey. EVALL's growing network of charging stations ensures your electric vehicle is always ready for urban deliveries and long-distance travel."
+        />
+        <meta property="og:title" content="Charging Infrastructure | EVALL" />
+        <meta
+          property="og:description"
+          content="Explore EVALL's comprehensive charging infrastructure and partnerships for seamless electric vehicle operations."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in/services/charging-infrastructure" />
+      </Head>
+      <ChargingInfrastructurePageComponent />
+    </>
   );
-};
-
-export default ChargingInfrastructure;
+}

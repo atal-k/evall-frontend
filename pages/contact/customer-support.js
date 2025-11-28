@@ -1,24 +1,28 @@
 // ============================================
-// src/pages/CustomerSupport.js
+// pages/contact/customer-support.js
 // ============================================
 
-import React from 'react';
-import HeaderBanner from '../components/layout/HeaderBanner';
-import ContactSection from '../components/sections/ContactSection';
-import Callout from '../components/sections/Callout';
+import Head from 'next/head';
+import CustomerSupportPageComponent from '@/components/pages/contact/CustomerSupport';
 
-const CustomerSupport = () => {
-
-    return (
-        <div className="customer-support-page">
-          <HeaderBanner 
-            heading="Customer Support"
-            subtitle="The shift to electric mobility is inevitable, and essential."
-            backgroundImage = '../images/header-banner-van.webp'
-          />
-          <ContactSection/>
-          <Callout/>
-        </div>
-      );
-    };
-  export default CustomerSupport;
+export default function CustomerSupportPage() {
+  return (
+    <>
+      <Head>
+        <title>Customer Support | EVALL</title>
+        <meta
+          name="description"
+          content="Need assistance with EVALL commercial EVs? Connect with our customer support team for service help, product details, and ownership guidance."
+        />
+        <meta property="og:title" content="EVALL Customer Support" />
+        <meta
+          property="og:description"
+          content="Get personalized assistance from EVALL specialists for products, services, and electric fleet transition."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in/contact/customer-support" />
+      </Head>
+      <CustomerSupportPageComponent />
+    </>
+  );
+}

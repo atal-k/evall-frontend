@@ -1,28 +1,28 @@
 // ============================================
-// src/pages/ApplyDealership.js
+// pages/contact/apply-dealership.js
 // ============================================
 
-import React from 'react';
-import HeaderBanner from '../components/layout/HeaderBanner';
-import Callout from '../components/sections/Callout';
-import DealershipForm from '../components/sections/forms/DealershipForm';
+import Head from 'next/head';
+import ApplyDealershipPageComponent from '@/components/pages/contact/ApplyDealership';
 
-const ApplyDealership = () => {
-
-    return (
-        <div className="apply-dealership-page">
-          <HeaderBanner 
-            heading="Apply for Dealership"
-            subtitle="Experience the future of electric mobility with a test drive."
-            backgroundImage = '../images/header-banner-van.webp'
-          />
-          <section className="apply-dealership-section" aria-labelledby="apply-dealership-heading">
-            <main className="apply-dealership-section__form-wrapper">
-              <DealershipForm/>
-            </main>
-          </section>
-          <Callout/>
-        </div>
-      );
-    };
-  export default ApplyDealership;
+export default function ApplyDealershipPage() {
+  return (
+    <>
+      <Head>
+        <title>Apply for Dealership | EVALL</title>
+        <meta
+          name="description"
+          content="Partner with EVALL to bring smart electric commercial vehicles to your market. Submit your dealership application and join our growing network."
+        />
+        <meta property="og:title" content="Apply for EVALL Dealership" />
+        <meta
+          property="og:description"
+          content="Become an EVALL dealership partner and deliver sustainable mobility solutions to businesses nationwide."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in/contact/apply-dealership" />
+      </Head>
+      <ApplyDealershipPageComponent />
+    </>
+  );
+}

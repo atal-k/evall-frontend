@@ -1,0 +1,639 @@
+/* // ============================================================================ */
+/* // CSS STYLES - Place this in DealerLocator.css */
+/* // ============================================================================ */
+/* Dealer Locator Page Styles */
+.dealer-locator-page {
+  min-height: 100vh;
+  background: var(--color-gray-150);
+}
+
+/* Hero Section */
+.dealer-hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark-green4) 100%);
+  color: var(--color-white);
+  padding: var(--spacing-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.dealer-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.dealer-hero-content {
+  max-width: var(--container-max-width);
+  padding-left: var(--spacing-lg);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.dealer-hero-title {
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+  font-weight: 700;
+  margin: 0 0 var(--spacing-sm);
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.dealer-hero-subtitle {
+  font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-2xl));
+  font-weight: 600;
+  margin: 0 0 var(--spacing-md);
+  opacity: 0.95;
+}
+
+.dealer-hero-description {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 0 var(--spacing-xl);
+  opacity: 0.95;
+}
+
+/* Search Bar */
+.dealer-search-bar {
+  max-width: 600px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--color-white);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: box-shadow var(--transition-base);
+}
+
+.dealer-search-bar:focus-within {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.dealer-search-bar svg:first-child {
+  color: var(--color-primary);
+  margin-right: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.dealer-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: var(--font-size-base);
+  color: var(--color-gray-800);
+  background: transparent;
+}
+
+.dealer-search-input::placeholder {
+  color: var(--color-gray-600);
+}
+
+.dealer-search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xxs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background var(--transition-fast);
+  color: var(--color-gray-600);
+}
+
+.dealer-search-clear:hover {
+  background: var(--color-gray-200);
+  color: var(--color-gray-800);
+}
+
+/* Main Container */
+.dealer-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+/* Section Header */
+.dealer-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.dealer-section-title {
+  font-size: var(--font-size-3xl);
+  color: var(--color-dark-green3);
+  font-weight: 700;
+  margin: 0;
+}
+
+.dealer-count {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-600);
+  font-weight: 500;
+  background: var(--color-white);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Dealer Grid */
+.dealer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+/* Dealer Card */
+.dealer-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  border: 2px solid transparent;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.dealer-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dealer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
+}
+
+/* Dealer Card Header */
+.dealer-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--color-gray-150);
+}
+
+.dealer-name {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-dark-green3);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Dealer Info */
+.dealer-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.dealer-info-item {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+}
+
+.dealer-info-item svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dealer-info-item div {
+  flex: 1;
+}
+
+.dealer-address {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-700);
+  font-weight: 500;
+  margin: 0 0 var(--spacing-xxs);
+  line-height: 1.5;
+}
+
+.dealer-city {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+.dealer-phone {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-700);
+  font-weight: 500;
+  margin: 0;
+}
+
+.dealer-website {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Dealer Actions */
+.dealer-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.dealer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+}
+
+.dealer-btn svg {
+  flex-shrink: 0;
+}
+
+.dealer-btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  grid-column: 1 / -1;
+}
+
+.dealer-btn-primary:hover {
+  background: var(--color-primary-dark);
+  box-shadow: 0 4px 12px rgba(0, 179, 0, 0.3);
+}
+
+.dealer-btn-secondary {
+  background: var(--color-dark-green4);
+  color: var(--color-white);
+}
+
+.dealer-btn-secondary:hover {
+  background: var(--color-dark-green3);
+  box-shadow: 0 2px 8px rgba(17, 53, 16, 0.3);
+}
+
+.dealer-btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.dealer-btn-outline:hover {
+  background: var(--color-light-green-fill);
+  border-color: var(--color-primary-dark);
+  color: var(--color-primary-dark);
+}
+
+/* No Results */
+.dealer-no-results {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.dealer-no-results svg {
+  color: var(--color-gray-300);
+  margin-bottom: var(--spacing-lg);
+}
+
+.dealer-no-results h3 {
+  font-size: var(--font-size-2xl);
+  color: var(--color-gray-700);
+  margin: 0 0 var(--spacing-sm);
+}
+
+.dealer-no-results p {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+/* Benefits Section */
+.benefits-section {
+  background: var(--color-white);
+  padding: var(--spacing-2xl);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  
+}
+
+.benefits-header {
+  max-width: var(--container-max-width);
+  margin: 0 auto var(--spacing-2xl);
+  text-align: center;
+}
+
+.benefits-title {
+  font-size: var(--font-size-3xl);
+  color: var(--color-dark-green3);
+  font-weight: 700;
+  margin: 0 0 var(--spacing-md);
+}
+
+.benefits-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-700);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.benefits-grid {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+}
+
+/* Benefit Card */
+.benefit-card {
+  background: linear-gradient(135deg, var(--color-light-green-fill) 0%, var(--color-white) 100%);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  transition: all var(--transition-base);
+  border: 2px solid var(--color-gray-150);
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.benefit-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-primary);
+  transition: all var(--transition-base);
+}
+
+.benefit-card:hover .benefit-icon {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.benefit-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-dark-green3);
+  margin: 0 0 var(--spacing-sm);
+}
+
+.benefit-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-700);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Support Section */
+.dealer-support-section {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  margin-top: var(--spacing-xl);
+  padding: 0 var(--spacing-lg) var(--spacing-2xl);
+}
+
+.dealer-support-card {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark-green4) 100%);
+  color: var(--color-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.dealer-support-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.dealer-support-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
+.dealer-support-icon svg {
+  color: var(--color-white);
+}
+
+.dealer-support-title {
+  font-size: var(--font-size-2-5xl);
+  font-weight: 700;
+  margin: 0 0 var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+.dealer-support-description {
+  font-size: var(--font-size-lg);
+  margin: 0 auto var(--spacing-xl);
+  max-width: 600px;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+.dealer-support-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.dealer-support-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-xl);
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  transition: all var(--transition-base);
+  backdrop-filter: blur(10px);
+}
+
+.dealer-support-link:hover {
+  background: var(--color-white);
+  color: var(--color-primary);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dealer-support-link svg {
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .dealer-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .dealer-hero {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .dealer-container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .dealer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .dealer-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .benefits-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .dealer-support-card {
+    padding: var(--spacing-lg);
+  }
+
+  .dealer-support-contacts {
+    flex-direction: column;
+  }
+
+  .dealer-support-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dealer-hero {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+
+  .dealer-container {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .dealer-card {
+    padding: var(--spacing-lg);
+  }
+
+  .dealer-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .dealer-btn-primary {
+    grid-column: 1;
+  }
+
+  .benefits-section {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+
+  .dealer-support-card {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .dealer-support-title {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .dealer-locator-page {
+    background: white;
+  }
+
+  .dealer-hero {
+    background: white;
+    color: black;
+    border-bottom: 2px solid #000;
+  }
+
+  .dealer-search-bar,
+  .dealer-actions,
+  .dealer-support-section {
+    display: none;
+  }
+
+  .dealer-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+
+  .dealer-card:hover {
+    transform: none;
+  }
+}

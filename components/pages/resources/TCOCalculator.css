@@ -1,0 +1,69 @@
+/* // ============================================================================
+// FILE: src/pages/TCOCalculator.css
+// ============================================================================ */
+
+.tco-calculator-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--color-off-white) 0%, #f0fdf0 100%);
+}
+
+.tco-calculator {
+  margin: 0 auto;
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-xl);
+}
+
+.tco-calculator__title {
+  font-size: var(--font-size-5xl);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+  text-align: center;
+}
+
+.tco-calculator__title .highlight {
+  color: var(--color-primary);
+  position: relative;
+}
+
+.tco-calculator__subtitle {
+  font-family: var(--font-Inter);
+  font-size: var(--font-size-base);
+  color: var(--color-gray-650);
+  text-align: center;
+}
+
+.tco-calculator__layout {
+  margin-top: var(--spacing-md);
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: var(--spacing-sm);
+  align-items: start;
+}
+
+.tco-calculator__results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+@media (max-width: 1200px) {
+  .tco-calculator__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-form {
+    max-width: 100%;
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .tco-calculator__title {
+    font-size: var(--font-size-4xl);
+  }
+
+  .tco-calculator {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}

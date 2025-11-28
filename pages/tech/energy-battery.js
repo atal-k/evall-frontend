@@ -1,21 +1,28 @@
-// ============================================================================
-// FILE: src/pages/EnergyBatteryPage.js
-// ============================================================================
+// ============================================
+// pages/technology/energy-battery.js
+// ============================================
 
-import EnergyHero from "../components/sections/energy/EnergyHero";
-import FutureClosingSection from "../components/sections/energy/FutureClosingSection";
-import StandoutBenefitsSection from "../components/sections/energy/StandoutBenefitSection";
-import TechnologyFeaturesSection from "../components/sections/energy/TechnologyFeaturesSection";
+import Head from 'next/head';
+import EnergyBatteryPageComponent from '@/components/pages/technology/EnergyBattery';
 
-const EnergyBatteryPage = () => {
-    return (
-      <div className="energy-battery-page">
-        <EnergyHero />
-        <TechnologyFeaturesSection />
-        <StandoutBenefitsSection />
-        <FutureClosingSection />
-      </div>
-    );
-  };
-
-export default EnergyBatteryPage;
+export default function EnergyBatteryPage() {
+  return (
+    <>
+      <Head>
+        <title>Energy & Battery Technology | EVALL</title>
+        <meta
+          name="description"
+          content="Discover EVALL's advanced energy and battery technology powering the future of electric mobility. Innovative solutions for efficient, sustainable commercial vehicles."
+        />
+        <meta property="og:title" content="Energy & Battery Technology | EVALL" />
+        <meta
+          property="og:description"
+          content="Explore cutting-edge battery technology and energy solutions that power EVALL's electric commercial vehicles."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in/technology/energy-battery" />
+      </Head>
+      <EnergyBatteryPageComponent />
+    </>
+  );
+}

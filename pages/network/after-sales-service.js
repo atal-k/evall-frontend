@@ -1,30 +1,28 @@
-// ============================================================================
-// FILE: src/pages/AfterSalesService.js
-// ============================================================================
-import React from 'react';
-import HeaderBanner from '../components/layout/HeaderBanner';
-import ServiceOverview from '../components/sections/after-sales/ServiceOverview';
-import ServicePrograms from '../components/sections/after-sales/ServicePrograms';
-import SupportContact from '../components/sections/after-sales/SupportContact';
-import Callout from '../components/sections/Callout';
+// ============================================
+// pages/services/after-sales.js
+// ============================================
 
-const AfterSalesService = () => {
+import Head from 'next/head';
+import AfterSalesServicePageComponent from '@/components/pages/services/AfterSalesService';
+
+export default function AfterSalesServicePage() {
   return (
-    <div className="after-sales-page">
-      <HeaderBanner
-        variant="intelligence-banner"
-        title="After Sales Services"
-        heading="Empowering Our Vehicles with 24/7 Customer Support and Reliable After-Sales Service"
-        subtitle="For a seamless ownership experience."
-        button="Explore Now"
-        backgroundImage="/images/after-sales-person.webp"
-      />
-      <ServiceOverview />
-      <ServicePrograms />
-      <SupportContact />
-      <Callout />
-    </div>
+    <>
+      <Head>
+        <title>After Sales Service | EVALL</title>
+        <meta
+          name="description"
+          content="Experience 24/7 customer support and reliable after-sales service for EVALL electric vehicles. Ensuring a seamless ownership experience with comprehensive maintenance and support programs."
+        />
+        <meta property="og:title" content="After Sales Service | EVALL" />
+        <meta
+          property="og:description"
+          content="24/7 customer support and comprehensive after-sales service for EVALL electric commercial vehicles."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in/services/after-sales" />
+      </Head>
+      <AfterSalesServicePageComponent />
+    </>
   );
-};
-
-export default AfterSalesService;
+}

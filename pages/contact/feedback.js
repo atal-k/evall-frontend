@@ -1,28 +1,28 @@
 // ============================================
-// src/pages/FeedbackFormPage.js
+// pages/contact/feedback.js
 // ============================================
 
-import React from 'react';
-import HeaderBanner from '../components/layout/HeaderBanner';
-import Callout from '../components/sections/Callout';
-import FeedbackForm from '../components/sections/forms/FeedbackForm';
+import Head from 'next/head';
+import FeedbackFormPageComponent from '@/components/pages/contact/FeedbackForm';
 
-const FeedbackFormPage = () => {
-
-    return (
-        <div className="Feedback-form-page">
-          <HeaderBanner 
-            heading="Customer Feedback Form"
-            subtitle="Experience the future of electric mobility with a test drive."
-            backgroundImage = '../images/header-banner-van.webp'
-          />
-          <section className="feedback-form-section" aria-labelledby="feedback-form-heading">
-            <main className="feedback-form-section__form-wrapper">
-              <FeedbackForm />
-            </main>
-          </section>
-          <Callout/>
-        </div>
-      );
-    };
-  export default FeedbackFormPage;
+export default function FeedbackFormPage() {
+  return (
+    <>
+      <Head>
+        <title>Customer Feedback | EVALL</title>
+        <meta
+          name="description"
+          content="Share your experience with EVALL. We value your feedback to improve our electric commercial vehicle solutions and services."
+        />
+        <meta property="og:title" content="Customer Feedback | EVALL" />
+        <meta
+          property="og:description"
+          content="Help us serve you better. Submit your feedback about EVALL's electric vehicles and services."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in/contact/feedback" />
+      </Head>
+      <FeedbackFormPageComponent />
+    </>
+  );
+}

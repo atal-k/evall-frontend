@@ -1,41 +1,28 @@
 // ============================================
-// src/pages/VehicleIntelligence.js
+// pages/technology/vehicle-intelligence.js
 // ============================================
 
-import React from 'react';
-import HeaderBanner from '../../components/layout/HeaderBanner';
-import Callout from '../../components/sections/Callout';
-import { intelligentCapabilitiesData,benefitsData } from '../../data/vehicleIntelligenceData';
-import BenefitSection from '../../components/sections/BenefitSection';
-import IntelligentCapabilities from '../../components/sections/IntelligentCapabilities';
+import Head from 'next/head';
+import VehicleIntelligencePageComponent from '@/components/pages/technology/VehicleIntelligence';
 
-
-const VehicleIntelligence = () => {
-
-    return (
-        <div className="vehicle-intelligence-page">
-          <HeaderBanner
-            variant='intelligence-banner'
-            title="Advanced Vehicle Intelligence for Automotive Industry"
-            heading="Building the Advanced New Age Vehicles for the future"
-            subtitle="Enabling seamless and secure EV connectivity with an intelligent cloud-powered platform that keeps every EVall giant on the move smarter, safer, and stronger."
-            button="Explore Now"
-            backgroundImage = '../images/header-banner-van.webp' 
-          />
-
-          {/* Intelligent Capablitlies section */}
-          <IntelligentCapabilities data={intelligentCapabilitiesData} />
-          {/* Advance Intelligence banner */}
-          <HeaderBanner
-            variant='intelligence-banner adv-intelligence-banner'
-            heading="Advanced Vehicle Intelligence"
-            subtitle="At EVall Mobility, our electric commercial vehicles not only operate on clean energy but are also equipped with advanced and well curated vehicle intelligence systems designed to take efficiency, safety, and fleet productivity to the next level. Understanding India's unique challenges in logistics, we leverage advanced telematics and AI-based technologies to empower businesses with real-time operational oversight and actionable intelligence."
-            backgroundImage='../images/header-banner-van.webp'
-          />
-          {/* Benefits section */}
-          <BenefitSection data={benefitsData} />
-          <Callout/>
-        </div>
-      );
-    };
-  export default VehicleIntelligence;
+export default function VehicleIntelligencePage() {
+  return (
+    <>
+      <Head>
+        <title>Vehicle Intelligence | EVALL</title>
+        <meta
+          name="description"
+          content="Building advanced new age vehicles for the future. EVALL's intelligent cloud-powered platform keeps every vehicle smarter, safer, and stronger with AI-based telematics."
+        />
+        <meta property="og:title" content="Advanced Vehicle Intelligence | EVALL" />
+        <meta
+          property="og:description"
+          content="Explore EVALL's advanced vehicle intelligence systems with real-time telematics, AI technology, and fleet management solutions."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in/technology/vehicle-intelligence" />
+      </Head>
+      <VehicleIntelligencePageComponent />
+    </>
+  );
+}

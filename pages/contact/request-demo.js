@@ -1,28 +1,28 @@
 // ============================================
-// src/pages/RequestDemo.js
+// pages/contact/request-demo.js
 // ============================================
 
-import React from 'react';
-import HeaderBanner from '../components/layout/HeaderBanner';
-import Callout from '../components/sections/Callout';
-import RequestDemoForm from '../components/sections/forms/RequestDemoForm';
+import Head from 'next/head';
+import RequestDemoPageComponent from '@/components/pages/contact/RequestDemo';
 
-const RequestDemo = () => {
-
-    return (
-        <div className="request-demo-page">
-          <HeaderBanner 
-            heading="Request a Demo"
-            subtitle="Experience the future of electric mobility with a test drive."
-            backgroundImage = '../images/header-banner-van.webp'
-          />
-          <section className="product-enquiry-section" aria-labelledby="product-enquiry-heading">
-            <main className="product-enquiry-section__form-wrapper">
-              <RequestDemoForm />
-            </main>
-          </section>
-          <Callout/>
-        </div>
-      );
-    };
-  export default RequestDemo;
+export default function RequestDemoPage() {
+  return (
+    <>
+      <Head>
+        <title>Request a Demo | EVALL</title>
+        <meta
+          name="description"
+          content="Experience the future of electric mobility with a test drive. Request a demo of EVALL's smart electric commercial vehicles today."
+        />
+        <meta property="og:title" content="Request a Demo | EVALL" />
+        <meta
+          property="og:description"
+          content="Test drive EVALL's electric commercial vehicles and discover sustainable mobility solutions for your business."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in/contact/request-demo" />
+      </Head>
+      <RequestDemoPageComponent />
+    </>
+  );
+}

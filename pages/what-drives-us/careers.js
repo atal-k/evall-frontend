@@ -1,25 +1,28 @@
 // ============================================
-// src/pages/Careers.js
+// pages/what-drives-us/careers.js
 // ============================================
 
-import React from 'react';
-import Callout from '../components/sections/Callout';
-import CareersHero from '../components/sections/careers/CareersHero';
-import JobOpeningSection from '../components/sections/careers/JobOpeningSection';
-import CoreValuesSection from '../components/sections/careers/CoreValuesSection';
+import Head from 'next/head';
+import CareersPageComponent from '@/components/pages/what-drives-us/Careers';
 
-const Careers = () => {
-
-  
-    return (
-        <div className="careers-culture-page">
-        <CareersHero />
-        <JobOpeningSection />
-        <CoreValuesSection />
-        <Callout />
-      </div>
-    );
-  };
-export default Careers;
-
-
+export default function CareersPage() {
+  return (
+    <>
+      <Head>
+        <title>Careers | EVALL</title>
+        <meta
+          name="description"
+          content="Join EVALL's team and be part of the electric mobility revolution. Explore career opportunities and help build the future of sustainable commercial transportation."
+        />
+        <meta property="og:title" content="Careers at EVALL" />
+        <meta
+          property="og:description"
+          content="Discover exciting career opportunities at EVALL. Join our mission to transform commercial transportation with electric vehicles."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.evall.in/what-drives-us/careers" />
+      </Head>
+      <CareersPageComponent />
+    </>
+  );
+}

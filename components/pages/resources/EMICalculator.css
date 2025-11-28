@@ -1,0 +1,187 @@
+/* // ============================================================================
+// FILE: src/pages/EMICalculator.css
+// ============================================================================ */
+
+.emi-calculator-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--color-off-white) 0%, #f0fdf0 100%);
+}
+
+.emi-calculator {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.emi-calculator__header {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.emi-calculator__title {
+  font-size: var(--font-size-5xl);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+}
+.emi-calculator__title .highlight {
+  color: var(--color-primary);
+  position: relative;
+}
+
+.emi-calculator__subtitle {
+  font-family: var(--font-Inter);
+  font-size: var(--font-size-base);
+  color: var(--color-gray-650);
+}
+
+.emi-calculator__container {
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  gap: var(--spacing-md);
+  align-items: start;
+}
+
+/* Input Section */
+.emi-calculator__inputs {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-gray-200);
+  padding: var(--spacing-md);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
+}
+
+.emi-calculator__section-title {
+    /* display: none; */
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-dark-green3);
+  line-height: 1.4;
+  margin-bottom: var(--spacing-lg);
+}
+
+.emi-calculator__input-group {
+  margin-bottom: var(--spacing-xl);
+}
+
+.emi-calculator__error {
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-md);
+  color: #991B1B;
+  font-family: var(--font-Inter);
+  font-size: var(--font-size-sm);
+}
+
+.emi-calculator__actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: calc(var(--spacing-md) + var(--spacing-xxs));
+}
+
+.emi-calculator__actions button {
+  flex: 1;
+}
+
+/* Results Section */
+.emi-calculator__results {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-gray-200);
+  padding: var(--spacing-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.emi-calculator__results--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.emi-calculator__metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.emi-calculator__metric-card {
+  background: var(--color-gray-100);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-outline);
+  padding: var(--spacing-xs) var(--spacing-md);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.emi-calculator__metric-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.emi-calculator__metric-card--highlight {
+  background: linear-gradient(135deg, #00b30015, #00b30020);
+  border: 1px solid var(--color-primary);
+}
+
+.emi-calculator__metric-value {
+  font-family: var(--font-Inter);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-dark-green3);
+}
+
+.emi-calculator__metric-label {
+  font-size: var(--font-size-sm2);
+  font-weight: 500;
+  color: var(--color-gray-700);
+}
+
+.emi-calculator__chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .emi-calculator__container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .emi-calculator__metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .emi-calculator-page {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .emi-calculator__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .emi-calculator__inputs,
+  .emi-calculator__results {
+    padding: var(--spacing-lg);
+  }
+
+  .emi-calculator__metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .emi-calculator__actions {
+    flex-direction: column;
+  }
+
+  .emi-calculator__metric-value {
+    font-size: var(--font-size-2xl);
+  }
+}
