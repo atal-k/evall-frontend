@@ -16,7 +16,7 @@ const BlogBanner = () => {
           </h1>
           <p className={styles['blog-banner__subtitle']}>EV UDAY</p>
           <div className={styles['blog-banner__cta']}>
-            <span className={styles['blog-banner__cta-text']} bold>DRIVE BOLD</span>
+            <span className={styles['blog-banner__cta-text']} bold={true.toString()}>DRIVE BOLD</span>
             <span className={styles['blog-banner__cta-text']}>DRIVE BEYOND</span>
           </div>
         </div>

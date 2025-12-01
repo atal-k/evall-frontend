@@ -4,7 +4,7 @@
   
   import React from 'react';
   import styles from './TCOForm.module.css';
-  import RangeSlider from '../../common/RangeSlider';
+  import RangeSlider from '@/components/common/RangeSlider';
   
   const TCOForm = ({ formData, onInputChange, onCalculate }) => {
     const {

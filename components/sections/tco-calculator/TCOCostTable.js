@@ -3,7 +3,7 @@
   // ============================================================================
   
   import React, { useRef, useState, useEffect } from 'react';
-  import { formatCurrency } from '../../../utils/formatter';
+  import { formatCurrency } from '@/utils/formatter';
   import styles from './TCOCostTable.module.css';
   
   const TCOCostTable = ({ evData, iceData }) => {

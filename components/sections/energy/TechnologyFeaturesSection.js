@@ -2,9 +2,9 @@
 // FILE: src/components/sections/TechnologyFeaturesSection.js
 // ============================================================================
 import React, { useState, useEffect, useRef } from 'react';
-import { energyBatteryData } from '../../../data/energyBatteryData';
+import { energyBatteryData } from '@/data/energyBatteryData';
 import styles from './TechnologyFeaturesSection.module.css';
-import { getIcon } from '../../../data/iconsData';
+import { getIcon } from '@/data/iconsData';
 
 const TechnologyFeaturesSection = () => {
     const [visibleCards, setVisibleCards] = useState([]);

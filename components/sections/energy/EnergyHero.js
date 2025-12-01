@@ -4,8 +4,8 @@
 // ============================================================================
 import React, { useState, useEffect } from 'react';
 import styles from './EnergyHero.module.css'
-import { energyBatteryData } from '../../../data/energyBatteryData';
-import { getIcon } from '../../../data/iconsData';
+import { energyBatteryData } from '@/data/energyBatteryData';
+import { getIcon } from '@/data/iconsData';
 
 const EnergyHero = () => {
     const [isVisible, setIsVisible] = useState(false);

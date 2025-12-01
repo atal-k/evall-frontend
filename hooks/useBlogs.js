@@ -5,8 +5,8 @@
 import { useState, useEffect } from 'react';
 import localBlogApi from '../services/localBlogApi';
 
-const API_BASE = process.env.REACT_APP_API_URL || 'http://127.0.0.1:8000/api';
-const USE_LOCAL_DATA = process.env.REACT_APP_USE_LOCAL_DATA === 'true';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
+const USE_LOCAL_DATA = process.env.NEXT_PUBLIC_USE_LOCAL_DATA === 'true';
 
 // Generic fetch hook with local data support
 const useFetch = (url) => {

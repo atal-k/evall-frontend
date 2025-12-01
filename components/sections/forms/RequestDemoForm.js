@@ -11,11 +11,11 @@ import {
   ConsentCheckboxField,
   TextField,
   NumberField,
-} from '../../common/FormFields';
-import styles from '../../common/FormFields.module.css'
-import { validateField } from '../../../utils/validators';
-import { useRequestDemo } from '../../../hooks';
-import { useToast } from '../../common/Toast';
+} from '@/components/common/FormFields';
+import styles from '@/components/common/FormFields.module.css'
+import { validateField } from '@/utils/validators';
+import { useRequestDemo } from '@/hooks';
+import { useToast } from '@/components/common/Toast';
 
 const RequestDemoForm = () => {
   // Form state

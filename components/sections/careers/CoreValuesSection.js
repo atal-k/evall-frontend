@@ -3,9 +3,9 @@
 // ============================================================================
 
 import React, { useState, useEffect, useRef } from "react";
-import { careersData } from "../../../data/careersData";
+import { careersData } from "@/data/careersData";
 import styles from './CoreValuesSection.module.css'
-import Logo from "../../common/Logo";
+import Logo from "@/components/common/Logo";
 import Image from "next/image";
 
 const ValueBlock = ({ value, index, isVisible }) => {

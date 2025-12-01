@@ -12,7 +12,7 @@ import { useFormSubmit } from './useFormSubmit';
  * @returns {Object} - Submit function and state values
  */
 export const useCustomerFeedback = (options = {}) => {
-  const endpoint = options.endpoint || `${process.env.REACT_APP_API_URL}/feedback/`;
+  const endpoint = options.endpoint || `${process.env.NEXT_PUBLIC_API_URL}/feedback/`;
 
   const transformData = (formData) => {
     return {

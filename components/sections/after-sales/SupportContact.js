@@ -3,7 +3,7 @@
 // ============================================================================
 import React from 'react';
 import styles from './SupportContact.module.css';
-import { getIcon } from '../../../data/iconsData';
+import { getIcon } from '@/data/iconsData';
 
 const SupportContact = () => {
   return (

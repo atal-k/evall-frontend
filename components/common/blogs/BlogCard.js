@@ -48,7 +48,8 @@ const BlogCard = ({ blog }) => {
           alt={featured_image_alt || title}
           className={styles['blog-card__image']}
           loading="lazy"
-          fill
+          width={393}
+          height={240}
         />
         <div className={styles['blog-card__overlay']}></div>
       </div>

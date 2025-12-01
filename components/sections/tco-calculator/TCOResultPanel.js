@@ -3,9 +3,9 @@
   // ============================================================================
   
   import React from 'react';
-  import { formatCurrency } from '../../../utils/formatter';
+  import { formatCurrency } from '@/utils/formatter';
   import styles from './TCOResultPanel.module.css';
-import { getIcon } from '../../../data/iconsData';
+import { getIcon } from '@/data/iconsData';
   
   const TCOResultPanel = ({ tcoResults }) => {
     const { monthlyCosts, savings } = tcoResults;

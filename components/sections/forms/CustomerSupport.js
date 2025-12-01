@@ -6,12 +6,12 @@ import {
   ProductSelectField,
   MessageField,
   TextField
-} from '../../common/FormFields';
-import Checkbox from '../../common/Checkbox';
+} from '@/components/common/FormFields';
+import Checkbox from '@/components/common/Checkbox';
 import styles from './CustomerSupport.module.css';
-import {useCustomerSupport} from '../../../hooks'
-import { validateField } from '../../../utils/validators';
-import { useToast } from '../../common/Toast';
+import {useCustomerSupport} from '@/hooks'
+import { validateField } from '@/utils/validators';
+import { useToast } from '@/components/common/Toast';
 
 const CustomerSupport = () => {
   const [formData, setFormData] = useState({

@@ -2,7 +2,7 @@
 // FILE: src/components/sections/careers/JobOpeningSection.js (with JobCard)
 // ============================================================================
 import React, { useState, useEffect, useRef } from "react";
-import { careersData } from "../../../data/careersData";
+import { careersData } from "@/data/careersData";
 import styles from './JobOpeningSection.module.css'
 
 const JobCard = ({ job }) => {

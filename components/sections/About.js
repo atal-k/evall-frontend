@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './About.module.css';
-import VideoPlayer from '../common/VideoPlayer';
-import { getIcon } from '../../data/iconsData';
+import VideoPlayer from '@/components/common/VideoPlayer';
+import { getIcon } from '@/data/iconsData';
 
 const About = () => {
   const [showFeatures, setShowFeatures] = useState(false);

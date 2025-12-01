@@ -3,7 +3,7 @@
 // ============================================================================
 
 import React, { useState, useEffect, useRef } from "react";
-import {careersData} from '../../../data/careersData'
+import {careersData} from '@/data/careersData'
 import styles from './CareersHero.module.css'
 import Image from "next/image";
 

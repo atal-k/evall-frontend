@@ -12,7 +12,7 @@ import { useFormSubmit } from './useFormSubmit';
  * @returns {Object} - Submit function and state values
  */
 export const useTestDriveBooking = (options = {}) => {
-  const endpoint = options.endpoint || `${process.env.REACT_APP_API_URL}/testdrive-booking/`;
+  const endpoint = options.endpoint || `${process.env.NEXT_PUBLIC_API_URL}/testdrive-booking/`;
 
   const transformData = (formData) => {
     return {

@@ -12,11 +12,11 @@ import {
   BusinessSegmentField,
   ConsentCheckboxField,
   TextField
-} from '../../common/FormFields';
-import styles from '../../common/TestDriveModal.module.css';
-import { validateField } from '../../../utils/validators';
-import { useTestDriveBooking } from '../../../hooks';
-import { useToast } from '../../common/Toast';
+} from '@/components/common/FormFields';
+import styles from '@/components/common/TestDriveModal.module.css';
+import { validateField } from '@/utils/validators';
+import { useTestDriveBooking } from '@/hooks';
+import { useToast } from '@/components/common/Toast';
 
 const TestDriveBookingForm = (isModal) => {
   // Form state

@@ -5,8 +5,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import styles from './StandoutBenefitSection.module.css'
-import { energyBatteryData } from '../../../data/energyBatteryData';
-import { getIcon } from '../../../data/iconsData';
+import { energyBatteryData } from '@/data/energyBatteryData';
+import { getIcon } from '@/data/iconsData';
 // Top of file
 
 // After imports, before component

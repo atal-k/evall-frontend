@@ -11,11 +11,11 @@ import {
   NumberField,
   InfrastructureCheckboxField,
   MessageField,
-} from '../../common/FormFields';
-import styles from '../../common/FormFields.module.css';
-import { validateField } from '../../../utils/validators';
-import { useDealershipEnquiry } from '../../../hooks';
-import { useToast } from '../../common/Toast';
+} from '@/components/common/FormFields';
+import styles from '@/components/common/FormFields.module.css';
+import { validateField } from '@/utils/validators';
+import { useDealershipEnquiry } from '@/hooks';
+import { useToast } from '@/components/common/Toast';
 
 const DealershipForm = () => {
   // Form state

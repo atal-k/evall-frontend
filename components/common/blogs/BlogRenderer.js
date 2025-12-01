@@ -6,6 +6,7 @@ import React, { useMemo } from 'react';
 import DOMPurify from 'dompurify';
 import styles from './BlogRenderer.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 const BlogRenderer = ({ content }) => {
   const safeHTML = (html) => {
     return { __html: DOMPurify.sanitize(html) };
@@ -26,7 +27,7 @@ const BlogRenderer = ({ content }) => {
           return (
             <HeadingTag
               key={id || index}
-              className={`blog-content__heading blog-content__heading--${data.level}`}
+              className={`${styles['blog-content__heading']} ${styles[`blog-content__heading--${data.level}`]}`}
               dangerouslySetInnerHTML={safeHTML(data.text)}
             />
           );
@@ -35,7 +36,7 @@ const BlogRenderer = ({ content }) => {
           return (
             <p
               key={id || index}
-              className="blog-content__paragraph"
+              className={styles['blog-content__paragraph']}
               dangerouslySetInnerHTML={safeHTML(data.text)}
             />
           );
@@ -44,7 +45,7 @@ const BlogRenderer = ({ content }) => {
         case 'List':
           const ListTag = data.style === 'ordered' ? 'ol' : 'ul';
           return (
-            <ListTag key={id || index} className={`blog-content__list blog-content__list--${data.style}`}>
+            <ListTag key={id || index} className={`${styles['blog-content__list']} ${styles[`blog-content__list--${data.style}`]}`}>
               {data.items.map((item, i) => (
                 <li key={i} dangerouslySetInnerHTML={safeHTML(item)} />
               ))}
@@ -53,11 +54,11 @@ const BlogRenderer = ({ content }) => {
 
         case 'image':
           return (
-            <figure key={id || index} className="blog-content__image-wrapper">
+            <figure key={id || index} className={styles['blog-content__image-wrapper']}>
               <Image
                 src={data.file?.url || data.url}
                 alt={data.caption || 'Blog image'}
-                className="blog-content__image"
+                className={styles['blog-content__image']}
                 loading="lazy"
                 fill
               />
@@ -137,14 +138,14 @@ const BlogRenderer = ({ content }) => {
         case 'link':
           return (
             <div key={id || index} className={styles['blog-content__link-preview']}>
-              <a
+              <Link
                 href={data.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles['blog-content__link']}
               >
                 {data.meta?.title || data.link}
-              </a>
+              </Link>
             </div>
           );
 
