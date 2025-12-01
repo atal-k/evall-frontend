@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { FAQdata } from '@/data/faqData';
-import './Faq.css';
+import styles from '@/components/sections/FAQ.module.css'
 const ChevronIcon = ({ isOpen }) => (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
@@ -20,17 +20,22 @@ const ChevronIcon = ({ isOpen }) => (
   
   const FAQItem = ({ faq, isOpen, onToggle }) => {
     return (
-      <div className="faq-item">
-        <button 
-          className="faq-question"
+      <div className={styles['faq-item']}>
+        <button
+          className={styles['faq-question']}
           onClick={onToggle}
           aria-expanded={isOpen}
         >
           <span>{faq.ques}</span>
           <ChevronIcon isOpen={isOpen} />
         </button>
-        <div className={`faq-answer ${isOpen ? 'open' : ''}`}>
-          <div className="faq-answer-content">
+  
+        <div
+          className={`${styles['faq-answer']} ${
+            isOpen ? styles['open'] : ''
+          }`}
+        >
+          <div className={styles['faq-answer-content']}>
             {faq.ans}
           </div>
         </div>
@@ -49,9 +54,9 @@ const ChevronIcon = ({ isOpen }) => (
     };
   
     return (
-      <div className="faq-category">
-        <h3 className="faq-category-title">{category}</h3>
-        <div className="faq-list">
+      <div className={styles['faq-category']}>
+        <h3 className={styles['faq-category-title']}>{category}</h3>
+        <div className={styles['faq-list']}>
           {faqs.map((faq) => (
             <FAQItem
               key={faq.id}
@@ -64,42 +69,42 @@ const ChevronIcon = ({ isOpen }) => (
       </div>
     );
   };
-
-const FAQPageComponent = () => {
-  return (
-    <div className="faq-page">
-      <div className="faq-container">
-        <header className="faq-header">
-          <h1 className="faq-title">
-            Frequently asked <span className="highlight">questions</span>
-          </h1>
-          <p className="faq-subtitle">
-            Do you need some help with something or do you have questions on some features?
-          </p>
-        </header>
-
-        <div className="faq-content">
-          {FAQdata.map((section) => (
-            <FAQCategory
-              key={section.id}
-              category={section.category}
-              faqs={section.faqs}
-            />
-          ))}
+  
+  const FAQPageComponent = () => {
+    return (
+      <div className={styles['faq-page']}>
+        <div className={styles['faq-container']}>
+          <header className={styles['faq-header']}>
+            <h1 className={styles['faq-title']}>
+              Frequently asked <span className={styles.highlight}>questions</span>
+            </h1>
+            <p className={styles['faq-subtitle']}>
+              Do you need some help with something or do you have questions on some features?
+            </p>
+          </header>
+  
+          <div className={styles['faq-content']}>
+            {FAQdata.map((section) => (
+              <FAQCategory
+                key={section.id}
+                category={section.category}
+                faqs={section.faqs}
+              />
+            ))}
+          </div>
+  
+          <footer className={styles['faq-footer']}>
+            <h2 className={styles['faq-footer-title']}>Have any other questions?</h2>
+            <p className={styles['faq-footer-text']}>
+              Don't hesitate to send us an email with your enquiry or statement at:
+            </p>
+            <a href="mailto:info@evall.co.in" className={styles['faq-contact-email']}>
+              info@evall.co.in
+            </a>
+          </footer>
         </div>
-
-        <footer className="faq-footer">
-          <h2 className="faq-footer-title">Have any other questions?</h2>
-          <p className="faq-footer-text">
-            Don't hesitate to send us an email with your enquiry or statement at:
-          </p>
-          <a href="mailto:info@evall.co.in" className="faq-contact-email">
-            info@evall.co.in
-          </a>
-        </footer>
       </div>
-    </div>
-  );
-};
-
-export default FAQPageComponent;
+    );
+  };
+  
+  export default FAQPageComponent;  

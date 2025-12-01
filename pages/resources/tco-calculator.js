@@ -3,7 +3,7 @@
 // ============================================
 
 import Head from 'next/head';
-import TCOCalculatorPageComponent from '@/components/pages/tools/TCOCalculator';
+import TCOCalculatorPageComponent from '@/components/pages/resources/TCOCalculator';
 
 export default function TCOCalculatorPage() {
   return (

@@ -1,9 +1,9 @@
 // ============================================
-// pages/services/after-sales.js
+// pages/network/after-sales.js
 // ============================================
 
 import Head from 'next/head';
-import AfterSalesServicePageComponent from '@/components/pages/services/AfterSalesService';
+import AfterSalesServicePageComponent from '@/components/pages/network/AfterSalesService';
 
 export default function AfterSalesServicePage() {
   return (
@@ -20,7 +20,7 @@ export default function AfterSalesServicePage() {
           content="24/7 customer support and comprehensive after-sales service for EVALL electric commercial vehicles."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/services/after-sales" />
+        <meta property="og:url" content="https://www.evall.in/network/after-sales" />
       </Head>
       <AfterSalesServicePageComponent />
     </>

@@ -1,14 +1,5 @@
 /* // FILE: src/components/sections/EnergyHero.css
 // ============================================================================ */
-:root {
-    --color-energy-dark: #0a1612;
-    --color-energy-glow: #42F705;
-    --color-battery-blue: #00D9FF;
-    --color-tech-purple: #8B5CF6;
-    --color-safety-orange: #FF6B35;
-    --gradient-tech: linear-gradient(135deg, #00b300 0%, #00D9FF 100%);
-    --gradient-dark: linear-gradient(135deg, #0a1612 0%, #1a1a1a 100%);
-  }
   
   .energy-hero {
     position: relative;

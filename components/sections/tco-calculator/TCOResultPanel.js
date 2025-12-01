@@ -4,7 +4,7 @@
   
   import React from 'react';
   import { formatCurrency } from '../../../utils/formatter';
-  import './TCOResultPanel.css';
+  import styles from './TCOResultPanel.module.css';
 import { getIcon } from '../../../data/iconsData';
   
   const TCOResultPanel = ({ tcoResults }) => {
@@ -18,23 +18,23 @@ import { getIcon } from '../../../data/iconsData';
     ];
   
     return (
-      <div className="results-panel">
-        <div className="results-panel__header">
-          <h4 className="results-panel__title">Monthly Cost Comparison</h4>
+      <div className={styles['results-panel']}>
+        <div className={styles['results-panel__header']}>
+          <h4 className={styles['results-panel__title']}>Monthly Cost Comparison</h4>
         </div>
   
-        <div className="result-output-grid">
+        <div className={styles['result-output-grid']}>
           {resultCards.map((card, index) => (
-            <div key={index} className="result-output-card">
-              <div className="result-output-text">{card.text}</div>
-              <div className="result-output-values">
-                <div className="result-output-value ice" title="ICE Vehicle">
-                  <span className="result-label">ICE</span>
-                  <span className="result-amount">{formatCurrency(card.ice)}</span>
+            <div key={index} className={styles['result-output-card']}>
+              <div className={styles['result-output-text']}>{card.text}</div>
+              <div className={styles['result-output-values']}>
+                <div className={`${styles['result-output-value']} ${styles.ice}`} title="ICE Vehicle">
+                  <span className={styles['result-label']}>ICE</span>
+                  <span className={styles['result-amount']}>{formatCurrency(card.ice)}</span>
                 </div>
-                <div className="result-output-value ev" title="EV Vehicle">
-                  <span className="result-label">EV</span>
-                  <span className="result-amount">{formatCurrency(card.ev)}</span>
+                <div className={`${styles['result-output-value']} ${styles.ev}`} title="EV Vehicle">
+                  <span className={styles['result-label']}>EV</span>
+                  <span className={styles['result-amount']}>{formatCurrency(card.ev)}</span>
                 </div>
               </div>
             </div>
@@ -42,27 +42,27 @@ import { getIcon } from '../../../data/iconsData';
         </div>
   
         {/* Savings Cards */}
-        <div className="savings-section">
-        <div className="results-panel__header">
-          <h4 className="results-panel__title">Savings with EV</h4>
+        <div className={styles['savings-section']}>
+        <div className={styles['results-panel__header']}>
+          <h4 className={styles['results-panel__title']}>Savings with EV</h4>
         </div>
-          <div className="savings-cards">
-            <div className="savings-card savings-card--1year">
-              <div className="savings-card__header">
-                <div className="savings-icon">{getIcon('calendar1', 28)}</div>
-                <div className="savings-period">1 Year</div>
+          <div className={styles['savings-cards']}>
+            <div className={`${styles['savings-card']} ${styles['savings-card--1year']}`}>
+              <div className={styles['savings-card__header']}>
+                <div className={styles['savings-icon']}>{getIcon('calendar1', 28)}</div>
+                <div className={styles['savings-period']}>1 Year</div>
               </div>
-              <div className="savings-amount">{formatCurrency(savings.oneYear)}</div>
-              <div className="savings-label">Total Savings</div>
+              <div className={styles['savings-amount']}>{formatCurrency(savings.oneYear)}</div>
+              <div className={styles['savings-label']}>Total Savings</div>
             </div>
   
-            <div className="savings-card savings-card--5year">
-              <div className="savings-card__header">
-                <div className="savings-icon">{getIcon('calendars', 28)}</div>
-                <div className="savings-period">5 Years</div>
+            <div className={`${styles['savings-card']} ${styles['savings-card--5year']}`}>
+              <div className={styles['savings-card__header']}>
+                <div className={styles['savings-icon']}>{getIcon('calendars', 28)}</div>
+                <div className={styles['savings-period']}>5 Years</div>
               </div>
-              <div className="savings-amount">{formatCurrency(savings.fiveYear)}</div>
-              <div className="savings-label">Cumulative Savings</div>
+              <div className={styles['savings-amount']}>{formatCurrency(savings.fiveYear)}</div>
+              <div className={styles['savings-label']}>Cumulative Savings</div>
             </div>
           </div>
         </div>

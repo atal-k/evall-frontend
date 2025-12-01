@@ -1,6 +1,7 @@
 // src/components/layout/GreenSolutionBanner.js
 import React from 'react';
-import './GreenSolutionBanner.css';
+import styles from './GreenSolutionBanner.module.css';
+import Image from 'next/image';
 
 const GreenSolutionBanner = () => {
     const greenBannerData = {
@@ -14,19 +15,21 @@ const GreenSolutionBanner = () => {
       };
       
   return (
-    <section className="green-solution-banner">
-        <div className="green-solution-banner__wrapper">
-          <div className="green-solution-banner__image-container">
-            <img 
+    <section className={styles['green-solution-banner']}>
+        <div className={styles['green-solution-banner__wrapper']}>
+          <div className={styles['green-solution-banner__image-container']}>
+            <Image 
               src={greenBannerData.img.src} 
               alt={greenBannerData.img.alt}
-              className="green-solution-banner__image"
+              className={styles['green-solution-banner__image']}
+              width={468}
+              height={521}
             />
           </div>
 
-          <div className="green-solution-banner__content">
-            <h2 className="green-solution-banner__title">{greenBannerData.title}</h2>
-            <p className="green-solution-banner__description">{greenBannerData.description}</p>
+          <div className={styles['green-solution-banner__content']}>
+            <h2 className={styles['green-solution-banner__title']}>{greenBannerData.title}</h2>
+            <p className={styles['green-solution-banner__description']}>{greenBannerData.description}</p>
           </div>
         </div>
     </section>
@@ -34,41 +37,3 @@ const GreenSolutionBanner = () => {
 };
 
 export default GreenSolutionBanner;
-
-
-
-
-
-/* ========================================================================
-   ADD TO src/app.css (Global CSS Variables)
-   ======================================================================== */
-
-/*
-Add this color variable to your :root in App.css:
-
-    // GreenSolutionBanner color
-    --color-green-banner: #066F29;
-*/
-
-
-/* ========================================================================
-   USAGE EXAMPLE
-   ======================================================================== */
-
-/*
-// src/pages/AboutUs.js
-import React from 'react';
-import GreenSolutionBanner from '../components/common/GreenSolutionBanner';
-
-const AboutUs = () => {
-  return (
-    <div className="about-us-page">
-      <GreenSolutionBanner 
-        }
-      />
-    </div>
-  );
-};
-
-export default AboutUs;
-*/

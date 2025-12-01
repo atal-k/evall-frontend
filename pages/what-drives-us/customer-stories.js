@@ -3,7 +3,7 @@
 // ============================================
 
 import Head from 'next/head';
-import CustomerStoriesPageComponent from '@/components/pages/resources/CustomerStories';
+import CustomerStoriesPageComponent from '@/components/pages/what-drives-us/CustomerStories';
 
 export default function CustomerStoriesPage() {
   return (

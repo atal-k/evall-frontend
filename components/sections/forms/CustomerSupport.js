@@ -8,7 +8,7 @@ import {
   TextField
 } from '../../common/FormFields';
 import Checkbox from '../../common/Checkbox';
-import './CustomerSupport.css';
+import styles from './CustomerSupport.module.css';
 import {useCustomerSupport} from '../../../hooks'
 import { validateField } from '../../../utils/validators';
 import { useToast } from '../../common/Toast';
@@ -151,135 +151,135 @@ const handleSubmit = async (e) => {
   await submitForm(formData);
   setIsSubmitting(false);
 };
-  return (
-    <div className="contact-form">
-      <h2 className="contact-form__heading">Let's Get Started</h2>
-      <p className="contact-form__subtitle">
-        Team EVall Mobility is happy to assist. Contact us and we will discuss how we can help you with EV technology. You'll hear back from us within 24 hours.
-      </p>
+return (
+  <div className={styles['contact-form']}>
+    <h2 className={styles['contact-form__heading']}>Let&apos;s Get Started</h2>
+    <p className={styles['contact-form__subtitle']}>
+      Team EVall Mobility is happy to assist. Contact us and we will discuss how we can help you with EV technology. You&apos;ll hear back from us within 24 hours.
+    </p>
 
-      <form onSubmit={handleSubmit} noValidate>
-        <div className="contact-form__grid">
-          {/* Fullname */}
-          <TextField
-            name="name"
-            value={formData.name}
-            onChange={handleFieldChange}
-            onBlur={handleFieldBlur}
-            error={errors.name}
-            label="Full Name"
-            fieldType="name"
-            required={true}
-          />
+    <form onSubmit={handleSubmit} noValidate>
+      <div className={styles['contact-form__grid']}>
+        {/* Fullname */}
+        <TextField
+          name="name"
+          value={formData.name}
+          onChange={handleFieldChange}
+          onBlur={handleFieldBlur}
+          error={errors.name}
+          label="Full Name"
+          fieldType="name"
+          required={true}
+        />
 
-          {/* Company name */}
-          <TextField
-            name="companyName"
-            value={formData.companyName}
-            onChange={handleFieldChange}
-            onBlur={handleFieldBlur}
-            error={errors.companyName}
-            label="Company Name"
-            fieldType="companyName"
-            required={false}
-          />
+        {/* Company name */}
+        <TextField
+          name="companyName"
+          value={formData.companyName}
+          onChange={handleFieldChange}
+          onBlur={handleFieldBlur}
+          error={errors.companyName}
+          label="Company Name"
+          fieldType="companyName"
+          required={false}
+        />
 
-          {/* contactNumber / Email */}
-          <PhoneField
-            name="contactNumber"
-            value={formData.contactNumber}
-            onChange={handleFieldChange}
-            onBlur={handleFieldBlur}
-            error={errors.contactNumber}
-            countryCode={formData.countryCode}
-            onCountryChange={handleCountryChange}
-          />
-          <TextField
-            name="email"
-            value={formData.email}
-            onChange={handleFieldChange}
-            onBlur={handleFieldBlur}
-            error={errors.email}
-            label="Email"
-            fieldType="email"
-            required={true}
-          />
+        {/* contactNumber / Email */}
+        <PhoneField
+          name="contactNumber"
+          value={formData.contactNumber}
+          onChange={handleFieldChange}
+          onBlur={handleFieldBlur}
+          error={errors.contactNumber}
+          countryCode={formData.countryCode}
+          onCountryChange={handleCountryChange}
+        />
+        <TextField
+          name="email"
+          value={formData.email}
+          onChange={handleFieldChange}
+          onBlur={handleFieldBlur}
+          error={errors.email}
+          label="Email"
+          fieldType="email"
+          required={true}
+        />
 
-          {/* State / City */}
-          <div className="contact-form__full">
-          <StateCityFields
-            stateName="state"
-            stateValue={formData.state}
-            onStateChange={handleFieldChange}
-            stateError={errors.state}
-            cityName="city"
-            cityValue={formData.city}
-            onCityChange={handleFieldChange}
-            cityError={errors.city}
-            statePlaceholder="Select State*"
-            cityPlaceholder="Select City*"
-          />
-          </div>
-
-          {/* Vehicle Type */}
-          <div className="contact-form__full">
-            <ProductSelectField
-              name="vehicleType"
-              value={formData.vehicleType}
-              onChange={handleFieldChange}
-              onBlur={handleFieldBlur}
-              error={errors.vehicleType}
-              placeholder="Select a Product*"
-            />
-          </div>
-
-          {/* Message */}
-          <div className="contact-form__full">
-            <MessageField
-              name="message"
-              value={formData.message}
-              onChange={handleFieldChange}
-              onBlur={handleFieldBlur}
-              error={errors.message}
-              placeholder="Message"
-              required
-              maxLength={1000}
-            />
-          </div>
-
-          {/* Checkboxes */}
-          <div className="contact-form__full contact-form__checkboxes">
-            <Checkbox
-              id="consent1"
-              label="By submitting, you consent to receive a call back from EVall Mobility and its authorized partners regarding your interest in EVall products, adhering to the communication guidelines provided."
-              checked={formData.consent1}
-              onChange={(checked) => handleCheckboxChange('consent1', checked)}
-            />
-            {errors.consent1 && <div className="contact-form__error">{errors.consent1}</div>}
-
-            <Checkbox
-              id="consent2"
-              label="You also agree to our Terms of Use and Privacy Policy as listed on the website."
-              checked={formData.consent2}
-              onChange={(checked) => handleCheckboxChange('consent2', checked)}
-            />
-            {errors.consent2 && <div className="contact-form__error">{errors.consent2}</div>}
-          </div>
-
-          {/* Submit */}
-          <div className="contact-form__full contact-form__actions">
-            <button
-              type="submit"
-              className="contact-form__submit"
-              disabled={isSubmitting || isLoading}
-              >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
-            </button>
-          </div>
+        {/* State / City */}
+        <div className={styles['contact-form__full']}>
+        <StateCityFields
+          stateName="state"
+          stateValue={formData.state}
+          onStateChange={handleFieldChange}
+          stateError={errors.state}
+          cityName="city"
+          cityValue={formData.city}
+          onCityChange={handleFieldChange}
+          cityError={errors.city}
+          statePlaceholder="Select State*"
+          cityPlaceholder="Select City*"
+        />
         </div>
-      </form>
-    </div>
-  );
+
+        {/* Vehicle Type */}
+        <div className={styles['contact-form__full']}>
+          <ProductSelectField
+            name="vehicleType"
+            value={formData.vehicleType}
+            onChange={handleFieldChange}
+            onBlur={handleFieldBlur}
+            error={errors.vehicleType}
+            placeholder="Select a Product*"
+          />
+        </div>
+
+        {/* Message */}
+        <div className={styles['contact-form__full']}>
+          <MessageField
+            name="message"
+            value={formData.message}
+            onChange={handleFieldChange}
+            onBlur={handleFieldBlur}
+            error={errors.message}
+            placeholder="Message"
+            required
+            maxLength={1000}
+          />
+        </div>
+
+        {/* Checkboxes */}
+        <div className={`${styles['contact-form__full']} ${styles['contact-form__checkboxes']}`}>
+          <Checkbox
+            id="consent1"
+            label="By submitting, you consent to receive a call back from EVall Mobility and its authorized partners regarding your interest in EVall products, adhering to the communication guidelines provided."
+            checked={formData.consent1}
+            onChange={(checked) => handleCheckboxChange('consent1', checked)}
+          />
+          {errors.consent1 && <div className={styles['contact-form__error']}>{errors.consent1}</div>}
+
+          <Checkbox
+            id="consent2"
+            label="You also agree to our Terms of Use and Privacy Policy as listed on the website."
+            checked={formData.consent2}
+            onChange={(checked) => handleCheckboxChange('consent2', checked)}
+          />
+          {errors.consent2 && <div className={styles['contact-form__error']}>{errors.consent2}</div>}
+        </div>
+
+        {/* Submit */}
+        <div className={`${styles['contact-form__full']} ${styles['contact-form__actions']}`}>
+          <button
+            type="submit"
+            className={styles['contact-form__submit']}
+            disabled={isSubmitting || isLoading}
+            >
+            {isSubmitting ? 'Submitting...' : 'Submit'}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+);
 };
 
 export default CustomerSupport;

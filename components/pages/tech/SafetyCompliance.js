@@ -8,14 +8,13 @@ import { safetyComplianceData } from '@/data/safetyComplianceData';
 import SafetyHero from '@/components/sections/SafetyHero';
 import { getIcon } from '@/data/iconsData';
 import IntelligentCapabilities from '@/components/sections/IntelligentCapabilities';
-import './SafetyCompliance.css';
+import styles from './SafetyCompliance.module.css';
 
 // NOTE: Renamed component function to SafetyCompliancePageComponent for consistency.
-// NOTE: Changed useNavigate (React Router) to useRouter (Next.js) for navigation.
 const SafetyCompliancePageComponent = () => {
     const [visibleSections, setVisibleSections] = useState({});
     const sectionRefs = useRef({});
-    const navigate = useNavigate();
+    const router = useRouter();
 
     useEffect(() => {
       const observers = {};
@@ -41,49 +40,49 @@ const SafetyCompliancePageComponent = () => {
 
   
     return (
-      <div className="safety-compliance-page">
+      <div className={styles['safety-compliance-page']}>
   
         {/* Hero Section */}
         <SafetyHero />
   
         {/* Why Safety Matters Section */}
         <section 
-          className="safety-why" 
+          className={styles['safety-why']} 
           ref={el => sectionRefs.current['why'] = el}
         >
-          <div className="safety-why__container">
-            <div className="safety-why__intro">
-              <h2 className="safety-why__title">
+          <div className={styles['safety-why__container']}>
+            <div className={styles['safety-why__intro']}>
+              <h2 className={styles['safety-why__title']}>
                 {safetyComplianceData.whySafetyMatters.title}
               </h2>
-              <p className="safety-why__description">
+              <p className={styles['safety-why__description']}>
                 {safetyComplianceData.whySafetyMatters.description}
               </p>
-              <div className="safety-why__impact">
+              <div className={styles['safety-why__impact']}>
                 {safetyComplianceData.whySafetyMatters.businessImpact.map((impact, idx) => (
-                  <div key={idx} className="safety-why__impact-card">
-                    <div className="safety-why__impact-icon">
+                  <div key={idx} className={styles['safety-why__impact-card']}>
+                    <div className={styles['safety-why__impact-icon']}>
                       {getIcon(impact.icon, 32)}
                     </div>
-                    <div className="safety-why__impact-metric">{impact.metric}</div>
-                    <div className="safety-why__impact-label">{impact.label}</div>
+                    <div className={styles['safety-why__impact-metric']}>{impact.metric}</div>
+                    <div className={styles['safety-why__impact-label']}>{impact.label}</div>
                   </div>
                 ))}
               </div>
             </div>
   
-            <div className="safety-why__priorities">
+            <div className={styles['safety-why__priorities']}>
               {safetyComplianceData.whySafetyMatters.priorities.map((priority, idx) => (
                 <div 
                   key={priority.id} 
-                  className={`safety-why__priority-card ${visibleSections['why'] ? 'safety-why__priority-card--visible' : ''}`}
+                  className={`${styles['safety-why__priority-card']} ${visibleSections['why'] ? styles['safety-why__priority-card--visible'] : ''}`}
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
-                  <div className="safety-why__priority-icon">
+                  <div className={styles['safety-why__priority-icon']}>
                     {getIcon(priority.icon, 32)}
                   </div>
-                  <h3 className="safety-why__priority-title">{priority.title}</h3>
-                  <p className="safety-why__priority-description">{priority.description}</p>
+                  <h3 className={styles['safety-why__priority-title']}>{priority.title}</h3>
+                  <p className={styles['safety-why__priority-description']}>{priority.description}</p>
                 </div>
               ))}
             </div>
@@ -91,36 +90,36 @@ const SafetyCompliancePageComponent = () => {
         </section>
   
         {/* Vehicle Architecture Section - Using IntelligentCapabilities Component */}
-        <div className="safety-arch">
-          <IntelligentCapabilities data={safetyComplianceData.vehicleArchitecture} />
+        <div className={styles['safety-arch']}>
+          <IntelligentCapabilities className="safety-arch-grid" data={safetyComplianceData.vehicleArchitecture} />
         </div>
         {/* Compliance Standards Section */}
         <section 
-          className="safety-compliance" 
+          className={styles['safety-compliance']} 
           ref={el => sectionRefs.current['compliance'] = el}
         >
-          <div className="safety-compliance__container">
-            <div className="safety-compliance__header">
-              <h2 className="safety-compliance__title">Compliance & Regulatory Standards</h2>
-              <p className="safety-compliance__subtitle">Meeting and exceeding industry benchmarks</p>
+          <div className={styles['safety-compliance__container']}>
+            <div className={styles['safety-compliance__header']}>
+              <h2 className={styles['safety-compliance__title']}>Compliance & Regulatory Standards</h2>
+              <p className={styles['safety-compliance__subtitle']}>Meeting and exceeding industry benchmarks</p>
             </div>
-            <div className="safety-compliance__grid">
+            <div className={styles['safety-compliance__grid']}>
               {safetyComplianceData.complianceStandards.map((standard, idx) => (
                 <div 
                   key={standard.id} 
-                  className={`safety-compliance__card ${visibleSections['compliance'] ? 'safety-compliance__card--visible' : ''}`}
+                  className={`${styles['safety-compliance__card']} ${visibleSections['compliance'] ? styles['safety-compliance__card--visible'] : ''}`}
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
-                  <div className="safety-compliance__card-icon">
+                  <div className={styles['safety-compliance__card-icon']}>
                     {getIcon(standard.icon, 40)}
                   </div>
-                  <div className="safety-compliance__card-badge">
+                  <div className={styles['safety-compliance__card-badge']}>
                   {getIcon('checkCircle', 16)}
                   <span>Certified</span>
                   </div>
-                  <h3 className="safety-compliance__card-category">{standard.category}</h3>
-                  <h4 className="safety-compliance__card-standard">{standard.standard}</h4>
-                  <p className="safety-compliance__card-description">{standard.description}</p>
+                  <h3 className={styles['safety-compliance__card-category']}>{standard.category}</h3>
+                  <h4 className={styles['safety-compliance__card-standard']}>{standard.standard}</h4>
+                  <p className={styles['safety-compliance__card-description']}>{standard.description}</p>
                 </div>
               ))}
             </div>
@@ -129,30 +128,30 @@ const SafetyCompliancePageComponent = () => {
   
         {/* Testing & Validation Section */}
         <section 
-          className="safety-testing" 
+          className={styles['safety-testing']} 
           ref={el => sectionRefs.current['testing'] = el}
         >
-          <div className="safety-testing__container">
-            <div className="safety-testing__header">
-              <h2 className="safety-testing__title">Testing & Validation Approach</h2>
-              <p className="safety-testing__subtitle">Rigorous testing for real-world reliability</p>
+          <div className={styles['safety-testing__container']}>
+            <div className={styles['safety-testing__header']}>
+              <h2 className={styles['safety-testing__title']}>Testing & Validation Approach</h2>
+              <p className={styles['safety-testing__subtitle']}>Rigorous testing for real-world reliability</p>
             </div>
-            <div className="safety-testing__timeline">
+            <div className={styles['safety-testing__timeline']}>
               {safetyComplianceData.testingValidation.map((test, idx) => (
                 <div 
                   key={test.id} 
-                  className={`safety-testing__item ${visibleSections['testing'] ? 'safety-testing__item--visible' : ''}`}
+                  className={`${styles['safety-testing__item']} ${visibleSections['testing'] ? styles['safety-testing__item--visible'] : ''}`}
                   style={{ animationDelay: `${idx * 0.15}s` }}
                 >
-                  <div className="safety-testing__icon">
+                  <div className={styles['safety-testing__icon']}>
                     {getIcon(test.icon, 36)}
                   </div>
-                  <div className="safety-testing__content">
-                    <h3 className="safety-testing__name">{test.testName}</h3>
-                    <p className="safety-testing__description">{test.description}</p>
-                    <ul className="safety-testing__parameters">
+                  <div className={styles['safety-testing__content']}>
+                    <h3 className={styles['safety-testing__name']}>{test.testName}</h3>
+                    <p className={styles['safety-testing__description']}>{test.description}</p>
+                    <ul className={styles['safety-testing__parameters']}>
                       {test.parameters.map((param, pidx) => (
-                        <li key={pidx} className="safety-testing__parameter">
+                        <li key={pidx} className={styles['safety-testing__parameter']}>
                         {getIcon('checkCircle', 16)}
                         <span>{param}</span>
                         </li>
@@ -160,7 +159,7 @@ const SafetyCompliancePageComponent = () => {
                     </ul>
                   </div>
                   {idx < safetyComplianceData.testingValidation.length - 1 && (
-                    <div className="safety-testing__connector"></div>
+                    <div className={styles['safety-testing__connector']}></div>
                   )}
                 </div>
               ))}
@@ -170,41 +169,41 @@ const SafetyCompliancePageComponent = () => {
   
         {/* Safety Monitoring Section */}
         <section 
-          className="safety-monitoring" 
+          className={styles['safety-monitoring']} 
           ref={el => sectionRefs.current['monitoring'] = el}
         >
-          <div className="safety-monitoring__container">
-            <div className="safety-monitoring__header">
-              <h2 className="safety-monitoring__title">
+          <div className={styles['safety-monitoring__container']}>
+            <div className={styles['safety-monitoring__header']}>
+              <h2 className={styles['safety-monitoring__title']}>
                 {safetyComplianceData.safetyMonitoring.title}
               </h2>
-              <p className="safety-monitoring__subtitle">
+              <p className={styles['safety-monitoring__subtitle']}>
                 {safetyComplianceData.safetyMonitoring.subtitle}
               </p>
-              <p className="safety-monitoring__description">
+              <p className={styles['safety-monitoring__description']}>
                 {safetyComplianceData.safetyMonitoring.description}
               </p>
             </div>
-            <div className="safety-monitoring__grid">
+            <div className={styles['safety-monitoring__grid']}>
               {safetyComplianceData.safetyMonitoring.features.map((feature, idx) => (
                 <div 
                   key={idx} 
-                  className={`safety-monitoring__card ${visibleSections['monitoring'] ? 'safety-monitoring__card--visible' : ''}`}
+                  className={`${styles['safety-monitoring__card']} ${visibleSections['monitoring'] ? styles['safety-monitoring__card--visible'] : ''}`}
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
-                  <div className="safety-monitoring__card-header">
-                    <div className="safety-monitoring__card-icon">
+                  <div className={styles['safety-monitoring__card-header']}>
+                    <div className={styles['safety-monitoring__card-icon']}>
                       {getIcon(feature.icon, 32)}
                     </div>
                     {feature.realTime && (
-                      <div className="safety-monitoring__live-indicator">
-                        <span className="safety-monitoring__live-dot"></span>
-                        <span className="safety-monitoring__live-text">LIVE</span>
+                      <div className={styles['safety-monitoring__live-indicator']}>
+                        <span className={styles['safety-monitoring__live-dot']}></span>
+                        <span className={styles['safety-monitoring__live-text']}>LIVE</span>
                       </div>
                     )}
                   </div>
-                  <h3 className="safety-monitoring__card-title">{feature.title}</h3>
-                  <p className="safety-monitoring__card-description">{feature.description}</p>
+                  <h3 className={styles['safety-monitoring__card-title']}>{feature.title}</h3>
+                  <p className={styles['safety-monitoring__card-description']}>{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -212,26 +211,26 @@ const SafetyCompliancePageComponent = () => {
         </section>
   
         {/* Driver Training Section */}
-        <section className="safety-training">
-          <div className="safety-training__container">
-            <div className="safety-training__header">
-              <h2 className="safety-training__title">
+        <section className={styles['safety-training']}>
+          <div className={styles['safety-training__container']}>
+            <div className={styles['safety-training__header']}>
+              <h2 className={styles['safety-training__title']}>
                 {safetyComplianceData.driverTraining.title}
               </h2>
-              <p className="safety-training__description">
+              <p className={styles['safety-training__description']}>
                 {safetyComplianceData.driverTraining.description}
               </p>
             </div>
-            <div className="safety-training__modules">
+            <div className={styles['safety-training__modules']}>
               {safetyComplianceData.driverTraining.modules.map((module, idx) => (
-                <div key={idx} className="safety-training__module">
-                  <div className="safety-training__module-icon">
+                <div key={idx} className={styles['safety-training__module']}>
+                  <div className={styles['safety-training__module-icon']}>
                   {getIcon('book', 24)}
                   </div>
-                  <h3 className="safety-training__module-name">{module.name}</h3>
-                  <ul className="safety-training__topics">
+                  <h3 className={styles['safety-training__module-name']}>{module.name}</h3>
+                  <ul className={styles['safety-training__topics']}>
                     {module.topics.map((topic, tidx) => (
-                      <li key={tidx} className="safety-training__topic">
+                      <li key={tidx} className={styles['safety-training__topic']}>
                         {getIcon('checkCircle', 16)}
                         <span>{topic}</span>
                       </li>
@@ -244,17 +243,17 @@ const SafetyCompliancePageComponent = () => {
         </section>
   
         {/* Closing CTA Section */}
-        <section className="safety-closing">
-          <div className="safety-closing__container">
-            <h2 className="safety-closing__headline">
+        <section className={styles['safety-closing']}>
+          <div className={styles['safety-closing__container']}>
+            <h2 className={styles['safety-closing__headline']}>
               {safetyComplianceData.closingStatement.headline}
             </h2>
-            <p className="safety-closing__description">
+            <p className={styles['safety-closing__description']}>
               {safetyComplianceData.closingStatement.description}
             </p>
             <button 
-                className="safety-closing__btn"
-                onClick={() => navigate(`/${safetyComplianceData.closingStatement.ctaLink}`)}
+                className={styles['safety-closing__btn']}
+                onClick={() => router.push(`/${safetyComplianceData.closingStatement.ctaLink}`)}
               >{safetyComplianceData.closingStatement.ctaText}
             </button>
           </div>

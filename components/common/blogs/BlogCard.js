@@ -3,9 +3,9 @@
 // ============================================================================
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './BlogCard.css';
-
+import Link from 'next/link';
+import styles from './BlogCard.module.css';
+import Image from 'next/image';
 const BlogCard = ({ blog }) => {
   const {
     slug,
@@ -41,28 +41,29 @@ const BlogCard = ({ blog }) => {
   };
 
   return (
-    <Link to={`/resources/blogs/${slug}`} className="blog-card">
-      <div className="blog-card__image-wrapper">
-        <img
+    <Link href={`/resources/blogs/${slug}`} className={styles['blog-card']}>
+      <div className={styles['blog-card__image-wrapper']}>
+        <Image
           src={featured_image_url}
           alt={featured_image_alt || title}
-          className="blog-card__image"
+          className={styles['blog-card__image']}
           loading="lazy"
+          fill
         />
-        <div className="blog-card__overlay"></div>
+        <div className={styles['blog-card__overlay']}></div>
       </div>
-      <div className="blog-card__content">
-        <span className={`blog-card__category ${getCategoryClass(category_name)}`}>
+      <div className={styles['blog-card__content']}>
+        <span className={`${styles['blog-card__category']} ${getCategoryClass(category_name)}`}>
           {category_name}
         </span>
-        <h3 className="blog-card__title">{title}</h3>
-        <p className="blog-card__excerpt">{excerpt}</p>
-        <div className="blog-card__meta">
-          <span className="blog-card__author">{author}</span>
-          <span className="blog-card__separator">•</span>
-          <span className="blog-card__date">{formatDate(published_at)}</span>
-          <span className="blog-card__separator">•</span>
-          <span className="blog-card__reading-time">{reading_time} min read</span>
+        <h3 className={styles['blog-card__title']}>{title}</h3>
+        <p className={styles['blog-card__excerpt']}>{excerpt}</p>
+        <div className={styles['blog-card__meta']}>
+          <span className={styles['blog-card__author']}>{author}</span>
+          <span className={styles['blog-card__separator']}>•</span>
+          <span className={styles['blog-card__date']}>{formatDate(published_at)}</span>
+          <span className={styles['blog-card__separator']}>•</span>
+          <span className={styles['blog-card__reading-time']}>{reading_time} min read</span>
         </div>
       </div>
     </Link>

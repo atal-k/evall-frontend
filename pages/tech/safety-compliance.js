@@ -3,7 +3,7 @@
 // ============================================
 
 import Head from 'next/head';
-import SafetyCompliancePageComponent from '@/components/pages/SafetyCompliance';
+import SafetyCompliancePageComponent from '@/components/pages/tech/SafetyCompliance';
 
 export default function SafetyCompliancePage() {
   return (

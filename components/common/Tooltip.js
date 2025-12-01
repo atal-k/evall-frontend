@@ -3,12 +3,12 @@
 // ============================================================================
 
 import React from 'react';
-import './Tooltip.css';
+import styles from './Tooltip.module.css';
 
 const Tooltip = ({ position, index, isActive, onClick }) => {
   return (
     <button
-      className={`tooltip ${isActive ? 'tooltip--active' : ''}`}
+      className={`${styles['tooltip']} ${isActive ? styles['tooltip--active'] : ''}`}
       style={{
         top: position.top,
         left: position.left,
@@ -18,8 +18,8 @@ const Tooltip = ({ position, index, isActive, onClick }) => {
       onClick={onClick}
       aria-label={`View feature ${index}`}
     >
-      <span className="tooltip__spot"></span>
-      <span className="tooltip__pulse"></span>
+      <span className={styles['tooltip__spot']}></span>
+      <span className={styles['tooltip__pulse']}></span>
     </button>
   );
 };

@@ -24,7 +24,7 @@
   --color-gray-650: #5a6370;
   --color-gray-700: #4a4a4a;
   --color-gray-800: #333333;
---color-gray-850: #2c2c2c;
+  --color-gray-850: #2c2c2c;
   --color-gray-900: #222222;
   --color-white: #ffffff;
   --color-off-white: #FAFAFA;
@@ -48,6 +48,15 @@
   --intelligence-silver: #C0C0C0;
   --intelligence-green: #75E890;
   --intelligence-gradient: linear-gradient(135deg, #4564EA 0%, #EA6FE3 100%);
+
+  /* tech pages */
+  --color-energy-dark: #0a1612;
+  --color-energy-glow: #42F705;
+  --color-battery-blue: #00D9FF;
+  --color-tech-purple: #8B5CF6;
+  --color-safety-orange: #FF6B35;
+  --gradient-tech: linear-gradient(135deg, #00b300 0%, #00D9FF 100%);
+  --gradient-dark: linear-gradient(135deg, #0a1612 0%, #1a1a1a 100%);
 
   --color-quote-blue: #1A2F4B;
   --color-td: rgba(0, 0, 0, 0.87);
@@ -246,6 +255,67 @@ background: var(--color-gray-600);
 * {
 scrollbar-width: thin;
 scrollbar-color: var(--color-gray-400) var(--color-gray-100);
+}
+
+
+/* Base Field Container */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Field Group (for combined fields like State+City) */
+/* Form Row (2 columns) */
+.form-field__group, .form__row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: var(--spacing-sm);
+}
+
+/* Base Input Styles */
+.form-field__input {
+  width: 100%;
+  padding: 0.75rem var(--spacing-md);
+  font-size: var(--font-size-base);
+  color: var(--color-dark);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  font-family: var(--font-primary);
+}
+
+.form-field__input::placeholder {
+  color: var(--color-gray-500);
+}
+
+.form-field__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 179, 0, 0.1);
+}
+
+.form-field__input:disabled {
+  background-color: var(--color-gray-100);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Error State */
+.form-field__input--error {
+  border-color: #dc2626;
+}
+
+.form-field__input--error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.form-field__error {
+  font-size: var(--font-size-xs);
+  color: #dc2626;
+  margin-top: -4px;
 }
   
 /* ========== RESPONSIVE DESIGN ========== */

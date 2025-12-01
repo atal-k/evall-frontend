@@ -12,6 +12,7 @@ import {
   InfrastructureCheckboxField,
   MessageField,
 } from '../../common/FormFields';
+import styles from '../../common/FormFields.module.css';
 import { validateField } from '../../../utils/validators';
 import { useDealershipEnquiry } from '../../../hooks';
 import { useToast } from '../../common/Toast';
@@ -271,7 +272,7 @@ const DealershipForm = () => {
           Personal & Company Details
         </h2>
 
-        <div className='form__row'>
+        <div className={styles['form__row']}>
         <TextField
             name="name"
             value={formData.name}
@@ -294,7 +295,7 @@ const DealershipForm = () => {
           />          
           </div>
 
-          <div className='form__row'>
+          <div className={styles['form__row']}>
           <PhoneField
             name="contactNumber"
             value={formData.contactNumber}
@@ -319,7 +320,7 @@ const DealershipForm = () => {
           />
         </div>
 
-        <div className='form__row'>
+        <div className={styles['form__row']}>
         <TextField
             name="email"
             value={formData.email}
@@ -485,7 +486,7 @@ const DealershipForm = () => {
         <button
             type="submit"
             disabled={isSubmitting || isLoading}
-            className='btn-form-submit'
+            className={styles['btn-form-submit']}
           >
             {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>

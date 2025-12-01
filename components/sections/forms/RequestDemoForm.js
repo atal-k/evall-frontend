@@ -12,6 +12,7 @@ import {
   TextField,
   NumberField,
 } from '../../common/FormFields';
+import styles from '../../common/FormFields.module.css'
 import { validateField } from '../../../utils/validators';
 import { useRequestDemo } from '../../../hooks';
 import { useToast } from '../../common/Toast';
@@ -458,7 +459,7 @@ const RequestDemoForm = () => {
         <button
           type="submit"
           disabled={isSubmitting || isLoading}
-          className='btn-form-submit'
+          className={styles['btn-form-submit']}
         >
           {(isSubmitting || isLoading) ? 'Submitting...' : 'Submit'}
         </button>

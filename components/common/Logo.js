@@ -1,17 +1,35 @@
-// FILE: src/components/common/Logo.js
+// FILE: /components/common/Logo.js
 // ============================================================================
 
 import React from 'react';
-import './Logo.css';
+import styles from './Logo.module.css';
+import Image from 'next/image'; 
 
-const Logo = ({ size = 'medium', color='black', className = '' }) => {
-  let iconSrc = color === 'white' ? 'EVall-icon' : 'EVall-icon-black'
+const Logo = ({ size = 'medium', color = 'black', className = '' }) => {
+  const iconSrc = color === 'white' ? 'EVall-icon' : 'EVall-icon-black';
+  
+  // Map size to actual pixel dimensions
+  const sizeMap = {
+    small: 24,
+    medium: 32,
+    large: 38,
+    XLarge: 48
+  };
+  
+  const iconSize = sizeMap[size] || 32;
+  
   return (
-    <div className={`logo logo--${size} logo--${color} ${className}`}>
-      <div className="logo__icon">
-      <img src={`/icons/${iconSrc}.svg`} alt="EVall" />
+    <div className={`${styles['logo']} ${styles[`logo--${size}`]} ${styles[`logo--${color}`]} ${className}`}>
+      <div className={styles['logo__icon']}>
+        <Image 
+          src={`/icons/${iconSrc}.svg`} 
+          alt="EVall" 
+          width={iconSize}
+          height={iconSize}
+          priority
+        />
       </div>
-      <span className="logo__text">EVall</span>
+      <span className={styles['logo__text']}>EVall</span>
     </div>
   );
 };

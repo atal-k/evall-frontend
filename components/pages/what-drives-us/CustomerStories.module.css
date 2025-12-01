@@ -23,7 +23,7 @@
   align-items: start;
   justify-content: start;
   overflow: hidden;
-  background-image: url('../../public/images/customer-stories-hero.webp');
+  background-image: url('/images/customer-stories-hero.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

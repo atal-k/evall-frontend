@@ -1,8 +1,13 @@
 // Button Component
-import './Button.css'
+import styles from './Button.module.css';
 
 const Button = ({ children, variant = 'primary', size = 'medium', onClick, className = '' }) => {
-    const classes = `btn btn--${variant} ${size === 'small' ? 'btn--small' : ''} ${className}`;
+  const classes = `
+  ${styles.btn} 
+  ${styles[`btn--${variant}`]} 
+  ${size === 'small' ? styles['btn--small'] : ''} 
+  ${styles[className]}
+`;
     return (
       <button className={classes} onClick={onClick}>
         {children}

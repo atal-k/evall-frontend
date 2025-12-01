@@ -3,7 +3,7 @@
 // ============================================================================
 
 import React, { useState } from 'react';
-import './Comparison.css';
+import styles from './Comparison.module.css';
 
 const Comparison = () => {
   const [activeVehicle, setActiveVehicle] = useState('ice'); // 'ice' or 'electric'
@@ -12,23 +12,23 @@ const Comparison = () => {
     bgColors: ['#ede9fe', '#d6fec9', '#fee2e2', '#ffedd5']
   }
   const cardIcons = [(
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-240 0 1408 1408">
+    <svg key={0} xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-240 0 1408 1408">
         <path fill={cardColors.colors[0]} d="M898 342v102q0 14-9 23t-23 9H698q-23 144-129 234T293 820q167 178 459 536q14 16 4 34q-8 18-29 18H532q-16 0-25-12Q201 1029 9 825q-9-9-9-22V676q0-13 9.5-22.5T32 644h112q132 0 212.5-43T459 476H32q-14 0-23-9t-9-23V342q0-14 9-23t23-9h413q-57-113-268-113H32q-13 0-22.5-9.5T0 165V32Q0 18 9 9t23-9h832q14 0 23 9t9 23v102q0 14-9 23t-23 9H631q47 61 64 144h171q14 0 23 9t9 23" />
     </svg>
 ),
-    (<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+    (<svg key={1} xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
 	<g fill="none" stroke={cardColors.colors[1]} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
 		<path d="M5 21c.5-4.5 2.5-8 7-10" />
 		<path d="M9 18c6.218 0 10.5-3.288 11-12V4h-4.014c-9 0-11.986 4-12 9c0 1 0 3 2 5h3z" />
 	</g>
 </svg>),
 (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg key={2} width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke={cardColors.colors[2]} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
   (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg key={3} width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke={cardColors.colors[3]} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
@@ -165,29 +165,29 @@ const Comparison = () => {
   };
 
   return (
-    <section className="comparison-section">
+    <section className={styles['comparison-section']}>
       <div className="container">
         {/* Header */}
-        <div className="comparison-section__header">
-          <h2 className="comparison-section__title">
+        <div className={styles['comparison-section__header']}>
+          <h2 className={styles['comparison-section__title']}>
             Why Choose Electric Over Traditional?
           </h2>
-          <p className="comparison-section__subtitle">
+          <p className={styles['comparison-section__subtitle']}>
             Electric vehicles offer numerous advantages over internal combustion engine (ICE)
             vehicles, from cost savings to environmental benefits and superior performance.
           </p>
         </div>
 
         {/* Toggle */}
-        <div className="comparison-section__toggle">
+        <div className={styles['comparison-section__toggle']}>
           <button
-            className={`comparison-section__toggle-btn ${activeVehicle === 'ice' ? 'comparison-section__toggle-btn--active' : ''}`}
+            className={`${styles['comparison-section__toggle-btn']} ${activeVehicle === 'ice' ? styles['comparison-section__toggle-btn--active'] : ''}`}
             onClick={() => handleToggle('ice')}
           >
             ICE Vehicle
           </button>
           <button
-            className={`comparison-section__toggle-btn ${activeVehicle === 'electric' ? 'comparison-section__toggle-btn--active' : ''}`}
+            className={`${styles['comparison-section__toggle-btn']} ${activeVehicle === 'electric' ? styles['comparison-section__toggle-btn--active'] : ''}`}
             onClick={() => handleToggle('electric')}
           >
             Electric Vehicle
@@ -195,53 +195,53 @@ const Comparison = () => {
         </div>
 
         {/* Comparison Cards */}
-        <div className="comparison-section__cards">
+        <div className={styles['comparison-section__cards']}>
           {comparisonData[activeVehicle].map((card, index) => (
             <div
               key={card.id}
-              className={`comparison-card ${activeVehicle === 'electric' ? 'comparison-card--flipped' : ''}`}
+              className={`${styles['comparison-card']} ${activeVehicle === 'electric' ? styles['comparison-card--flipped'] : ''}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="comparison-card__inner">
+              <div className={styles['comparison-card__inner']}>
                 {/* Front (ICE) */}
-                <div className="comparison-card__face comparison-card__face--front">
-                  <div className="comparison-card__icon" style={{ background: cardColors.bgColors[index] }}>
+                <div className={`${styles['comparison-card__face']} ${styles['comparison-card__face--front']}`}>
+                  <div className={styles['comparison-card__icon']} style={{ background: cardColors.bgColors[index] }}>
                     {card.icon}
                   </div>
-                  <h3 className="comparison-card__title">{comparisonData.ice[index].title}</h3>
-                  <p className="comparison-card__description">
+                  <h3 className={styles['comparison-card__title']}>{comparisonData.ice[index].title}</h3>
+                  <p className={styles['comparison-card__description']}>
                     {comparisonData.ice[index].description}
                   </p>
-                  <div className="comparison-card__metric" style={{ color: cardColors.colors[index] }}> 
-                    <span className="comparison-card__metric-value">
+                  <div className={styles['comparison-card__metric']} style={{ color: cardColors.colors[index] }}> 
+                    <span className={styles['comparison-card__metric-value']}>
                       {comparisonData.ice[index].currency && (
-                        <span className="currency-sign">{comparisonData.ice[index].currency}</span>
+                        <span className={styles['currency-sign']}>{comparisonData.ice[index].currency}</span>
                       )}
                       {comparisonData.ice[index].metric}
                     </span> 
-                    <span className="comparison-card__metric-unit"> 
+                    <span className={styles['comparison-card__metric-unit']}> 
                       {comparisonData.ice[index].unit} 
                     </span> 
                   </div>
                 </div>
 
                 {/* Back (Electric) */}
-                <div className="comparison-card__face comparison-card__face--back">
-                  <div className="comparison-card__icon" style={{ background: cardColors.bgColors[index] }}>
+                <div className={`${styles['comparison-card__face']} ${styles['comparison-card__face--back']}`}>
+                  <div className={styles['comparison-card__icon']} style={{ background: cardColors.bgColors[index] }}>
                     {card.icon}
                   </div>
-                  <h3 className="comparison-card__title">{comparisonData.electric[index].title}</h3>
-                  <p className="comparison-card__description">
+                  <h3 className={styles['comparison-card__title']}>{comparisonData.electric[index].title}</h3>
+                  <p className={styles['comparison-card__description']}>
                     {comparisonData.electric[index].description}
                   </p>
-                  <div className="comparison-card__metric" style={{ color: cardColors.colors[index] }}>
-                    <span className="comparison-card__metric-value">
+                  <div className={styles['comparison-card__metric']} style={{ color: cardColors.colors[index] }}>
+                    <span className={styles['comparison-card__metric-value']}>
                       {comparisonData.electric[index].currency && (
-                        <span className="currency-sign">{comparisonData.electric[index].currency}</span>
+                        <span className={styles['currency-sign']}>{comparisonData.electric[index].currency}</span>
                       )}
                       {comparisonData.electric[index].metric}
                     </span>
-                    <span className="comparison-card__metric-unit">
+                    <span className={styles['comparison-card__metric-unit']}>
                       {comparisonData.electric[index].unit}
                     </span>
                   </div>
@@ -252,46 +252,46 @@ const Comparison = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="comparison-section__bottom">
+        <div className={styles['comparison-section__bottom']}>
           {/* Cost Breakdown */}
           <div
-            className={`comparison-bottom-card ${activeVehicle === 'electric' ? 'comparison-bottom-card--flipped' : ''}`}
+            className={`${styles['comparison-bottom-card']} ${activeVehicle === 'electric' ? styles['comparison-bottom-card--flipped'] : ''}`}
             style={{ animationDelay: '0.4s' }}
           >
-            <div className="comparison-bottom-card__inner">
-              <div className="comparison-bottom-card__face comparison-bottom-card__face--front">
-                <h3 className="comparison-bottom-card__title">ICE Vehicle (5 years)</h3>
-                <div className="cost-breakdown">
+            <div className={styles['comparison-bottom-card__inner']}>
+              <div className={`${styles['comparison-bottom-card__face']} ${styles['comparison-bottom-card__face--front']}`}>
+                <h3 className={styles['comparison-bottom-card__title']}>ICE Vehicle (5 years)</h3>
+                <div className={styles['cost-breakdown']}>
                   {costBreakdownData.map((item, index) => (
-                    <div key={index} className="cost-breakdown__row">
-                      <div className="cost-breakdown__label">
-                        <span className="cost-breakdown__icon">{item.icon}</span>
+                    <div key={index} className={styles['cost-breakdown__row']}>
+                      <div className={styles['cost-breakdown__label']}>
+                        <span className={styles['cost-breakdown__icon']}>{item.icon}</span>
                         {item.label}
                       </div>
-                      <span className="cost-breakdown__value">{item.value}</span>
+                      <span className={styles['cost-breakdown__value']}>{item.value}</span>
                     </div>
                   ))}
-                  <div className="cost-breakdown__total">
-                    <span className="cost-breakdown__total-label">Total Cost</span>
-                    <span className="cost-breakdown__total-value">₹8,50,000</span>
+                  <div className={styles['cost-breakdown__total']}>
+                    <span className={styles['cost-breakdown__total-label']}>Total Cost</span>
+                    <span className={styles['cost-breakdown__total-value']}>₹8,50,000</span>
                   </div>
                 </div>
               </div>
-              <div className="comparison-bottom-card__face comparison-bottom-card__face--back">
-                <h3 className="comparison-bottom-card__title">ICE Vehicle (5 years)</h3>
-                <div className="cost-breakdown">
+                <div className={`${styles['comparison-bottom-card__face']} ${styles['comparison-bottom-card__face--back']}`}>
+                <h3 className={styles['comparison-bottom-card__title']}>ICE Vehicle (5 years)</h3>
+                <div className={styles['cost-breakdown']}>
                   {costBreakdownData.map((item, index) => (
-                    <div key={index} className="cost-breakdown__row">
-                      <div className="cost-breakdown__label">
-                        <span className="cost-breakdown__icon">{item.icon}</span>
+                    <div key={index} className={styles['cost-breakdown__row']}>
+                      <div className={styles['cost-breakdown__label']}>
+                        <span className={styles['cost-breakdown__icon']}>{item.icon}</span>
                         {item.label}
                       </div>
-                      <span className="cost-breakdown__value">{item.value}</span>
+                      <span className={styles['cost-breakdown__value']}>{item.value}</span>
                     </div>
                   ))}
-                  <div className="cost-breakdown__total">
-                    <span className="cost-breakdown__total-label">Total Cost</span>
-                    <span className="cost-breakdown__total-value">₹8,50,000</span>
+                  <div className={styles['cost-breakdown__total']}>
+                    <span className={styles['cost-breakdown__total-label']}>Total Cost</span>
+                    <span className={styles['cost-breakdown__total-value']}>₹8,50,000</span>
                   </div>
                 </div>
               </div>
@@ -300,70 +300,70 @@ const Comparison = () => {
 
           {/* Emissions Chart */}
           <div
-            className={`comparison-bottom-card ${activeVehicle === 'electric' ? 'comparison-bottom-card--flipped' : ''}`}
+            className={`${styles['comparison-bottom-card']} ${activeVehicle === 'electric' ? styles['comparison-bottom-card--flipped'] : ''}`}
             style={{ animationDelay: '0.5s' }}
           >
-            <div className="comparison-bottom-card__inner">
-              <div className="comparison-bottom-card__face comparison-bottom-card__face--front">
-                <h3 className="comparison-bottom-card__title">
+            <div className={styles['comparison-bottom-card__inner']}>
+              <div className={`${styles['comparison-bottom-card__face']} ${styles['comparison-bottom-card__face--front']}`}>
+                <h3 className={styles['comparison-bottom-card__title']}>
                   Cumulative CO<sub>2</sub> Emissions (kg)
                 </h3>
-                <div className="emissions-chart">
-                  <div className="emissions-chart__grid">
-                    <div className="emissions-chart__y-axis">
+                  <div className={styles['emissions-chart']}>
+                  <div className={styles['emissions-chart__grid']}>
+                    <div className={styles['emissions-chart__y-axis']}>
                       <span>22K</span>
                       <span>16.5K</span>
                       <span>11K</span>
                       <span>5.5K</span>
                       <span>0K</span>
                     </div>
-                    <div className="emissions-chart__bars">
+                    <div className={styles['emissions-chart__bars']}>
                       {emissionsData.map((data, index) => (
-                        <div key={index} className="emissions-chart__bar-group">
-                          <div className="emissions-chart__bars-container">
+                        <div key={index} className={styles['emissions-chart__bar-group']}>
+                          <div className={styles['emissions-chart__bars-container']}>
                             <div
-                              className="emissions-chart__bar emissions-chart__bar--electric"
+                              className={`${styles['emissions-chart__bar']} ${styles['emissions-chart__bar--electric']}`}
                               style={{ height: `${(data.electric / 22000) * 100}%` }}
                             ></div>
                             <div
-                              className="emissions-chart__bar emissions-chart__bar--ice"
+                                  className={`${styles['emissions-chart__bar']} ${styles['emissions-chart__bar--ice']}`}
                               style={{ height: `${(data.ice / 22000) * 100}%` }}
                             ></div>
                           </div>
-                          <span className="emissions-chart__label">{data.year}</span>
+                          <span className={styles['emissions-chart__label']}>{data.year}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="comparison-bottom-card__face comparison-bottom-card__face--back">
-                <h3 className="comparison-bottom-card__title">
+              <div className={`${styles['comparison-bottom-card__face']} ${styles['comparison-bottom-card__face--back']}`}>
+                <h3 className={styles['comparison-bottom-card__title']}>
                   Cumulative CO<sub>2</sub> Emissions (kg)
                 </h3>
-                <div className="emissions-chart">
-                  <div className="emissions-chart__grid">
-                    <div className="emissions-chart__y-axis">
+                <div className={styles['emissions-chart']}>
+                  <div className={styles['emissions-chart__grid']}>
+                    <div className={styles['emissions-chart__y-axis']}>
                       <span>22K</span>
                       <span>16.5K</span>
                       <span>11K</span>
                       <span>5.5K</span>
                       <span>0K</span>
                     </div>
-                    <div className="emissions-chart__bars">
+                    <div className={styles['emissions-chart__bars']}>
                       {emissionsData.map((data, index) => (
-                        <div key={index} className="emissions-chart__bar-group">
-                          <div className="emissions-chart__bars-container">
+                        <div key={index} className={styles['emissions-chart__bar-group']}>
+                          <div className={styles['emissions-chart__bars-container']}>
                             <div
-                              className="emissions-chart__bar emissions-chart__bar--electric"
+                              className={`${styles['emissions-chart__bar']} ${styles['emissions-chart__bar--electric']}`}
                               style={{ height: `${(data.electric / 22000) * 100}%` }}
                             ></div>
                             <div
-                              className="emissions-chart__bar emissions-chart__bar--ice"
+                                className={`${styles['emissions-chart__bar']} ${styles['emissions-chart__bar--ice']}`}
                               style={{ height: `${(data.ice / 22000) * 100}%` }}
                             ></div>
                           </div>
-                          <span className="emissions-chart__label">{data.year}</span>
+                          <span className={styles['emissions-chart__label']}>{data.year}</span>
                         </div>
                       ))}
                     </div>

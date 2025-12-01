@@ -1,10 +1,10 @@
 // ============================================================================
-// FILE: src/components/sections/Intelligence.js
+// FILE: components/sections/Intelligence.js
 // ============================================================================
 
 import React, { useState } from 'react';
 import Logo from '../common/Logo';
-import './Intelligence.css';
+import styles from './Intelligence.module.css';
 
 const Intelligence = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -68,67 +68,67 @@ const Intelligence = () => {
   const activeTabData = tabs.find(tab => tab.id === activeTab);
 
   return (
-    <section className="intelligence-section">
+    <section className={styles['intelligence-section']}>
       <div className="container">
         {/* Header */}
-        <h2 className="intelligence-section__title">Vehicle Intelligence</h2>
+        <h2 className={styles['intelligence-section__title']}>Vehicle Intelligence</h2>
 
         {/* Main Container (MacBook-style Frame) */}
-        <div className="intelligence-container">
-          <div className="intelligence-container__frame">
-            <div className="intelligence-container__screen">
+        <div className={styles['intelligence-container']}>
+          <div className={styles['intelligence-container__frame']}>
+            <div className={styles['intelligence-container__screen']}>
               {/* Top Bar with Logo */}
-              <div className="intelligence-topbar">
+              <div className={styles['intelligence-topbar']}>
                 <Logo color="white" size="medium" />
               </div>
 
               {/* Content Area */}
-              <div className="intelligence-content">
+              <div className={styles['intelligence-content']}>
                 {/* Left Sidebar - Tabs */}
-                <div className="intelligence-tabs">
+                <div className={styles['intelligence-tabs']}>
                   {tabs.map((tab, index) => (
                     <React.Fragment key={tab.id}>
                       <button
-                        className={`intelligence-tab ${activeTab === tab.id ? 'intelligence-tab--active' : ''}`}
+                        className={`${styles['intelligence-tab']} ${activeTab === tab.id ? styles['intelligence-tab--active'] : ''}`}
                         onClick={() => setActiveTab(tab.id)}
                         style={{
                           '--tab-icon-color': tab.iconColor
                         }}
                       >
-                        <span className="intelligence-tab__icon">
+                        <span className={styles['intelligence-tab__icon']}>
                           {tab.icon}
                         </span>
-                        <span className="intelligence-tab__label">{tab.label}</span>
+                        <span className={styles['intelligence-tab__label']}>{tab.label}</span>
                       </button>
                       {index < tabs.length - 1 && (
-                        <div className="intelligence-tab__divider"></div>
+                        <div className={styles['intelligence-tab__divider']}></div>
                       )}
                     </React.Fragment>
                   ))}
                 </div>
 
                 {/* Main Display Area */}
-                <div className="intelligence-display">
+                <div className={styles['intelligence-display']}>
                   {/* Background Image */}
                   <div
-                    className="intelligence-display__image"
+                    className={styles['intelligence-display__image']}
                     style={{ backgroundImage: `url(${activeTabData.image})` }}
                     key={activeTab}
                   ></div>
 
                   {/* Glassmorphic Content Card */}
                   <div
-                    className={`intelligence-glass-card intelligence-glass-card--${activeTabData.position}`}
+                    className={`${styles['intelligence-glass-card']} ${styles[`intelligence-glass-card--${activeTabData.position}`]}`}
                     key={`${activeTab}-card`}
                   >
                     {Array.isArray(activeTabData.content) ? (
-                      <ul className="intelligence-glass-card__list">
+                      <ul className={styles['intelligence-glass-card__list']}>
                         {activeTabData.content.map((text, idx) => (
                           <li key={idx}>{text}</li>
                         ))}
                       </ul>
                     ) : (
-                      <p className="intelligence-glass-card__text">
+                      <p className={styles['intelligence-glass-card__text']}>
                         {activeTabData.content}
                       </p>
                     )}

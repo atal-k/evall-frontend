@@ -9,7 +9,7 @@
 import React, { useRef } from "react";
 import SpinViewer from "../../lib/spin-viewer";
 import Button from "../common/Button";
-import "./EVShowcase.css";
+import styles from './EVShowcase.module.css';
 
 // Navigation Icons
 const LeftIcon = () => (
@@ -76,23 +76,23 @@ const EVShowcase = ({
   };
 
   return (
-    <div className="ev-showcase">
+    <div className={styles['ev-showcase']}>
       {/* Background Layer */}
       <div 
-        className="ev-showcase__background"
+        className={styles['ev-showcase__background']}
         style={{ backgroundImage: `url(${backgroundImage})` }}
         aria-hidden="true"
       />
 
       {/* Header */}
-      <header className="ev-showcase__header">
-        <h1 className="ev-showcase__title">{title}</h1>
-        <p className="ev-showcase__tagline">{tagline}</p>
+      <header className={styles['ev-showcase__header']}>
+        <h1 className={styles['ev-showcase__title']}>{title}</h1>
+        <p className={styles['ev-showcase__tagline']}>{tagline}</p>
       </header>
 
       {/* Navigation Controls */}
       <button
-        className="ev-showcase__nav ev-showcase__nav--left"
+        className={`${styles['ev-showcase__nav']} ${styles['ev-showcase__nav--left']}`}
         onClick={handlePrev}
         aria-label="View previous angle"
         title="Previous"
@@ -101,7 +101,7 @@ const EVShowcase = ({
       </button>
 
       <button
-        className="ev-showcase__nav ev-showcase__nav--right"
+        className={`${styles['ev-showcase__nav']} ${styles['ev-showcase__nav--right']}`}
         onClick={handleNext}
         aria-label="View next angle"
         title="Next"
@@ -110,7 +110,7 @@ const EVShowcase = ({
       </button>
 
       {/* 360 Viewer Container */}
-      <div className="ev-showcase__viewer-container">
+      <div className={styles['ev-showcase__viewer-container']}>
         <SpinViewer
           ref={viewerRef}
           quantity={quantity}
@@ -128,8 +128,8 @@ const EVShowcase = ({
       </div>
 
       {/* CTA Footer */}
-      <footer className="ev-showcase__footer">
-        <div className="ev-showcase__cta-group">
+      <footer className={styles['ev-showcase__footer']}>
+        <div className={styles['ev-showcase__cta-group']}>
           <Button 
             variant="white" 
             onClick={handleRequestQuote}

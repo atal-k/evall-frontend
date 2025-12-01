@@ -1,17 +1,20 @@
 // ============================================================================
-// FILE: src/components/sections/SafetyHero.js
+// FILE: components/sections/SafetyHero.js
 // ============================================================================
 
 import React, { useEffect, useState } from "react";
 import { safetyComplianceData } from "../../data/safetyComplianceData";
 import { getIcon } from "../../data/iconsData";
-import './SafetyHero.css'
-
+import styles from './SafetyHero.module.css';
+import Image from 'next/image';
+  
 const SafetyHero = () => {
     const [isVisible, setIsVisible] = useState(false);
   
     useEffect(() => {
-      setIsVisible(true);
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 100);
     }, []);
   
   
@@ -25,47 +28,48 @@ const SafetyHero = () => {
     };
   
     return (
-      <section className="safety-hero">
-        <div className="safety-hero__container">
-          <div className="safety-hero__content">
-            <div className={`safety-hero__badge ${isVisible ? 'safety-hero__badge--visible' : ''}`}>
+      <section className={styles['safety-hero']}>
+        <div className={styles['safety-hero__container']}>
+          <div className={styles['safety-hero__content']}>
+            <div className={`${styles['safety-hero__badge']} ${isVisible ? styles['safety-hero__badge--visible'] : ''}`}>
               {safetyComplianceData.hero.badge}
             </div>
-            <h1 className={`safety-hero__headline ${isVisible ? 'safety-hero__headline--visible' : ''}`}>
+            <h1 className={`${styles['safety-hero__headline']} ${isVisible ? styles['safety-hero__headline--visible'] : ''}`}>
               {safetyComplianceData.hero.headline}
             </h1>
-            <p className={`safety-hero__subheadline ${isVisible ? 'safety-hero__subheadline--visible' : ''}`}>
+            <p className={`${styles['safety-hero__subheadline']} ${isVisible ? styles['safety-hero__subheadline--visible'] : ''}`}>
               {safetyComplianceData.hero.subheadline}
             </p>
-            <p className={`safety-hero__description ${isVisible ? 'safety-hero__description--visible' : ''}`}>
+            <p className={`${styles['safety-hero__description']} ${isVisible ? styles['safety-hero__description--visible'] : ''}`}>
               {safetyComplianceData.hero.description}
             </p>
-            <div className={`safety-hero__cta ${isVisible ? 'safety-hero__cta--visible' : ''}`}>
+            <div className={`${styles['safety-hero__cta']} ${isVisible ? styles['safety-hero__cta--visible'] : ''}`}>
               <button 
-                className="safety-hero__btn"
+                className={styles['safety-hero__btn']}
                 onClick={() => scrollToSection(safetyComplianceData.hero.ctaButton.link)}
               >
                 {safetyComplianceData.hero.ctaButton.text}
               </button>
             </div>
-            <div className={`safety-hero__trust ${isVisible ? 'safety-hero__trust--visible' : ''}`}>
+            <div className={`${styles['safety-hero__trust']} ${isVisible ? styles['safety-hero__trust--visible'] : ''}`}>
               {safetyComplianceData.hero.trustIndicators.map((indicator, idx) => (
-                <div key={idx} className="safety-hero__trust-badge">
-                  <span className="safety-hero__trust-icon">
+                <div key={idx} className={styles['safety-hero__trust-badge']}>
+                  <span className={styles['safety-hero__trust-icon']}>
                     {getIcon(indicator.icon)}
                   </span>
-                  <span className="safety-hero__trust-label">{indicator.label}</span>
+                  <span className={styles['safety-hero__trust-label']}>{indicator.label}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="safety-hero__image-wrapper">
-            <img 
+          <div className={styles['safety-hero__image-wrapper']}>
+            <Image 
               src={safetyComplianceData.hero.heroImage}
               alt="EVALL Safety Standards"
-              className="safety-hero__image"
+              className={styles['safety-hero__image']}
+              fill
             />
-            <div className="safety-hero__image-overlay"></div>
+            <div className={styles['safety-hero__image-overlay']}></div>
           </div>
         </div>
       </section>

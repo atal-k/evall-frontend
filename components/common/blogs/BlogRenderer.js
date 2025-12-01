@@ -4,8 +4,8 @@
 
 import React, { useMemo } from 'react';
 import DOMPurify from 'dompurify';
-import './BlogRenderer.css';
-
+import styles from './BlogRenderer.module.css';
+import Image from 'next/image';
 const BlogRenderer = ({ content }) => {
   const safeHTML = (html) => {
     return { __html: DOMPurify.sanitize(html) };
@@ -54,15 +54,16 @@ const BlogRenderer = ({ content }) => {
         case 'image':
           return (
             <figure key={id || index} className="blog-content__image-wrapper">
-              <img
+              <Image
                 src={data.file?.url || data.url}
                 alt={data.caption || 'Blog image'}
                 className="blog-content__image"
                 loading="lazy"
+                fill
               />
               {data.caption && (
                 <figcaption
-                  className="blog-content__image-caption"
+                  className={styles['blog-content__image-caption']}
                   dangerouslySetInnerHTML={safeHTML(data.caption)}
                 />
               )}
@@ -72,14 +73,14 @@ const BlogRenderer = ({ content }) => {
         case 'quote':
         case 'Quote':
           return (
-            <blockquote key={id || index} className="blog-content__quote">
+            <blockquote key={id || index} className={styles['blog-content__quote']}>
               <p
-                className="blog-content__quote-text"
+                className={styles['blog-content__quote-text']}
                 dangerouslySetInnerHTML={safeHTML(data.text)}
               />
               {data.caption && (
                 <cite
-                  className="blog-content__quote-caption"
+                  className={styles['blog-content__quote-caption']}
                   dangerouslySetInnerHTML={safeHTML(data.caption)}
                 />
               )}
@@ -87,13 +88,13 @@ const BlogRenderer = ({ content }) => {
           );
 
         case 'delimiter':
-          return <hr key={id || index} className="blog-content__delimiter" />;
+          return <hr key={id || index} className={styles['blog-content__delimiter']} />;
 
         case 'table':
         case 'Table':
           return (
-            <div key={id || index} className="blog-content__table-wrapper">
-              <table className="blog-content__table">
+            <div key={id || index} className={styles['blog-content__table-wrapper']}>
+              <table className={styles['blog-content__table']}>
                 <tbody>
                   {data.content.map((row, rowIndex) => (
                     <tr key={rowIndex}>
@@ -117,14 +118,14 @@ const BlogRenderer = ({ content }) => {
         case 'checklist':
         case 'Checklist':
           return (
-            <ul key={id || index} className="blog-content__checklist">
+            <ul key={id || index} className={styles['blog-content__checklist']}>
               {data.items.map((item, i) => (
-                <li key={i} className="blog-content__checklist-item">
+                <li key={i} className={styles['blog-content__checklist-item']}>
                   <input
                     type="checkbox"
                     checked={item.checked}
                     readOnly
-                    className="blog-content__checkbox"
+                    className={styles['blog-content__checkbox']}
                   />
                   <span dangerouslySetInnerHTML={safeHTML(item.text)} />
                 </li>
@@ -135,12 +136,12 @@ const BlogRenderer = ({ content }) => {
         case 'linkTool':
         case 'link':
           return (
-            <div key={id || index} className="blog-content__link-preview">
+            <div key={id || index} className={styles['blog-content__link-preview']}>
               <a
                 href={data.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="blog-content__link"
+                className={styles['blog-content__link']}
               >
                 {data.meta?.title || data.link}
               </a>
@@ -151,23 +152,23 @@ const BlogRenderer = ({ content }) => {
           return (
             <div
               key={id || index}
-              className="blog-content__raw"
+              className={styles['blog-content__raw']}
               dangerouslySetInnerHTML={safeHTML(data.html)}
             />
           );
 
         case 'embed':
           return (
-            <div key={id || index} className="blog-content__embed">
+            <div key={id || index} className={styles['blog-content__embed']}>
               <iframe
                 src={data.embed}
                 title={data.caption || 'Embedded content'}
-                className="blog-content__iframe"
+                className={styles['blog-content__iframe']}
                 frameBorder="0"
                 allowFullScreen
               />
               {data.caption && (
-                <p className="blog-content__embed-caption">{data.caption}</p>
+                <p className={styles['blog-content__embed-caption']}>{data.caption}</p>
               )}
             </div>
           );
@@ -179,7 +180,7 @@ const BlogRenderer = ({ content }) => {
     });
   }, [content]);
 
-  return <div className="blog-content">{renderBlock}</div>;
+  return <div className={styles['blog-content']}>{renderBlock}</div>;
 };
 
 export default BlogRenderer;

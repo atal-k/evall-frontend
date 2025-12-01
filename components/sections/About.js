@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './About.css';
+import styles from './About.module.css';
 import VideoPlayer from '../common/VideoPlayer';
 import { getIcon } from '../../data/iconsData';
 
@@ -34,48 +34,48 @@ const About = () => {
   ];
 
   return (
-    <section className="about-section">
-      <div className="container">
-        <div className="about-section__content">
-          <div className="about-section__left">
-            <h2 className="about-section__title">
+    <section className={styles['about-section']}>
+      <div className='container'>
+        <div className={styles['about-section__content']}>
+          <div className={styles['about-section__left']}>
+            <h2 className={styles['about-section__title']}>
               Driving the Future with EVall Mobility
             </h2>
-            <p className="about-section__intro">
-              From 40 years of trusted automotive manufacturing to pioneering sustainable mobility solutions—EVall Mobility is more than a company. It's a movement.
+            <p className={styles['about-section__intro']}>
+              From 40 years of trusted automotive manufacturing to pioneering sustainable mobility solutions—EVall Mobility is more than a company. It&apos;s a movement.
             </p>
 
-            <ul className="about-section__points">
+            <ul className={styles['about-section__points']}>
               {points.map((point, idx) => (
-                <li key={idx} className="about-section__point">
-                  <span className="about-section__point-icon">
+                <li key={idx} className={styles['about-section__point']}>
+                  <span className={styles['about-section__point-icon']}>
                     {getIcon('arrow', 22)}
                   </span>
-                  <span className="about-section__point-text">{point}</span>
+                  <span className={styles['about-section__point-text']}>{point}</span>
                 </li>
               ))}
             </ul>
 
             <button 
-              className="about-section__toggle-btn"
+              className={styles['about-section__toggle-btn']}
               onClick={() => setShowFeatures(!showFeatures)}
             >
               {showFeatures ? 'Read less' : 'Read more'}
             </button>
 
             {showFeatures && (
-              <div className="about-section__features">
+              <div className={styles['about-section__features']}>
                 {features.map((feature, index) => (
-                  <div key={index} className="about-section__feature">
-                    <div className="about-section__feature-header">
-                      <span className="about-section__feature-icon">
+                  <div key={index} className={styles['about-section__feature']}>
+                    <div className={styles['about-section__feature-header']}>
+                      <span className={styles['about-section__feature-icon']}>
                         {getIcon('arrow', 22)}
                       </span>
-                      <h3 className="about-section__feature-title">
+                      <h3 className={styles['about-section__feature-title']}>
                         {feature.title}
                       </h3>
                     </div>
-                    <p className="about-section__feature-description">
+                    <p className={styles['about-section__feature-description']}>
                       {feature.description}
                     </p>
                   </div>
@@ -85,7 +85,7 @@ const About = () => {
           </div>
 
           {/* Right Video Player */}
-          <div className="about-section__right">
+          <div className={styles['about-section__right']}>
             <VideoPlayer 
               src="/video/about-us.mp4" 
               title="About Us"

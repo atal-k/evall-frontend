@@ -4,7 +4,7 @@
 // ============================================================================
 
 import React, { createContext, useContext, useState, useCallback } from 'react';
-import './Toast.css';
+import styles from './Toast.module.css';
 
 // Create Toast Context
 const ToastContext = createContext();
@@ -21,6 +21,7 @@ export const ToastProvider = ({ children }) => {
 
     // Auto dismiss after 4 seconds
     setTimeout(() => {
+      // eslint-disable-next-line react-hooks/immutability
       removeToast(id);
     }, 4000);
   }, []);
@@ -37,7 +38,7 @@ export const ToastProvider = ({ children }) => {
   return (
     <ToastContext.Provider value={toast}>
       {children}
-      <div className="toast-container">
+      <div className={styles['toast-container']}>
         {toasts.map((toast) => (
           <Toast
             key={toast.id}
@@ -54,8 +55,8 @@ export const ToastProvider = ({ children }) => {
 // Individual Toast Component
 const Toast = ({ message, type, onClose }) => {
   return (
-    <div className={`toast toast--${type}`}>
-      <div className="toast__icon">
+    <div className={`${styles['toast']} ${styles[`toast--${type}`]}`}>
+      <div className={styles['toast__icon']}>
         {type === 'success' ? (
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
@@ -72,8 +73,8 @@ const Toast = ({ message, type, onClose }) => {
           </svg>
         )}
       </div>
-      <div className="toast__message">{message}</div>
-      <button className="toast__close" onClick={onClose} aria-label="Close">
+      <div className={styles['toast__message']}>{message}</div>
+      <button className={styles['toast__close']} onClick={onClose} aria-label="Close">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path
             d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"

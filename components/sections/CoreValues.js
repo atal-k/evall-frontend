@@ -1,9 +1,10 @@
 // ============================================================================
-// FILE: src/components/sections/CoreValuesSection.js
+// FILE: components/sections/CoreValues.js
 // ============================================================================
 
 import React, { useState } from 'react';
-import './CoreValues.css';
+import styles from './CoreValues.module.css';
+import Image from 'next/image';
 
 const CoreValues = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -42,51 +43,53 @@ const CoreValues = () => {
   ];
 
   return (
-    <section className="core-values-section">
-      <div className="core-values-container">
-        <div className="core-values-section__wrapper">
+    <section className={styles['core-values-section']}>
+      <div className={styles['core-values-container']}>
+        <div className={styles['core-values-section__wrapper']}>
         {/* Top Section - Full Width Image */}
-        <div className="core-values-section__image-wrapper">
-          <img 
+        <div className={styles['core-values-section__image-wrapper']}>
+          <Image 
             src="/images/charging-van.webp" 
             alt="EV Charging Station" 
             className="core-values-section__image"
+            width={2352}
+            height={1323}
           />
         </div>
   
         {/* Bottom Section - Two Columns (Text + Cards) */}
-        <div className="core-values-section__content">
+          <div className={styles['core-values-section__content']}>
           {/* Left Column - Text Content */}
-          <div className="core-values-section__text">
-            <h2 className="core-values-section__title">
-              <span className="core-values-section__title-highlight">EV's</span> Core Brand Values
+          <div className={styles['core-values-section__text']}>
+            <h2 className={styles['core-values-section__title']}>
+              <span className={styles['core-values-section__title-highlight']}>EV&apos;s</span> Core Brand Values
             </h2>
-            <p className="core-values-section__description">
+            <p className={styles['core-values-section__description']}>
               Our electric vehicles embody innovation, with cutting-edge technology and smart connectivity. They deliver sustainability, reducing emissions and supporting a cleaner planet. And they ensure performance and reliability, offering instant torque, smooth rides, and low running costs.
             </p>
           </div>
   
           {/* Right Column - Value Cards */}
-          <div className="core-values-section__cards">
-            <div className="core-values-cards">
+          <div className={styles['core-values-section__cards']}>
+            <div className={styles['core-values-cards']}>
               {values.map((value, index) => (
                 <div
                   key={value.id}
-                  className={`value-card ${hoveredCard === value.id ? 'value-card--active' : ''} ${hoveredCard && hoveredCard !== value.id ? 'value-card--inactive' : ''}`}
+                  className={`${styles['value-card']} ${hoveredCard === value.id ? styles['value-card--active'] : ''} ${hoveredCard && hoveredCard !== value.id ? styles['value-card--inactive'] : ''}`}
                   onMouseEnter={() => setHoveredCard(value.id)}
                   onMouseLeave={() => setHoveredCard(null)}
                   style={{
                     zIndex: hoveredCard === value.id ? 10 : 3 - index
                   }}
                 >
-                  <div className="value-card__header">
-                    <div className="value-card__icon">
+                  <div className={styles['value-card__header']}>  
+                    <div className={styles['value-card__icon']}>
                       {value.icon}
                     </div>
-                    <h3 className="value-card__title">{value.title}</h3>
+                    <h3 className={styles['value-card__title']}>{value.title}</h3>
                   </div>
-                  <div className="value-card__content">
-                    <p className="value-card__description">{value.description}</p>
+                  <div className={styles['value-card__content']}>
+                    <p className={styles['value-card__description']}>{value.description}</p>
                   </div>
                 </div>
               ))}

@@ -1,9 +1,9 @@
 // ============================================
-// pages/services/charging-infrastructure.js
+// pages/network/charging-infrastructure.js
 // ============================================
 
 import Head from 'next/head';
-import ChargingInfrastructurePageComponent from '@/components/pages/services/ChargingInfrastructure';
+import ChargingInfrastructurePageComponent from '@/components/pages/network/ChargingInfrastructure';
 
 export default function ChargingInfrastructurePage() {
   return (
@@ -20,7 +20,7 @@ export default function ChargingInfrastructurePage() {
           content="Explore EVALL's comprehensive charging infrastructure and partnerships for seamless electric vehicle operations."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/services/charging-infrastructure" />
+        <meta property="og:url" content="https://www.evall.in/network/charging-infrastructure" />
       </Head>
       <ChargingInfrastructurePageComponent />
     </>

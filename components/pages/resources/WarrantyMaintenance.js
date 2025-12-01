@@ -4,7 +4,8 @@
 // ============================================
 
 import React, { useEffect } from 'react';
-import './WarrantyMaintenance.css';
+import styles from './WarrantyMaintenance.module.css';
+import Link from 'next/link';
 
 // NOTE: Renamed component function to WarrantyMaintenancePageComponent for consistency.
 const WarrantyMaintenancePageComponent = () => {
@@ -141,28 +142,28 @@ const WarrantyMaintenancePageComponent = () => {
       ];
     
       return (
-        <div className="warranty-page">
+        <div className={styles['warranty-page']}>
           {/* Hero Section */}
-          <section className="warranty-hero">
-            <div className="warranty-hero-content">
-              <h1 className="warranty-hero-title">Warranty & Maintenance</h1>
-              <p className="warranty-hero-subtitle">
+          <section className={styles['warranty-hero']}>
+            <div className={styles['warranty-hero-content']}>
+              <h1 className={styles['warranty-hero-title']}>Warranty & Maintenance</h1>
+              <p className={styles['warranty-hero-subtitle']}>
                 Comprehensive warranty coverage for your EVall Mobility commercial vehicle
               </p>
             </div>
           </section>
-    
+      
           {/* Introduction Section */}
-          <section className="warranty-intro">
-            <div className="warranty-container">
-              <div className="warranty-intro-card">
-                <h2 className="warranty-intro-title">Information on Warranty</h2>
-                <p className="warranty-intro-text">
+          <section className={styles['warranty-intro']}>
+            <div className={styles['warranty-container']}>
+              <div className={styles['warranty-intro-card']}>
+                <h2 className={styles['warranty-intro-title']}>Information on Warranty</h2>
+                <p className={styles['warranty-intro-text']}>
                   Subject to the terms and conditions outlined in the owner's manual, every EVall Mobility 
                   commercial vehicle and its components are guaranteed to be free from material and workmanship defects. 
                   The warranty period starts on the day the vehicle is sold to the first owner.
                 </p>
-                <p className="warranty-intro-text">
+                <p className={styles['warranty-intro-text']}>
                   Vehicle owners should get in touch with the nearest EVall Mobility authorized service center 
                   or dealer for warranty-related assistance. Please consult the owner's manual that came with 
                   your vehicle for a comprehensive list of warranty terms and conditions.
@@ -170,51 +171,53 @@ const WarrantyMaintenancePageComponent = () => {
               </div>
             </div>
           </section>
-    
+      
           {/* Warranty Terms Section */}
-          <section className="warranty-terms">
-            <div className="warranty-container">
-              <h2 className="warranty-terms-title">Warranty Terms & Conditions</h2>
-              <div className="warranty-terms-grid">
+          <section className={styles['warranty-terms']}>
+            <div className={styles['warranty-container']}>
+              <h2 className={styles['warranty-terms-title']}>Warranty Terms & Conditions</h2>
+              <div className={styles['warranty-terms-grid']}>
                 {warrantyTerms.map((term) => (
-                  <div key={term.id} className="warranty-term-card">
-                    <div className="warranty-term-header">
-                      <div className="warranty-term-icon">{term.icon}</div>
-                      <span className="warranty-term-number">{String(term.id).padStart(2, '0')}</span>
+                  <div key={term.id} className={styles['warranty-term-card']}>
+                    <div className={styles['warranty-term-header']}>
+                      <div className={styles['warranty-term-icon']}>{term.icon}</div>
+                      <span className={styles['warranty-term-number']}>
+                        {String(term.id).padStart(2, '0')}
+                      </span>
                     </div>
-                    <h3 className="warranty-term-title">{term.title}</h3>
-                    <p className="warranty-term-description">{term.description}</p>
+                    <h3 className={styles['warranty-term-title']}>{term.title}</h3>
+                    <p className={styles['warranty-term-description']}>{term.description}</p>
                   </div>
                 ))}
               </div>
             </div>
           </section>
-    
+      
           {/* Contact Section */}
-          <section className="warranty-contact">
-            <div className="warranty-container">
-              <div className="warranty-contact-card">
-                <div className="warranty-contact-icon">
+          <section className={styles['warranty-contact']}>
+            <div className={styles['warranty-container']}>
+              <div className={styles['warranty-contact-card']}>
+                <div className={styles['warranty-contact-icon']}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m1 15h-2v-6h2zm0-8h-2V7h2z" />
                   </svg>
                 </div>
-                <h2 className="warranty-contact-title">Need Warranty Assistance?</h2>
-                <p className="warranty-contact-text">
+                <h2 className={styles['warranty-contact-title']}>Need Warranty Assistance?</h2>
+                <p className={styles['warranty-contact-text']}>
                   Contact your nearest authorized EVall Mobility service center for warranty-related queries 
                   and support.
                 </p>
-                <a href="/dealers" className="warranty-contact-btn">
+                <Link href="/contact/dealer-locator" className={styles['warranty-contact-btn']}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7m0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5" />
                   </svg>
                   Find Service Center
-                </a>
+                </Link>
               </div>
             </div>
           </section>
         </div>
-      );
+      );      
     };
 
 export default WarrantyMaintenancePageComponent;

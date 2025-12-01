@@ -5,7 +5,7 @@
 import React, { useEffect } from 'react';
 import Testimonials from '@/components/sections/Testimonials';
 import Callout from '@/components/sections/Callout';
-import './CustomerStories.css';
+import styles from './CustomerStories.module.css';
 
 // NOTE: Renamed component function to CustomerStoriesPageComponent for consistency.
 const CustomerStoriesPageComponent = () => {
@@ -52,17 +52,17 @@ const CustomerStoriesPageComponent = () => {
   ];
 
   return (
-    <div className="customer-stories-page">
+    <div className={styles['customer-stories-page']}>
       {/* Hero Section */}
-      <section className="customer-stories-hero">
-        <div className="customer-stories-hero-overlay"></div>
-        <div className="customer-stories-hero-content">
-          <h1 className="customer-stories-hero-title">Customer Stories by EVall</h1>
-          <p className="customer-stories-hero-subtitle">
+      <section className={styles['customer-stories-hero']}>
+        <div className={styles['customer-stories-hero-overlay']}></div>
+        <div className={styles['customer-stories-hero-content']}>
+          <h1 className={styles['customer-stories-hero-title']}>Customer Stories by EVall</h1>
+          <p className={styles['customer-stories-hero-subtitle']}>
             Covering Miles with Customers: Celebrating the Journeys that Drive EVall Forward
           </p>
           <button
-            className="customer-stories-hero-btn"
+            className={styles['customer-stories-hero-btn']}
             onClick={handleScrollToStories}
           >
             View More
@@ -74,18 +74,18 @@ const CustomerStoriesPageComponent = () => {
       </section>
 
       {/* Introduction Section */}
-      <section className="customer-stories-intro">
-        <div className="customer-stories-container">
-          <h2 className="customer-stories-intro-title">Welcome to the World of EVall Stories</h2>
-          <p className="customer-stories-intro-text">
+      <section className={styles['customer-stories-intro']}>
+        <div className={styles['customer-stories-container']}>
+          <h2 className={styles['customer-stories-intro-title']}>Welcome to the World of EVall Stories</h2>
+          <p className={styles['customer-stories-intro-text']}>
             Tune into a collection of customer journeys that illustrates how our Commercial Vehicle Solutions
             has changed the way our customers are driving the miles forward. For them, it&apos;s more than a vehicle,
             but it&apos;s a partner driving progress, innovation, and success on every mile.
           </p>
-          <p className="customer-stories-intro-cta">See their journeys.</p>
+          <p className={styles['customer-stories-intro-cta']}>See their journeys.</p>
 
-          <div className="customer-stories-intro-highlight">
-            <h3 className="customer-stories-intro-highlight-title">
+          <div className={styles['customer-stories-intro-highlight']}>
+            <h3 className={styles['customer-stories-intro-highlight-title']}>
               Covering Businesses Miles with a Greener Smile.
             </h3>
           </div>
@@ -93,7 +93,7 @@ const CustomerStoriesPageComponent = () => {
       </section>
 
       {/* Customer Stories Section - Using Testimonials Component */}
-      <section id="customer-stories-section" className="customer-stories-testimonials">
+      <section id="customer-stories-section" className={styles['customer-stories-testimonials']}>
         <Testimonials data={customerStoriesData} />
       </section>
       <Callout />

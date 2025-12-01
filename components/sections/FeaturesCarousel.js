@@ -1,7 +1,9 @@
-// File /src/components/sections/FeaturesCarousel.js */
+// ============================================================================
+// FILE: components/sections/FeaturesCarousel.js
+// ============================================================================
 
 import React from 'react';
-import './FeaturesCarousel.css';
+import styles from './FeaturesCarousel.module.css';
 
 const featuresData = [
   {
@@ -38,19 +40,19 @@ const featuresData = [
 
 const FeaturesCarousel = () => {
   return (
-    <section className="features-carousel">
-      <div className="features-carousel__container">
-        <div className="features-carousel__track">
+    <section className={styles['features-carousel']}>
+      <div className={styles['features-carousel__container']}>
+        <div className={styles['features-carousel__track']}>
           {featuresData.map((feature, index) => (
             <div 
               key={index} 
-              className="features-carousel__card"
+              className={styles['features-carousel__card']}
               style={{ backgroundImage: `url(${feature.image})` }}
             >
-              <div className="features-carousel__overlay"></div>
-              <div className="features-carousel__content">
-                <h3 className="features-carousel__title">{feature.title}</h3>
-                <p className="features-carousel__subtitle">{feature.subtitle}</p>
+              <div className={styles['features-carousel__overlay']}></div>
+              <div className={styles['features-carousel__content']}>
+                <h3 className={styles['features-carousel__title']}>{feature.title}</h3>
+                <p className={styles['features-carousel__subtitle']}>{feature.subtitle}</p>
               </div>
             </div>
           ))}

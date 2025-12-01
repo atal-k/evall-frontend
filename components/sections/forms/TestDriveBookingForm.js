@@ -13,6 +13,7 @@ import {
   ConsentCheckboxField,
   TextField
 } from '../../common/FormFields';
+import styles from '../../common/TestDriveModal.module.css';
 import { validateField } from '../../../utils/validators';
 import { useTestDriveBooking } from '../../../hooks';
 import { useToast } from '../../common/Toast';
@@ -186,11 +187,11 @@ const TestDriveBookingForm = (isModal) => {
   };
 
   return (
-    <div className={`test-drive-booking-form ${isModal ? 'test-drive-booking-form--modal' : ''}`}>
+<div className={`${styles['test-drive-booking-form']} ${isModal ? styles['test-drive-booking-form--modal'] : ''}`}>
       <form onSubmit={handleSubmit}>
         {/* Customer Details */}
-        <h2 className="test-drive-booking-form__section-title">Customer Details</h2>
-        <div className="form__row">
+        <h2 className={styles['test-drive-booking-form__section-title']}>Customer Details</h2>
+        <div className={styles['form__row']}>
         <TextField
             name="name"
             value={formData.name}
@@ -213,7 +214,7 @@ const TestDriveBookingForm = (isModal) => {
           />
       </div>
 
-      <div className="form__row">
+      <div className={styles['form__row']}>
         <PhoneField
           name="contactNumber"
           value={formData.contactNumber}
@@ -309,7 +310,7 @@ const TestDriveBookingForm = (isModal) => {
         <button
           type="submit"
           disabled={isSubmitting || isLoading}
-          className="test-drive-booking-form__submit"
+          className={styles['test-drive-booking-form__submit']}
         >
           {isSubmitting ? 'Booking Test Ride...' : 'Book Test Ride'}
         </button>

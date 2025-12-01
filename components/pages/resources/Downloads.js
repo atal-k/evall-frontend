@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { getIcon } from '@/data/iconsData';
-import './Downloads.css';
+import styles from './Downloads.module.css';
 
 // NOTE: Renamed component function to DownloadsPageComponent for consistency.
 const DownloadsPageComponent = () => {
@@ -52,37 +52,37 @@ const DownloadsPageComponent = () => {
     };
   
     return (
-      <div className="downloads-page">
+      <div className={styles['downloads-page']}>
         {/* Hero Section */}
-        <section className="downloads-page__hero">
-          <div className="downloads-page__hero-content">
-            <h1 className="downloads-page__title">Download Brochures & Manuals</h1>
-            <p className="downloads-page__subtitle">
+        <section className={styles['downloads-page__hero']}>
+          <div className={styles['downloads-page__hero-content']}>
+            <h1 className={styles['downloads-page__title']}>Download Brochures & Manuals</h1>
+            <p className={styles['downloads-page__subtitle']}>
               Access comprehensive product information, technical documentation, and resources
             </p>
           </div>
         </section>
   
         {/* Downloads Grid */}
-        <section className="downloads-page__content">
-          <div className="downloads-page__container">
-            <div className="downloads-page__grid">
+        <section className={styles['downloads-page__content']}>
+          <div className={styles['downloads-page__container']}>
+            <div className={styles['downloads-page__grid']}>
               {downloads.map((item, index) => (
                 <div
                   key={item.id}
                   ref={el => cardRefs.current[index] = el}
-                  className={`downloads-page__card ${visibleCards.includes(index) ? 'downloads-page__card--visible' : ''}`}
+                  className={`${styles['downloads-page__card']} ${visibleCards.includes(index) ? styles['downloads-page__card--visible'] : ''}`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="downloads-page__card-icon">
+                  <div className={styles['downloads-page__card-icon']}>
                     {getIcon('fileText', 40)}
                   </div>
-                  <div className="downloads-page__card-content">
-                    <h3 className="downloads-page__card-title">{item.title}</h3>
-                    <p className="downloads-page__card-description">{item.description}</p>
+                  <div className={styles['downloads-page__card-content']}>
+                    <h3 className={styles['downloads-page__card-title']}>{item.title}</h3>
+                    <p className={styles['downloads-page__card-description']}>{item.description}</p>
                   </div>
                   <button
-                    className="downloads-page__download-btn"
+                    className={styles['downloads-page__download-btn']}
                     onClick={() => handleDownload(item.filePath, item.title)}
                   >
                   {getIcon('download', 20)}

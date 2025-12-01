@@ -2,7 +2,8 @@
 // FILE: src/components/sections/ServiceOverview.js
 // ============================================================================
 import React from 'react';
-import './ServiceOverview.css';
+import styles from './ServiceOverview.module.css';
+import Image from 'next/image';
 
 const ServiceOverview = () => {
   const features = [
@@ -36,33 +37,35 @@ const ServiceOverview = () => {
   ];
 
   return (
-    <section className="service-overview">
-      <div className="service-overview__container">
-        <div className="service-overview__content">
-          <div className="service-overview__text">
-            <h2 className="service-overview__title">EVall Prime Service</h2>
-            <p className="service-overview__tagline">Service On The Spot. Kamaai On Top.</p>
-            <p className="service-overview__description">
+    <section className={styles['service-overview']}>
+      <div className={styles['service-overview__container']}>
+        <div className={styles['service-overview__content']}>
+          <div className={styles['service-overview__text']}>
+            <h2 className={styles['service-overview__title']}>EVall Prime Service</h2>
+            <p className={styles['service-overview__tagline']}>Service On The Spot. Kamaai On Top.</p>
+            <p className={styles['service-overview__description']}>
               EVall Prime brings the service center to your doorstep. With expert EV technicians 
               and rapid turnaround, you lose zero time and zero trips. Experience hassle-free 
               maintenance and support designed for your convenience.
             </p>
-            <div className="service-overview__features">
+            <div className={styles['service-overview__features']}>
               {features.map((feature) => (
-                <div key={feature.id} className="service-overview__feature">
-                  <div className="service-overview__feature-icon">
+                <div key={feature.id} className={styles['service-overview__feature']}>
+                  <div className={styles['service-overview__feature-icon']}>
                     {feature.icon}
                   </div>
-                  <span className="service-overview__feature-title">{feature.title}</span>
+                  <span className={styles['service-overview__feature-title']}>{feature.title}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="service-overview__image">
-            <img 
+          <div className={styles['service-overview__image']}>
+            <Image 
               src="/images/after-sales-service.webp" 
               alt="EVall Prime Service - Expert technicians and service vehicles"
-              className="service-overview__img"
+              className={styles['service-overview__img']}
+              width={960}
+              height={960}
             />
           </div>
         </div>

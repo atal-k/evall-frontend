@@ -3,7 +3,7 @@
 // ============================================================================
 
 import { useEffect, useRef, useState } from "react";
-import './DonutChart.css'
+import styles from './DonutChart.module.css';
 import { formatCurrency } from "../../utils/formatter";
 /**
  * Reusable Donut Chart Component using HTML5 Canvas
@@ -47,6 +47,7 @@ const DonutChart = ({
     // Animation effect
     useEffect(() => {
       if (!animate) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setAnimationProgress(1);
         return;
       }
@@ -170,44 +171,44 @@ const DonutChart = ({
     };
   
     return (
-      <div className={`donut-chart ${className}`}>
+      <div className={`${styles['donut-chart']} ${styles[className]}`}>
         <canvas
           ref={canvasRef}
           width={width}
           height={height}
-          className="donut-chart__canvas"
+          className={styles['donut-chart__canvas']}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         />
         
         {showLegend && (
-          <div className="donut-chart__legend">
+          <div className={styles['donut-chart__legend']}>
             {segments.map((segment, index) => (
               <div 
                 key={index} 
-                className={`donut-chart__legend-item ${hoveredSegment === index ? 'donut-chart__legend-item--active' : ''}`}
+                className={`${styles['donut-chart__legend-item']} ${hoveredSegment === index ? styles['donut-chart__legend-item--active'] : ''}`}
                 onMouseEnter={() => setHoveredSegment(index)}
                 onMouseLeave={() => setHoveredSegment(null)}
               >
                 <span 
-                  className="donut-chart__legend-color" 
+                  className={styles['donut-chart__legend-color']} 
                   style={{ backgroundColor: segment.color }}
                 ></span>
-                <span className="donut-chart__legend-label">{segment.label}</span>
+                <span className={styles['donut-chart__legend-label']}>{segment.label}</span>
               </div>
             ))}
           </div>
         )}
-  
+    
         {hoveredSegment !== null && (
-          <div className="donut-chart__tooltip">
-            <div className="donut-chart__tooltip-label">
+          <div className={styles['donut-chart__tooltip']}>
+            <div className={styles['donut-chart__tooltip-label']}>
               {segments[hoveredSegment].label}
             </div>
-            <div className="donut-chart__tooltip-value">
+            <div className={styles['donut-chart__tooltip-value']}>
               {formatCurrency(segments[hoveredSegment].value)}
             </div>
-            <div className="donut-chart__tooltip-percentage">
+            <div className={styles['donut-chart__tooltip-percentage']}>
               {segments[hoveredSegment].percentage.toFixed(1)}%
             </div>
           </div>

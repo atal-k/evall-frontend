@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FAQdata } from '../../data/faqData';
-import './FAQ.css'
+import styles from './FAQ.module.css';
 
 const ChevronIcon = ({ isOpen }) => (
   <svg 
@@ -8,7 +8,7 @@ const ChevronIcon = ({ isOpen }) => (
     width="1.5em" 
     height="1.5em" 
     viewBox="0 0 1024 1024"
-    className={`faq-icon ${isOpen ? 'open' : ''}`}
+    className={`${styles['faq-icon']} ${isOpen ? styles['open'] : ''}`}
   >
     <path fill="currentColor" d="M831.872 340.864L512 652.672L192.128 340.864a30.59 30.59 0 0 0-42.752 0a29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728a30.59 30.59 0 0 0-42.752 0z" />
   </svg>
@@ -16,17 +16,17 @@ const ChevronIcon = ({ isOpen }) => (
 
 const FAQItem = ({ faq, isOpen, onToggle }) => {
   return (
-    <div className="faq-item">
+    <div className={styles['faq-item']}>
       <button 
-        className="faq-question"
+        className={styles['faq-question']}
         onClick={onToggle}
         aria-expanded={isOpen}
       >
         <span>{faq.ques}</span>
         <ChevronIcon isOpen={isOpen} />
       </button>
-      <div className={`faq-answer ${isOpen ? 'open' : ''}`}>
-        <div className="faq-answer-content">
+      <div className={`${styles['faq-answer']} ${isOpen ? styles['open'] : ''}`}>
+        <div className={styles['faq-answer-content']}>
           {faq.ans}
         </div>
       </div>
@@ -45,9 +45,9 @@ export const FAQCategory = ({ category, faqs }) => {
   };
 
   return (
-    <div className="faq-category">
-      <h3 className="faq-category-title">{category}</h3>
-      <div className="faq-list">
+    <div className={styles['faq-category']}>
+      <h3 className={styles['faq-category-title']}>{category}</h3>
+      <div className={styles['faq-list']}>
         {faqs.map((faq) => (
           <FAQItem
             key={faq.id}
@@ -63,18 +63,18 @@ export const FAQCategory = ({ category, faqs }) => {
 
 export default function FAQ() {
   return (
-    <div className="faq-page">
-      <div className="faq-container">
-        <header className="faq-header">
-          <h1 className="faq-title">
-            Frequently asked <span className="highlight">questions</span>
+      <div className={styles['faq-page']}>
+      <div className={styles['faq-container']}>
+        <header className={styles['faq-header']}>
+          <h1 className={styles['faq-title']}>
+            Frequently asked <span className={styles['highlight']}>questions</span>
           </h1>
-          <p className="faq-subtitle">
+          <p className={styles['faq-subtitle']}>
             Do you need some help with something or do you have questions on some features?
           </p>
         </header>
 
-        <div className="faq-content">
+        <div className={styles['faq-content']}>
           {FAQdata.map((section) => (
             <FAQCategory
               key={section.id}
@@ -84,12 +84,12 @@ export default function FAQ() {
           ))}
         </div>
 
-        <footer className="faq-footer">
-          <h2 className="faq-footer-title">Have any other questions?</h2>
-          <p className="faq-footer-text">
-            Don't hesitate to send us an email with your enquiry or statement at:
+        <footer className={styles['faq-footer']}>
+          <h2 className={styles['faq-footer-title']}>Have any other questions?</h2>
+          <p className={styles['faq-footer-text']}>
+            Don&apos;t hesitate to send us an email with your enquiry or statement at:
           </p>
-          <a href="mailto:info@evall.co.in" className="faq-contact-email">
+          <a href="mailto:info@evall.co.in" className={styles['faq-contact-email']}>
             info@evall.co.in
           </a>
         </footer>

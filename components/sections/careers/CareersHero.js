@@ -4,7 +4,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import {careersData} from '../../../data/careersData'
-import './CareersHero.css'
+import styles from './CareersHero.module.css'
+import Image from "next/image";
 
 const CareersHero = () => {
     const [counts, setCounts] = useState({ 0: 0, 1: 0, 2: 0 });
@@ -12,6 +13,7 @@ const CareersHero = () => {
     const heroRef = useRef(null);
   
     useEffect(() => {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true);
     }, []);
   
@@ -46,8 +48,8 @@ const CareersHero = () => {
     };
   
     return (
-      <section className="careers-hero" ref={heroRef}>
-        <div className="hero-background">
+      <section className={styles['careers-hero']} ref={heroRef}>
+        <div className={styles['hero-background']}>
           <video
             autoPlay
             muted
@@ -59,43 +61,43 @@ const CareersHero = () => {
             <source src="/video/particles-animation.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="hero-overlay"></div>
-        <div className="hero-content">
-          <div className="hero-left">
-            <div className={`hero-badge ${isVisible ? 'fade-in' : ''}`}>
+        <div className={styles['hero-overlay']}></div>
+        <div className={styles['hero-content']}>
+          <div className={styles['hero-left']}>
+            <div className={`${styles['hero-badge']} ${isVisible ? styles['fade-in'] : ''}`}>
               {careersData.hero.badge}
             </div>
             
-            <h1 className={`hero-title ${isVisible ? 'fade-in-up' : ''}`}>
-              <span className="title-main">{careersData.hero.headline.main}</span>
-              <span className="title-sub">{careersData.hero.headline.sub}</span>
+            <h1 className={`${styles['hero-title']} ${isVisible ? styles['fade-in-up'] : ''}`}>
+              <span className={styles['title-main']}>{careersData.hero.headline.main}</span>
+              <span className={styles['title-sub']}>{careersData.hero.headline.sub}</span>
             </h1>
-            <p className={`hero-subtitle ${isVisible ? 'fade-in-up delay-1' : ''}`}>
+            <p className={`${styles['hero-subtitle']} ${isVisible ? styles['fade-in-up'] : ''} ${isVisible ? styles['delay-1'] : ''}`}>
               {careersData.hero.subheadline}
             </p>
-            <p className={`hero-description ${isVisible ? 'fade-in-up delay-2' : ''}`}>
+            <p className={`${styles['hero-description']} ${isVisible ? styles['fade-in-up'] : ''} ${isVisible ? styles['delay-2'] : ''}`}>
               {careersData.hero.description}
             </p>
-            <div className="hero-stats">
+            <div className={styles['hero-stats']}>
               {careersData.hero.stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className={`stat-card ${isVisible ? 'fade-in-up' : ''}`}
+                  className={`${styles['stat-card']} ${isVisible ? styles['fade-in-up'] : ''}`}
                   style={{ animationDelay: `${0.4 + idx * 0.1}s` }}
                 >
-                  <div className="stat-number">
+                  <div className={styles['stat-number']}>
                     {counts[idx]}{stat.suffix}
                   </div>
-                  <div className="stat-label">{stat.label}</div>
+                  <div className={styles['stat-label']}>{stat.label}</div>
                 </div>
               ))}
             </div>
             
-            <div className={`hero-cta ${isVisible ? 'fade-in-up delay-3' : ''}`}>
+            <div className={`${styles['hero-cta']} ${isVisible ? styles['fade-in-up'] : ''} ${isVisible ? styles['delay-3'] : ''}`}>
               {careersData.hero.ctaButtons.map((btn, idx) => (
                 <button
                   key={idx}
-                  className={`cta-btn cta-btn-${btn.type}`}
+                  className={`${styles['cta-btn']} ${styles[`cta-btn-${btn.type}`]}`}
                   onClick={() => scrollToSection(btn.scrollTo)}
                 >
                   {btn.text}
@@ -103,12 +105,14 @@ const CareersHero = () => {
               ))}
             </div>
           </div>
-          <div className="hero-right">
-            <div className="hero-image-wrapper">
-              <img 
+          <div className={styles['hero-right']}>
+            <div className={styles['hero-image-wrapper']}>
+              <Image 
                 src="/images/careers/business-people-hero.webp" 
                 alt="EVall Team" 
-                className="hero-image"
+                className={styles['hero-image']}
+                width={1258}
+                height={1258}
               />
             </div>
             

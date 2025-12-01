@@ -1,21 +1,21 @@
 // src/components/common/TabView.js
 import React, { useState } from 'react';
-import './TabView.css';
-
+import styles from './TabView.module.css';
+import Image from 'next/image';
 const TabView = ({ data }) => {
   const [activeTab, setActiveTab] = useState(data[0]?.id || 1);
 
   const activeContent = data.find(item => item.id === activeTab);
 
   return (
-    <section className="tab-view">
-      <div className="container">
+    <section className={styles['tab-view']}>
+      <div className='container'>
         {/* Tab Navigation */}
-        <div className="tab-view__nav">
+        <div className={styles['tab-view__nav']}>
           {data.map(tab => (
             <button
               key={tab.id}
-              className={`tab-view__tab ${activeTab === tab.id ? 'tab-view__tab--active' : ''}`}
+              className={`${styles['tab-view__tab']} ${activeTab === tab.id ? styles['tab-view__tab--active'] : ''}`}
               onClick={() => setActiveTab(tab.id)}
             >
               {tab.tabName}
@@ -25,33 +25,35 @@ const TabView = ({ data }) => {
 
         {/* Tab Content */}
         {activeContent && (
-          <div key={activeContent.id} className="tab-view__content">
-            <div className="tab-view__image-wrapper">
-              <img 
+          <div key={activeContent.id} className={styles['tab-view__content']}>
+            <div className={styles['tab-view__image-wrapper']}>
+              <Image 
                 src={activeContent.img.src} 
                 alt={activeContent.img.alt}
-                className="tab-view__image"
+                className={styles['tab-view__image']}
+                width={1000}
+                height={800}
               />
             </div>
 
-            <div className="tab-view__text">
-              <h2 className="tab-view__title">{activeContent.title}</h2>
+            <div className={styles['tab-view__text']}>
+              <h2 className={styles['tab-view__title']}>{activeContent.title}</h2>
               
               {activeContent.paragraphs.map((paragraph, index) => (
-                <p key={index} className="tab-view__paragraph">
+                <p key={index} className={styles['tab-view__paragraph']}>
                   {paragraph}
                 </p>
               ))}
 
               {activeContent.bullets.length > 0 && (
-                <ul className="tab-view__bullets">
+                  <ul className={styles['tab-view__bullets']}>
                   {activeContent.bullets.map((bullet, index) => (
-                    <li key={index} className="tab-view__bullet-item">
+                    <li key={index} className={styles['tab-view__bullet-item']}>
                       {typeof bullet === 'string' ? (
                         bullet
                       ) : (
                         <>
-                          <strong className="tab-view__bullet-title">{bullet.title}:</strong>{' '}
+                          <strong className={styles['tab-view__bullet-title']}>{bullet.title}:</strong>{' '}
                           {bullet.text}
                         </>
                       )}

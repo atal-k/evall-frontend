@@ -3,7 +3,7 @@
 // ============================================================================
 import React, { useState, useEffect, useRef } from "react";
 import { careersData } from "../../../data/careersData";
-import './JobOpeningSection.css'
+import styles from './JobOpeningSection.module.css'
 
 const JobCard = ({ job }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -27,28 +27,32 @@ const JobCard = ({ job }) => {
     };
   
     return (
-      <div className="job-card">
-        <div 
-          className="job-icon" 
+      <div className={styles['job-card']}>
+        <div
+          className={styles['job-icon']}
           style={{ backgroundColor: `${departmentColors[job.department]}15` }}
         >
           <span style={{ color: departmentColors[job.department] }}>
             {departmentIcons[job.department]}
           </span>
         </div>
-        <div className="job-header">
-          <h3 className="job-title">{job.title}</h3>
-          <div className="job-meta">
-            <span className="job-badge location">{job.location}</span>
-            <span className="job-badge type">{job.type}</span>
-            <span className="job-badge experience">{job.experience}</span>
+    
+        <div className={styles['job-header']}>
+          <h3 className={styles['job-title']}>{job.title}</h3>
+    
+          <div className={styles['job-meta']}>
+            <span className={`${styles['job-badge']} ${styles['location']}`}>{job.location}</span>
+            <span className={`${styles['job-badge']} ${styles['type']}`}>{job.type}</span>
+            <span className={`${styles['job-badge']} ${styles['experience']}`}>{job.experience}</span>
           </div>
         </div>
-        <p className="job-description">
+    
+        <p className={styles['job-description']}>
           {isExpanded ? job.description : `${job.description.slice(0, 150)}...`}
         </p>
+    
         {isExpanded && (
-          <div className="job-responsibilities">
+          <div className={styles['job-responsibilities']}>
             <h4>Key Responsibilities:</h4>
             <ul>
               {job.responsibilities.map((resp, idx) => (
@@ -57,17 +61,19 @@ const JobCard = ({ job }) => {
             </ul>
           </div>
         )}
-        <div className="job-actions">
-          <button className="btn-apply">Apply Now</button>
-          <button 
-            className="btn-details"
+    
+        <div className={styles['job-actions']}>
+          <button className={styles['btn-apply']}>Apply Now</button>
+    
+          <button
+            className={styles['btn-details']}
             onClick={() => setIsExpanded(!isExpanded)}
           >
             {isExpanded ? 'Show Less' : 'View Details'}
           </button>
         </div>
       </div>
-    );
+    );    
   };
   
   const JobOpeningSection = () => {
@@ -105,30 +111,51 @@ const JobCard = ({ job }) => {
   
     const jobCount = filteredJobs.length;
     return (
-      <section id="job-openings" className="job-openings-section" ref={sectionRef}>
-        <div className="job-openings-container">
-          <div className={`section-header ${isVisible ? 'fade-in-up' : ''}`}>
-            <h2 className="section-title">Be The ChangeMaker: Job Openings</h2>
-            <p className="section-subtitle">Current Opportunities At EVall Mobility</p>
+      <section
+        id="job-openings"
+        className={styles['job-openings-section']}
+        ref={sectionRef}
+      >
+        <div className={styles['job-openings-container']}>
+    
+          <div
+            className={`${styles['section-header']} ${
+              isVisible ? styles['fade-in-up'] : ''
+            }`}
+          >
+            <h2 className={styles['section-title']}>Be The ChangeMaker: Job Openings</h2>
+            <p className={styles['section-subtitle']}>Current Opportunities At EVall Mobility</p>
           </div>
-  
-          <div className={`job-filters ${isVisible ? 'fade-in-up delay-1' : ''}`}>
+    
+          <div
+            className={`${styles['job-filters']} ${
+              isVisible ? `${styles['fade-in-up']} ${styles['delay-1']}` : ''
+            }`}
+          >
             {departments.map((dept) => (
               <button
                 key={dept}
-                className={`filter-btn ${filter === dept ? 'active' : ''}`}
+                className={`${styles['filter-btn']} ${
+                  filter === dept ? styles['active'] : ''
+                }`}
                 onClick={() => setFilter(dept)}
               >
                 {dept}
               </button>
             ))}
           </div>
-  
-          <div className={`job-grid ${jobCount <= 2 ? 'centered' : ''}`}>
+    
+          <div
+            className={`${styles['job-grid']} ${
+              jobCount <= 2 ? styles['centered'] : ''
+            }`}
+          >
             {filteredJobs.map((job, idx) => (
               <div
                 key={job.id}
-                className={`job-card-wrapper ${isVisible ? 'fade-in-up' : ''}`}
+                className={`${styles['job-card-wrapper']} ${
+                  isVisible ? styles['fade-in-up'] : ''
+                }`}
                 style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
               >
                 <JobCard job={job} />
@@ -137,7 +164,7 @@ const JobCard = ({ job }) => {
           </div>
         </div>
       </section>
-    );
+    );    
   };
 
 export default JobOpeningSection;

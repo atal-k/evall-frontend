@@ -1,9 +1,10 @@
-// FILE: src/components/sections/TechnicalDetails.js
+// FILE: components/sections/TechnicalDetails.js
 
 
 import React, { useState } from 'react';
-import './TechnicalDetails.css';
+import styles from './TechnicalDetails.module.css';
 import Logo from "../common/Logo";
+import Image from 'next/image';
 
 // Technical Specifications Data
 const technicalData = {
@@ -72,30 +73,27 @@ const TechnicalDetails = () => {
     }, 300);  // Match animation duration
   };
   return (
-    <section className="technical-details">
-      <div className="technical-details__container container">
-        <div className="technical-details__image">
-          <img 
-            src="/images/evall-front.webp" 
-            alt="EVall Van Front View" 
-          />
+      <section className={styles['technical-details']}>
+      <div className={styles['technical-details__container']}>
+        <div className={styles['technical-details__image']}>
+          <Image src="/images/evall-front.webp" alt="EVall Van Front View" fill />
         </div>
         
-        <div className="technical-details__content" ref={contentRef}>
-          <div className="technical-details__highlights">
+        <div className={styles['technical-details__content']} ref={contentRef}>
+          <div className={styles['technical-details__highlights']}>
             {keyHighlights.map((highlight, index) => (
-              <div key={index} className="highlight-item">
-                <div className="highlight-item__value">
+              <div key={index} className={styles['highlight-item']}>
+                <div className={styles['highlight-item__value']}>
                   {highlight.value}
-                  <span className="highlight-item__unit">{highlight.unit}</span>
+                  <span className={styles['highlight-item__unit']}>{highlight.unit}</span>
                 </div>
-                <div className="highlight-item__label">{highlight.label}</div>
+                <div className={styles['highlight-item__label']}>{highlight.label}</div>
               </div>
             ))}
           </div>
           
           <button 
-            className="technical-details__btn"
+            className={styles['technical-details__btn']}
             onClick={openModal}
           >
             View all technical details
@@ -104,58 +102,58 @@ const TechnicalDetails = () => {
       </div>
 
       {isModalOpen && (
-        <div className="modal-overlay" onClick={closeModal} style={{ left: `${modalLeft}px` }}>
+        <div className={styles['modal-overlay']} onClick={closeModal} style={{ left: `${modalLeft}px` }}>
             <div 
-            className={`modal-content ${isClosing ? 'modal-closing' : ''}`}  // ADD isClosing class
+            className={`${styles['modal-content']} ${isClosing ? styles['modal-closing'] : ''}`}  // ADD isClosing class
             onClick={(e) => e.stopPropagation()}
             >
-            <button className="modal-close" onClick={closeModal}>
+            <button className={styles['modal-close']} onClick={closeModal}>
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" color='#5C6370'>
                 <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
               </svg>
             </button>
 
-            <div className="modal-header">
+            <div className={styles['modal-header']}>
               <Logo size="large" />
             </div>
 
-            <div className="modal-body">
+            <div className={styles['modal-body']}>
               <div className="specs-section">
-                <h3 className="specs-section__title">{technicalData.modelDetails.title}</h3>
+                <h3 className={styles['specs-section__title']}>{technicalData.modelDetails.title}</h3>
                 {technicalData.modelDetails.specs.map((spec, index) => (
-                  <div key={index} className="spec-row">
-                    <span className="spec-row__label">{spec.label}</span>
-                    <span className="spec-row__value">{spec.value}</span>
+                  <div key={index} className={styles['spec-row']}>
+                    <span className={styles['spec-row__label']}>{spec.label}</span>
+                    <span className={styles['spec-row__value']}>{spec.value}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="specs-section">
-                <h3 className="specs-section__title">{technicalData.evPowertrain.title}</h3>
+              <div className={styles['specs-section']}>
+                <h3 className={styles['specs-section__title']}>{technicalData.evPowertrain.title}</h3>
                 {technicalData.evPowertrain.specs.map((spec, index) => (
-                  <div key={index} className="spec-row">
-                    <span className="spec-row__label">{spec.label}</span>
-                    <span className="spec-row__value">{spec.value}</span>
+                  <div key={index} className={styles['spec-row']}>
+                    <span className={styles['spec-row__label']}>{spec.label}</span>
+                    <span className={styles['spec-row__value']}>{spec.value}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="specs-section">
-                <h3 className="specs-section__title">{technicalData.performance.title}</h3>
+              <div className={styles['specs-section']}>
+                <h3 className={styles['specs-section__title']}>{technicalData.performance.title}</h3>
                 {technicalData.performance.specs.map((spec, index) => (
-                  <div key={index} className="spec-row">
-                    <span className="spec-row__label">{spec.label}</span>
-                    <span className="spec-row__value">{spec.value}</span>
+                  <div key={index} className={styles['spec-row']}>
+                    <span className={styles['spec-row__label']}>{spec.label}</span>
+                    <span className={styles['spec-row__value']}>{spec.value}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="specs-section">
-                <h3 className="specs-section__title">{technicalData.charging.title}</h3>
+              <div className={styles['specs-section']}>
+                <h3 className={styles['specs-section__title']}>{technicalData.charging.title}</h3>
                 {technicalData.charging.specs.map((spec, index) => (
-                  <div key={index} className="spec-row">
-                    <span className="spec-row__label">{spec.label}</span>
-                    <span className="spec-row__value">{spec.value}</span>
+                  <div key={index} className={styles['spec-row']}>
+                    <span className={styles['spec-row__label']}>{spec.label}</span>
+                    <span className={styles['spec-row__value']}>{spec.value}</span>
                   </div>
                 ))}
               </div>

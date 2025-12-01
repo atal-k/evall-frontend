@@ -1,15 +1,15 @@
 // ============================================
-// 📁 src/pages/ProductShowcase.js
+// /pages/ProductShowcase.js
 // ============================================
 
 import React, { useState } from 'react';
-import TechnicalDetails from '../components/sections/TechnicalDetails';
-import Callout from '../components/sections/Callout';
-import FeatureSection from '../components/sections/FeatureSection';
-import FeaturesCarousel from '../components/sections/FeaturesCarousel';
-import ShowcaseBanner from '../components/sections/ShowcaseBanner';
-import EVShowcase from '../components/sections/EVShowcase';
-import TestDriveModal from '../components/common/TestDriveModal';
+import TechnicalDetails from '../../components/sections/TechnicalDetails';
+import Callout from '../../components/sections/Callout';
+import FeatureSection from '../../components/sections/FeatureSection';
+import FeaturesCarousel from '../../components/sections/FeaturesCarousel';
+import ShowcaseBanner from '../../components/sections/ShowcaseBanner';
+import EVShowcase from '../../components/sections/EVShowcase';
+import TestDriveModal from '../../components/common/TestDriveModal';
 
 const ProductShowcase = () => {
   const [isTestDriveModalOpen, setIsTestDriveModalOpen] = useState(false);

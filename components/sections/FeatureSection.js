@@ -1,11 +1,11 @@
 // ============================================================================
-// FILE: /src/components/common/FeatureSection.js
+// FILE: components/sections/FeatureSection.js
 // ============================================================================
 import React, { useState, useEffect, useCallback } from 'react';
 import Tooltip from '../common/Tooltip';
 import FeatureModal from '../common/FeatureModal';
-import './FeatureSection.css';
-
+import styles from './FeatureSection.module.css';
+import Image from 'next/image';
 const FeatureSection = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,18 +46,19 @@ const FeatureSection = ({ data }) => {
   }, [isModalOpen, activeIndex, handleCloseModal, handleNext, handlePrev]);
 
   return (
-    <section className="feature-section">
-      <div className="feature-section__container">
-        <div className="feature-section__header">
-          <h2 className="feature-section__title">{data.title}</h2>
-          <p className="feature-section__subtitle">{data.subtitle}</p>
+    <section className={styles['feature-section']}>
+      <div className={styles['feature-section__container']}>
+        <div className={styles['feature-section__header']}>
+          <h2 className={styles['feature-section__title']}>{data.title}</h2>
+          <p className={styles['feature-section__subtitle']}>{data.subtitle}</p>
         </div>
 
-        <div className="feature-section__image-container">
-          <img 
+        <div className={styles['feature-section__image-container']}>
+          <Image 
             src={data.image}
             alt='feature-main'
-            className="feature-section__image"
+            className={styles['feature-section__image']}
+            fill
           />
           
           {data.features.map((feature, index) => (

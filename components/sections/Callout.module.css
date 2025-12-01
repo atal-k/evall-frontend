@@ -27,7 +27,7 @@
   
   .cta-section__image-wrapper {
     position: absolute; /* CHANGED from relative */
-    left: -30px;
+    left: -10px;
     top: -160px; /* ADDED - pulls image up beyond container */
     height: calc(100% + 190px); /* Extends beyond container */
     display: flex;
@@ -37,7 +37,7 @@
   }
   
   .cta-section__image {
-    width: 62%;
+    width: 100%;
     aspect-ratio: 738 / 447;
     height: auto;
     object-fit: contain;

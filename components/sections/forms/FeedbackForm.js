@@ -13,6 +13,7 @@ import {
   RatingField,
   YesNoField,
 } from '../../common/FormFields';
+import styles from '../../common/FormFields.module.css';
 import { validateField } from '../../../utils/validators';
 import { useCustomerFeedback } from '../../../hooks';
 import { useToast } from '../../common/Toast';
@@ -241,7 +242,7 @@ const FeedbackForm = () => {
         <h2 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', color: 'var(--color-heading)', borderBottom: '2px solid var(--color-primary)', paddingBottom: '0.1rem' }}>
           Customer Details
         </h2>
-        <div className='form__row'>
+        <div className={styles['form__row']}>
           <TextField
             name="name"
             value={formData.name}
@@ -263,7 +264,7 @@ const FeedbackForm = () => {
           />
         </div>
 
-        <div className='form__row'>
+        <div className={styles['form__row']}>
           <PhoneField
             name="contactNumber"
             value={formData.contactNumber}
@@ -452,7 +453,7 @@ const FeedbackForm = () => {
         <button
             type="submit"
             disabled={isSubmitting || isLoading}
-            className='btn-form-submit'
+            className={styles['btn-form-submit']}
           >
             {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>

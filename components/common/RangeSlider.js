@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { formatCurrency, formatPercentage, formatNumber } from '../../utils/formatter';
-import './RangeSlider.css';
+import styles from './RangeSlider.module.css';
 
 /**
  * Reusable Range Slider Component
@@ -114,18 +114,18 @@ const RangeSlider = ({
   };
 
   return (
-    <div className="range-slider">
-      <div className="range-slider__header">
-        <span className="range-slider__label">{label}</span>
-        <span className="range-slider__current-value">
+    <div className={styles['range-slider']}>
+      <div className={styles['range-slider__header']}>
+        <span className={styles['range-slider__label']}>{label}</span>
+        <span className={styles['range-slider__current-value']}>
           {formatCurrentValue()}
         </span>
       </div>
 
-      <div className="range-slider__track-container" onClick={handleTrackClick}>
-      <div className="range-slider__track">
+      <div className={styles['range-slider__track-container']} onClick={handleTrackClick}>
+      <div className={styles['range-slider__track']}>
           <div 
-            className="range-slider__fill" 
+            className={styles['range-slider__fill']} 
             style={{ width: `${percentage}%` }}
           />
         </div>
@@ -137,13 +137,13 @@ const RangeSlider = ({
           step={step}
           value={currentValue}
           onChange={handleChange}
-          className="range-slider__input"
+          className={styles['range-slider__input']}
         />
       </div>
       
-      <div className="range-slider__labels">
-        <span className="range-slider__min">{formatMinMax(min, true)}</span>
-        <span className="range-slider__max">{formatMinMax(max, false)}</span>
+        <div className={styles['range-slider__labels']}>
+        <span className={styles['range-slider__min']}>{formatMinMax(min, true)}</span>
+        <span className={styles['range-slider__max']}>{formatMinMax(max, false)}</span>
       </div>
     </div>
   );

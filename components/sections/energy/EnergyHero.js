@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/purity */
 // ============================================================================
 // FILE: src/components/sections/EnergyHero.js
 // ============================================================================
 import React, { useState, useEffect } from 'react';
-import './EnergyHero.css'
+import styles from './EnergyHero.module.css'
 import { energyBatteryData } from '../../../data/energyBatteryData';
 import { getIcon } from '../../../data/iconsData';
 
@@ -23,29 +24,29 @@ const EnergyHero = () => {
     };
   
     return (
-      <section className="energy-hero">
+      <section className={styles['energy-hero']}>
         
-        <div className="hero-background">
-          <div className="circuit-pattern"></div>
+        <div className={styles['hero-background']}>
+          <div className={styles['circuit-pattern']}></div>
         </div>
-        <div className="hero-content-wrapper">
-          <div className="hero-left">
-            <div className={`hero-badge ${isVisible ? 'fade-in' : ''}`}>
+        <div className={styles['hero-content-wrapper']}>
+          <div className={styles['hero-left']}>
+            <div className={`${styles['hero-badge']} ${isVisible ? styles['fade-in'] : ''}`}>
               {energyBatteryData.hero.badge}
             </div>
-            <h1 className={`hero-title ${isVisible ? 'fade-in-up' : ''}`}>
-              <span className="title-main">{energyBatteryData.hero.headline.main}</span>
-              <span className="title-sub">{energyBatteryData.hero.headline.sub}</span>
+            <h1 className={`${styles['hero-title']} ${isVisible ? styles['fade-in-up'] : ''}`}>
+              <span className={styles['title-main']}>{energyBatteryData.hero.headline.main}</span>
+              <span className={styles['title-sub']}>{energyBatteryData.hero.headline.sub}</span>
             </h1>
-            <p className={`hero-subtitle ${isVisible ? 'fade-in-up delay-1' : ''}`}>
+            <p className={`${styles['hero-subtitle']} ${isVisible ? styles['fade-in-up'] : ''} ${isVisible ? styles['delay-1'] : ''}`}>
               {energyBatteryData.hero.subheadline}
             </p>
-            <p className={`hero-description ${isVisible ? 'fade-in-up delay-2' : ''}`}>
+            <p className={`${styles['hero-description']} ${isVisible ? styles['fade-in-up'] : ''} ${isVisible ? styles['delay-2'] : ''}`}>
               {energyBatteryData.hero.description}
             </p>
-            <div className={`hero-cta ${isVisible ? 'fade-in-up delay-3' : ''}`}>
+            <div className={`${styles['hero-cta']} ${isVisible ? styles['fade-in-up'] : ''} ${isVisible ? styles['delay-3'] : ''}`}>
               <button 
-                className="cta-btn-primary"
+                className={styles['cta-btn-primary']}
                 onClick={() => scrollToSection(energyBatteryData.hero.ctaButton.link)}
               >
                 {energyBatteryData.hero.ctaButton.text}
@@ -53,23 +54,12 @@ const EnergyHero = () => {
             </div>
           </div>
   
-          <div className="hero-right">
-            <div className="battery-visual">
-            {/* <video
-              className="battery-video"
-              autoPlay
-              muted
-              loop
-              playsInline
-              webkit-playsinline="true"
-              preload="auto"
-            >
-              <source src="/video/battery-pack.mp4" type="video/mp4" />
-            </video> */}
-              <div className="energy-glow"></div>
-              <div className="energy-particles">
+          <div className={styles['hero-right']}>
+            <div className={styles['battery-visual']}>
+              <div className={styles['energy-glow']}></div>
+              <div className={styles['energy-particles']}>
                 {[...Array(20)].map((_, i) => (
-                  <div key={i} className="particle" style={{
+                  <div key={i} className={styles.particle} style={{
                     animationDelay: `${i * 0.2}s`,
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`
@@ -78,14 +68,14 @@ const EnergyHero = () => {
               </div>
             </div>
             
-            <div className="floating-stats">
+            <div className={styles['floating-stats']}>
               {energyBatteryData.hero.floatingStats.map((stat, idx) => (
                 <div 
                   key={idx}
-                  className={`stat-badge ${isVisible ? 'fade-in-up' : ''}`}
+                  className={`${styles['stat-badge']} ${isVisible ? styles['fade-in-up'] : ''}`}
                   style={{ animationDelay: `${0.5 + idx * 0.15}s` }}
                 >
-                  <div className="stat-icon">
+                  <div className={styles['stat-icon']}>
                     {getIcon(stat.icon, 20)}
                   </div>
                   <span>{stat.label}</span>

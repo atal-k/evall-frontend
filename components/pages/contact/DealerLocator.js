@@ -4,7 +4,7 @@
 // ============================================
 
 import React, { useEffect, useState } from 'react';
-import './DealerLocator.css';
+import styles from './DealerLocator.module.css';
 import { dealersData } from '@/data/dealersData';
 
 const DealerCard = ({ dealer, index }) => {
@@ -32,53 +32,64 @@ const DealerCard = ({ dealer, index }) => {
   };
 
   return (
-    <div className={`dealer-card ${isVisible ? 'visible' : ''}`}>
-      <div className="dealer-card-header">
-        <h3 className="dealer-name">{dealer.name}</h3>
+    <div className={`${styles['dealer-card']} ${isVisible ? styles['visible'] : ''}`}>
+      <div className={styles['dealer-card-header']}>
+        <h3 className={styles['dealer-name']}>{dealer.name}</h3>
       </div>
 
-      <div className="dealer-info">
-        <div className="dealer-info-item">
+      <div className={styles['dealer-info']}>
+        <div className={styles['dealer-info-item']}>
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
             <path fill="currentColor" d="M12 12q.825 0 1.413-.587T14 10t-.587-1.412T12 8t-1.412.588T10 10t.588 1.413T12 12m0 7.35q3.05-2.8 4.525-5.087T18 10.2q0-2.725-1.737-4.462T12 4T7.738 5.738T6 10.2q0 1.775 1.475 4.063T12 19.35M12 22q-4.025-3.425-6.012-6.362T4 10.2q0-3.75 2.413-5.975T12 2t5.588 2.225T20 10.2q0 2.5-1.987 5.438T12 22m0-12" />
           </svg>
           <div>
-            <p className="dealer-address">{dealer.address}</p>
-            <p className="dealer-city">
+            <p className={styles['dealer-address']}>{dealer.address}</p>
+            <p className={styles['dealer-city']}>
               {dealer.city}, {dealer.state} - {dealer.pincode}
             </p>
           </div>
         </div>
 
-        <div className="dealer-info-item">
+        <div className={styles['dealer-info-item']}>
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
             <path fill="currentColor" d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79zm9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75zM7.5 3H4c-.55 0-1 .45-1 1c0 9.39 7.61 17 17 17c.55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1c-1.24 0-2.45-.2-3.57-.57a.8.8 0 0 0-.31-.05c-.26 0-.51.1-.71.29l-2.2 2.2a15.15 15.15 0 0 1-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.4 11.4 0 0 1 8.5 4c0-.55-.45-1-1-1" />
           </svg>
-          <p className="dealer-phone">{dealer.phone}</p>
+          <p className={styles['dealer-phone']}>{dealer.phone}</p>
         </div>
 
-        <div className="dealer-info-item">
+        <div className={styles['dealer-info-item']}>
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
             <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m-1 17.93c-3.95-.49-7-3.85-7-7.93c0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41c0 2.08-.8 3.97-2.1 5.39" />
           </svg>
-          <p className="dealer-website">{dealer.website}</p>
+          <p className={styles['dealer-website']}>{dealer.website}</p>
         </div>
       </div>
 
-      <div className="dealer-actions">
-        <button className="dealer-btn dealer-btn-primary" onClick={handleCall}>
+      <div className={styles['dealer-actions']}>
+        <button
+          className={`${styles['dealer-btn']} ${styles['dealer-btn-primary']}`}
+          onClick={handleCall}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path fill="currentColor" d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79zm9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75zM7.5 3H4c-.55 0-1 .45-1 1c0 9.39 7.61 17 17 17c.55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1c-1.24 0-2.45-.2-3.57-.57a.8.8 0 0 0-.31-.05c-.26 0-.51.1-.71.29l-2.2 2.2a15.15 15.15 0 0 1-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.4 11.4 0 0 1 8.5 4c0-.55-.45-1-1-1" />
           </svg>
           Call Now
         </button>
-        <button className="dealer-btn dealer-btn-secondary" onClick={handleWebsite}>
+
+        <button
+          className={`${styles['dealer-btn']} ${styles['dealer-btn-secondary']}`}
+          onClick={handleWebsite}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m-1 17.93c-3.95-.49-7-3.85-7-7.93c0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41c0 2.08-.8 3.97-2.1 5.39" />
           </svg>
           Visit
         </button>
-        <button className="dealer-btn dealer-btn-outline" onClick={handleDirections}>
+
+        <button
+          className={`${styles['dealer-btn']} ${styles['dealer-btn-outline']}`}
+          onClick={handleDirections}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path fill="currentColor" d="M12 2a1 1 0 0 1 .932.638l7 18a1 1 0 0 1-1.437 1.225L12 18.065l-6.495 3.798a1 1 0 0 1-1.437-1.225l7-18l.066-.138A1 1 0 0 1 12 2" />
           </svg>
@@ -148,19 +159,19 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section className="benefits-section">
-      <div className="benefits-header">
-        <h2 className="benefits-title">Visit, Test, and Drive</h2>
-        <p className="benefits-subtitle">
+    <section className={styles['benefits-section']}>
+      <div className={styles['benefits-header']}>
+        <h2 className={styles['benefits-title']}>Visit, Test, and Drive</h2>
+        <p className={styles['benefits-subtitle']}>
           Each authorized EVall dealer offers comprehensive services to ensure your complete satisfaction
         </p>
       </div>
-      <div className="benefits-grid">
+      <div className={styles['benefits-grid']}>
         {benefits.map((benefit, index) => (
-          <div key={index} className="benefit-card">
-            <div className="benefit-icon">{benefit.icon}</div>
-            <h3 className="benefit-title">{benefit.title}</h3>
-            <p className="benefit-description">{benefit.description}</p>
+          <div key={index} className={styles['benefit-card']}>
+            <div className={styles['benefit-icon']}>{benefit.icon}</div>
+            <h3 className={styles['benefit-title']}>{benefit.title}</h3>
+            <p className={styles['benefit-description']}>{benefit.description}</p>
           </div>
         ))}
       </div>
@@ -179,7 +190,9 @@ const DealerLocatorPageComponent = () => {
 
   useEffect(() => {
     if (searchTerm.trim() === '') {
-      setFilteredDealers(dealersData);
+      setTimeout(() => {
+        setFilteredDealers(dealersData);
+      }, 0);
     } else {
       const filtered = dealersData.filter((dealer) =>
         dealer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -187,22 +200,24 @@ const DealerLocatorPageComponent = () => {
         dealer.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
         dealer.pincode.includes(searchTerm)
       );
-      setFilteredDealers(filtered);
+      setTimeout(() => {
+        setFilteredDealers(filtered);
+      }, 0);
     }
   }, [searchTerm]);
 
   return (
-    <div className="dealer-locator-page">
-      <div className="dealer-hero">
-        <div className="dealer-hero-content">
-          <h1 className="dealer-hero-title">Dealer Locator</h1>
-          <p className="dealer-hero-subtitle">Find Your Nearest EVall Mobility Dealer</p>
-          <p className="dealer-hero-description">
+    <div className={styles['dealer-locator-page']}>
+      <div className={styles['dealer-hero']}>
+        <div className={styles['dealer-hero-content']}>
+          <h1 className={styles['dealer-hero-title']}>Dealer Locator</h1>
+          <p className={styles['dealer-hero-subtitle']}>Find Your Nearest EVall Mobility Dealer</p>
+          <p className={styles['dealer-hero-description']}>
             EVall Mobility's expanding network ensures you're never far from expert service, genuine parts, and trusted support.
             Locate your nearest authorized EVall dealer below for sales, service, and vehicle demonstrations.
           </p>
 
-          <div className="dealer-search-bar">
+          <div className={styles['dealer-search-bar']}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
               <path fill="currentColor" d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5l-1.5 1.5l-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16A6.5 6.5 0 0 1 3 9.5A6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14S14 12 14 9.5S12 5 9.5 5" />
             </svg>
@@ -211,10 +226,10 @@ const DealerLocatorPageComponent = () => {
               placeholder="Search by city, dealer name, or pincode..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="dealer-search-input"
+              className={styles['dealer-search-input']}
             />
             {searchTerm && (
-              <button className="dealer-search-clear" onClick={() => setSearchTerm('')}>
+              <button className={styles['dealer-search-clear']} onClick={() => setSearchTerm('')}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z" />
                 </svg>
@@ -224,22 +239,22 @@ const DealerLocatorPageComponent = () => {
         </div>
       </div>
 
-      <div className="dealer-container">
-        <div className="dealer-section-header">
-          <h2 className="dealer-section-title">Authorized Dealers</h2>
-          <p className="dealer-count">
+      <div className={styles['dealer-container']}>
+        <div className={styles['dealer-section-header']}>
+          <h2 className={styles['dealer-section-title']}>Authorized Dealers</h2>
+          <p className={styles['dealer-count']}>
             {filteredDealers.length} {filteredDealers.length === 1 ? 'Dealer' : 'Dealers'} Found
           </p>
         </div>
 
         {filteredDealers.length > 0 ? (
-          <div className="dealer-grid">
+          <div className={styles['dealer-grid']}>
             {filteredDealers.map((dealer, index) => (
               <DealerCard key={dealer.id} dealer={dealer} index={index} />
             ))}
           </div>
         ) : (
-          <div className="dealer-no-results">
+          <div className={styles['dealer-no-results']}>
             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
               <path fill="currentColor" d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5l-1.5 1.5l-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16A6.5 6.5 0 0 1 3 9.5A6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14S14 12 14 9.5S12 5 9.5 5" />
             </svg>
@@ -251,25 +266,25 @@ const DealerLocatorPageComponent = () => {
 
       <BenefitsSection />
 
-      <div className="dealer-support-section">
-        <div className="dealer-support-card">
-          <div className="dealer-support-icon">
+      <div className={styles['dealer-support-section']}>
+        <div className={styles['dealer-support-card']}>
+          <div className={styles['dealer-support-icon']}>
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
               <path fill="currentColor" d="M12 2C6.486 2 2 6.486 2 12v4.143C2 17.167 2.897 18 4 18h1a1 1 0 0 0 1-1v-5.143a1 1 0 0 0-1-1h-.908C4.648 6.987 7.978 4 12 4s7.352 2.987 7.908 6.857H19a1 1 0 0 0-1 1V18c0 1.103-.897 2-2 2h-2v-1h-4v3h6c2.206 0 4-1.794 4-4c1.103 0 2-.833 2-1.857V12c0-5.514-4.486-10-10-10" />
             </svg>
           </div>
-          <h2 className="dealer-support-title">Need Help Finding a Dealer?</h2>
-          <p className="dealer-support-description">
+          <h2 className={styles['dealer-support-title']}>Need Help Finding a Dealer?</h2>
+          <p className={styles['dealer-support-description']}>
             If you need assistance locating a dealer or booking a test drive, reach out to us directly
           </p>
-          <div className="dealer-support-contacts">
-            <a href="tel:+9101724509386" className="dealer-support-link">
+          <div className={styles['dealer-support-contacts']}>
+            <a href="tel:+9101724509386" className={styles['dealer-support-link']}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79zm9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75zM7.5 3H4c-.55 0-1 .45-1 1c0 9.39 7.61 17 17 17c.55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1c-1.24 0-2.45-.2-3.57-.57a.8.8 0 0 0-.31-.05c-.26 0-.51.1-.71.29l-2.2 2.2a15.15 15.15 0 0 1-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.4 11.4 0 0 1 8.5 4c0-.55-.45-1-1-1" />
               </svg>
               <span>Customer Support: +91 0172 450 9386</span>
             </a>
-            <a href="mailto:info@evall.co.in" className="dealer-support-link">
+              <a href="mailto:info@evall.co.in" className={styles['dealer-support-link']}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7L4 8v10h16V8zm0-2l8-5H4zM4 8V6v12z" />
               </svg>

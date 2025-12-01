@@ -3,8 +3,8 @@
 // ============================================================================
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import './FeatureModal.css';
-
+import styles from './FeatureModal.module.css';
+import Image from 'next/image';
 // Simple SVG Icons
 const X = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -68,26 +68,28 @@ const FeatureModal = ({
 
   return (
     <>
-      <div className={`feature-modal-backdrop ${isOpen && !isClosing ? 'feature-modal-backdrop--visible' : ''}`} />
+      <div className={`${styles['feature-modal-backdrop']} ${isOpen && !isClosing ? styles['feature-modal-backdrop--visible'] : ''}`} />
       
       <div 
         ref={modalRef}
-        className={`feature-modal ${isOpen && !isClosing ? 'feature-modal--open' : ''} ${isClosing ? 'feature-modal--closing' : ''}`}
+        className={`${styles['feature-modal']} ${isOpen && !isClosing ? styles['feature-modal--open'] : ''} ${isClosing ? styles['feature-modal--closing'] : ''}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
       >
         {/* Image with overlaid controls */}
-        <div className="feature-modal__image-wrapper">
-          <img 
+        <div className={styles['feature-modal__image-wrapper']}>
+            <Image 
             src={feature.image} 
             alt={feature.title}
-            className="feature-modal__image"
+            className={styles['feature-modal__image']}
+            width={500}
+            height={300}
           />
           
           {/* Close button - top right */}
           <button 
-            className="feature-modal__icon-btn feature-modal__icon-btn--close" 
+            className={`${styles['feature-modal__icon-btn']} ${styles['feature-modal__icon-btn--close']}`} 
             onClick={handleClose}
             aria-label="Close modal"
           >
@@ -96,7 +98,7 @@ const FeatureModal = ({
 
           {/* Previous button - left side */}
           <button 
-            className="feature-modal__icon-btn feature-modal__icon-btn--prev"
+            className={`${styles['feature-modal__icon-btn']} ${styles['feature-modal__icon-btn--prev']}`}
             onClick={onPrev}
             disabled={!canGoPrev}
             aria-label="Previous feature"
@@ -106,7 +108,7 @@ const FeatureModal = ({
           
           {/* Next button - right side */}
           <button 
-            className="feature-modal__icon-btn feature-modal__icon-btn--next"
+            className={`${styles['feature-modal__icon-btn']} ${styles['feature-modal__icon-btn--next']}`}
             onClick={onNext}
             disabled={!canGoNext}
             aria-label="Next feature"
@@ -116,11 +118,11 @@ const FeatureModal = ({
         </div>
 
         {/* Text content with padding */}
-        <div className="feature-modal__text-content">
-          <h3 id="modal-title" className="feature-modal__title">
+        <div className={styles['feature-modal__text-content']}>
+          <h3 id="modal-title" className={styles['feature-modal__title']}>
             {feature.title}
           </h3>
-          <p className="feature-modal__description">
+          <p className={styles['feature-modal__description']}>
             {feature.description}
           </p>
         </div>

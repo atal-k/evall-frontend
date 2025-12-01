@@ -3,7 +3,7 @@
 // ============================================
 
 import Head from 'next/head';
-import PrivacyPolicyPageComponent from '@/components/pages/legal/PrivacyPolicy';
+import PrivacyPolicyPageComponent from '@/components/pages/contact/PrivacyPolicy';
 
 export default function PrivacyPolicyPage() {
   return (

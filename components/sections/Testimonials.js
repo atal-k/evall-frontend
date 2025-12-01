@@ -1,7 +1,8 @@
-// Testimonials Section Component
+// FILE: components/sections/Testimonials.js
+
 import { useState, useEffect } from 'react';
 import TestimonialCard from '../common/TestimonialCard';
-
+import styles from '../common/TestimonialCard.module.css'
 const Testimonials = ({ data }) => {
   const clientsData = [
     {
@@ -9,7 +10,7 @@ const Testimonials = ({ data }) => {
       name: 'Priya Patel',
       role: 'Head of Operations',
       company: 'Green Freight Services',
-      avatar: 'images/peoples/person1.png',
+      avatar: '/images/peoples/person1.png',
       rating: 5,
       text: 'EVall Uday fits India\'s logistics challenges perfectly. Battery range and fast charging help us keep our schedules, while predictive maintenance reduces unscheduled breakdowns. This has got to be the smoothest way to manage a fleet.'
     },
@@ -18,7 +19,7 @@ const Testimonials = ({ data }) => {
       name: 'Rajesh Sharma',
       role: 'Fleet Manager',
       company: 'Delhi Logistics',
-      avatar: 'images/peoples/person2.png',
+      avatar: '/images/peoples/person2.png',
       rating: 4,
       text: 'Making the switch to EVall Uday for our fleet has been a very big change. The vehicles are reliable and easy to work with, with their telematics helping me in route optimization and downtime reduction. Operating costwise, we now have revenues going down, so does the displeasure among the operators!'
   },
@@ -27,7 +28,7 @@ const Testimonials = ({ data }) => {
       name: 'Sanjay Verma',
       role: 'Senior Supervisor',
       company: 'Jagrit Express',
-      avatar: 'images/peoples/person3.png',
+      avatar: '/images/peoples/person3.png',
       rating: 5,
       text: 'Real-time updates on driver performance and maintenance alerts are just a few features that EVall Uday brings to the table. It has made fleet management a breeze, and my team can indeed build consistent performances in even challenging city routes.'
     },
@@ -36,7 +37,7 @@ const Testimonials = ({ data }) => {
       name: 'Anil Kumar',
       role: 'Executive Owner',
       company: 'Bharat Cargo Movers',
-      avatar: 'images/peoples/person4.png',
+      avatar: '/images/peoples/person4.png',
       rating: 4,
       text: 'I trust EVall Uday 100% for growing my business. The after-sales support is fabulous, the cost efficiency profitable, and basically, this heap puts together all the aspects of fleet management that improve customer sustainability through continued commitment.'
     }
@@ -62,18 +63,18 @@ const Testimonials = ({ data }) => {
   };
 
   return (
-    <section className="testimonials">
+    <section className={styles['testimonials']}>
       <div className="container">
-        <div className="testimonials__header">
-          <h2 className="testimonials__title">Driving Miles With Happy Clients</h2>
-          <p className="testimonials__subtitle">
+        <div className={styles['testimonials__header']}>
+          <h2 className={styles['testimonials__title']}>Driving Miles With Happy Clients</h2>
+          <p className={styles['testimonials__subtitle']}>
             Hear from real EVall owners about their electric vehicle experience and how 
             switching to electric has transformed their daily driving.
           </p>
         </div>
         
-        <div className="testimonials__carousel">
-          <div className="testimonials__carousel-track">
+        <div className={styles['testimonials__carousel']}>
+          <div className={styles['testimonials__carousel-track']}>
             {testimonialsData.map((testimonial, index) => (
               <TestimonialCard
                 key={testimonial.id}

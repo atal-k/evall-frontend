@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 // ============================================================================
 // FILE: src/components/common/CustomSelect.js
 // ============================================================================
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import './CustomSelect.css';
+import styles from './CustomSelect.module.css';
 
 const CustomSelect = ({ 
   value, 
@@ -110,22 +111,22 @@ const CustomSelect = ({
 
   return (
     <div 
-      className={`custom-select ${disabled ? 'custom-select--disabled' : ''}`}
+      className={`${styles['custom-select']} ${disabled ? styles['custom-select--disabled'] : ''}`}
       ref={containerRef}
     >
       <div
-        className={`custom-select__trigger ${isOpen ? 'custom-select__trigger--open' : ''} ${error ? 'custom-select__trigger--error' : ''}`}
+        className={`${styles['custom-select__trigger']} ${isOpen ? styles['custom-select__trigger--open'] : ''} ${error ? styles['custom-select__trigger--error'] : ''}`}
         onClick={handleToggle}
         role="button"
         tabIndex={disabled ? -1 : 0}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        <span className={value ? 'custom-select__value' : 'custom-select__placeholder'}>
+        <span className={value ? styles['custom-select__value'] : styles['custom-select__placeholder']}>
           {getSelectedLabel()}
         </span>
         <svg 
-          className={`custom-select__arrow ${isOpen ? 'custom-select__arrow--open' : ''}`}
+          className={`${styles['custom-select__arrow']} ${isOpen ? styles['custom-select__arrow--open'] : ''}`}
           width="12" 
           height="8" 
           viewBox="0 0 12 8" 
@@ -144,7 +145,7 @@ const CustomSelect = ({
 
         {isOpen && (
           <div
-            className={`custom-select__dropdown custom-select__dropdown--${dropdownPosition} ${dropdownPosition === 'bottom' ? 'animate-down' : 'animate-up'}`}
+            className={`${styles['custom-select__dropdown']} ${styles[`custom-select__dropdown--${dropdownPosition}`]} ${dropdownPosition === 'bottom' ? styles['animate-down'] : styles['animate-up']}`}
             ref={dropdownRef}
             role="listbox"
             style={{ maxHeight: `${computedMaxHeight}px` }}
@@ -152,7 +153,7 @@ const CustomSelect = ({
           {options.map((option) => (
             <div
               key={option.value}
-              className={`custom-select__option ${value === option.value ? 'custom-select__option--selected' : ''}`}
+              className={`${styles['custom-select__option']} ${value === option.value ? styles['custom-select__option--selected'] : ''}`}
               onClick={() => handleOptionClick(option.value)}
               role="option"
               aria-selected={value === option.value}

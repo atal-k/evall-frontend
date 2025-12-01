@@ -6,7 +6,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import CustomSelect from './CustomSelect';
 import citiesData from '../../data/cities.json';
-import './FormFields.css';
+import styles from './FormFields.module.css';
 import { getProducts } from '../../data/vansData';
 import { handleKeyPress, sanitizePatterns } from '../../utils/validators';
 
@@ -132,7 +132,7 @@ export const MessageField = ({
   const isLabelActive = isFocused || value.length > 0;
 
   return (
-    <div className={`form-field form-field--floating ${className}`}>
+    <div className={`${styles['form-field']} ${styles['form-field--floating']} ${styles[className]}`}>
       <textarea
         name={name}
         value={value}
@@ -143,19 +143,20 @@ export const MessageField = ({
         rows={rows}
         maxLength={maxLength}
         disabled={disabled}
-        className={`form-field__textarea ${error ? 'form-field__textarea--error' : ''}`}
+        className={`${styles['form-field__textarea']} ${error ? styles['form-field__textarea--error'] : ''}`}
       />
       <label 
-        className={`form-field__label ${isLabelActive ? 'form-field__label--active' : ''} ${error ? 'form-field__label--error' : ''}`}
+        className={`${styles['form-field__label']} ${isLabelActive ? styles['form-field__label--active'] : ''} ${error ? styles['form-field__label--error'] : ''}`}
       >
         {label}{required ? '*' : ''}
       </label>
-      <div className="form-field__textarea-footer">
-        {error && <span className="form-field__error">{error}</span>}
-        <span className="form-field__char-count">{charCount}/{maxLength}</span>
+      <div className={styles['form-field__textarea-footer']}>
+        {error && <span className={styles['form-field__error']}>{error}</span>}
+        <span className={styles['form-field__char-count']}>{charCount}/{maxLength}</span>
       </div>
     </div>
   );
+  
 };
 
 /**
@@ -206,9 +207,9 @@ export const NumberField = ({
   const hasSuffix = !!suffix;
 
   return (
-    <div className={`form-field form-field--floating ${className}`}>
-      <div className={hasPrefix || hasSuffix ? 'form-field__number-wrapper' : ''}>
-        {hasPrefix && <span className="form-field__number-prefix">{prefix}</span>}
+    <div className={`${styles['form-field']} ${styles['form-field--floating']} ${styles[className]}`}>
+      <div className={hasPrefix || hasSuffix ? styles['form-field__number-wrapper'] : ''}>
+        {hasPrefix && <span className={styles['form-field__number-prefix']}>{prefix}</span>}
         
         <input
           type="text"
@@ -224,27 +225,33 @@ export const NumberField = ({
           max={max}
           step={step}
           disabled={disabled}
-          className={`form-field__input form-field__input--number ${
-            hasPrefix ? 'form-field__input--with-prefix' : ''
-          } ${hasSuffix ? 'form-field__input--with-suffix' : ''} ${
-            error ? 'form-field__input--error' : ''
-          }`}
+          className={`
+            ${styles['form-field__input']} 
+            ${styles['form-field__input--number']} 
+            ${hasPrefix ? styles['form-field__input--with-prefix'] : ''} 
+            ${hasSuffix ? styles['form-field__input--with-suffix'] : ''} 
+            ${error ? styles['form-field__input--error'] : ''}
+          `}
         />
         
-        {hasSuffix && <span className="form-field__number-suffix">{suffix}</span>}
+        {hasSuffix && <span className={styles['form-field__number-suffix']}>{suffix}</span>}
       </div>
       
       <label 
-        className={`form-field__label ${isLabelActive ? 'form-field__label--active' : ''} ${
-          error ? 'form-field__label--error' : ''
-        } ${hasPrefix ? 'form-field__label--with-prefix' : ''}`}
+        className={`
+          ${styles['form-field__label']} 
+          ${isLabelActive ? styles['form-field__label--active'] : ''} 
+          ${error ? styles['form-field__label--error'] : ''} 
+          ${hasPrefix ? styles['form-field__label--with-prefix'] : ''}
+        `}
       >
         {label}{required ? '*' : ''}
       </label>
       
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
+  
 };
 
 /**
@@ -436,6 +443,7 @@ export const StateCityFields = ({
   // Update cities when state changes
   useEffect(() => {
     if (stateValue && statesData[stateValue]) {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       setCities(statesData[stateValue]);
       // Clear city if not in new state's cities
       if (cityValue && !statesData[stateValue].includes(cityValue)) {
@@ -468,8 +476,8 @@ export const StateCityFields = ({
   };
 
   return (
-    <div className={`form-field__group ${className}`}>
-      <div className="form-field">
+    <div className={`${styles['form-field__group']} ${styles[className]}`}>
+      <div className={styles['form-field']}>
         <CustomSelect
           name={stateName}
           value={stateValue}
@@ -479,10 +487,10 @@ export const StateCityFields = ({
           disabled={disabled}
           error={!!stateError}
         />
-        {stateError && <span className="form-field__error">{stateError}</span>}
+        {stateError && <span className={styles['form-field__error']}>{stateError}</span>}
       </div>
-
-      <div className="form-field">
+  
+      <div className={styles['form-field']}>
         <CustomSelect
           name={cityName}
           value={cityValue}
@@ -492,7 +500,7 @@ export const StateCityFields = ({
           disabled={!stateValue || disabled}
           error={!!cityError}
         />
-        {cityError && <span className="form-field__error">{cityError}</span>}
+        {cityError && <span className={styles['form-field__error']}>{cityError}</span>}
       </div>
     </div>
   );
@@ -523,7 +531,7 @@ export const PincodeField = ({
   };
 
   return (
-    <div className={`form-field ${className}`}>
+    <div className={`${styles['form-field']} ${styles[className]}`}>
       <input
         type="text"
         name={name}
@@ -534,13 +542,12 @@ export const PincodeField = ({
         placeholder={placeholder}
         maxLength="6"
         disabled={disabled}
-        className={`form-field__input ${error ? 'form-field__input--error' : ''}`}
+        className={`${styles['form-field__input']} ${error ? styles['form-field__input--error'] : ''}`}
       />
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
-  );
+  );  
 };
-
 /**
  * CompanyField - Company/Organization name input (optional/required)
  * @param {boolean} required - Make field required or optional (default: false)
@@ -571,7 +578,7 @@ export const CompanyField = ({
     const displayPlaceholder = placeholder || (required ? 'Company Name*' : 'Company Name');
   
     return (
-      <div className={`form-field ${className}`}>
+      <div className={`${styles['form-field']} ${styles[className]}`}>
         <input
           type="text"
           name={name}
@@ -580,9 +587,9 @@ export const CompanyField = ({
           onBlur={handleBlurEvent}
           placeholder={displayPlaceholder}
           disabled={disabled}
-          className={`form-field__input ${error ? 'form-field__input--error' : ''}`}
+          className={`${styles['form-field__input']} ${error ? styles['form-field__input--error'] : ''}`}
         />
-        {error && <span className="form-field__error">{error}</span>}
+        {error && <span className={styles['form-field__error']}>{error}</span>}
       </div>
     );
   };
@@ -612,7 +619,7 @@ export const ProductSelectField = ({
   };
 
   return (
-    <div className={`form-field ${className}`}>
+    <div className={`${styles['form-field']} ${styles[className]}`}>
       <CustomSelect
         name={name}
         value={value}
@@ -622,9 +629,9 @@ export const ProductSelectField = ({
         disabled={disabled}
         error={!!error}
       />
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
-  );
+  );  
 };
 
 /**
@@ -664,7 +671,7 @@ export const InfrastructureCheckboxField = ({
           const isChecked = value.includes(option);
           
           return (
-            <div key={option} className="form-field__checkbox">
+            <div key={option} className={styles['form-field__checkbox']}>
               <input
                 type="checkbox"
                 id={checkboxId}
@@ -673,23 +680,23 @@ export const InfrastructureCheckboxField = ({
                 checked={isChecked}
                 onChange={() => handleCheckboxChange(option)}
                 disabled={disabled}
-                className="form-field__checkbox-input"
+                className={styles['form-field__checkbox-input']}
               />
-              <label htmlFor={checkboxId} className="form-field__checkbox-label">
-                <span className="form-field__checkbox-box">
+              <label htmlFor={checkboxId} className={styles['form-field__checkbox-label']}>
+                <span className={styles['form-field__checkbox-box']}>
                   {isChecked && (
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M20 6L9 17l-5-5" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   )}
                 </span>
-                <span className="form-field__checkbox-text">{option}</span>
+                <span className={styles['form-field__checkbox-text']}>{option}</span>
               </label>
             </div>
-          );
+          );          
         })}
       </div>
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
 };
@@ -727,7 +734,7 @@ export const FullNameField = ({
   };
 
   return (
-    <div className={`form-field form-field--floating ${className}`}>
+    <div className={`${styles['form-field']} ${styles['form-field--floating']} ${styles[className]}`}>
       <input
         type="text"
         name={name}
@@ -737,9 +744,9 @@ export const FullNameField = ({
         onBlur={handleBlurEvent}
         placeholder={placeholder}
         disabled={disabled}
-        className={`form-field__input ${error ? 'form-field__input--error' : ''}`}
+        className={`${styles['form-field__input']} ${error ? styles['form-field__input--error'] : ''}`}
       />
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
 };
@@ -769,7 +776,7 @@ export const DesignationField = ({
   };
 
   return (
-    <div className={`form-field ${className}`}>
+    <div className={`${styles['form-field']} ${styles[className]}`}>
       <input
         type="text"
         name={name}
@@ -778,9 +785,9 @@ export const DesignationField = ({
         onBlur={handleBlurEvent}
         placeholder={placeholder}
         disabled={disabled}
-        className={`form-field__input ${error ? 'form-field__input--error' : ''}`}
+        className={`${styles['form-field__input']} ${error ? styles['form-field__input--error'] : ''}`}
       />
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
 };
@@ -823,7 +830,7 @@ export const AddressField = ({
   const isLabelActive = isFocused || value.length > 0;
 
   return (
-    <div className={`form-field ${className}`}>
+    <div className={`${styles['form-field']} ${styles[className]}`}>
       <input
         type="text"
         name={name}
@@ -834,14 +841,14 @@ export const AddressField = ({
         placeholder={placeholder}
         maxLength={maxLength}
         disabled={disabled}
-        className={`form-field__input ${error ? 'form-field__input--error' : ''}`}
+        className={`${styles['form-field__input']} ${error ? styles['form-field__input--error'] : ''}`}
       />
       <label 
-        className={`form-field__label ${isLabelActive ? 'form-field__label--active' : ''} ${error ? 'form-field__label--error' : ''}`}
+        className={`${styles['form-field__label']} ${isLabelActive ? styles['form-field__label--active'] : ''} ${error ? styles['form-field__label--error'] : ''}`}
       >
         {label}{required ? '*' : ''}
       </label>
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
 };
@@ -871,7 +878,7 @@ export const FleetRequirementField = ({
   };
 
   return (
-    <div className={`form-field ${className}`}>
+    <div className={`${styles['form-field']} ${styles[className]}`}>
       <input
         type="text"
         inputMode="numeric"
@@ -883,9 +890,9 @@ export const FleetRequirementField = ({
         placeholder={placeholder}
         maxLength="4"
         disabled={disabled}
-        className={`form-field__input ${error ? 'form-field__input--error' : ''}`}
+        className={`${styles['form-field__input']} ${error ? styles['form-field__input--error'] : ''}`}
       />
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
 };
@@ -943,7 +950,7 @@ export const DateField = ({
   };
 
   return (
-    <div className={`form-field ${className}`}>
+    <div className={`${styles['form-field']} ${styles[className]}`}>
       {label && <label className="form-field__label-text">{label}</label>}
       <input
         ref={inputRef}
@@ -955,9 +962,9 @@ export const DateField = ({
         onMouseDown={handleMouseDown}   // ← use this for trusted mouse/touch gesture
         onKeyDown={handleKeyDown}       // ← keyboard activation (Enter/Space)
         disabled={disabled}
-        className={`form-field__input form-field__input--date ${error ? 'form-field__input--error' : ''}`}
+        className={`${styles['form-field__input']} ${styles['form-field__input--date']} ${error ? styles['form-field__input--error'] : ''}`}
       />
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
 };
@@ -987,7 +994,7 @@ export const RatingField = ({
       onChange={onChange}
       error={error}
       disabled={disabled}
-      className={`${className} form-field--rating`}
+      className={`${styles[className]} ${styles['form-field--rating']}`}
       horizontal={true}
     />
   );
@@ -1019,14 +1026,14 @@ export const VehicleTypeRadioField = ({
   };
 
   return (
-    <div className={`form-field ${className}`}>
+    <div className={`${styles['form-field']} ${styles[className]}`}>
       <label className="form-field__label-text">Vehicle Type:</label>
       <div className="form-field__radio-group form-field__radio-group--inline">
         {vehicleOptions.map((option) => {
           const radioId = `${name}-${option.toLowerCase()}`;
           
           return (
-            <label key={option} className="form-field__radio-item">
+              <label key={option} className={styles['form-field__radio-item']}>
               <input
                 type="radio"
                 id={radioId}
@@ -1035,16 +1042,16 @@ export const VehicleTypeRadioField = ({
                 checked={value === option}
                 onChange={() => handleRadioChange(option)}
                 disabled={disabled}
-                className="form-field__radio-input"
+                className={styles['form-field__radio-input']}
               />
-              <span className="form-field__radio-label">{option}</span>
+              <span className={styles['form-field__radio-label']}>{option}</span>
             </label>
           );
         })}
         
         {/* Other Option with Text Input */}
-        <div className="form-field__radio-other">
-          <label className="form-field__radio-item">
+        <div className={styles['form-field__radio-other']}>
+          <label className={styles['form-field__radio-item']}>
             <input
               type="radio"
               id={`${name}-other`}
@@ -1053,9 +1060,9 @@ export const VehicleTypeRadioField = ({
               checked={value === 'Other'}
               onChange={() => handleRadioChange('Other')}
               disabled={disabled}
-              className="form-field__radio-input"
+              className={styles['form-field__radio-input']}
             />
-            <span className="form-field__radio-label">Other:</span>
+            <span className={styles['form-field__radio-label']}>Other:</span>
           </label>
           <input
             type="text"
@@ -1063,11 +1070,11 @@ export const VehicleTypeRadioField = ({
             onChange={handleOtherTextChange}
             placeholder="Specify"
             disabled={disabled || value !== 'Other'}
-            className="form-field__radio-other-input"
+            className={styles['form-field__radio-other-input']}
           />
         </div>
       </div>
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
 };
@@ -1096,7 +1103,7 @@ export const YesNoField = ({
       onChange={onChange}
       error={error}
       disabled={disabled}
-      className={`${className} form-field--yesno`}
+      className={`${styles[className]} ${styles['form-field--yesno']}`}
       horizontal={true}
     />
   );
@@ -1145,15 +1152,15 @@ const CheckboxGroupField = ({
   };
 
   return (
-    <div className={`form-field ${className}`}>
-      {label && <label className="form-field__label-text">{label}</label>}
-      <div className="form-field__checkbox-group">
+    <div className={`${styles['form-field']} ${styles[className]}`}>
+      {label && <label className={styles['form-field__label-text']}>{label}</label>}
+      <div className={styles['form-field__checkbox-group']}>
         {options.map((option) => {
           const checkboxId = `${name}-${option.replace(/\s+/g, '-').toLowerCase()}`;
           const isChecked = value.includes(option);
           
           return (
-            <div key={option} className="form-field__checkbox">
+            <div key={option} className={styles['form-field__checkbox']}>
               <input
                 type="checkbox"
                 id={checkboxId}
@@ -1162,25 +1169,25 @@ const CheckboxGroupField = ({
                 checked={isChecked}
                 onChange={() => handleCheckboxChange(option)}
                 disabled={disabled}
-                className="form-field__checkbox-input"
+                className={styles['form-field__checkbox-input']}
               />
-              <label htmlFor={checkboxId} className="form-field__checkbox-label">
-                <span className="form-field__checkbox-box">
+              <label htmlFor={checkboxId} className={styles['form-field__checkbox-label']}>
+                <span className={styles['form-field__checkbox-box']}>
                   {isChecked && (
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M20 6L9 17l-5-5" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   )}
                 </span>
-                <span className="form-field__checkbox-text">{option}</span>
+                <span className={styles['form-field__checkbox-text']}>{option}</span>
               </label>
             </div>
           );
         })}
         
         {hasOther && (
-          <div className="form-field__checkbox-other">
-            <div className="form-field__checkbox">
+          <div className={styles['form-field__checkbox-other']}>
+            <div className={styles['form-field__checkbox']}>
               <input
                 type="checkbox"
                 id={`${name}-others`}
@@ -1189,17 +1196,17 @@ const CheckboxGroupField = ({
                 checked={value.includes('Others')}
                 onChange={() => handleCheckboxChange('Others')}
                 disabled={disabled}
-                className="form-field__checkbox-input"
+                className={styles['form-field__checkbox-input']}
               />
-              <label htmlFor={`${name}-others`} className="form-field__checkbox-label">
-                <span className="form-field__checkbox-box">
+              <label htmlFor={`${name}-others`} className={styles['form-field__checkbox-label']}>
+                <span className={styles['form-field__checkbox-box']}>
                   {value.includes('Others') && (
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M20 6L9 17l-5-5" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   )}
                 </span>
-                <span className="form-field__checkbox-text">Others</span>
+                <span className={styles['form-field__checkbox-text']}>Others</span>
               </label>
             </div>
             {value.includes('Others') && (
@@ -1209,13 +1216,13 @@ const CheckboxGroupField = ({
                 onChange={handleOtherTextChange}
                 placeholder="Please specify"
                 disabled={disabled}
-                className="form-field__checkbox-other-input"
+                className={styles['form-field__checkbox-other-input']}
               />
             )}
           </div>
         )}
       </div>
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
 };
@@ -1319,18 +1326,18 @@ const RadioGroupField = ({
   };
 
   const groupClass = horizontal 
-    ? 'form-field__radio-group form-field__radio-group--horizontal'
-    : 'form-field__radio-group';
+    ? `${styles['form-field__radio-group']} ${styles['form-field__radio-group--horizontal']}`
+    : `${styles['form-field__radio-group']}`;
 
   return (
-    <div className={`form-field ${className}`}>
-      {label && <label className="form-field__label-text">{label}</label>}
+    <div className={`${styles['form-field']} ${styles[className]}`}>
+      {label && <label className={styles['form-field__label-text']}>{label}</label>}
       <div className={groupClass}>
         {options.map((option) => {
           const radioId = `${name}-${option.replace(/\s+/g, '-').toLowerCase()}`;
           
           return (
-            <label key={option} className="form-field__radio-item">
+            <label key={option} className={styles['form-field__radio-item']}>
               <input
                 type="radio"
                 id={radioId}
@@ -1339,14 +1346,14 @@ const RadioGroupField = ({
                 checked={value === option}
                 onChange={() => handleRadioChange(option)}
                 disabled={disabled}
-                className="form-field__radio-input"
+                className={styles['form-field__radio-input']}
               />
-              <span className="form-field__radio-label">{option}</span>
+              <span className={styles['form-field__radio-label']}>{option}</span>
             </label>
           );
         })}
       </div>
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
 };
@@ -1479,14 +1486,14 @@ export const BusinessSegmentField = ({
   };
 
   return (
-    <div className={`form-field ${className}`}>
-      <label className="form-field__label-text">Business Segment:</label>
-      <div className="form-field__radio-group">
+    <div className={`${styles['form-field']} ${styles[className]}`}>
+      <label className={styles['form-field__label-text']}>Business Segment:</label>
+      <div className={styles['form-field__radio-group']}>
         {segmentOptions.map((option) => {
           const radioId = `${name}-${option.replace(/\s+/g, '-').toLowerCase()}`;
           
           return (
-            <label key={option} className="form-field__radio-item">
+            <label key={option} className={styles['form-field__radio-item']}>
               <input
                 type="radio"
                 id={radioId}
@@ -1495,16 +1502,16 @@ export const BusinessSegmentField = ({
                 checked={value === option}
                 onChange={() => handleRadioChange(option)}
                 disabled={disabled}
-                className="form-field__radio-input"
+                className={styles['form-field__radio-input']}
               />
-              <span className="form-field__radio-label">{option}</span>
+              <span className={styles['form-field__radio-label']}>{option}</span>
             </label>
           );
         })}
         
         {/* Others Option with Text Input */}
-        <div className="form-field__radio-other">
-          <label className="form-field__radio-item">
+        <div className={styles['form-field__radio-other']}>
+          <label className={styles['form-field__radio-item']}>
             <input
               type="radio"
               id={`${name}-others`}
@@ -1513,9 +1520,9 @@ export const BusinessSegmentField = ({
               checked={value === 'Others'}
               onChange={() => handleRadioChange('Others')}
               disabled={disabled}
-              className="form-field__radio-input"
+              className={styles['form-field__radio-input']}
             />
-            <span className="form-field__radio-label">Others:</span>
+            <span className={styles['form-field__radio-label']}>Others:</span>
           </label>
           <input
             type="text"
@@ -1523,11 +1530,11 @@ export const BusinessSegmentField = ({
             onChange={handleOtherTextChange}
             placeholder="Specify"
             disabled={disabled || value !== 'Others'}
-            className="form-field__radio-other-input"
+            className={styles['form-field__radio-other-input']}
           />
         </div>
       </div>
-      {error && <span className="form-field__error">{error}</span>}
+      {error && <span className={styles['form-field__error']}>{error}</span>}
     </div>
   );
 };
@@ -1565,7 +1572,7 @@ export const ConsentCheckboxField = ({
       error={error}
       hasOther={false}
       disabled={disabled}
-      className={`form-field--consent ${className}`}
+      className={`${styles['form-field--consent']} ${styles[className]}`}
     />
   );
 };

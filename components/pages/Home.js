@@ -11,7 +11,7 @@ import Features from '@/components/sections/Features';
 import About from '@/components/sections/About';
 import Callout from '@/components/sections/Callout';
 import CoreValues from '@/components/sections/CoreValues';
-import TCOCalculator from '@/components/pages/tools/TCOCalculator';
+import TCOCalculator from '@/components/pages/resources/TCOCalculator';
 
 const HomePageComponent = () => {
   return (

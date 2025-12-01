@@ -4,7 +4,7 @@
 // ============================================================================
 import React, { useState, useEffect, useRef } from 'react';
 
-import './StandoutBenefitSection.css'
+import styles from './StandoutBenefitSection.module.css'
 import { energyBatteryData } from '../../../data/energyBatteryData';
 import { getIcon } from '../../../data/iconsData';
 // Top of file
@@ -40,48 +40,48 @@ const StandoutBenefitsSection = () => {
     return (
       <>
         {/* Power Statement Section */}
-        <section className="power-statement-section">
+        <section className={styles['power-statement-section']}>
           {/* 
           // */}
-          <div className="power-bg-image" style={{
+          <div className={styles['power-bg-image']} style={{
             backgroundImage: 'url(/images/energy-battery/road-testing.webp)'
           }}></div>
-          <div className="power-overlay"></div>
-          <div className="power-content">
-            <h2 className="power-headline">{energyBatteryData.powerStatement.headline}</h2>
-            <div className="power-grid">
-              <div className="power-box power-text">
+          <div className={styles['power-overlay']}></div>
+          <div className={styles['power-content']}>
+            <h2 className={styles['power-headline']}>{energyBatteryData.powerStatement.headline}</h2>
+            <div className={styles['power-grid']}>
+              <div className={`${styles['power-box']} ${styles['power-text']}`}>
                 <p>{energyBatteryData.powerStatement.leftContent}</p>
               </div>
-              <div className="power-box power-text">
+              <div className={`${styles['power-box']} ${styles['power-text']}`}>
                 <p>{energyBatteryData.powerStatement.rightContent}</p>
               </div>
             </div>
-            <div className="power-box power-result">
+            <div className={`${styles['power-box']} ${styles['power-result']}`}>
               <p>{energyBatteryData.powerStatement.result}</p>
             </div>
           </div>
         </section>
   
         {/* Standout Features Section */}
-        <section className="standout-features-section">
-          <div className="standout-container">
-            <div className="section-header">
-              <h2 className="section-title">Why Our Energy Systems Stand Out</h2>
+        <section className={styles['standout-features-section']}>
+          <div className={styles['standout-container']}>
+            <div className={styles['section-header']}>
+              <h2 className={styles['section-title']}>Why Our Energy Systems Stand Out</h2>
             </div>
   
-            <div className="standout-list">
+            <div className={styles['standout-list']}>
               {energyBatteryData.standoutFeatures.map((feature, idx) => {
                 const isEven = idx % 2 === 0;
                 return (
                   <div
                     key={feature.id}
                     ref={el => itemRefs.current[idx] = el}
-                    className={`standout-item ${isEven ? 'even' : 'odd'} ${visibleItems.includes(idx) ? 'visible' : ''}`}
+                    className={`${styles['standout-item']} ${isEven ? styles.even : styles.odd} ${visibleItems.includes(idx) ? styles.visible : ''}`}
                   >
-                    <div className="standout-visual">
+                    <div className={styles['standout-visual']}>
                       <div 
-                        className="standout-icon"
+                        className={styles['standout-icon']}
                         style={{ 
                           background: `linear-gradient(135deg, ${feature.color}15, ${feature.color}30)`,
                           borderColor: feature.color 
@@ -90,15 +90,15 @@ const StandoutBenefitsSection = () => {
                         {getIcon(feature.icon)}
                       </div>
                       {feature.metric && (
-                        <div className="standout-metric" style={{ color: feature.color }}>
+                        <div className={styles['standout-metric']} style={{ color: feature.color }}>
                           {feature.metric}
                         </div>
                       )}
                     </div>
-                    <div className="standout-content">
-                      <div className="standout-accent" style={{ backgroundColor: feature.color }}></div>
-                      <h3 className="standout-title">{feature.title}</h3>
-                      <p className="standout-description">{feature.description}</p>
+                    <div className={styles['standout-content']}>
+                      <div className={styles['standout-accent']} style={{ backgroundColor: feature.color }}></div>
+                      <h3 className={styles['standout-title']}>{feature.title}</h3>
+                      <p className={styles['standout-description']}>{feature.description}</p>
                     </div>
                   </div>
                 );
@@ -108,22 +108,22 @@ const StandoutBenefitsSection = () => {
         </section>
   
         {/* Benefits Grid Section */}
-        <section className="benefits-section">
-          <div className="benefits-container">
-            <div className="section-header">
-              <h2 className="section-title">Benefits of EVall's Energy Efficiency Platform</h2>
+        <section className={styles['benefits-section']}>
+          <div className={styles['benefits-container']}>
+            <div className={styles['section-header']}>
+              <h2 className={styles['section-title']}>Benefits of EVall&apos;s Energy Efficiency Platform</h2>
             </div>
   
-            <div className="benefits-grid">
+            <div className={styles['benefits-grid']}>
             {energyBatteryData.benefits.map((benefit, idx) => {
             return (
-              <div key={benefit.id} className="benefit-card">
-                <div className="benefit-icon">
+              <div key={benefit.id} className={styles['benefit-card']}>
+                <div className={styles['benefit-icon']}>
                   {getIcon(benefit.icon, 32)}
                 </div>
-                    <h3 className="benefit-title">{benefit.title}</h3>
-                    <p className="benefit-description">{benefit.description}</p>
-                    <div className="benefit-check">
+                    <h3 className={styles['benefit-title']}>{benefit.title}</h3>
+                    <p className={styles['benefit-description']}>{benefit.description}</p>
+                    <div className={styles['benefit-check']}>
                       {getIcon('checkCircle')}
                     </div>
                   </div>

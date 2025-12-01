@@ -3,22 +3,21 @@
 // ============================================================================
 
 import React from 'react';
-import './BlogBanner.css';
-import Logo from '../Logo';
+import styles from './BlogBanner.module.css';
 
 const BlogBanner = () => {
   return (
-    <section className="blog-banner">
-      <div className="blog-banner__overlay"></div>
-      <div className="blog-banner__content">
-        <div className="blog-banner__text">
-          <h1 className="blog-banner__title">
-            All New <span className="highlight">EV</span>
+    <section className={styles['blog-banner']}>
+      <div className={styles['blog-banner__overlay']}></div>
+      <div className={styles['blog-banner__content']}>
+        <div className={styles['blog-banner__text']}>
+          <h1 className={styles['blog-banner__title']}>
+            All New <span className={styles['highlight']}>EV</span>
           </h1>
-          <p className="blog-banner__subtitle">EV UDAY</p>
-          <div className="blog-banner__cta">
-            <span className="blog-banner__cta-text bold">DRIVE BOLD</span>
-            <span className="blog-banner__cta-text">DRIVE BEYOND</span>
+          <p className={styles['blog-banner__subtitle']}>EV UDAY</p>
+          <div className={styles['blog-banner__cta']}>
+            <span className={styles['blog-banner__cta-text']} bold>DRIVE BOLD</span>
+            <span className={styles['blog-banner__cta-text']}>DRIVE BEYOND</span>
           </div>
         </div>
       </div>

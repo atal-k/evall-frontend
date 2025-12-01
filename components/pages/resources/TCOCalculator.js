@@ -7,7 +7,7 @@ import TCOForm from '@/components/sections/tco-calculator/TCOForm';
 import TCOResultPanel from '@/components/sections/tco-calculator/TCOResultPanel';
 import TCOCostTable from '@/components/sections/tco-calculator/TCOCostTable';
 import { DEFAULT_VALUES, getResultData } from '@/utils/tcoCalculator';
-import './TCOCalculator.css';
+import styles from './TCOCalculator.module.css';
 
 // NOTE: Renamed component function to TCOCalculatorPageComponent for consistency.
 const TCOCalculatorPageComponent = () => {
@@ -18,6 +18,7 @@ const TCOCalculatorPageComponent = () => {
   useEffect(() => {
     const results = getResultData(formData);
     // TODO: CAUSING ERROR
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTcoResults(results);
   }, [formData]);
 
@@ -34,27 +35,27 @@ const TCOCalculatorPageComponent = () => {
   };
 
   return (
-    <div className="tco-calculator-page">
-      <section className="tco-calculator">
-        <h1 className="tco-calculator__title">
-          TCO <span className="highlight">Calculator</span>
+    <div className={styles['tco-calculator-page']}>
+      <section className={styles['tco-calculator']}>
+        <h1 className={styles['tco-calculator__title']}>
+          TCO <span className={styles.highlight}>Calculator</span>
         </h1>
-        <p className="tco-calculator__subtitle">
+        <p className={styles['tco-calculator__subtitle']}>
           Understand why EV is more efficient compared to ICE vehicles
         </p>
-
-        <div className="tco-calculator__layout">
+  
+        <div className={styles['tco-calculator__layout']}>
           <TCOForm
             formData={formData}
             onInputChange={handleInputChange}
             onCalculate={handleCalculate}
           />
-          <div className="tco-calculator__results">
+          <div className={styles['tco-calculator__results']}>
             {tcoResults && (
               <>
                 <TCOResultPanel tcoResults={tcoResults} />
-                <div className="results-table-section">
-                  <h3 className="results-table-title">Yearly Cost Breakdown</h3>
+                <div className={styles['results-table-section']}>
+                  <h3 className={styles['results-table-title']}>Yearly Cost Breakdown</h3>
                   <TCOCostTable
                     evData={tcoResults.yearlyBreakdown.evData}
                     iceData={tcoResults.yearlyBreakdown.iceData}
@@ -66,7 +67,7 @@ const TCOCalculatorPageComponent = () => {
         </div>
       </section>
     </div>
-  );
+  );  
 };
 
 export default TCOCalculatorPageComponent;

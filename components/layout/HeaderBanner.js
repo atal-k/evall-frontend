@@ -1,6 +1,6 @@
 // src/components/common/HeaderBanner.js
 import React from 'react';
-import './HeaderBanner.css';
+import styles from './HeaderBanner.module.css';
 import Button from '../common/Button';
 
 const HeaderBanner = ({
@@ -13,18 +13,22 @@ const HeaderBanner = ({
 }) => {
   return (
     <section 
-      className={`header-banner ${variant !== "default" ? `header-banner--${variant}` : ""}`}
+      className={`${styles['header-banner']} ${
+        variant !== "default" 
+          ? variant.split(' ').map(v => styles[`header-banner--${v}`]).filter(Boolean).join(' ')
+          : ""
+      }`}
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="header-banner__overlay">
-        <div className="container">
-          <div className="header-banner__content">
+      <div className={styles['header-banner__overlay']}>
+        <div className='container'>
+          <div className={styles['header-banner__content']}>
             {title && (
-              <p className="header-banner__title">{title}</p>
+              <p className={styles['header-banner__title']}>{title}</p>
             )}
-            <h1 className="header-banner__heading">{heading}</h1>
+            <h1 className={styles['header-banner__heading']}>{heading}</h1>
             {subtitle && (
-              <p className="header-banner__subtitle">{subtitle}</p>
+              <p className={styles['header-banner__subtitle']}>{subtitle}</p>
             )}
             {button && (
               <Button variant="primary">
