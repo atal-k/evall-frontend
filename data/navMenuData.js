@@ -54,9 +54,9 @@ export const navMenuData = [
         {
           title: null,
           links: [
-            { id: 'e-scv', label: 'e-SCV', path: '/products/product-showcase' },
-            { id: 'e-bus', label: 'E-bus', path: null },
-            { id: 'future-models', label: 'Future Models', path: null },
+            { id: 'e-scv', label: 'e-SCV', path: '/products/e-SCV' },
+            { id: 'e-bus', label: 'E-bus', path: '#' },
+            { id: 'future-models', label: 'Future Models', path: '#' },
           ],
         },
       ],
@@ -65,7 +65,7 @@ export const navMenuData = [
   {
     id: 'tech-innovation',
     label: 'Tech & Innovation',
-    path: '/tech/vehicle-intelligence',
+    path: '/tech-innovation/vehicle-intelligence',
     hasDropdown: true,
     menu: {
       type: 'mega',
@@ -73,9 +73,9 @@ export const navMenuData = [
         {
           title: null,
           links: [
-            { id: 'vehicle-intelligence', label: 'Vehicle Intelligence & Connectivity', path: '/tech/vehicle-intelligence' },
-            { id: 'energy-battery', label: 'Energy Efficiency & Battery Tech', path: '/tech/energy-battery' },
-            { id: 'safety-compliance', label: 'Safety & Compliance Standards', path: '/tech/safety-compliance' },
+            { id: 'vehicle-intelligence', label: 'Vehicle Intelligence & Connectivity', path: '/tech-innovation/vehicle-intelligence' },
+            { id: 'energy-battery', label: 'Energy Efficiency & Battery Tech', path: '/tech-innovation/energy-battery' },
+            { id: 'safety-compliance', label: 'Safety & Compliance Standards', path: '/tech-innovation/safety-compliance' },
           ],
         },
       ],

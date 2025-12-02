@@ -3,7 +3,7 @@
 // ============================================
 
 import Head from 'next/head';
-import EnergyBatteryPageComponent from '@/components/pages/tech/EnergyBattery';
+import EnergyBatteryPageComponent from '@/components/pages/tech-innovation/EnergyBattery';
 
 export default function EnergyBatteryPage() {
   return (

@@ -107,7 +107,7 @@ const ValueBlock = ({ value, index, isVisible }) => {
             <p className={styles['culture-mission']}>{careersData.culture.mission}</p>
             </div>
             <div className={styles['culture-footer-img-wrapper']}>
-              <Image src="/images/careers/business-people-footer.webp" alt="Business people discussing" fill/>
+              <Image src="/images/careers/business-people-footer.webp" alt="Business people discussing" width={1968} height={1476}/>
             </div>
           </div>
         </div>

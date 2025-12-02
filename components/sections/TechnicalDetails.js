@@ -76,7 +76,7 @@ const TechnicalDetails = () => {
       <section className={styles['technical-details']}>
       <div className={styles['technical-details__container']}>
         <div className={styles['technical-details__image']}>
-          <Image src="/images/evall-front.webp" alt="EVall Van Front View" fill />
+          <Image src="/images/evall-front.webp" alt="EVall Van Front View" width={1933} height={2099} />
         </div>
         
         <div className={styles['technical-details__content']} ref={contentRef}>

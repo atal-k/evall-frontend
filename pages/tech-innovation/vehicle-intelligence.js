@@ -3,7 +3,7 @@
 // ============================================
 
 import Head from 'next/head';
-import VehicleIntelligencePageComponent from '@/components/pages/tech/VehicleIntelligence';
+import VehicleIntelligencePageComponent from '@/components/pages/tech-innovation/VehicleIntelligence';
 
 export default function VehicleIntelligencePage() {
   return (

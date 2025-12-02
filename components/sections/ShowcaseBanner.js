@@ -20,7 +20,7 @@ const ShowcaseBanner = () => {
           </button>
         </div>
         <div className={styles['showcase-banner__image']}>
-          <Image src="/images/evall-ev-uday.png" alt="EVall EV Uday" fill />
+          <Image src="/images/evall-ev-uday.png" alt="EVall EV Uday" width={695} height={464} />
         </div>
       </div>
     </section>

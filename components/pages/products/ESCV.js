@@ -1,18 +1,21 @@
 // ============================================
-// /pages/ProductShowcase.js
+// components/pages/products/eSCV.js
 // ============================================
 
 import React, { useState } from 'react';
-import TechnicalDetails from '../../components/sections/TechnicalDetails';
-import Callout from '../../components/sections/Callout';
-import FeatureSection from '../../components/sections/FeatureSection';
-import FeaturesCarousel from '../../components/sections/FeaturesCarousel';
-import ShowcaseBanner from '../../components/sections/ShowcaseBanner';
-import EVShowcase from '../../components/sections/EVShowcase';
-import TestDriveModal from '../../components/common/TestDriveModal';
+import TechnicalDetails from '@/components/sections/TechnicalDetails';
+import Callout from '@/components/sections/Callout';
+import FeatureSection from '@/components/sections/FeatureSection';
+import FeaturesCarousel from '@/components/sections/FeaturesCarousel';
+import ShowcaseBanner from '@/components/sections/ShowcaseBanner';
+import EVShowcase from '@/components/sections/EVShowcase';
+import TestDriveModal from '@/components/common/TestDriveModal';
 
-const ProductShowcase = () => {
+// NOTE: Renamed component function to eSCVPageComponent for consistency.
+const ESCVPageComponent = () => {
   const [isTestDriveModalOpen, setIsTestDriveModalOpen] = useState(false);
+
+  // Exterior Features Data
   const exteriorFeaturesData = {
     title: "The Spectrum Of Exterior Refined",
     subtitle: "Tune-in to the dynamic exterior successfully integrating aerodynamic efficiency with bold geometric styling, creating a commanding presence while ensuring durability on Indian roads.",
@@ -49,9 +52,11 @@ const ProductShowcase = () => {
       }
     ]
   };
+
+  // Interior Features Data
   const interiorFeaturesData = {
     title: "Commanding From Infotainment to Aesthetics",
-    subtitle: "Designed to deliver a perfect blend of comfort, functionality, and advanced technology. Inside, you’ll find a spacious cabin with premium-quality fabric seats, ergonomically crafted for long hours of driving.",
+    subtitle: "Designed to deliver a perfect blend of comfort, functionality, and advanced technology. Inside, you'll find a spacious cabin with premium-quality fabric seats, ergonomically crafted for long hours of driving.",
     image: "/images/interior-features/main.png",
     imageAlt: "Electric Vehicle Interior",
     features: [
@@ -78,54 +83,72 @@ const ProductShowcase = () => {
       }
     ]
   };
+
   // Handler functions for CTA buttons
   const handleRequestQuote = () => {
     console.log("Opening quote request form...");
-    // Your logic: open modal, navigate to form, etc.
+    // NOTE: Add navigation to quote request page or open modal
+    // Example: router.push('/contact/request-quote');
   };
 
   const handleBookTestDrive = () => {
     setIsTestDriveModalOpen(true);
   };
-    return (
-        <>
-          <div className="app">
-            <main>
-              <EVShowcase
-                // Image configuration
-                quantity={19}
-                imagePath="/images/vans"
-                fileName="output_{index}.png"
-                backgroundImage="/images/canvas-background.png"
-                
-                // Content
-                title="T3EV UDAY"
-                tagline="Drive bold. Drive beyond."
-                
-                // Viewer settings
-                autoplay={false}
-                fps={30}
-                preload={4}
-                sensitivity={1.0}
-                
-                // CTA handlers
-                onRequestQuote={handleRequestQuote}
-                onBookTestDrive={handleBookTestDrive}
-              />
-              <TechnicalDetails/>
-              <FeatureSection data={exteriorFeaturesData} />
-              <FeatureSection data={interiorFeaturesData} />
-              <FeaturesCarousel/>
-              <ShowcaseBanner/>
-              <Callout/>
-            </main>
-          </div>
-          <TestDriveModal
-            isOpen={isTestDriveModalOpen} 
-            onClose={() => setIsTestDriveModalOpen(false)} 
+
+  return (
+    <>
+      <div className="app">
+        <main>
+          {/* 360° Vehicle Showcase */}
+          <EVShowcase
+            // Image configuration
+            quantity={19}
+            imagePath="/images/vans"
+            fileName="output_{index}.png"
+            backgroundImage="/images/canvas-background.png"
+            
+            // Content
+            title="T3EV UDAY"
+            tagline="Drive bold. Drive beyond."
+            
+            // Viewer settings
+            autoplay={false}
+            fps={30}
+            preload={4}
+            sensitivity={1.0}
+            
+            // CTA handlers
+            onRequestQuote={handleRequestQuote}
+            onBookTestDrive={handleBookTestDrive}
           />
-        </>
-      );
+
+          {/* Technical Specifications */}
+          <TechnicalDetails />
+
+          {/* Exterior Features Section */}
+          <FeatureSection data={exteriorFeaturesData} />
+
+          {/* Interior Features Section */}
+          <FeatureSection data={interiorFeaturesData} />
+
+          {/* Additional Features Carousel */}
+          <FeaturesCarousel />
+
+          {/* Promotional Banner */}
+          <ShowcaseBanner />
+
+          {/* Call to Action Section */}
+          <Callout />
+        </main>
+      </div>
+
+      {/* Test Drive Modal */}
+      <TestDriveModal
+        isOpen={isTestDriveModalOpen}
+        onClose={() => setIsTestDriveModalOpen(false)}
+      />
+    </>
+  );
 };
 
-export default ProductShowcase;
+export default ESCVPageComponent;
