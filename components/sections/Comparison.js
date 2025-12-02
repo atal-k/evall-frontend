@@ -215,7 +215,7 @@ const Comparison = () => {
                   <div className={styles['comparison-card__metric']} style={{ color: cardColors.colors[index] }}> 
                     <span className={styles['comparison-card__metric-value']}>
                       {comparisonData.ice[index].currency && (
-                        <span className={styles['currency-sign']}>{comparisonData.ice[index].currency}</span>
+                        <span className='currency-sign'>{comparisonData.ice[index].currency}</span>
                       )}
                       {comparisonData.ice[index].metric}
                     </span> 
@@ -237,7 +237,7 @@ const Comparison = () => {
                   <div className={styles['comparison-card__metric']} style={{ color: cardColors.colors[index] }}>
                     <span className={styles['comparison-card__metric-value']}>
                       {comparisonData.electric[index].currency && (
-                        <span className={styles['currency-sign']}>{comparisonData.electric[index].currency}</span>
+                        <span className='currency-sign'>{comparisonData.electric[index].currency}</span>
                       )}
                       {comparisonData.electric[index].metric}
                     </span>

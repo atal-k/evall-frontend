@@ -13,14 +13,6 @@ import { handleKeyPress, sanitizePatterns } from '../../utils/validators';
 import { getCountryCodesOptions } from '../../utils/helpers';
 
 // ============================================================================
-// VALIDATION UTILITIES
-// ============================================================================
-
-
-
-
-
-// ============================================================================
 // FIELD COMPONENTS
 // ============================================================================
 
@@ -209,7 +201,7 @@ export const NumberField = ({
   return (
     <div className={`${styles['form-field']} ${styles['form-field--floating']} ${styles[className]}`}>
       <div className={hasPrefix || hasSuffix ? styles['form-field__number-wrapper'] : ''}>
-        {hasPrefix && <span className={styles['form-field__number-prefix']}>{prefix}</span>}
+        {hasPrefix && <span className={`${styles['form-field__number-prefix']} currency-sign`}>{prefix}</span>}
         
         <input
           type="text"

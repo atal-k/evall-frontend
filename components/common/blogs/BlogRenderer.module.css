@@ -91,7 +91,7 @@
 .blog-content__image-caption {
   margin-top: var(--spacing-sm);
   font-size: var(--font-size-sm);
-  color: var(--color-gray-600);
+  color: var(--color-gray-700);
   font-style: italic;
 }
 
@@ -114,7 +114,7 @@
 .blog-content__quote-caption {
   display: block;
   font-size: var(--font-size-sm);
-  color: var(--color-gray-600);
+  color: var(--color-gray-700);
   font-style: normal;
   font-weight: 500;
 }
@@ -243,7 +243,7 @@
 .blog-content__embed-caption {
   margin-top: var(--spacing-sm);
   font-size: var(--font-size-sm);
-  color: var(--color-gray-600);
+  color: var(--color-gray-700);
 }
 
 @media (max-width: 768px) {

@@ -4,7 +4,7 @@
 
 .blogs-home {
   min-height: 100vh;
-  background: var(--color-off-white);
+  background: var(--color-gray-200);
 }
 
 .blogs-home__section:last-of-type {

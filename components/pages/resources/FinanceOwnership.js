@@ -296,7 +296,7 @@ const FinanceOwnershipPageComponent = () => {
                     </div>
                     <div className={styles['finance-tco-metric']}>
                       <span className={styles['finance-tco-label']}>Operating Cost</span>
-                      <span className={`${styles['finance-tco-value']} ${styles['finance-tco-value--high']}`}>₹12-15/km</span>
+                      <span className={`${styles['finance-tco-value']} ${styles['finance-tco-value--high']} currency-sign`}>₹12-15/km</span>
                     </div>
                   </div>
                 </div>
@@ -327,7 +327,7 @@ const FinanceOwnershipPageComponent = () => {
                     </div>
                     <div className={styles['finance-tco-metric']}>
                       <span className={styles['finance-tco-label']}>Operating Cost</span>
-                      <span className={`${styles['finance-tco-value']} ${styles['finance-tco-value--low']}`}>₹3-4/km</span>
+                      <span className={`${styles['finance-tco-value']} ${styles['finance-tco-value--low']} currency-sign`}>₹3-4/km</span>
                     </div>
                   </div>
                 </div>

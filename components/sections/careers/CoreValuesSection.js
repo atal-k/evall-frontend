@@ -20,7 +20,7 @@ const ValueBlock = ({ value, index, isVisible }) => {
     };
   
     return (
-      <div className={`${styles['value-block']} ${isEven ? styles.even : styles.odd} ${isVisible ? styles['fade-in-side'] : ''}`}>
+      <div className={`${styles['value-block']} ${isEven ? styles['value-block--even'] : styles['value-block--odd']}${isVisible ? ` ${styles['fade-in-side']}` : ''}`}>
         <div className={styles['value-icon-container']}>
           <div 
             className={styles['value-icon']}

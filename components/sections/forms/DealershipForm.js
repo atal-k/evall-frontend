@@ -248,7 +248,6 @@ const DealershipForm = () => {
     }
     
     setIsSubmitting(true);
-    console.log('Dealership Enquiry Submission:', formData);
     await submitForm(formData);
     setIsSubmitting(false);
   };

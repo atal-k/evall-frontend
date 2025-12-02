@@ -181,7 +181,6 @@ const TestDriveBookingForm = (isModal) => {
     // Set submitting state
     setIsSubmitting(true);
     // Console log the submission data
-    console.log('Submission Data:', formData);
     await submitForm(formData);
     setIsSubmitting(false);
   };

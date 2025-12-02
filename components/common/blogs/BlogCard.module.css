@@ -5,7 +5,7 @@
 .blog-card {
   display: flex;
   flex-direction: column;
-  background: var(--color-white);
+  background: #fdfdfd;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);

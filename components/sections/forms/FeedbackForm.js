@@ -221,7 +221,6 @@ const FeedbackForm = () => {
     }
 
     setIsSubmitting(true);    
-    console.log('Customer Feedback Submission:', formData);
     await submitForm(formData);
     setIsSubmitting(false);
   };

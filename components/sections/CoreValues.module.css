@@ -10,6 +10,10 @@
     margin: 0;
     max-width: fit-content;
 }
+.core-values-container {
+  margin: 0 auto;
+  max-width: var(--container-max-width);
+}
 
 .core-values-section__wrapper {
 

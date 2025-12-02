@@ -41,37 +41,41 @@
 .values-list {
   margin-bottom: var(--spacing-2xl);
 }
-
 .value-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-3xl);
   align-items: center;
-  padding: var(--spacing-2xl) 0;
+  border: 1px solid var(--color-gray-outline);
+  padding: var(--spacing-2xl) var(--spacing-2xl);
+  border-radius: var(--radius-xl);
   opacity: 0;
   transform: translateX(-100px);
   transition: all 0.8s ease;
 }
 
-.value-block.even {
+.value-block--even {
   background: var(--color-gray-100);
-  border: 1px solid var(--color-gray-outline);
-  padding: var(--spacing-2xl) var(--spacing-2xl);
-  border-radius: var(--radius-xl);
   transform: translateX(50px);
+  margin: var(--spacing-lg) 0;
 }
 
-.value-block.even .value-icon-container {
+.value-block--even .value-icon-container {
   order: 2;
 }
 
-.value-block.even .value-content {
+.value-block--even .value-content {
   order: 1;
 }
 
-.value-block.fade-in-side {
-  opacity: 1;
-  transform: translateX(0);
+.value-block--odd {
+  background: var(--color-light-green-fill);
+
+}
+
+.fade-in-side {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
 }
 
 .value-icon-container {

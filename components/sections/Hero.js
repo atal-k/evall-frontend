@@ -66,7 +66,7 @@ const Hero = () => {
         {/* ADD THIS NEW PRICE TAG SECTION */}
           <div className={styles['hero__price-tag']}>
             <div className={styles['hero__price-label']}>Starting From</div>
-            <div className={styles['hero__price-value']}><span className={styles['currency-sign']}>₹</span>15.5<span className={styles['hero__price-asterisk']}>*</span> <span className={styles['hero__price-unit']}>lacs</span></div>
+            <div className={styles['hero__price-value']}><span className='currency-sign'>₹</span>15.5<span className={styles['hero__price-asterisk']}>*</span> <span className={styles['hero__price-unit']}>lacs</span></div>
           </div>
       </section>
     );

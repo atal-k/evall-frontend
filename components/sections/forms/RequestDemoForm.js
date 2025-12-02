@@ -248,7 +248,6 @@ const RequestDemoForm = () => {
       return;
     }
     setIsSubmitting(true);
-    console.log('Request Demo Submission:', formData);
     const result = await submitForm(formData);
     setIsSubmitting(false);
     // Success/error already handled in hook callbacks above
