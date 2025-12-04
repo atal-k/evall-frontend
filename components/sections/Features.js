@@ -84,7 +84,7 @@ const Features = () => {
             </h3>
             <button 
   className={styles['feature-card__cta-button']} 
-  onClick={() => window.location.href = '/products/product-showcase'}
+  onClick={() => window.location.href = '/products/e-SCV'}
 >
   Know More
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
