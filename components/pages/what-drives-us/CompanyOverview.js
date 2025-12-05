@@ -1,5 +1,5 @@
 // ============================================
-// components/pages/what-drives-us/WhatDrivesUs.js
+// components/pages/what-drives-us/CompanyOverview.js
 // ============================================
 
 import React from 'react';
@@ -11,8 +11,8 @@ import LeadershipSection from '@/components/sections/LeadershipSection';
 import GreenSolutionBanner from '@/components/layout/GreenSolutionBanner';
 import { aboutData, tabViewData, leadershipData } from '@/data/aboutData';
 
-// NOTE: Renamed component function to WhatDrivesUsPageComponent for consistency.
-const WhatDrivesUsPageComponent = () => {
+// NOTE: Renamed component function to CompanyOverviewPageComponent for consistency.
+const CompanyOverviewPageComponent = () => {
   return (
     <div className="about-us-page">
       <HeaderBanner
@@ -28,4 +28,4 @@ const WhatDrivesUsPageComponent = () => {
   );
 };
 
-export default WhatDrivesUsPageComponent;
+export default CompanyOverviewPageComponent;

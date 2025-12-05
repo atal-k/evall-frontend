@@ -2,13 +2,13 @@
 // pages/products/e-SCV.js
 // ============================================
 
-import Head from 'next/head';
+import SEOHead from '@/components/common/SEOHead';
 import ESCVPageComponent from '@/components/pages/products/ESCV';
 
 export default function eSCVPage() {
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>T3EV UDAY - Smart Electric Commercial Vehicle | EVALL</title>
         <meta
           name="description"
@@ -31,7 +31,7 @@ export default function eSCVPage() {
         <meta name="twitter:image" content="https://www.evall.in/images/vans/output_1.png" />
         
         {/* Product Schema Markup */}
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -52,8 +52,10 @@ export default function eSCVPage() {
               }
             })
           }}
-        />
-      </Head>
+        /> */}
+      {/* </Head> */} 
+      <SEOHead pageId="e-scv" />
+
       <ESCVPageComponent />
     </>
   );

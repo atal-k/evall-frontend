@@ -16,6 +16,7 @@ const Header = ({ variant = "white" }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const router = useRouter();
   const navRefs = useRef({});
+  const closeTimeoutRef = useRef(null); // ✅ ADDED: Prevent memory leak
   
   // Scroll handling only for glass variant
   useEffect(() => {
@@ -38,14 +39,23 @@ const Header = ({ variant = "white" }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY, variant]);
   
-  // Close dropdown on route change - FIXED: use router.pathname
+  // Close dropdown on route change
   useEffect(() => {
     setActiveDropdown(null);
   }, [router.pathname]);
   
-  // Check if nav link is active - FIXED: use router.pathname
+  // ✅ ADDED: Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
+  
+  // Check if nav link is active
   const isActiveLink = (path) => {
-    if (path === '#') return false;
+    if (!path || path === '#') return false; // ✅ ADDED: !path check
     if (path === '/') return router.pathname === '/';
     return router.pathname.startsWith(path);
   };
@@ -75,8 +85,13 @@ const Header = ({ variant = "white" }) => {
     const currentDropdown = activeDropdown;
     setActiveDropdown(`closing-${currentDropdown}`);
     
-    // Remove after animation completes
-    setTimeout(() => {
+    // ✅ ADDED: Clear any existing timeout
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    
+    // ✅ MODIFIED: Store timeout reference
+    closeTimeoutRef.current = setTimeout(() => {
       setActiveDropdown((prev) => {
         // Only clear if still in closing state
         if (prev === `closing-${currentDropdown}`) {
@@ -84,6 +99,7 @@ const Header = ({ variant = "white" }) => {
         }
         return prev;
       });
+      closeTimeoutRef.current = null; // ✅ ADDED: Clear ref after execution
     }, 350);
   };
   
@@ -105,16 +121,19 @@ const Header = ({ variant = "white" }) => {
             >
               <Link
                 href={navItem.path || '#'}
-                className={`${styles['header__nav-link']} ${router.pathname === navItem.path ? styles['header__nav-link--active'] : ''}`}
+                className={`${styles['header__nav-link']} ${
+                  isActiveLink(navItem.path) ? styles['header__nav-link--active'] : ''
+                }`}
                 onClick={(e) => handleNavClick(e, navItem)}
               >
                 {navItem.label}
               </Link>
               
-              {navItem.hasDropdown && activeDropdown === navItem.id && (
+              {navItem.hasDropdown && 
+              (activeDropdown === navItem.id || activeDropdown === `closing-${navItem.id}`) && (
                 <NavDropdown
                   menuData={navItem.menu}
-                  isOpen={true}
+                  isOpen={activeDropdown === navItem.id}
                   onClose={handleCloseDropdown}
                   triggerRef={navRefs.current[navItem.id]} 
                 />

@@ -3,7 +3,7 @@
 // ============================================
 
 import Head from 'next/head';
-import WhatDrivesUsPageComponent from '@/components/pages/what-drives-us/WhatDrivesUs';
+import WhatDrivesUsPageComponent from '@/components/pages/what-drives-us/CompanyOverview';
 
 export default function WhatDrivesUsPage() {
   return (

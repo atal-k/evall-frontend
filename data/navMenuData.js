@@ -1,4 +1,4 @@
-  // src/data/navMenuData.js
+  // @/data/navMenuData.js
 export const navMenuData = [
   {
     id: 'home',

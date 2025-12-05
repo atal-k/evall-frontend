@@ -3,7 +3,7 @@
 // ============================================================================
 
 import { useState, useEffect } from 'react';
-import localBlogApi from '../services/localBlogApi';
+import localBlogApi from '@/services/localBlogApi';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
 const USE_LOCAL_DATA = process.env.NEXT_PUBLIC_USE_LOCAL_DATA === 'true';

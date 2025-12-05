@@ -141,7 +141,7 @@
     border-radius: 50%;
     /* border: 1px solid rgba(180, 165, 145, 0.3); */
     border: 1px solid var(--color-white);
-    z-index: 1;
+    z-index: 0;
     pointer-events: none;
   }
 
@@ -186,19 +186,6 @@
     display: flex;
     gap: 16px;
     align-items: center;
-  }
-  
-  .ev-showcase__cta-button {
-    min-width: 180px;
-    padding: 14px 32px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .ev-showcase__cta-button:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   }
   
   /* Animations */
