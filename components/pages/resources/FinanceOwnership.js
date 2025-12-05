@@ -256,7 +256,7 @@ const FinanceOwnershipPageComponent = () => {
                   </Link>
                 </div>
                 <div className={styles['finance-options-visual']}>
-                  <Image src="/images/finance-ownership/finance-partners.webp" alt="Finance partners ecosystem" width={1200} height={800} />
+                  <Image src="/images/finance-ownership/evall-team.webp" alt="Finance partners ecosystem" width={940} height={624} />
                 </div>
               </div>
             </div>
@@ -401,6 +401,12 @@ const FinanceOwnershipPageComponent = () => {
                       </svg>
                       <span>Business Registration Documents</span>
                     </li>
+                    <li>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19L21 7l-1.41-1.41z" />
+                      </svg>
+                      <span>Requirements aligned with financial institutions/banks.</span>
+                    </li>
                   </ul>
                 </div>
     
@@ -435,6 +441,12 @@ const FinanceOwnershipPageComponent = () => {
                         <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19L21 7l-1.41-1.41z" />
                       </svg>
                       <span>Bank Account Details</span>
+                    </li>
+                    <li>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19L21 7l-1.41-1.41z" />
+                      </svg>
+                      <span>Requirements aligned with financial institutions/banks.</span>
                     </li>
                   </ul>
                 </div>

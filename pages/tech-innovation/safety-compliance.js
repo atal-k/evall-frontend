@@ -1,27 +1,23 @@
-// ============================================
-// pages/safety-compliance.js
-// ============================================
-
-import Head from 'next/head';
+// ============================================================================
+// FILE: pages/safety-compliance.js
+// ============================================================================
+import { getSEOForPage } from '@/lib/seo/getSEOForPage';
+import SEOHead from '@/components/common/SEOHead';
 import SafetyCompliancePageComponent from '@/components/pages/tech-innovation/SafetyCompliance';
 
-export default function SafetyCompliancePage() {
+export async function getStaticProps() {
+  const { seo } = await getSEOForPage('safety-compliance');
+  
+  return {
+    props: { seo },
+    revalidate: process.env.NEXT_PUBLIC_SEO_REFETCH
+  };
+}
+
+export default function SafetyCompliancePage({ seo }) {
   return (
     <>
-      <Head>
-        <title>Safety & Compliance | EVALL</title>
-        <meta
-          name="description"
-          content="EVALL's commitment to safety and regulatory compliance. Learn about our safety features, certifications, and adherence to industry standards for electric commercial vehicles."
-        />
-        <meta property="og:title" content="Safety & Compliance | EVALL" />
-        <meta
-          property="og:description"
-          content="Discover EVALL's comprehensive safety features and compliance with automotive industry regulations."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/safety-compliance" />
-      </Head>
+      <SEOHead seo={seo} />
       <SafetyCompliancePageComponent />
     </>
   );

@@ -11,7 +11,7 @@ const technicalData = {
   modelDetails: {
     title: "Technical Specifications",
     specs: [
-      { label: "Model Details", value: "EVALL T3EV UDAY" },
+      { label: "Model Details", value: "EVALL EV UDAY" },
       { label: "Domain", value: "GVW (kg)" },
       { label: "Payload (kg)", value: "1495" },
       { label: "Length", value: "5190 Centimeter" },
@@ -32,7 +32,7 @@ const technicalData = {
   performance: {
     title: "Performance",
     specs: [
-      { label: "Range (km)", value: "230 km" },
+      { label: "Range (km)", value: "230* km" },
       { label: "Gradeability", value: "21%" }
     ]
   },
@@ -47,7 +47,7 @@ const technicalData = {
 
 // Key highlights for main view
 const keyHighlights = [
-  { value: "230", unit: "km", label: "Range per Charge" },
+  { value: "230*", unit: "km", label: "Range per Charge" },
   { value: "3085", unit: "kg", label: "Gross Vehicle Weight" },
   { value: "1495", unit: "kg", label: "Payload Capacity" }
 ];

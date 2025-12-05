@@ -1,27 +1,23 @@
-// ============================================
-// pages/contact/disclaimers.js
-// ============================================
-
-import Head from 'next/head';
+// ============================================================================
+// FILE: pages/contact/disclaimers.js
+// ============================================================================
+import { getSEOForPage } from '@/lib/seo/getSEOForPage';
+import SEOHead from '@/components/common/SEOHead';
 import DisclaimersPageComponent from '@/components/pages/contact/Disclaimers';
 
-export default function DisclaimersPage() {
+export async function getStaticProps() {
+  const { seo } = await getSEOForPage('disclaimers');
+  
+  return {
+    props: { seo },
+    revalidate: process.env.NEXT_PUBLIC_SEO_REFETCH
+  };
+}
+
+export default function DisclaimersPage({ seo }) {
   return (
     <>
-      <Head>
-        <title>Disclaimers | EVALL</title>
-        <meta
-          name="description"
-          content="Read EVALL's disclaimers regarding the use of our website and services. Important legal information for users."
-        />
-        <meta property="og:title" content="Disclaimers | EVALL" />
-        <meta
-          property="og:description"
-          content="Legal disclaimers and important information about EVALL's website and services."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/contact/disclaimers" />
-      </Head>
+      <SEOHead seo={seo} />
       <DisclaimersPageComponent />
     </>
   );

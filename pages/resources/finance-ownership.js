@@ -1,27 +1,23 @@
-// ============================================
-// pages/resources/finance-ownership.js
-// ============================================
-
-import Head from 'next/head';
+// ============================================================================
+// FILE: pages/resources/finance-ownership.js
+// ============================================================================
+import { getSEOForPage } from '@/lib/seo/getSEOForPage';
+import SEOHead from '@/components/common/SEOHead';
 import FinanceOwnershipPageComponent from '@/components/pages/resources/FinanceOwnership';
 
-export default function FinanceOwnershipPage() {
+export async function getStaticProps() {
+  const { seo } = await getSEOForPage('finance-ownership');
+  
+  return {
+    props: { seo },
+    revalidate: process.env.NEXT_PUBLIC_SEO_REFETCH
+  };
+}
+
+export default function FinanceOwnershipPage({ seo }) {
   return (
     <>
-      <Head>
-        <title>Finance & Ownership | EVALL</title>
-        <meta
-          name="description"
-          content="Explore financing options and ownership benefits for EVALL electric vehicles. Learn about flexible payment plans, insurance, and ownership advantages."
-        />
-        <meta property="og:title" content="Finance & Ownership | EVALL" />
-        <meta
-          property="og:description"
-          content="Discover financing solutions and ownership benefits for EVALL electric commercial vehicles."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/resources/finance-ownership" />
-      </Head>
+      <SEOHead seo={seo} />
       <FinanceOwnershipPageComponent />
     </>
   );

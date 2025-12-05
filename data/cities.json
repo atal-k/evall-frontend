@@ -190,9 +190,6 @@
     "Supaul",
     "Warisaliganj"
   ],
-  "Chandigarh": [
-    "Chandigarh"
-  ],
   "Chhattisgarh": [
     "Ambikapur",
     "Bhatapara",
@@ -305,6 +302,7 @@
   "Haryana": [
     "Bahadurgarh",
     "Bhiwani",
+    "Chandigarh",
     "Charkhi Dadri",
     "Faridabad",
     "Fatehabad",
@@ -805,6 +803,7 @@
     "Barnala",
     "Batala",
     "Bathinda",
+    "Chandigarh",
     "Dhuri",
     "Faridkot",
     "Fazilka",

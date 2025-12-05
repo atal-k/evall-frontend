@@ -1,27 +1,23 @@
-// ============================================
-// pages/contact/customer-support.js
-// ============================================
-
-import Head from 'next/head';
+// ============================================================================
+// FILE: pages/contact/customer-support.js
+// ============================================================================
+import { getSEOForPage } from '@/lib/seo/getSEOForPage';
+import SEOHead from '@/components/common/SEOHead';
 import CustomerSupportPageComponent from '@/components/pages/contact/CustomerSupport';
 
-export default function CustomerSupportPage() {
+export async function getStaticProps() {
+  const { seo } = await getSEOForPage('customer-support');
+  
+  return {
+    props: { seo },
+    revalidate: process.env.NEXT_PUBLIC_SEO_REFETCH
+  };
+}
+
+export default function CustomerSupportPage({ seo }) {
   return (
     <>
-      <Head>
-        <title>Customer Support | EVALL</title>
-        <meta
-          name="description"
-          content="Need assistance with EVALL commercial EVs? Connect with our customer support team for service help, product details, and ownership guidance."
-        />
-        <meta property="og:title" content="EVALL Customer Support" />
-        <meta
-          property="og:description"
-          content="Get personalized assistance from EVALL specialists for products, services, and electric fleet transition."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/contact/customer-support" />
-      </Head>
+      <SEOHead seo={seo} />
       <CustomerSupportPageComponent />
     </>
   );

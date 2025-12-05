@@ -45,7 +45,7 @@ const Hero = () => {
           <div className={styles['hero__specs']}>
             <div className={styles['hero__spec']}>
               <div className={styles['hero__spec-value']}>
-                230<span style={{ fontSize: 'var(--font-size-xl)' }}>km</span>
+                230<sup>*</sup><span style={{ fontSize: 'var(--font-size-xl)' }}>km</span>
               </div>
               <div className={styles['hero__spec-label']}>Range</div>
             </div>

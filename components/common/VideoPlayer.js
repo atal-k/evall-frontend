@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './VideoPlayer.module.css';
+import Image from 'next/image';
 
 const VideoPlayer = ({ 
   src, 
   title = 'Video',
-  showControlsAlways = false 
+  showControlsAlways = false,
+  thumbnail
 }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -13,7 +15,8 @@ const VideoPlayer = ({
   // const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
   const [showControls, setShowControls] = useState(showControlsAlways);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  // const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showThumbnail, setShowThumbnail] = useState(true);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -21,7 +24,10 @@ const VideoPlayer = ({
 
     const handleTimeUpdate = () => setCurrentTime(video.currentTime);
     const handleLoadedMetadata = () => setDuration(video.duration);
-    const handleEnded = () => setIsPlaying(false);
+    const handleEnded = () => {
+      setIsPlaying(false);
+      setShowThumbnail(true); 
+    };
 
     video.addEventListener('timeupdate', handleTimeUpdate);
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
@@ -40,6 +46,7 @@ const VideoPlayer = ({
         videoRef.current.pause();
       } else {
         videoRef.current.play();
+        setShowThumbnail(false);
       }
       setIsPlaying(!isPlaying);
     }
@@ -105,7 +112,11 @@ const VideoPlayer = ({
         src={src}
         onClick={togglePlay}
       />
-
+      {thumbnail && showThumbnail && (
+        <div className={styles['video-player__thumbnail']}>
+          <Image src={thumbnail} alt={title} width={1080} height={1920}/>
+        </div>
+      )}
       {/* Gradient Overlay */}
       <div className={styles['video-player__overlay']} />
 
@@ -132,6 +143,12 @@ const VideoPlayer = ({
             />
           </div>
         </div>
+
+{/* 
+============TODO: VIDEO PLAY ICON TO CHANGE WITH BLUE COLOR=============
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><defs><mask id="SVGu4ff0bvt"><g fill="none" stroke-linejoin="round" stroke-width="4"><path fill="#fff" stroke="#fff" d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"/><path fill="#000" stroke="#000" d="M20 24v-6.928l6 3.464L32 24l-6 3.464l-6 3.464z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#SVGu4ff0bvt)"/></svg>
+
+*/}
 
         {/* Control Buttons */}
         <div className={styles['video-player__buttons']}>
@@ -183,14 +200,7 @@ const VideoPlayer = ({
               )}
             </button>
 
-            {/* Comment */}
-            <button className={styles['video-player__btn']} aria-label="Comments">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 21a9 9 0 1 0-9-9c0 1.488.36 2.89 1 4.127L3 21l4.873-1c1.236.639 2.64 1 4.127 1" />
-              </svg>
-            </button>
-
-            {/* Fullscreen */}
+            {/* Fullscreen
             <button className={styles['video-player__btn']} onClick={toggleFullscreen} aria-label={isFullscreen ? 'Exit fullscreen' : 'Fullscreen'}>
               {isFullscreen ? (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -201,7 +211,7 @@ const VideoPlayer = ({
                   <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="currentColor"/>
                 </svg>
               )}
-            </button>
+            </button> */}
 
             {/* More Options */}
             <button className={styles['video-player__btn']} aria-label="More options">

@@ -1,27 +1,23 @@
-// ============================================
-// pages/resources/tco-calculator.js
-// ============================================
-
-import Head from 'next/head';
+// ============================================================================
+// FILE: pages/resources/tco-calculator.js
+// ============================================================================
+import { getSEOForPage } from '@/lib/seo/getSEOForPage';
+import SEOHead from '@/components/common/SEOHead';
 import TCOCalculatorPageComponent from '@/components/pages/resources/TCOCalculator';
 
-export default function TCOCalculatorPage() {
+export async function getStaticProps() {
+  const { seo } = await getSEOForPage('tco-calculator');
+  
+  return {
+    props: { seo },
+    revalidate: process.env.NEXT_PUBLIC_SEO_REFETCH
+  };
+}
+
+export default function TCOCalculatorPage({ seo }) {
   return (
     <>
-      <Head>
-        <title>TCO Calculator | EVALL</title>
-        <meta
-          name="description"
-          content="Calculate Total Cost of Ownership and understand why electric vehicles are more efficient compared to ICE vehicles. Compare yearly cost breakdown between EV and traditional vehicles."
-        />
-        <meta property="og:title" content="TCO Calculator | EVALL" />
-        <meta
-          property="og:description"
-          content="Use EVALL's TCO Calculator to compare electric vehicle costs against traditional ICE vehicles and make informed business decisions."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/tools/tco-calculator" />
-      </Head>
+      <SEOHead seo={seo} />
       <TCOCalculatorPageComponent />
     </>
   );

@@ -1,27 +1,23 @@
-// ============================================
-// pages/contact/dealer-locator.js
-// ============================================
-
-import Head from 'next/head';
+// ============================================================================
+// FILE: pages/contact/dealer-locator.js
+// ============================================================================
+import { getSEOForPage } from '@/lib/seo/getSEOForPage';
+import SEOHead from '@/components/common/SEOHead';
 import DealerLocatorPageComponent from '@/components/pages/contact/DealerLocator';
 
-export default function DealerLocatorPage() {
+export async function getStaticProps() {
+  const { seo } = await getSEOForPage('dealer-locator');
+  
+  return {
+    props: { seo },
+    revalidate: process.env.NEXT_PUBLIC_SEO_REFETCH
+  };
+}
+
+export default function DealerLocatorPage({ seo }) {
   return (
     <>
-      <Head>
-        <title>Dealer Locator | EVALL</title>
-        <meta
-          name="description"
-          content="Find your nearest EVALL dealership for vehicle demos, financing support, and after-sales service. Search by city, name, or pincode."
-        />
-        <meta property="og:title" content="EVALL Dealer Locator" />
-        <meta
-          property="og:description"
-          content="Locate authorized EVALL commercial EV dealers across India for sales, service, and fleet solutions."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/contact/dealer-locator" />
-      </Head>
+      <SEOHead seo={seo} />
       <DealerLocatorPageComponent />
     </>
   );

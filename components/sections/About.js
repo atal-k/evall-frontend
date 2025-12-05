@@ -86,11 +86,12 @@ const About = () => {
 
           {/* Right Video Player */}
           <div className={styles['about-section__right']}>
-            <VideoPlayer 
-              src="/video/about-us.mp4" 
-              title="About Us"
-              showControlsAlways={true}
-            />
+          <VideoPlayer 
+            src="/video/evall-about-us.mp4" 
+            title="About Us"
+            showControlsAlways={true}
+            thumbnail="/images/evall-director-thumbnail.webp"
+          />
           </div>
         </div>
       </div>

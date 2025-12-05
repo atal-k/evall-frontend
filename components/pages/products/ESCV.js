@@ -108,7 +108,7 @@ const ESCVPageComponent = () => {
             backgroundImage="/images/canvas-background.png"
             
             // Content
-            title="T3EV UDAY"
+            title="EV UDAY"
             tagline="Drive bold. Drive beyond."
             
             // Viewer settings

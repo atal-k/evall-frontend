@@ -1,27 +1,23 @@
-// ============================================
-// pages/resources/emi-calculator.js
-// ============================================
-
-import Head from 'next/head';
+// ============================================================================
+// FILE: pages/resources/emi-calculator.js
+// ============================================================================
+import { getSEOForPage } from '@/lib/seo/getSEOForPage';
+import SEOHead from '@/components/common/SEOHead';
 import EMICalculatorPageComponent from '@/components/pages/resources/EMICalculator';
 
-export default function EMICalculatorPage() {
+export async function getStaticProps() {
+  const { seo } = await getSEOForPage('emi-calculator');
+  
+  return {
+    props: { seo },
+    revalidate: process.env.NEXT_PUBLIC_SEO_REFETCH
+  };
+}
+
+export default function EMICalculatorPage({ seo }) {
   return (
     <>
-      <Head>
-        <title>EMI Calculator | EVALL</title>
-        <meta
-          name="description"
-          content="Calculate your monthly EMI for EVALL electric vehicles. Plan your financing with our easy-to-use EMI calculator and make informed purchase decisions."
-        />
-        <meta property="og:title" content="EMI Calculator | EVALL" />
-        <meta
-          property="og:description"
-          content="Use EVALL's EMI Calculator to estimate monthly payments and plan your electric vehicle financing."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/resources/emi-calculator" />
-      </Head>
+      <SEOHead seo={seo} />
       <EMICalculatorPageComponent />
     </>
   );

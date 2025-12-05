@@ -1,27 +1,23 @@
-// ============================================
-// pages/technology/energy-battery.js
-// ============================================
-
-import Head from 'next/head';
+// ============================================================================
+// FILE: pages/technology/energy-battery.js
+// ============================================================================
+import { getSEOForPage } from '@/lib/seo/getSEOForPage';
+import SEOHead from '@/components/common/SEOHead';
 import EnergyBatteryPageComponent from '@/components/pages/tech-innovation/EnergyBattery';
 
-export default function EnergyBatteryPage() {
+export async function getStaticProps() {
+  const { seo } = await getSEOForPage('energy-battery');
+  
+  return {
+    props: { seo },
+    revalidate: process.env.NEXT_PUBLIC_SEO_REFETCH
+  };
+}
+
+export default function EnergyBatteryPage({ seo }) {
   return (
     <>
-      <Head>
-        <title>Energy & Battery Technology | EVALL</title>
-        <meta
-          name="description"
-          content="Discover EVALL's advanced energy and battery technology powering the future of electric mobility. Innovative solutions for efficient, sustainable commercial vehicles."
-        />
-        <meta property="og:title" content="Energy & Battery Technology | EVALL" />
-        <meta
-          property="og:description"
-          content="Explore cutting-edge battery technology and energy solutions that power EVALL's electric commercial vehicles."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/technology/energy-battery" />
-      </Head>
+      <SEOHead seo={seo} />
       <EnergyBatteryPageComponent />
     </>
   );

@@ -1,27 +1,23 @@
-// ============================================
-// pages/resources/faqs.js
-// ============================================
-
-import Head from 'next/head';
+// ============================================================================
+// FILE: pages/resources/faqs.js
+// ============================================================================
+import { getSEOForPage } from '@/lib/seo/getSEOForPage';
+import SEOHead from '@/components/common/SEOHead';
 import FAQPageComponent from '@/components/pages/resources/FAQ';
 
-export default function FAQPage() {
+export async function getStaticProps() {
+  const { seo } = await getSEOForPage('faqs');
+  
+  return {
+    props: { seo },
+    revalidate: process.env.NEXT_PUBLIC_SEO_REFETCH
+  };
+}
+
+export default function FAQPage({ seo }) {
   return (
     <>
-      <Head>
-        <title>Frequently Asked Questions | EVALL</title>
-        <meta
-          name="description"
-          content="Find answers to common questions about EVALL electric commercial vehicles, charging, financing, maintenance, and more."
-        />
-        <meta property="og:title" content="FAQs | EVALL" />
-        <meta
-          property="og:description"
-          content="Get answers to frequently asked questions about EVALL's electric vehicles and services."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.evall.in/resources/faqs" />
-      </Head>
+      <SEOHead seo={seo} />
       <FAQPageComponent />
     </>
   );
