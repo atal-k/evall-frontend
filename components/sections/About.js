@@ -4,7 +4,7 @@ import VideoPlayer from '@/components/common/VideoPlayer';
 import { getIcon } from '@/data/iconsData';
 
 const About = () => {
-  const [showFeatures, setShowFeatures] = useState(false);
+  // const [showFeatures, setShowFeatures] = useState(false);
 
   const points = [
     "Backed by four decades of engineering excellence",
@@ -56,14 +56,14 @@ const About = () => {
               ))}
             </ul>
 
-            <button 
+            {/* <button 
               className={styles['about-section__toggle-btn']}
               onClick={() => setShowFeatures(!showFeatures)}
             >
               {showFeatures ? 'Read less' : 'Read more'}
-            </button>
+            </button> */}
 
-            {showFeatures && (
+            {/* {showFeatures && ( */}
               <div className={styles['about-section__features']}>
                 {features.map((feature, index) => (
                   <div key={index} className={styles['about-section__feature']}>
@@ -81,7 +81,7 @@ const About = () => {
                   </div>
                 ))}
               </div>
-            )}
+            {/* )} */}
           </div>
 
           {/* Right Video Player */}
