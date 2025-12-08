@@ -10,7 +10,7 @@ export async function getStaticProps() {
   
   return {
     props: { seo },
-    revalidate: process.env.NEXT_PUBLIC_SEO_REFETCH
+    revalidate: parseInt(process.env.SEO_REFETCH, 10) || 3600
   };
 }
 
