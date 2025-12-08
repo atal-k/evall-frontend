@@ -150,7 +150,9 @@ const Header = ({ variant = "white" }) => {
           >
             Find a Dealer
           </Button>
-          <Button variant="primary" size="small">Explore Models</Button>
+          <Button variant="primary" size="small"
+            onClick={() => window.location.href = '/products/e-SCV'}
+          >Explore Models</Button>
           <button 
             className={styles['header__mobile-toggle']}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

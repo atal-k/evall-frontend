@@ -19,17 +19,17 @@
     border-radius: var(--radius-xxl);
     overflow: visible; /* CHANGED from hidden to visible */
     display: grid;
-    grid-template-columns: 56% 44%;
+    grid-template-columns: 50% 50%;
     align-items: center;
-    min-height: 300px;
+    min-height: 250px;
     position: relative;
   }
   
   .cta-section__image-wrapper {
-    position: absolute; /* CHANGED from relative */
-    left: -10px;
-    top: -160px; /* ADDED - pulls image up beyond container */
-    height: calc(100% + 190px); /* Extends beyond container */
+    position: relative; 
+    bottom: 50px;
+    left: 20px;
+    height: 100%; /* Extends beyond container */
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -37,7 +37,7 @@
   }
   
   .cta-section__image {
-    width: 62%;
+    width: 100%;
     aspect-ratio: 738 / 447;
     height: auto;
     object-fit: contain;
@@ -45,7 +45,7 @@
   }
   
   .cta-section__content {
-    padding: var(--spacing-lg) var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-sm);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
@@ -81,7 +81,7 @@
   display: flex;
   gap: var(--spacing-xs);
   flex-wrap: wrap;
-  margin-top: var(--spacing-md);
+  margin-top: var(--spacing-lg);
 }
 
 .cta-section__buttons .btn {
@@ -153,7 +153,7 @@
   .cta-section__buttons {
     width: 100%;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-lg);
   }
 
   .cta-section__buttons button {

@@ -256,7 +256,7 @@ const FinanceOwnershipPageComponent = () => {
                   </Link>
                 </div>
                 <div className={styles['finance-options-visual']}>
-                  <Image src="/images/finance-ownership/evall-team.webp" alt="Finance partners ecosystem" width={940} height={624} />
+                  <Image src="/images/evall-team.webp" alt="Finance partners ecosystem" width={940} height={624} />
                 </div>
               </div>
             </div>

@@ -21,8 +21,8 @@ const Callout = () => {
               src="/images/evall-callout-van.webp" 
               alt="EVall Commercial Vehicle" 
               className={styles['cta-section__image']}
-              width={1352}
-              height={821}
+              width={738}
+              height={447}
             />
           </div>
 

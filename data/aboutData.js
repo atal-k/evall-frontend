@@ -19,7 +19,7 @@ const aboutData = [
       id: 3,
       title: "Our Legacy",
       description: "Born from a rich heritage of automotive component manufacturing, EVall leverages deep industry relationships and manufacturing prowess to craft vehicles that are not just eco-friendly but performance-driven and scalable.",
-      image: "/images/about-us/legacy.webp"
+      image: "/images/evall-team.webp"
     }
   ];
   const tabViewData = [
