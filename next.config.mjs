@@ -15,7 +15,7 @@ const nextConfig = {
   },
   // CRITICAL: Allow localhost images
   experimental: {
-    allowLocalhost: true,
+    // allowLocalhost: true,
   },
 };
 
