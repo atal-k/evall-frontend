@@ -7,6 +7,7 @@ import Button from '../common/Button';
 import styles from './Header.module.css';
 import Logo from "../common/Logo";
 import NavDropdown from '../common/NavDropdown';
+import MobileNav from '../common/MobileNav';
 import { navMenuData } from '../../data/navMenuData';
 
 const Header = ({ variant = "white" }) => {
@@ -16,7 +17,7 @@ const Header = ({ variant = "white" }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const router = useRouter();
   const navRefs = useRef({});
-  const closeTimeoutRef = useRef(null); // ✅ ADDED: Prevent memory leak
+  const closeTimeoutRef = useRef(null);
   
   // Scroll handling only for glass variant
   useEffect(() => {
@@ -42,9 +43,10 @@ const Header = ({ variant = "white" }) => {
   // Close dropdown on route change
   useEffect(() => {
     setActiveDropdown(null);
+    setMobileMenuOpen(false);
   }, [router.pathname]);
   
-  // ✅ ADDED: Cleanup timeout on unmount
+  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (closeTimeoutRef.current) {
@@ -52,10 +54,22 @@ const Header = ({ variant = "white" }) => {
       }
     };
   }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
   
   // Check if nav link is active
   const isActiveLink = (path) => {
-    if (!path || path === '#') return false; // ✅ ADDED: !path check
+    if (!path || path === '#') return false;
     if (path === '/') return router.pathname === '/';
     return router.pathname.startsWith(path);
   };
@@ -65,10 +79,8 @@ const Header = ({ variant = "white" }) => {
     if (navItem.hasDropdown) {
       e.preventDefault();
       if (activeDropdown === navItem.id) {
-        // Already open, trigger close animation
         handleCloseDropdown();
       } else {
-        // Close any open dropdown first, then open new one
         if (activeDropdown && !activeDropdown.startsWith('closing-')) {
           setActiveDropdown(null);
         }
@@ -85,83 +97,108 @@ const Header = ({ variant = "white" }) => {
     const currentDropdown = activeDropdown;
     setActiveDropdown(`closing-${currentDropdown}`);
     
-    // ✅ ADDED: Clear any existing timeout
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
     }
     
-    // ✅ MODIFIED: Store timeout reference
     closeTimeoutRef.current = setTimeout(() => {
       setActiveDropdown((prev) => {
-        // Only clear if still in closing state
         if (prev === `closing-${currentDropdown}`) {
           return null;
         }
         return prev;
       });
-      closeTimeoutRef.current = null; // ✅ ADDED: Clear ref after execution
+      closeTimeoutRef.current = null;
     }, 350);
   };
   
   const dealerLocatorPath = navMenuData.find(item => item.id === 'contact-us')?.menu.groups[0].links.find(link => link.id === 'dealer-locator')?.path;
   
   return (
-    <header className={`${styles['header']} ${styles[`header--${variant}`]} ${isHidden ? styles['header--hidden'] : ''}`}>
-      <div className={styles['header__container']}>
-        <Link href="/" className={styles['header__logo-link']}>
-          <Logo size="medium"/>
-        </Link>
-        
-        <nav className={styles['header__nav']}>
-          {navMenuData.map((navItem) => (
-            <div 
-              key={navItem.id}
-              className={styles['header__nav-item']}
-              ref={(el) => { navRefs.current[navItem.id] = el; }} 
-            >
-              <Link
-                href={navItem.path || '#'}
-                className={`${styles['header__nav-link']} ${
-                  isActiveLink(navItem.path) ? styles['header__nav-link--active'] : ''
-                }`}
-                onClick={(e) => handleNavClick(e, navItem)}
+    <>
+      <header className={`${styles['header']} ${styles[`header--${variant}`]} ${isHidden ? styles['header--hidden'] : ''}`}>
+        <div className={styles['header__container']}>
+          <Link href="/" className={styles['header__logo-link']}>
+            <Logo size="medium"/>
+          </Link>
+          
+          {/* Desktop Navigation */}
+          <nav className={styles['header__nav']}>
+            {navMenuData.map((navItem) => (
+              <div 
+                key={navItem.id}
+                className={styles['header__nav-item']}
+                ref={(el) => { navRefs.current[navItem.id] = el; }} 
               >
-                {navItem.label}
-              </Link>
-              
-              {navItem.hasDropdown && 
-              (activeDropdown === navItem.id || activeDropdown === `closing-${navItem.id}`) && (
-                <NavDropdown
-                  menuData={navItem.menu}
-                  isOpen={activeDropdown === navItem.id}
-                  onClose={handleCloseDropdown}
-                  triggerRef={navRefs.current[navItem.id]} 
-                />
+                <Link
+                  href={navItem.path || '#'}
+                  className={`${styles['header__nav-link']} ${
+                    isActiveLink(navItem.path) ? styles['header__nav-link--active'] : ''
+                  }`}
+                  onClick={(e) => handleNavClick(e, navItem)}
+                >
+                  {navItem.label}
+                </Link>
+                
+                {navItem.hasDropdown && 
+                (activeDropdown === navItem.id || activeDropdown === `closing-${navItem.id}`) && (
+                  <NavDropdown
+                    menuData={navItem.menu}
+                    isOpen={activeDropdown === navItem.id}
+                    onClose={handleCloseDropdown}
+                    triggerRef={navRefs.current[navItem.id]} 
+                  />
+                )}
+              </div>
+            ))}
+          </nav>
+          
+          <div className={styles['header__actions']}>
+            <Button
+              variant={router.pathname === '/' ? "white" : "outline"}
+              size="small"
+              onClick={() => router.push(dealerLocatorPath)}
+              className={styles['header__btn-dealer']}
+            >
+              Find a Dealer
+            </Button>
+            <Button 
+              variant="primary" 
+              size="small"
+              onClick={() => window.location.href = '/products/e-SCV'}
+              className={styles['header__btn-explore']}
+            >
+              Explore Models
+            </Button>
+            
+            {/* Mobile Menu Toggle */}
+            <button 
+              className={styles['header__mobile-toggle']}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
               )}
-            </div>
-          ))}
-        </nav>
-        
-        <div className={styles['header__actions']}>
-          <Button
-            variant={router.pathname === '/' ? "white" : "outline"}
-            size="small"
-            onClick={() => router.push(dealerLocatorPath)}
-          >
-            Find a Dealer
-          </Button>
-          <Button variant="primary" size="small"
-            onClick={() => window.location.href = '/products/e-SCV'}
-          >Explore Models</Button>
-          <button 
-            className={styles['header__mobile-toggle']}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            ☰
-          </button>
+            </button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Mobile Navigation Drawer */}
+      <MobileNav 
+        isOpen={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        navMenuData={navMenuData}
+        isActiveLink={isActiveLink}
+      />
+    </>
   );
 };
 

@@ -92,7 +92,7 @@ export const navMenuData = [
         {
           title: null,
           links: [
-            { id: 'blog-news', label: 'Blog & News', path: '/resources/blogs' },
+            { id: 'blog-news', label: 'Blogs & News', path: '/resources/blogs' },
             { id: 'emi-calculator', label: 'EMI Calculator', path: '/resources/emi-calculator' },
             { id: 'tco-calculator', label: 'TCO Calculator', path: '/resources/tco-calculator' },
             { id: 'finance-ownership', label: 'Finance and Ownership', path: '/resources/finance-ownership' },

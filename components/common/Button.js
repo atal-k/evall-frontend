@@ -6,7 +6,7 @@ const Button = ({ children, variant = 'primary', size = 'medium', onClick, class
   ${styles.btn} 
   ${styles[`btn--${variant}`]} 
   ${size === 'small' ? styles['btn--small'] : ''} 
-  ${styles[className]}
+  ${className}
 `;
     return (
       <button className={classes} onClick={onClick}>

@@ -251,7 +251,7 @@ const FinanceOwnershipPageComponent = () => {
                       <span>Digital KYC and streamlined approval process</span>
                     </li>
                   </ul>
-                  <Link href="/contact" className={`${styles['finance-btn']} ${styles['finance-btn-primary']}`}>
+                  <Link href="/contact/customer-support" className={`${styles['finance-btn']} ${styles['finance-btn-primary']}`}>
                     Talk to a Finance Advisor
                   </Link>
                 </div>

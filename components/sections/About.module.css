@@ -1,3 +1,11 @@
+
+
+
+/* ============================================================================
+   FILE: src/components/sections/About.module.css
+   CHANGES: Complete rewrite with proper responsive breakpoints
+   ============================================================================ */
+
 /* About Section Styles */
 .about-section {
   padding: var(--spacing-xl) 0;
@@ -10,12 +18,13 @@
   color: var(--color-black);
   margin-bottom: var(--spacing-xs);
   display: inline-block;
+  line-height: 1.3;
 }
 
 .about-section__content {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-xs);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
   align-items: start;
 }
 
@@ -64,7 +73,7 @@
   flex: 1;
 }
 
-/* Read More Toggle */
+/* Read More Toggle - Hidden on Desktop >= 1024px */
 .about-section__toggle-btn {
   background: none;
   border: none;
@@ -75,7 +84,8 @@
   cursor: pointer;
   text-align: left;
   font-weight: 600;
-  transition: opacity 0.2s ease;
+  transition: color var(--transition-base);
+  display: none; /* Hidden by default on desktop */
 }
 
 .about-section__toggle-btn:hover {
@@ -93,9 +103,11 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -141,47 +153,148 @@
   align-items: center;
 }
 
-/* Responsive Design */
-@media (min-width: 768px) {
+/* Breakpoint: 1024px - Tighter Gap, Still 2-Column */
+@media (max-width: 1024px) and (min-width: 768px) {
   .about-section__content {
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-  }
-
-  .about-section__title {
-    font-size: var(--font-size-3xl);
-  }
-
-  .about-section__intro {
-    font-size: var(--font-size-base);
-  }
-}
-
-@media (max-width: 1024px) {
-  .about-section__content {
-    grid-template-columns: 1fr 1.2fr;
     gap: var(--spacing-lg);
   }
 
-  .about-section__feature-title {
-    font-size: var(--font-size-lg);
-  }
-
-  .about-section__feature-description {
-    font-size: var(--font-size-base);
+  .about-section__title {
+    font-size: var(--font-size-2-5xl);
   }
 }
 
-@media (max-width: 767px) {
+/* Breakpoint: < 1024px - Switch to Single Column, Show Read More */
+@media (max-width: 1024px) {
   .about-section {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-lg) 0;
+  }
+
+  .about-section__content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
 
   .about-section__title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2-5xl);
+  }
+
+  /* Show Read More button on mobile */
+  .about-section__toggle-btn {
+    display: inline-block;
+  }
+
+  .about-section__right {
+    order: 2; /* Ensure video comes after text */
+  }
+
+  .about-section__left {
+    order: 1;
+  }
+}
+
+/* Breakpoint: 768px - Tablet Optimization */
+@media (max-width: 768px) {
+  .about-section {
+    padding: var(--spacing-md) 0;
+  }
+
+  .about-section__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .about-section__intro {
+    font-size: var(--font-size-sm);
+  }
+
+  .about-section__point-text {
+    font-size: var(--font-size-sm);
+  }
+
+  .about-section__points {
+    gap: 6px;
   }
 
   .about-section__features {
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+
+  .about-section__feature {
+    margin-top: var(--spacing-xxs);
+  }
+
+  .about-section__feature-title {
+    font-size: var(--font-size-base);
+  }
+
+  .about-section__feature-description {
+    font-size: var(--font-size-sm);
+  }
+
+  .about-section__toggle-btn {
+    font-size: var(--font-size-md);
+  }
+}
+
+/* Breakpoint: 425px - Small Mobile */
+@media (max-width: 425px) {
+  .about-section {
+    padding: var(--spacing-md) 0;
+  }
+
+  .about-section__content {
+    gap: var(--spacing-sm);
+  }
+
+  .about-section__title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xxs);
+  }
+
+  .about-section__intro {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+
+  .about-section__left {
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm);
+  }
+
+  .about-section__points {
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .about-section__point-icon {
+    margin-top: 0;
+  }
+
+  .about-section__point-text {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+  }
+
+  .about-section__features {
+    gap: var(--spacing-xs);
+  }
+
+  .about-section__feature {
+    margin-top: 0;
+    gap: 2px;
+  }
+
+  .about-section__feature-header {
+    margin-bottom: -8px;
+  }
+
+  .about-section__feature-title {
+    font-size: var(--font-size-sm);
+  }
+
+  .about-section__feature-description {
+    font-size: var(--font-size-sm2);
+    margin-left: calc(22px + var(--spacing-xxs));
   }
 }

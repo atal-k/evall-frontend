@@ -1,219 +1,303 @@
-/* // ============================================================================
-// FILE: src/components/sections/tco-calculator/TCOResultPanel.css
-// ============================================================================ */
-
-.results-panel {
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  padding: var(--spacing-sm);
-  border: var(--border-outline);
-}
-
-.results-panel__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.results-panel__title {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  color: var(--color-dark);
-  margin: 0;
-}
-
-/* Result Output Grid */
-.result-output-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-xs);
-  /* margin-bottom: var(--spacing-sm); */
-}
-
-.result-output-card {
-  background: linear-gradient(135deg, var(--color-light-green-fill) 0%, var(--color-white) 100%);
-  border: var(--border-outline);
-  border-radius: var(--radius-xmd);
-  overflow: hidden;
-  transition: all var(--transition-base);
-}
-
-.result-output-card:hover {
-  box-shadow: var(--shadow-sm);
-}
-
-.result-output-text {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--color-dark);
-  text-align: center;
-  padding: var(--spacing-sm) var(--spacing-xs);
-  background: rgba(255, 255, 255, 0.6);
-  border-bottom: var(--border-outline);
-}
-
-.result-output-values {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-
-.result-output-value {
-  padding:  var(--spacing-xs) var(--spacing-sm);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-  transition: all var(--transition-fast);
-}
-
-
-
-.result-output-value.ice {
-  background: linear-gradient(135deg, var(--color-ice-blue) 0%, #5a9ef7 100%);
-  border-radius: 0 0 0 var(--radius-xmd);
-  color: var(--color-white);
-}
-
-.result-output-value.ev {
-  background: linear-gradient(135deg, var(--color-eve-green) 0%, #4de622 100%);
-  border-radius: 0 0 var(--radius-xmd) 0;
-  color: var(--color-white);
-}
-
-.result-label {
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  opacity: 0.9;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.result-amount {
-  font-family: var(--font-Inter);
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-/* Savings Section */
-.savings-section {
-  margin-top: var(--spacing-xsm);
-  padding-top: var(--spacing-xsm);
-  border-top: 1px solid var(--color-gray-outline);
-}
-
-.savings-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-sm);
-}
-
-.savings-card {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-eve-green) 100%);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-sm) var(--spacing-md);
-  color: var(--color-white);
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
-  transition: all var(--transition-base);
-  position: relative;
-  overflow: hidden;
-}
-
-.savings-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
-  pointer-events: none;
-}
-
-.savings-card:hover {
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
-}
-
-.savings-card--5year {
-  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-light-green) 100%);
-}
-
-.savings-card__header {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  margin-bottom: var(--spacing-xs);
-  position: relative;
-  z-index: 1;
-}
-
-.savings-icon {
-  font-size: var(--font-size-lg);
-  line-height: 1;
-}
-
-.savings-period {
-  font-size: var(--font-size-md);
-  font-weight: 600;
-  opacity: 0.95;
-}
-
-.savings-amount {
-  font-family: var(--font-Inter);
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 2px;
-  position: relative;
-  z-index: 1;
-}
-
-.savings-label {
-  font-size: var(--font-size-sm);
-  opacity: 1;
-  font-weight: 500;
-  position: relative;
-  z-index: 1;
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .result-output-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .savings-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .result-output-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .result-output-text {
-    font-size: var(--font-size-sm2);
-  }
-
-  .result-amount {
-    font-size: var(--font-size-base);
-  }
-
-  .savings-cards {
-    gap: var(--spacing-xs);
-  }
+/* ============================================================================
+     FILE: src/components/sections/tco-calculator/TCOResultPanel.module.css
+     ============================================================================ */
   
-  .savings-card {
-    padding: var(--spacing-xs) var(--spacing-sm);
-  }
-  
-  .savings-amount {
-    font-size: var(--font-size-xl);
-  }
-  
-  .savings-icon {
-    font-size: var(--font-size-base);
-  }
-}
+     .results-panel {
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-sm);
+      border: var(--border-outline);
+    }
+    
+    .results-panel__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .results-panel__title {
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      color: var(--color-dark);
+      margin: 0;
+    }
+    
+    /* Result Output Grid */
+    .result-output-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .result-output-card {
+      background: linear-gradient(135deg, var(--color-light-green-fill) 0%, var(--color-white) 100%);
+      border: var(--border-outline);
+      border-radius: var(--radius-xmd);
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+    
+    .result-output-card:hover {
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .result-output-text {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-dark);
+      text-align: center;
+      padding: var(--spacing-sm) var(--spacing-xs);
+      background: rgba(255, 255, 255, 0.6);
+      border-bottom: var(--border-outline);
+    }
+    
+    .result-output-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    
+    .result-output-value {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      transition: all var(--transition-fast);
+    }
+    
+    .result-output-value.ice {
+      background: linear-gradient(135deg, var(--color-ice-blue) 0%, #5a9ef7 100%);
+      border-radius: 0 0 0 var(--radius-xmd);
+      color: var(--color-white);
+    }
+    
+    .result-output-value.ev {
+      background: linear-gradient(135deg, var(--color-eve-green) 0%, #4de622 100%);
+      border-radius: 0 0 var(--radius-xmd) 0;
+      color: var(--color-white);
+    }
+    
+    .result-label {
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .result-amount {
+      font-family: var(--font-Inter);
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    
+    /* Savings Section */
+    .savings-section {
+      margin-top: var(--spacing-xsm);
+      padding-top: var(--spacing-xsm);
+      border-top: 1px solid var(--color-gray-outline);
+    }
+    
+    .savings-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-sm);
+    }
+    
+    .savings-card {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-eve-green) 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-sm) var(--spacing-md);
+      color: var(--color-white);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .savings-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    
+    .savings-card:hover {
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+    }
+    
+    .savings-card--5year {
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-light-green) 100%);
+    }
+    
+    .savings-card__header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-xs);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .savings-icon {
+      font-size: var(--font-size-lg);
+      line-height: 1;
+    }
+    
+    .savings-period {
+      font-size: var(--font-size-md);
+      font-weight: 600;
+      opacity: 0.95;
+    }
+    
+    .savings-amount {
+      font-family: var(--font-Inter);
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .savings-label {
+      font-size: var(--font-size-sm);
+      opacity: 1;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Breakpoint: 1200px */
+    @media (max-width: 1200px) {
+      .result-output-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+      }
+    }
+    
+    /* Breakpoint: 768px */
+    @media (max-width: 768px) {
+      .results-panel {
+        padding: var(--spacing-sm);
+      }
+    
+      .results-panel__title {
+        font-size: var(--font-size-lg);
+      }
+    
+      .result-output-text {
+        font-size: var(--font-size-xs);
+        padding: var(--spacing-xs);
+      }
+    
+      .result-amount {
+        font-size: var(--font-size-base);
+      }
+    
+      .savings-cards {
+        gap: var(--spacing-sm);
+      }
+    
+      .savings-card {
+        padding: var(--spacing-sm);
+      }
+    
+      .savings-amount {
+        font-size: var(--font-size-xl);
+      }
+    }
+    
+    /* Breakpoint: 425px */
+    @media (max-width: 425px) {
+      .results-panel {
+        padding: var(--spacing-xs);
+        border-radius: var(--radius-lg);
+      }
+    
+      .results-panel__header {
+        margin-bottom: var(--spacing-xs);
+      }
+    
+      .results-panel__title {
+        font-size: var(--font-size-base);
+      }
+    
+      .result-output-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+      }
+    
+      .result-output-card {
+        border-radius: var(--radius-md);
+      }
+    
+      .result-output-text {
+        font-size: 0.7rem;
+        padding: var(--spacing-xxs) var(--spacing-xs);
+      }
+    
+      .result-output-value {
+        padding: var(--spacing-xxs) var(--spacing-xs);
+      }
+    
+      .result-output-value.ice {
+        border-radius: 0 0 0 var(--radius-md);
+      }
+    
+      .result-output-value.ev {
+        border-radius: 0 0 var(--radius-md) 0;
+      }
+    
+      .result-label {
+        font-size: 0.65rem;
+      }
+    
+      .result-amount {
+        font-size: var(--font-size-sm);
+      }
+    
+      .savings-section {
+        margin-top: var(--spacing-xs);
+        padding-top: var(--spacing-xs);
+      }
+    
+      .savings-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+      }
+    
+      .savings-card {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: var(--radius-md);
+      }
+    
+      .savings-card__header {
+        gap: var(--spacing-xxs);
+        margin-bottom: var(--spacing-xxs);
+      }
+    
+      .savings-icon {
+        font-size: var(--font-size-sm);
+      }
+    
+      .savings-period {
+        font-size: var(--font-size-sm);
+      }
+    
+      .savings-amount {
+        font-size: var(--font-size-lg);
+      }
+    
+      .savings-label {
+        font-size: var(--font-size-xs);
+      }
+    }

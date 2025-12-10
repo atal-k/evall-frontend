@@ -72,14 +72,14 @@
   --color-leadership-facebook: #3b5998;
 
   /* Category Badge Colors */
---category-tech-bg: #e0f2fe;
---category-tech-color: #0369a1;
+  --category-tech-bg: #e0f2fe;
+  --category-tech-color: #0369a1;
 
---category-events-bg: #f3e8ff;
---category-events-color: #7c3aed;
+  --category-events-bg: #f3e8ff;
+  --category-events-color: #7c3aed;
 
---category-news-bg: #ffedd5;
---category-news-color: #c2410c;
+  --category-news-bg: #ffedd5;
+  --category-news-color: #c2410c;
 
   --color-green-banner: #066F29;
   
@@ -125,7 +125,7 @@
   --spacing-4xl: 8rem;
   --spacing-5xl: 10rem;
 
-      /* Compact form spacing */
+  /* Compact form spacing */
   --form-spacing-xs: 0.35rem;
   --form-spacing-sm: 0.6rem;
   --form-spacing-md: 1rem;
@@ -150,12 +150,20 @@
   /* Blogs */
   --color-para: #323436;
 
-  /* Feauture card padding */
+  /* Feature card padding */
   --feature-card-padding: 30px 20px 20px;
   
   /* Layout */
   --container-max-width: 1380px;
   --header-height: 65px;
+  
+  /* Breakpoints */
+  --breakpoint-xs: 425px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1440px;
   
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -196,13 +204,26 @@ body {
   background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Container constraint - add to existing App.css */
+/* Container constraint */
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+@media (max-width: 425px) {
+  .container {
+    padding: 0 var(--spacing-xs);
+  }
 }
 
 /* Currency sign */
@@ -229,34 +250,34 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 /* Modern Minimal Scrollbar */
 /* Webkit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-width: 8px;
-height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-background: var(--color-gray-100);
-border-radius: 4px;
+  background: var(--color-gray-100);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-background: var(--color-gray-400);
-border-radius: 4px;
-transition: background var(--transition-base);
+  background: var(--color-gray-400);
+  border-radius: 4px;
+  transition: background var(--transition-base);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-background: var(--color-gray-600);
+  background: var(--color-gray-600);
 }
 
 /* Firefox */
 * {
-scrollbar-width: thin;
-scrollbar-color: var(--color-gray-400) var(--color-gray-100);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gray-400) var(--color-gray-100);
 }
-
 
 /* Base Field Container */
 .form-field {
@@ -266,7 +287,25 @@ scrollbar-color: var(--color-gray-400) var(--color-gray-100);
   margin-bottom: var(--spacing-xs);
 }
 
+/* Responsive Utilities */
+.hide-mobile {
+  display: none;
+}
+
+.show-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: block;
+  }
   
+  .show-mobile {
+    display: none;
+  }
+}
+
 /* ========== RESPONSIVE DESIGN ========== */
 @media (min-width: 768px) {
   .header__nav {
@@ -280,7 +319,6 @@ scrollbar-color: var(--color-gray-400) var(--color-gray-100);
   .btn--small {
     display: inline-flex;
   }
-  
   
   .testimonials__grid {
     grid-template-columns: repeat(2, 1fr);

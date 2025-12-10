@@ -211,11 +211,12 @@
 
 @media (max-width: 768px) {
   .core-values-section {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl) 0;
   }
 
   .core-values-section__image-wrapper {
     margin-bottom: var(--spacing-lg);
+    width: 90%;
   }
 
   .core-values-section__content {
@@ -233,7 +234,8 @@
   .core-values-cards {
     flex-direction: column;
     width: 100%;
-    gap: var(--spacing-md);
+    margin-right: 0;
+    gap: var(--spacing-sm);
     min-height: auto;
   }
 
@@ -260,31 +262,39 @@
   }
 
   .value-card__icon {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
   }
 
   .value-card__title {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-lg);
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 425px) {
+  .core-values-section {
+    padding: var(--spacing-md) 0;
+  }
+
   .core-values-section__image-wrapper {
-    max-width: 100%;
+    width: 100%;
   }
 
   .value-card {
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
+    margin: 0 var(--spacing-sm);
+  }
+  .value-card__header {
+    margin-bottom: var(--spacing-xs);
   }
 
   .value-card__icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 
-  .value-card__icon svg {
+  /* .value-card__icon svg {
     width: 1.5em;
     height: 1.5em;
-  }
+  } */
 }
