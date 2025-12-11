@@ -13,7 +13,7 @@ const ShowcaseBanner = () => {
             Towards The New<br />Electrifying Direction
           </h1>
           <p className={styles['showcase-banner__subtitle']}>
-            Drive The New Age EV- The Ultimate T3EV UDAY
+            Drive The New Age EV- The Ultimate EV UDAY
           </p>
           <button className={styles['showcase-banner__btn']}>
             Explore EV Uday Today

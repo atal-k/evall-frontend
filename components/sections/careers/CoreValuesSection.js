@@ -101,7 +101,7 @@ const ValueBlock = ({ value, index, isVisible }) => {
   
           <div className={styles['culture-footer']}>
             <div className={styles['culture-footer-content']}>
-            <Logo size="XLarge" className='logo--light' color="white" />
+            <Logo size="XLarge" className='culture-logo' color="white" />
             <h3 className={styles['culture-title']}>{careersData.culture.title}</h3>
             <p className={styles['culture-description']}>{careersData.culture.description}</p>
             <p className={styles['culture-mission']}>{careersData.culture.mission}</p>

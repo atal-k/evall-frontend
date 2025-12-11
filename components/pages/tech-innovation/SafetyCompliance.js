@@ -168,7 +168,7 @@ const SafetyCompliancePageComponent = () => {
         </section>
   
         {/* Safety Monitoring Section */}
-        <section 
+        {/* <section 
           className={styles['safety-monitoring']} 
           ref={el => sectionRefs.current['monitoring'] = el}
         >
@@ -208,7 +208,7 @@ const SafetyCompliancePageComponent = () => {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
   
         {/* Driver Training Section */}
         <section className={styles['safety-training']}>

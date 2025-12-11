@@ -1,6 +1,9 @@
-/* src/components/sections/IntelligentCapabilites.js */
+/* ============================================================================
+   FILE: src/components/sections/IntelligentCapabilities.module.css
+   CHANGES: Complete responsive rewrite with proper image sizing and breakpoints
+   ============================================================================ */
 
-.intelligent-capabilities {
+   .intelligent-capabilities {
     padding: var(--spacing-2xl) 0;
     background-color: var(--color-gray-150);
   }
@@ -8,7 +11,6 @@
   .intelligent-capabilities .container {
     max-width: var(--container-max-width);
     margin: 0 auto;
-    /* padding: 0 var(--spacing-md); */
   }
   
   .intelligent-capabilities__heading {
@@ -30,7 +32,6 @@
   
   .intelligent-capabilities__card {
     background-color: var(--color-white);
-    /* max-width: 300px; */
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-gray-outline);
     padding: var(--spacing-sm);
@@ -46,91 +47,162 @@
   }
   
   .intelligent-capabilities__image-wrapper {
-    width: 100%px;
-    margin-bottom: var(--spacing-md);
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: var(--spacing-sm);
     flex-shrink: 0;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background-color: var(--color-gray-100);
   }
   
   .intelligent-capabilities__image {
     width: 100%;
     height: 100%;
-    border-radius: var(--radius-lg);
-    object-fit: contain;
+    object-fit: cover;
+    display: block;
   }
   
   .intelligent-capabilities__title {
     font-size: var(--font-size-xl);
     font-weight: 600;
     color: var(--color-dark-green3);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
     line-height: 1.3;
   }
   
   .intelligent-capabilities__description {
     font-size: var(--font-size-base);
     font-weight: 400;
-    text-align: justify;
     color: var(--color-gray-700);
     line-height: 1.6;
     margin: 0;
   }
-
-  /* Safety architecture section */
-.safety-arch-grid .intelligent-capabilities__grid {
-  grid-template-columns: repeat(3, 1fr) !important;
-}
-
-.safety-arch-grid .intelligent-capabilities__image{
-  height: 320px !important;
-  border: 1px solid var(--color-gray-outline);
-}
   
-  /* Responsive Design */
+  /* Safety Architecture Section Override */
+  .safety-arch-grid .intelligent-capabilities__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .safety-arch-grid .intelligent-capabilities__image-wrapper {
+    aspect-ratio: 4 / 3;
+  }
+  
+  .safety-arch-grid .intelligent-capabilities__image {
+    border: 1px solid var(--color-gray-outline);
+    border-radius: var(--radius-md);
+  }
+  
+  /* Breakpoint: 1200px - Large Tablet (3-column) */
+  @media (max-width: 1200px) {
+    .intelligent-capabilities__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Breakpoint: 1024px - Tablet */
   @media (max-width: 1024px) {
     .intelligent-capabilities {
-      padding: var(--spacing-3xl) 0;
+      padding: var(--spacing-xl) 0;
     }
   
     .intelligent-capabilities__heading {
       font-size: var(--font-size-3xl);
-      margin-bottom: var(--spacing-2xl);
+      margin-bottom: var(--spacing-lg);
+    }
+  
+    .intelligent-capabilities__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-sm);
+    }
+  
+    /* Safety arch stays 3-column at this breakpoint */
+    .safety-arch-grid .intelligent-capabilities__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Breakpoint: 768px - Switch to 2-column */
+  @media (max-width: 768px) {
+    .intelligent-capabilities {
+      padding: var(--spacing-lg) 0;
+    }
+  
+    .intelligent-capabilities__heading {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--spacing-md);
     }
   
     .intelligent-capabilities__grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-lg);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .intelligent-capabilities {
-      padding: var(--spacing-2xl) 0;
-    }
-  
-    .intelligent-capabilities__heading {
-      font-size: var(--font-size-2-5xl);
-      margin-bottom: var(--spacing-xl);
-    }
-  
-    .intelligent-capabilities__grid {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-md);
+      gap: var(--spacing-xs);
     }
   
     .intelligent-capabilities__card {
-      padding: var(--spacing-lg);
+      padding: var(--spacing-xs);
     }
   
     .intelligent-capabilities__image-wrapper {
-      width: 64px;
-      height: 64px;
+      margin-bottom: var(--spacing-xs);
     }
   
     .intelligent-capabilities__title {
       font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-xxs);
     }
   
     .intelligent-capabilities__description {
       font-size: var(--font-size-sm);
+      line-height: 1.5;
+    }
+  
+    /* Safety arch also switches to 2-column */
+    .safety-arch-grid .intelligent-capabilities__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Breakpoint: 425px - Single Column */
+  @media (max-width: 425px) {
+    .intelligent-capabilities {
+      padding: var(--spacing-md) 0;
+    }
+  
+    .intelligent-capabilities__heading {
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-sm);
+      letter-spacing: 0.5px;
+    }
+  
+    .intelligent-capabilities__grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xs);
+    }
+  
+    .intelligent-capabilities__card {
+      padding: var(--spacing-xs);
+      max-width: 100%;
+    }
+  
+    .intelligent-capabilities__image-wrapper {
+      aspect-ratio: 16 / 9;
+      margin-bottom: var(--spacing-xs);
+    }
+  
+    .intelligent-capabilities__title {
+      font-size: var(--font-size-base);
+    }
+  
+    .intelligent-capabilities__description {
+      font-size: var(--font-size-sm);
+    }
+  
+    /* Safety arch also single column */
+    .safety-arch-grid .intelligent-capabilities__grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .safety-arch-grid .intelligent-capabilities__image-wrapper {
+      aspect-ratio: 16 / 9;
     }
   }
