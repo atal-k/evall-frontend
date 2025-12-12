@@ -2,12 +2,50 @@
 // FILE: components/sections/CoreValues.js
 // ============================================================================
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './CoreValues.module.css';
 import Image from 'next/image';
 
 const CoreValues = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [activeCard, setActiveCard] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile viewport
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Handle card interaction (click for mobile, hover for desktop)
+  const handleCardClick = (id) => {
+    if (isMobile) {
+      setActiveCard(activeCard === id ? null : id);
+    }
+  };
+
+  const handleMouseEnter = (id) => {
+    if (!isMobile) {
+      setHoveredCard(id);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      setHoveredCard(null);
+    }
+  };
+
+  // Determine if card should be active
+  const isCardActive = (id) => {
+    return isMobile ? activeCard === id : hoveredCard === id;
+  };
 
   const values = [
     {
@@ -45,56 +83,64 @@ const CoreValues = () => {
   return (
     <section className={styles['core-values-section']}>
       <div className={styles['core-values-container']}>
-        <div className={styles['core-values-section__wrapper']}>
-        {/* Top Section - Full Width Image */}
-        <div className={styles['core-values-section__image-wrapper']}>
-          <Image 
-            src="/images/charging-van.webp" 
-            alt="EV Charging Station" 
-            className="core-values-section__image"
-            width={2352}
-            height={1323}
-          />
-        </div>
-  
-        {/* Bottom Section - Two Columns (Text + Cards) */}
-          <div className={styles['core-values-section__content']}>
-          {/* Left Column - Text Content */}
-          <div className={styles['core-values-section__text']}>
-            <h2 className={styles['core-values-section__title']}>
-              <span className={styles['core-values-section__title-highlight']}>EV&apos;s</span> Core Brand Values
-            </h2>
-            <p className={styles['core-values-section__description']}>
-              Our electric vehicles embody innovation, with cutting-edge technology and smart connectivity. They deliver sustainability, reducing emissions and supporting a cleaner planet. And they ensure performance and reliability, offering instant torque, smooth rides, and low running costs.
-            </p>
+        <div className={styles['core-values-wrapper']}>
+          {/* Image Section */}
+          <div className={styles['core-values-image-wrapper']}>
+            <Image 
+              src="/images/charging-van.webp" 
+              alt="EV Charging Station" 
+              className={styles['core-values-image']}
+              width={2352}
+              height={1323}
+              priority
+            />
           </div>
-  
-          {/* Right Column - Value Cards */}
-          <div className={styles['core-values-section__cards']}>
-            <div className={styles['core-values-cards']}>
-              {values.map((value, index) => (
-                <div
-                  key={value.id}
-                  className={`${styles['value-card']} ${hoveredCard === value.id ? styles['value-card--active'] : ''} ${hoveredCard && hoveredCard !== value.id ? styles['value-card--inactive'] : ''}`}
-                  onMouseEnter={() => setHoveredCard(value.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                  style={{
-                    zIndex: hoveredCard === value.id ? 10 : 3 - index
-                  }}
-                >
-                  <div className={styles['value-card__header']}>  
-                    <div className={styles['value-card__icon']}>
-                      {value.icon}
-                    </div>
-                    <h3 className={styles['value-card__title']}>{value.title}</h3>
-                  </div>
-                  <div className={styles['value-card__content']}>
-                    <p className={styles['value-card__description']}>{value.description}</p>
-                  </div>
-                </div>
-              ))}
+    
+          {/* Content Section - Text + Cards */}
+          <div className={styles['core-values-content']}>
+            {/* Left Column - Text Content */}
+            <div className={styles['core-values-text']}>
+              <h2 className={styles['core-values-title']}>
+                <span className={styles['core-values-title-highlight']}>EV&apos;s</span> Core Brand Values
+              </h2>
+              <p className={styles['core-values-description']}>
+                Our electric vehicles embody innovation, with cutting-edge technology and smart connectivity. They deliver sustainability, reducing emissions and supporting a cleaner planet. And they ensure performance and reliability, offering instant torque, smooth rides, and low running costs.
+              </p>
             </div>
-          </div>
+    
+            {/* Right Column - Value Cards */}
+            <div className={styles['core-values-cards-wrapper']}>
+              <div className={styles['core-values-cards']}>
+                {values.map((value, index) => (
+                  <div
+                    key={value.id}
+                    className={`${styles['value-card']} ${
+                      isCardActive(value.id) ? styles['value-card--active'] : ''
+                    } ${
+                      (isMobile ? activeCard : hoveredCard) && !isCardActive(value.id) 
+                        ? styles['value-card--inactive'] 
+                        : ''
+                    }`}
+                    onClick={() => handleCardClick(value.id)}
+                    onMouseEnter={() => handleMouseEnter(value.id)}
+                    onMouseLeave={handleMouseLeave}
+                    style={{
+                      zIndex: isCardActive(value.id) ? 10 : 3 - index
+                    }}
+                  >
+                    <div className={styles['value-card-header']}>  
+                      <div className={styles['value-card-icon']}>
+                        {value.icon}
+                      </div>
+                      <h3 className={styles['value-card-title']}>{value.title}</h3>
+                    </div>
+                    <div className={styles['value-card-content']}>
+                      <p className={styles['value-card-description']}>{value.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

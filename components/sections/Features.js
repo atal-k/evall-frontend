@@ -80,7 +80,7 @@ const Features = () => {
           {/* CTA Card */}
           <div className={`${styles['feature-card']} ${styles['feature-card--cta']}`}>  
             <h3 className={styles['feature-card__cta-title']}>
-              Explore Other Feature of our Products!
+              Explore Other Feature of our Products
             </h3>
             <button 
               className={styles['feature-card__cta-button']} 

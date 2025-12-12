@@ -165,51 +165,7 @@ const SafetyCompliancePageComponent = () => {
               ))}
             </div>
           </div>
-        </section>
-  
-        {/* Safety Monitoring Section */}
-        {/* <section 
-          className={styles['safety-monitoring']} 
-          ref={el => sectionRefs.current['monitoring'] = el}
-        >
-          <div className={styles['safety-monitoring__container']}>
-            <div className={styles['safety-monitoring__header']}>
-              <h2 className={styles['safety-monitoring__title']}>
-                {safetyComplianceData.safetyMonitoring.title}
-              </h2>
-              <p className={styles['safety-monitoring__subtitle']}>
-                {safetyComplianceData.safetyMonitoring.subtitle}
-              </p>
-              <p className={styles['safety-monitoring__description']}>
-                {safetyComplianceData.safetyMonitoring.description}
-              </p>
-            </div>
-            <div className={styles['safety-monitoring__grid']}>
-              {safetyComplianceData.safetyMonitoring.features.map((feature, idx) => (
-                <div 
-                  key={idx} 
-                  className={`${styles['safety-monitoring__card']} ${visibleSections['monitoring'] ? styles['safety-monitoring__card--visible'] : ''}`}
-                  style={{ animationDelay: `${idx * 0.1}s` }}
-                >
-                  <div className={styles['safety-monitoring__card-header']}>
-                    <div className={styles['safety-monitoring__card-icon']}>
-                      {getIcon(feature.icon, 32)}
-                    </div>
-                    {feature.realTime && (
-                      <div className={styles['safety-monitoring__live-indicator']}>
-                        <span className={styles['safety-monitoring__live-dot']}></span>
-                        <span className={styles['safety-monitoring__live-text']}>LIVE</span>
-                      </div>
-                    )}
-                  </div>
-                  <h3 className={styles['safety-monitoring__card-title']}>{feature.title}</h3>
-                  <p className={styles['safety-monitoring__card-description']}>{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section> */}
-  
+        </section>  
         {/* Driver Training Section */}
         <section className={styles['safety-training']}>
           <div className={styles['safety-training__container']}>

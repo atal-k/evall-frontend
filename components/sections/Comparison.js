@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/Comparison.js
+// FILE: /components/sections/Comparison.js
 // ============================================================================
 
 import React, { useState } from 'react';
@@ -255,7 +255,9 @@ const Comparison = () => {
         <div className={styles['comparison-section__bottom']}>
           {/* Cost Breakdown */}
           <div
-            className={`${styles['comparison-bottom-card']} ${activeVehicle === 'electric' ? styles['comparison-bottom-card--flipped'] : ''}`}
+          className={`${styles['comparison-bottom-card']} ${
+            activeVehicle === 'electric' ? styles['comparison-bottom-card--flipped'] : ''
+          }`}          
             style={{ animationDelay: '0.4s' }}
           >
             <div className={styles['comparison-bottom-card__inner']}>

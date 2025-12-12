@@ -93,7 +93,7 @@
   font-size: var(--font-size-xlg);
   line-height: 1.4;
   letter-spacing: 1.5px;
-  color: var(--color-black);
+  color: var(--color-gray-900);
   text-align: justify;
   margin: 0;
 }
@@ -189,56 +189,69 @@
 
 @media (max-width: 768px) {
   .features-section {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl) 0;
   }
 
   .features-section__header {
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
   }
 
   .features-section__title {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl);
   }
 
   .features-section__subtitle {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
   }
 
   .features-section__grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
   }
+  .feature-card, .feature-card__image-container {
+    border-radius: var(--radius-lg);
+  }
 
   .feature-card__content {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-sm);
+  }
+
+  .feature-card__description {
+    font-size: var(--font-size-base);
   }
 
   .feature-card__title {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
   }
 
   .feature-card__image-container {
-    height: 180px;
+    height: 200px;
   }
 
   .feature-card--cta {
     padding: var(--spacing-xl);
-    min-height: 300px;
+    min-height: 250px;
   }
 
   .feature-card__cta-title {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-3xl);
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 425px) {
+  .feature-card, .feature-card__image-container {
+    border-radius: var(--radius-xmd);
+  }
   .feature-card__content {
-    padding: var(--spacing-md);
+    padding: var(--spacing-xsm);
     gap: var(--spacing-sm);
+  }
+  .feature-card__description {
+    font-size: var(--font-size-sm);
   }
 
   .feature-card__image-container {
-    height: 160px;
+    height: 175px;
   }
 
   .feature-card--cta {
@@ -246,7 +259,7 @@
   }
 
   .feature-card__cta-button {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 2rem;
     font-size: var(--font-size-sm);
   }
 }
