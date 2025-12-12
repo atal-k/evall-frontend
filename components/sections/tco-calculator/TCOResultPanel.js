@@ -1,5 +1,5 @@
   // ============================================================================
-  // FILE: src/components/sections/tco-calculator/TCOResultPanel.js
+  // FILE: components/sections/tco-calculator/TCOResultPanel.js
   // ============================================================================
   
   import React from 'react';

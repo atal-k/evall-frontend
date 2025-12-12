@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/SupportContact.js
+// FILE: components/sections/SupportContact.js
 // ============================================================================
 import React from 'react';
 import styles from './SupportContact.module.css';

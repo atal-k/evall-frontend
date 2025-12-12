@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: /src/hooks/useCustomerSupport.js
+// FILE: /@hooks/useCustomerSupport.js
 // Hook for Customer Support Form
 // ============================================================================
 

@@ -1,4 +1,4 @@
-// src/pages/vehicleIntelligenceData.js
+// @pages/vehicleIntelligenceData.js
 
 export const intelligentCapabilitiesData = {  
   heading: "Core Intelligent Capabilities",  

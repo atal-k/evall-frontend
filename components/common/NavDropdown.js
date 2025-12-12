@@ -1,5 +1,5 @@
 // ============================================
-// filepath: src/components/common/NavDropdown.jsx
+// filepath: @components/common/NavDropdown.jsx
 // ============================================
 
 import { useState, useEffect, useRef } from 'react';

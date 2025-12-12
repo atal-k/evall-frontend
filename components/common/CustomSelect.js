@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 // ============================================================================
-// FILE: src/components/common/CustomSelect.js
+// FILE: components/common/CustomSelect.js
 // ============================================================================
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';

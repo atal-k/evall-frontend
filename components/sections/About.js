@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/About.js
+// FILE: components/sections/About.js
 // ============================================================================
 
 import React, { useState, useEffect } from 'react';

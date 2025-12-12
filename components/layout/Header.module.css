@@ -1,4 +1,4 @@
-/* filepath: src/components/layout/Header.module.css */
+/* filepath: @components/layout/Header.module.css */
 
 /* ========== HEADER STYLES ========== */
 .header {
@@ -160,7 +160,7 @@
   }
   
   /* Mobile - Compact layout */
-  @media (max-width: 425px) {
+  @media (max-width: 480px) {
     .header__container {
       padding: 0 var(--spacing-xs);
     }

@@ -1,4 +1,4 @@
-// src/utils/imageCache.js
+// @utils/imageCache.js
 /**
  * Lightweight image loader + cache with concurrency control.
  * Exports:

@@ -784,7 +784,7 @@
 }
 
 /* Small Mobile */
-@media (max-width: 425px) {
+@media (max-width: 480px) {
   .dealer-hero {
     padding: var(--spacing-lg) var(--spacing-xs);
   }

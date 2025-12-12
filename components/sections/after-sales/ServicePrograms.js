@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/ServicePrograms.js
+// FILE: components/sections/ServicePrograms.js
 // ============================================================================
 import React from 'react';
 import styles from './ServicePrograms.module.css';

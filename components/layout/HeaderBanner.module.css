@@ -1,6 +1,7 @@
-/* ========================================================================
-   src/components/common/HeaderBanner.css
-   ======================================================================== */
+/* ============================================================================
+   FILE: @/components/common/HeaderBanner.module.css
+   CHANGES: Complete responsive rewrite with proper positioning and typography
+   ============================================================================ */
 
 /* Base Header Banner Styles */
 .header-banner {
@@ -55,7 +56,7 @@
 
 .header-banner__heading {
   font-family: var(--font-primary);
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-4xl);
   font-weight: 600;
   color: var(--color-white);
   margin: 0;
@@ -74,7 +75,7 @@
 }
 
 .header-banner__button {
-  align-self: center;
+  align-self: flex-start;
   margin-top: var(--spacing-sm);
 }
 
@@ -86,33 +87,6 @@
   height: 500px;
 }
 
-.charging-infra-page .header-banner--intelligence-banner{
-  height: 650px;
-}
-.charging-infra-page .header-banner--intelligence-banner .header-banner__heading {
-  font-size: var(--font-size-5xl);
-  font-family: var(--font-Poppins);
-}
-
-.charging-infra-page .header-banner--intelligence-banner .header-banner__overlay {
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.6) 30%,
-    rgba(0, 0, 0, 0.3) 60%,
-    transparent 100%
-  );
-}
-
-
-.charging-infra-page .header-banner--intelligence-banner .header-banner__content{
-  max-width: 800px;
-}
-
-.charging-infra-page .header-banner--intelligence-banner .container{
-  margin-left: 50px;
-  padding-left: max(var(--spacing-lg));
-}
 .header-banner--intelligence-banner .header-banner__overlay {
   background: linear-gradient(
     to right,
@@ -125,8 +99,7 @@
 }
 
 .header-banner--intelligence-banner .container {
-  margin-left: 80px;
-  padding-left: max(var(--spacing-xl));
+  padding-left: calc(var(--spacing-xl) + 80px);
 }
 
 .header-banner--intelligence-banner .header-banner__content {
@@ -148,7 +121,7 @@
 .header-banner--intelligence-banner .header-banner__heading {
   font-size: var(--font-size-4-5xl);
   font-weight: 500;
-  letter-spacing: 1.7px;
+  letter-spacing: 1.5px;
   line-height: 1.25;
 }
 
@@ -161,13 +134,47 @@
 
 .header-banner--intelligence-banner .btn--primary {
   align-self: flex-start;
-  margin-top: var(--spacing-xl);
+  margin-top: var(--spacing-md);
   padding: var(--spacing-sm) var(--spacing-xl);
   font-size: var(--font-size-lg);
   font-weight: 600;
 }
 
-/* Advance Intelligence banner */
+/* ========================================================================
+   Charging Infrastructure Variant Styles
+   ======================================================================== */
+
+.charging-infra-page .header-banner--intelligence-banner {
+  height: 650px;
+}
+
+.charging-infra-page .header-banner--intelligence-banner .header-banner__overlay {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.6) 30%,
+    rgba(0, 0, 0, 0.3) 60%,
+    transparent 100%
+  );
+}
+
+.charging-infra-page .header-banner--intelligence-banner .container {
+  padding-left: calc(var(--spacing-xl) + 50px);
+}
+
+.charging-infra-page .header-banner--intelligence-banner .header-banner__heading {
+  font-size: var(--font-size-5xl);
+  font-family: var(--font-Poppins);
+}
+
+.charging-infra-page .header-banner--intelligence-banner .header-banner__content {
+  max-width: 800px;
+}
+
+/* ========================================================================
+   Advance Intelligence Variant Styles
+   ======================================================================== */
+
 .adv-intelligence-banner .header-banner__overlay {
   background: linear-gradient(
     to right,
@@ -176,14 +183,12 @@
     rgba(0, 0, 0, 0.5) 80%,
     transparent 100%
   );
-  /* justify-content: center; */
 }
 
 .adv-intelligence-banner .header-banner__subtitle {
   font-size: var(--font-size-xl);
   line-height: 1.6;
-  letter-spacing: 0.7px;
-  text-align: justify;
+  letter-spacing: 0.5px;
   max-width: 700px;
 }
 
@@ -191,81 +196,229 @@
    Responsive Design
    ======================================================================== */
 
+/* Breakpoint: 1024px - Large Tablet */
 @media (max-width: 1024px) {
   .header-banner {
-    height: 350px;
-  }
-
-  .header-banner--intelligence-banner {
-    height: 380px;
-  }
-
-  .header-banner__heading {
-    font-size: var(--font-size-4xl);
-  }
-
-  .header-banner--intelligence-banner .header-banner__heading {
-    font-size: var(--font-size-3xl);
-  }
-}
-
-@media (max-width: 768px) {
-  .header-banner {
-    height: 300px;
-  }
-
-  .header-banner--intelligence-banner {
-    height: 350px;
-  }
-
-  .header-banner__heading {
-    font-size: var(--font-size-3xl);
-  }
-
-  .header-banner__subtitle {
-    font-size: var(--font-size-base);
-  }
-
-  .header-banner--intelligence-banner .container {
-    padding-left: var(--spacing-md);
-  }
-
-  .header-banner--intelligence-banner .header-banner__content {
-    gap: var(--spacing-md);
-  }
-
-  .header-banner--intelligence-banner .header-banner__heading {
-    font-size: var(--font-size-2xl);
-  }
-}
-
-@media (max-width: 480px) {
-  .header-banner {
-    height: 280px;
-  }
-
-  .header-banner--intelligence-banner {
     height: 320px;
   }
 
   .header-banner__heading {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-3xl);
   }
 
   .header-banner__subtitle {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-lg);
   }
 
   .header-banner__content {
     gap: var(--spacing-sm);
   }
 
+  /* Intelligence Variant */
+  .header-banner--intelligence-banner {
+    height: 420px;
+  }
+
+  .header-banner--intelligence-banner .container {
+    padding-left: calc(var(--spacing-lg) + 40px);
+  }
+
+  .header-banner--intelligence-banner .header-banner__heading {
+    font-size: var(--font-size-3-5xl);
+    letter-spacing: 1.2px;
+  }
+
+  .header-banner--intelligence-banner .header-banner__subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .header-banner--intelligence-banner .btn--primary {
+    padding: var(--spacing-xs) var(--spacing-lg);
+    font-size: var(--font-size-base);
+  }
+
+  /* Charging Infrastructure */
+  .charging-infra-page .header-banner--intelligence-banner {
+    height: 520px;
+  }
+
+  .charging-infra-page .header-banner--intelligence-banner .container {
+    padding-left: calc(var(--spacing-lg) + 30px);
+  }
+
+  .charging-infra-page .header-banner--intelligence-banner .header-banner__heading {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+/* Breakpoint: 768px - Tablet/Mobile */
+@media (max-width: 768px) {
+  .header-banner {
+    height: 280px;
+  }
+
+  .header-banner__overlay {
+    justify-content: center;
+  }
+
+  .header-banner__content {
+    max-width: 100%;
+    gap: var(--spacing-sm);
+    text-align: center;
+    align-items: center;
+  }
+
+  .header-banner__heading {
+    font-size: var(--font-size-2xl);
+  }
+
+  .header-banner__subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .header-banner__button {
+    align-self: center;
+  }
+
+  /* Intelligence Variant */
+  .header-banner--intelligence-banner {
+    height: 350px;
+  }
+
+  .header-banner--intelligence-banner .header-banner__overlay {
+    justify-content: center;
+  }
+
+  .header-banner--intelligence-banner .container {
+    padding-left: var(--spacing-md);
+    margin-left: 0;
+  }
+
+  .header-banner--intelligence-banner .header-banner__content {
+    max-width: 100%;
+    text-align: left;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
   .header-banner--intelligence-banner .header-banner__title {
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.75px;
+  }
+
+  .header-banner--intelligence-banner .header-banner__heading {
+    font-size: var(--font-size-2-5xl);
+    letter-spacing: 1px;
+  }
+
+  .header-banner--intelligence-banner .header-banner__subtitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .header-banner--intelligence-banner .btn--primary {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Charging Infrastructure */
+  .charging-infra-page .header-banner--intelligence-banner {
+    height: 420px;
+  }
+
+  .charging-infra-page .header-banner--intelligence-banner .container {
+    padding-left: var(--spacing-md);
+    margin-left: 0;
+  }
+
+  .charging-infra-page .header-banner--intelligence-banner .header-banner__heading {
+    font-size: var(--font-size-3xl);
+  }
+
+  /* Advance Intelligence */
+  .adv-intelligence-banner .header-banner__subtitle {
+    font-size: var(--font-size-base);
+    letter-spacing: 0.5px;
+    text-align: left;
+  }
+}
+
+/* Breakpoint: 425px - Small Mobile */
+@media (max-width: 425px) {
+  .header-banner {
+    height: 240px;
+  }
+
+  .header-banner__content {
+    gap: var(--spacing-xs);
+  }
+
+  .header-banner__title {
+    font-size: var(--font-size-sm);
+  }
+
+  .header-banner__heading {
+    font-size: var(--font-size-xl);
+    line-height: 1.3;
+  }
+
+  .header-banner__subtitle {
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+  }
+
+  /* Intelligence Variant */
+  .header-banner--intelligence-banner {
+    height: 300px;
+  }
+
+  .header-banner--intelligence-banner .container {
+    padding-left: var(--spacing-sm);
+  }
+
+  .header-banner--intelligence-banner .header-banner__content {
+    gap: var(--spacing-xs);
+  }
+
+  .header-banner--intelligence-banner .header-banner__title {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+
+  .header-banner--intelligence-banner .header-banner__heading {
+    font-size: var(--font-size-xl);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+  }
+
+  .header-banner--intelligence-banner .header-banner__subtitle {
+    font-size: var(--font-size-xs);
+    line-height: 1.4;
+  }
+
+  .header-banner--intelligence-banner .btn--primary {
+    margin-top: var(--spacing-xs);
+    padding: var(--spacing-xxs) var(--spacing-sm);
     font-size: var(--font-size-xs);
   }
 
-  .header-banner--intelligence-banner .header-banner__button {
-    padding: 10px 24px;
+  /* Charging Infrastructure */
+  .charging-infra-page .header-banner--intelligence-banner {
+    height: 340px;
+  }
+
+  .charging-infra-page .header-banner--intelligence-banner .container {
+    padding-left: var(--spacing-sm);
+  }
+
+  .charging-infra-page .header-banner--intelligence-banner .header-banner__heading {
+    font-size: var(--font-size-2xl);
+    line-height: 1.3;
+  }
+
+  /* Advance Intelligence */
+  .adv-intelligence-banner .header-banner__subtitle {
     font-size: var(--font-size-sm);
+    line-height: 1.4;
   }
 }

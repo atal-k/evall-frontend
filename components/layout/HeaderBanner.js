@@ -1,4 +1,4 @@
-// src/components/common/HeaderBanner.js
+// @components/common/HeaderBanner.js
 import React from 'react';
 import styles from './HeaderBanner.module.css';
 import Button from '../common/Button';

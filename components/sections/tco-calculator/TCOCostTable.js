@@ -1,5 +1,5 @@
   // ============================================================================
-  // FILE: src/components/sections/tco-calculator/TCOCostTable.js
+  // FILE: components/sections/tco-calculator/TCOCostTable.js
   // ============================================================================
   
   import React, { useRef, useState, useEffect } from 'react';

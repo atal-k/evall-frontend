@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/Features.js
+// FILE: components/sections/Features.js
 // ============================================================================
 
 import React from 'react';

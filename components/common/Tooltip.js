@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: /src/components/common/Tooltip.jsx
+// FILE: /@components/common/Tooltip.jsx
 // ============================================================================
 
 import React from 'react';

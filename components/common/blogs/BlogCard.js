@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: /src/components/common/blogs/BlogCard.js
+// FILE: /@components/common/blogs/BlogCard.js
 // ============================================================================
 
 import React from 'react';

@@ -1,4 +1,4 @@
-/* filepath: src/components/layout/Footer.module.css */
+/* filepath: @components/layout/Footer.module.css */
 
 /* ========== FOOTER STYLES ========== */
 .footer {
@@ -346,7 +346,7 @@
 }
 
 /* Mobile */
-@media (max-width: 425px) {
+@media (max-width: 480px) {
   .footer {
     padding: var(--spacing-sm) 0 0;
   }

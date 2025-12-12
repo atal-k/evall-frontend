@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/common/FormFields.js
+// FILE: components/common/FormFields.js
 // Reusable form field components with validation and state management
 // ============================================================================
 

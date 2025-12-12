@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/refs */
-// filepath: src/components/layout/Header.jsx
+// filepath: @components/layout/Header.jsx
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from 'next/router';
 import Link from 'next/link';

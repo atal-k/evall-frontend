@@ -405,7 +405,7 @@
   }
   
   /* Mobile Large - 425px */
-  @media (max-width: 425px) {
+  @media (max-width: 480px) {
     .careers-hero {
       padding: clamp(1.5rem, 4vw, 2rem) 0;
     }

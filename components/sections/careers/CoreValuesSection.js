@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/careers/CoreValuesSection.js (with ValueBlock)
+// FILE: components/sections/careers/CoreValuesSection.js (with ValueBlock)
 // ============================================================================
 
 import React, { useState, useEffect, useRef } from "react";

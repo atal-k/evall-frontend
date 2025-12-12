@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: /src/components/common/FeatureModal.js
+// FILE: /@components/common/FeatureModal.js
 // ============================================================================
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';

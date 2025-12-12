@@ -1,5 +1,5 @@
 // ============================================================================
-  // FILE: src/components/sections/tco-calculator/TCOForm.js
+  // FILE: components/sections/tco-calculator/TCOForm.js
   // ============================================================================
   
   import React from 'react';

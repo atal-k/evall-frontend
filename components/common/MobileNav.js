@@ -1,4 +1,4 @@
-// filepath: src/components/common/MobileNav.js
+// filepath: @components/common/MobileNav.js
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './MobileNav.module.css';

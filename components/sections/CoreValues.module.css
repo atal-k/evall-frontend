@@ -386,7 +386,7 @@
 }
 
 /* Mobile */
-@media (max-width: 425px) {
+@media (max-width: 480px) {
   .core-values-section {
     padding: var(--spacing-md) 0;
   }

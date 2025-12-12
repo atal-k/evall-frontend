@@ -1,5 +1,5 @@
 /* ============================================================================
-   FILE: src/components/sections/IntelligentCapabilities.module.css
+   FILE: components/sections/IntelligentCapabilities.module.css
    CHANGES: Complete responsive rewrite with proper image sizing and breakpoints
    ============================================================================ */
 
@@ -162,21 +162,21 @@
     }
   }
   
-  /* Breakpoint: 425px - Single Column */
-  @media (max-width: 425px) {
+  /* Breakpoint: 480px - Single Column */
+  @media (max-width: 480px) {
     .intelligent-capabilities {
       padding: var(--spacing-md) 0;
     }
   
     .intelligent-capabilities__heading {
-      font-size: var(--font-size-xl);
+      font-size: var(--font-size-2xl);
       margin-bottom: var(--spacing-sm);
       letter-spacing: 0.5px;
     }
   
     .intelligent-capabilities__grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-xs);
+      gap: var(--spacing-sm);
     }
   
     .intelligent-capabilities__card {
@@ -190,7 +190,7 @@
     }
   
     .intelligent-capabilities__title {
-      font-size: var(--font-size-base);
+      font-size: var(--font-size-xl);
     }
   
     .intelligent-capabilities__description {

@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/StandoutBenefitsSection.js
+// FILE: components/sections/StandoutBenefitsSection.js
 // This combines: Power Statement, Standout Features, Benefits Grid, and Use Cases
 // ============================================================================
 import React, { useState, useEffect, useRef } from 'react';

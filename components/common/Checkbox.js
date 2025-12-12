@@ -1,4 +1,4 @@
-// FILE: src/components/common/Checkbox.js
+// FILE: components/common/Checkbox.js
 // ============================================================================
 
 import React from 'react';

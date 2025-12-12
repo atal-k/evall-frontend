@@ -1,4 +1,4 @@
-// /src/data/blogsData.js
+// /@data/blogsData.js
 const blogsData = [
     { 
        "id": 5,

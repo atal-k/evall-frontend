@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/careers/JobOpeningSection.js (with JobCard)
+// FILE: components/sections/careers/JobOpeningSection.js (with JobCard)
 // ============================================================================
 import React, { useState, useEffect, useRef } from "react";
 import { careersData } from "@/data/careersData";

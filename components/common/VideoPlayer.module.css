@@ -2,7 +2,7 @@
 
 
 /* ============================================================================
-   FILE: src/components/common/VideoPlayer.module.css
+   FILE: components/common/VideoPlayer.module.css
    ============================================================================ */
 
    .video-player {
@@ -100,7 +100,7 @@
   }
   
   /* Breakpoint: 425px - Small Mobile */
-  @media (max-width: 425px) {
+  @media (max-width: 480px) {
     .video-player {
       max-width: 325px;
     }

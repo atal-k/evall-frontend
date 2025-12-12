@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/purity */
 // ============================================================================
-// FILE: src/components/sections/EnergyHero.js
+// FILE: components/sections/EnergyHero.js
 // ============================================================================
 import React, { useState, useEffect } from 'react';
 import styles from './EnergyHero.module.css'

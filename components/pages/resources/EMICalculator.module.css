@@ -235,7 +235,7 @@
   }
   
   /* Breakpoint: 425px - Small Mobile */
-  @media (max-width: 425px) {
+  @media (max-width: 480px) {
     .emi-calculator-page {
       padding: var(--spacing-xsm) var(--spacing-xs);
     }

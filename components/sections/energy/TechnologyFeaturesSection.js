@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/TechnologyFeaturesSection.js
+// FILE: components/sections/TechnologyFeaturesSection.js
 // ============================================================================
 import React, { useState, useEffect, useRef } from 'react';
 import { energyBatteryData } from '@/data/energyBatteryData';

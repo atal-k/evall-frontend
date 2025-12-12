@@ -313,7 +313,7 @@
 }
 
 /* Mobile */
-@media (max-width: 425px) {
+@media (max-width: 480px) {
   .faq-page {
     padding: var(--spacing-sm) 0;
   }

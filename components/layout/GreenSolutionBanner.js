@@ -1,4 +1,4 @@
-// src/components/layout/GreenSolutionBanner.js
+// @components/layout/GreenSolutionBanner.js
 import React from 'react';
 import styles from './GreenSolutionBanner.module.css';
 import Image from 'next/image';

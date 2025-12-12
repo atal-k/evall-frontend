@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/common/RangeSlider.js
+// FILE: components/common/RangeSlider.js
 // ============================================================================
 
 import React, { useState, useEffect } from 'react';

@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/common/TestDriveModal.js
+// FILE: components/common/TestDriveModal.js
 // ============================================================================
 
 import React, { useEffect } from 'react';

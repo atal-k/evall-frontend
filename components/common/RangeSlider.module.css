@@ -1,6 +1,6 @@
 
 /* // ============================================================================
-// FILE: src/components/common/RangeSlider.css
+// FILE: components/common/RangeSlider.css
 // ============================================================================ */
 
 .range-slider {
@@ -168,7 +168,7 @@
   }
   
   /* Breakpoint: 425px - Small Mobile */
-  @media (max-width: 425px) {
+  @media (max-width: 480px) {
     .range-slider {
       padding-bottom: var(--spacing-xsm);
     }

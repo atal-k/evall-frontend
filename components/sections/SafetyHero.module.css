@@ -1,5 +1,5 @@
 /* // ============================================================================
-// FILE: src/components/sections/SafetyHero.css
+// FILE: components/sections/SafetyHero.css
 // ============================================================================ */
 
 .safety-hero {
@@ -206,6 +206,10 @@
     padding: var(--spacing-2xl) var(--spacing-md);
   }
 
+  .safety-hero__container {
+    gap: var(--spacing-lg);
+  }
+
   .safety-hero__headline {
     font-size: var(--font-size-3xl);
   }
@@ -223,10 +227,14 @@
   }
 
   .safety-hero__trust {
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
     flex-direction: column;
   }
 
   .safety-hero__btn {
+    padding: var(--spacing-sm) var(--spacing-2xl);
+  font-size: var(--font-size-base);
     width: 100%;
   }
 }

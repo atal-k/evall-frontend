@@ -6,7 +6,7 @@ import SEOHead from '@/components/common/SEOHead';
 import CareersPageComponent from '@/components/pages/what-drives-us/Careers';
 
 export async function getStaticProps() {
-  const { seo } = await getSEOForPage('careers');
+  const { seo } = await getSEOForPage('careers-culture');
   
   return {
     props: { seo },

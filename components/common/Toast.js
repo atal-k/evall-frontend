@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: /src/components/common/Toast.jsx
+// FILE: /@components/common/Toast.jsx
 // Toast notification system with Context and Hook
 // ============================================================================
 

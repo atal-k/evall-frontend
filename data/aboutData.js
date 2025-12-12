@@ -1,6 +1,6 @@
 
 
-// /src/data/aboutData.js
+// /@data/aboutData.js
 
 const aboutData = [
     {

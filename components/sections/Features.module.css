@@ -1,4 +1,4 @@
-/*// FILE: src/components/sections/Features.css
+/*// FILE: components/sections/Features.css
 // ============================================================================ */
 
 .features-section {
@@ -238,7 +238,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 480px) {
   .feature-card, .feature-card__image-container {
     border-radius: var(--radius-xmd);
   }

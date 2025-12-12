@@ -399,7 +399,7 @@
 }
 
 /* Mobile Large - 425px */
-@media (max-width: 425px) {
+@media (max-width: 480px) {
   .testimonials {
     padding: 2.5rem 0;
   }

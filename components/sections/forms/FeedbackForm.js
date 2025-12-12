@@ -1,5 +1,5 @@
 // ============================================================================
-// src/components/sections/forms/FeedbackForm.js
+// @components/sections/forms/FeedbackForm.js
 // CUSTOMER FEEDBACK FORM - Complete Implementation
 // ============================================================================
 

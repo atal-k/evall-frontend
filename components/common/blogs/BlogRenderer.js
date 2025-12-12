@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: /src/components/common/blogs/BlogRenderer.js
+// FILE: /@components/common/blogs/BlogRenderer.js
 // ============================================================================
 
 import React, { useMemo } from 'react';

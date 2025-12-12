@@ -1,5 +1,5 @@
 /* ============================================================================
-     FILE: src/components/sections/tco-calculator/TCOResultPanel.module.css
+     FILE: components/sections/tco-calculator/TCOResultPanel.module.css
      ============================================================================ */
   
      .results-panel {
@@ -217,7 +217,7 @@
     }
     
     /* Breakpoint: 425px */
-    @media (max-width: 425px) {
+    @media (max-width: 480px) {
       .results-panel {
         padding: var(--spacing-xs);
         border-radius: var(--radius-lg);

@@ -1,5 +1,5 @@
 /* ============================================================================
-     FILE: src/components/sections/tco-calculator/TCOForm.module.css
+     FILE: components/sections/tco-calculator/TCOForm.module.css
      CHANGES: Complete rewrite - remove fixed width, fix sticky, stack inputs
      ============================================================================ */
   
@@ -144,7 +144,7 @@
     }
     
     /* Breakpoint: 425px - Stack All Inputs */
-    @media (max-width: 425px) {
+    @media (max-width: 480px) {
       .calculator-form {
         padding: var(--spacing-xs);
         border-radius: var(--radius-lg);

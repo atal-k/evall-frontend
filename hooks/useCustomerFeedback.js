@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: /src/hooks/useCustomerFeedback.js
+// FILE: /@hooks/useCustomerFeedback.js
 // Hook for Customer Feedback Form
 // ============================================================================
 

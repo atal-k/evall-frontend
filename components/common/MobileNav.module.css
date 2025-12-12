@@ -1,4 +1,4 @@
-/* filepath: src/components/common/MobileNav.module.css */
+/* filepath: @components/common/MobileNav.module.css */
 
 /* Backdrop */
 .mobile-nav__backdrop {
@@ -201,7 +201,7 @@
 }
 
 /* Small mobile optimization */
-@media (max-width: 425px) {
+@media (max-width: 480px) {
   .mobile-nav {
     width: 100%;
     max-width: none;

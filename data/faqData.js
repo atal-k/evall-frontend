@@ -1,4 +1,4 @@
-// /src/data/faqData.js
+// /@data/faqData.js
 
 export const FAQdata = [
     {

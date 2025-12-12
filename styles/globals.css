@@ -220,7 +220,7 @@ body {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 480px) {
   .container {
     padding: 0 var(--spacing-xs);
   }

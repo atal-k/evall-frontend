@@ -1,4 +1,4 @@
-// src/components/sections/EVShowcase.js
+// @components/sections/EVShowcase.js
 /**
  * EVShowcase - Electric Vehicle 360° Product Showcase
  * 

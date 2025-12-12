@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/ServiceOverview.js
+// FILE: components/sections/ServiceOverview.js
 // ============================================================================
 import React from 'react';
 import styles from './ServiceOverview.module.css';

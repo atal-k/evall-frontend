@@ -80,7 +80,7 @@
   }
   
   /* Breakpoint: 425px - Large Mobile */
-  @media (max-width: 425px) {
+  @media (max-width: 480px) {
     .tco-calculator {
       padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-md);
     }

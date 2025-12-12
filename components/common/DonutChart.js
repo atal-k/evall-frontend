@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/common/DonutChart.jsx
+// FILE: components/common/DonutChart.jsx
 // ============================================================================
 
 import { useEffect, useRef, useState } from "react";

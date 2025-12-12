@@ -6,7 +6,7 @@ import SEOHead from '@/components/common/SEOHead';
 import AfterSalesServicePageComponent from '@/components/pages/network/AfterSalesService';
 
 export async function getStaticProps() {
-  const { seo } = await getSEOForPage('after-sales');
+  const { seo } = await getSEOForPage('after-sales-service');
   
   return {
     props: { seo },

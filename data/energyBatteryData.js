@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/data/energyBatteryData.js
+// FILE: data/energyBatteryData.js
 // ============================================================================
 
 export const energyBatteryData = {

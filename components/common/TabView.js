@@ -1,4 +1,4 @@
-// src/components/common/TabView.js
+// @components/common/TabView.js
 import React, { useState } from 'react';
 import styles from './TabView.module.css';
 import Image from 'next/image';

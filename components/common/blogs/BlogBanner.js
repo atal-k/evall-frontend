@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: /src/components/common/blogs/BlogBanner.js
+// FILE: /@components/common/blogs/BlogBanner.js
 // ============================================================================
 
 import React from 'react';

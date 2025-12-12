@@ -1,5 +1,5 @@
 // ============================================================================
-// FILE: src/components/sections/FutureClosingSection.js
+// FILE: components/sections/FutureClosingSection.js
 // This combines: Future Development + Closing CTA
 // ============================================================================
 import React, { useState, useEffect, useRef } from 'react';

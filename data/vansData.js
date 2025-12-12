@@ -1,4 +1,4 @@
-// FILE: src/data/vansData.js
+// FILE: data/vansData.js
 
 export const vansData = [
   {
