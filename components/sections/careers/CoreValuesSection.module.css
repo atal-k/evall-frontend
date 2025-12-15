@@ -411,7 +411,7 @@
       }
     }
     
-    /* Mobile Large - 425px */
+    /* Mobile Large - 480px */
     @media (max-width: 480px) {
       .core-values-section {
         padding: 2rem 1rem;
@@ -423,6 +423,7 @@
     
       .values-header .section-title {
         font-size: 1.5rem;
+        font-weight: 600;
         padding-bottom: 1rem;
       }
     
@@ -438,12 +439,12 @@
       .value-block {
         padding: 1.5rem 1rem;
         margin-bottom: 1.25rem;
-        gap: 1.25rem;
+        gap: 1rem;
       }
     
       .value-icon {
-        width: 80px;
-        height: 80px;
+        width: 72px;
+        height: 72px;
       }
     
       .icon-emoji {
@@ -451,6 +452,13 @@
       }
     
       .value-title {
+        font-size: 1.35rem;
         font-weight: 600;
+      }
+      .value-description {
+        font-size: 0.85rem;
+      }
+      .culture-title {
+        font-size: 1.3rem;
       }
     }

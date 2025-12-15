@@ -462,8 +462,9 @@
     }
   
     .hero-badge {
-      font-size: 0.75rem;
-      padding: 0.5rem 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2px;
+      padding: 0.35rem 1rem;
       margin-bottom: 0.75rem;
     }
   

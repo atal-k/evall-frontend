@@ -33,7 +33,7 @@
   max-width: 100%;
   height: auto;
   display: block;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 /* ========== CONTENT SECTION ========== */
@@ -95,7 +95,7 @@
 
 .value-card {
   background: var(--color-white);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   padding: var(--spacing-md);
   box-shadow: var(--shadow-md);
   cursor: pointer;
@@ -401,7 +401,6 @@
 
   .core-values-image {
     width: 100%;
-    border-radius: var(--radius-md);
   }
 
   .core-values-content {

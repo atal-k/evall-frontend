@@ -212,19 +212,30 @@
   }
   
   @media (max-width: 480px) {
+    .tab-view {
+      padding: 0;
+    }
     .tab-view__nav {
       flex-direction: column;
       align-items: stretch;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-lg);
     }
   
     .tab-view__tab {
       min-width: auto;
       width: 100%;
     }
+  .tab-view__content {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+    border-radius: var(--radius-xmd);
+  }
   
     .tab-view__image {
       min-height: 220px;
       max-height: 280px;
+      border-radius: var(--radius-xmd);
     }
   
     .tab-view__title {
@@ -233,6 +244,6 @@
     }
   
     .tab-view__text {
-      padding: var(--spacing-sm);
+      padding: var(--spacing-xs);
     }
   }

@@ -436,11 +436,12 @@
     }
   
     .hero-title {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-bottom: 1.5rem;
     }
-  
+    
     .title-sub {
+      font-size: 1.25rem;
       margin-top: 0.7rem;
     }
   
@@ -508,11 +509,11 @@
   
     .hero-title {
       font-size: 1.35rem;
-      margin-bottom: 1.5rem;
+      line-height: 1.6rem;
     }
   
     .title-sub {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       margin-top: 1rem;
     }
   
