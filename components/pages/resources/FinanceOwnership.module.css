@@ -1105,7 +1105,7 @@
     }
   
     .finance-tco-saving-item span {
-      font-size: var(--font-size-xs);
+      font-size: var(--font-size-sm);
     }
   
     /* Eligibility */
@@ -1129,7 +1129,7 @@
     }
   
     .finance-eligibility-list li {
-      font-size: var(--font-size-xs);
+      font-size: var(--font-size-sm);
       padding: var(--spacing-xs);
       gap: var(--spacing-xs);
     }
@@ -1239,11 +1239,7 @@
       padding: var(--spacing-sm) var(--spacing-xs);
     }
   
-    /* Benefits */
-    .finance-benefit-card {
-      /* padding: var(--spacing-xxs); */
-    }
-  
+    /* Benefits */  
     .finance-benefit-icon {
       width: 40px;
       height: 40px;
@@ -1275,12 +1271,8 @@
     /* TCO */
   
     .finance-tco-header svg {
-      width: 24px;
-      height: 24px;
-    }
-  
-    .finance-tco-header h3 {
-      font-size: var(--font-size-base);
+      width: 28px;
+      height: 28px;
     }
   
     .finance-tco-label,
@@ -1297,20 +1289,9 @@
       height: 36px;
       font-size: var(--font-size-sm);
     }
-  
-    .finance-tco-savings {
-      padding: var(--spacing-xs);
+    .finance-tco-saving-item span {
+      font-size: var(--font-size-sm2);
     }
-  
-    .finance-tco-savings-title {
-      font-size: var(--font-size-base);
-    }
-  
-    .finance-tco-saving-item svg {
-      width: 16px;
-      height: 16px;
-    }
-  
     /* Eligibility */
     .finance-eligibility-card {
       padding: var(--spacing-xxs);
@@ -1331,7 +1312,7 @@
     }
   
     .finance-eligibility-list li {
-      font-size: 0.7rem;
+      font-size: var(--font-size-sm2);
     }
   
     /* Support */  

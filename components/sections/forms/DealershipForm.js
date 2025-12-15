@@ -253,7 +253,7 @@ const DealershipForm = () => {
   };
 
   return (
-    <div style={{ maxWidth: '800px', margin: '2rem auto', padding: '1.25rem 2rem', background: 'var(--color-off-white)', borderRadius: '16px', border: '1px solid var(--color-gray-outline)' }}>
+    <div className={styles['form-section']}>
     {/* Header */}
       <div style={{ marginBottom: '2rem' }}>
         <h1 style={{ marginBottom: '0.5rem', color: 'var(--color-primary)' }}>
@@ -337,7 +337,7 @@ const DealershipForm = () => {
             onChange={handleFieldChange}
             onBlur={handleFieldBlur}
             error={errors.website}
-            label="Website (optional)"
+            label="Website"
             fieldType="website"
             required={false}
           />
@@ -403,7 +403,7 @@ const DealershipForm = () => {
           onChange={handleFieldChange}
           onBlur={handleFieldBlur}
           error={errors.experience}
-          label="Experience in Automobile / Commercial Vehicle Business"
+          label="Experience in Automobile Business"
           suffix="years"
           min={0}
           max={3}
@@ -464,7 +464,7 @@ const DealershipForm = () => {
           onChange={handleFieldChange}
           onBlur={handleFieldBlur}
           error={errors.reasonForInterest}
-          label="Reason for Interest in Electric Commercial Vehicle Dealership"
+          label="Reason for Interest in EV Dealership"
           required={true}
           maxLength={200}
         />

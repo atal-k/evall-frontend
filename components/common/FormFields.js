@@ -124,7 +124,7 @@ export const MessageField = ({
   const isLabelActive = isFocused || value.length > 0;
 
   return (
-    <div className={`${styles['form-field']} ${styles['form-field--floating']} ${styles[className]}`}>
+    <div className={`${styles['form-field']} ${styles['form-field--floating']} ${className}`}>
       <textarea
         name={name}
         value={value}

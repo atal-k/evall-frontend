@@ -2,6 +2,14 @@
    FILE: components/common/FormFields.css
    Styles for reusable form field components
    ============================================================================ */
+   .form-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.25rem 2rem;
+    background: var(--color-off-white);
+    border-radius: 16px;
+    border: 1px solid var(--color-gray-outline);
+  }  
 
 /* Base Field Container */
 .form-field {
@@ -618,6 +626,9 @@
   }
   
   @media (max-width: 640px) {
+    .form-section {
+      padding: 1.25rem 1.5rem;
+    }
     .form-field__input--with-country {
       padding-left: 90px;
     }
@@ -674,6 +685,10 @@
       align-items: flex-start;
       width: 100%;
     }
+    
+    .form-field--floating .form-field__label {
+      font-size: var(--font-size-sm);
+    }
   
     .form-field__radio-other-input {
       width: 100%;
@@ -700,10 +715,26 @@
     .form-field__input--with-suffix {
       padding-right: 3.5rem;
     }
-  }
-  @media (max-width: 480px) {
     .form-field__group, .form__row {
       grid-template-columns: 1fr;
       gap: 0;
+    }
+  }
+  @media (max-width: 480px) {
+    .form-section {
+      margin: 1.5rem auto;
+      padding: 1.25rem 1rem;
+    }
+    .form-field--floating .form-field__label {
+      font-size: var(--font-size-sm2);
+    }
+  }
+  @media (max-width: 375px) {
+    .form-section {
+      margin: 1rem auto;
+      padding: 1rem 0.75rem;
+    }
+    .form-field--floating .form-field__label {
+      font-size: var(--font-size-xs);
     }
   }

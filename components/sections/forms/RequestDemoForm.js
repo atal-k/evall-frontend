@@ -261,7 +261,7 @@ const RequestDemoForm = () => {
     }
   };
   return (
-    <div style={{ maxWidth: '800px', margin: '2rem auto', padding: '1.25rem 2rem', background: 'var(--color-off-white)', borderRadius: '16px', border: '1px solid var(--color-gray-outline)' }}>
+    <div className={styles['form-section']}>
       <h1 style={{ marginBottom: '0.5rem', color: 'var(--color-primary)' }}>Request a Demo</h1>
       <p style={{ marginBottom: '1rem', color: 'var(--color-gray-700)' }}>
         Electric Commercial Vehicles
@@ -300,7 +300,7 @@ const RequestDemoForm = () => {
             onChange={handleFieldChange}
             onBlur={handleFieldBlur}
             error={errors.companyName}
-            label="Company Name"
+            label="Company"
             fieldType="name"
             required={true}
           />
@@ -420,7 +420,7 @@ const RequestDemoForm = () => {
           onChange={handleFieldChange}
           onBlur={handleFieldBlur}
           error={errors.additionalInfo}
-          placeholder="Additional Requirements (if any)"
+          label="Additional Requirements"
           required={false}
           maxLength={200}
           rows={2}
@@ -433,7 +433,7 @@ const RequestDemoForm = () => {
         <ConsentCheckboxField
           name="consent"
           id="product-enquiry-consent"
-          label="I/We confirm that the above details are true and request the company to contact us 
+          label="I confirm that the above details are true and request the company to contact us 
           with suitable product information and commercial details."
           value={formData.consent}
           onChange={handleFieldChange}

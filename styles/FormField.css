@@ -616,7 +616,6 @@
       width: 100px;
     }
   }
-  
   @media (max-width: 640px) {
     .form-field__input--with-country {
       padding-left: 90px;
@@ -674,6 +673,10 @@
       align-items: flex-start;
       width: 100%;
     }
+    
+    .form-field--floating .form-field__label {
+      font-size: var(--font-size-sm);
+    }
   
     .form-field__radio-other-input {
       width: 100%;
@@ -699,5 +702,14 @@
   
     .form-field__input--with-suffix {
       padding-right: 3.5rem;
+    }
+    .form-field__group, .form__row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+  @media (max-width: 480px) {
+    .form-field--floating .form-field__label {
+      font-size: var(--font-size-sm2);
     }
   }

@@ -227,7 +227,7 @@ const FeedbackForm = () => {
 
 
   return (
-    <div style={{ maxWidth: '800px', margin: '2rem auto', padding: '1.25rem 2rem', background: 'var(--color-off-white)', borderRadius: '16px', border: '1px solid var(--color-gray-outline)' }}>
+    <div className={styles['form-section']}>
     {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <h1 style={{ marginBottom: '0.5rem', color: 'var(--color-primary-dark)' }}>
