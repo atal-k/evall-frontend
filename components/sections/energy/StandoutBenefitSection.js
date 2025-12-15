@@ -132,27 +132,6 @@ const StandoutBenefitsSection = () => {
             </div>
           </div>
         </section>
-  
-        {/* Use Cases Section */}
-        {/* <section className="use-cases-section">
-          <div className="use-cases-container">
-            <div className="section-header">
-              <h2 className="section-title">Built for India's Diverse Needs</h2>
-              <p className="section-subtitle">Engineered for every terrain and industry</p>
-            </div>
-  
-            <div className="use-cases-scroll">
-              <div className="use-cases-track">
-                {energyBatteryData.useCases.map((useCase) => (
-                  <div key={useCase.id} className="use-case-card">
-                    <div className="use-case-icon">{useCase.icon}</div>
-                    <h3 className="use-case-title">{useCase.title}</h3>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section> */}
       </>
     );
   };
