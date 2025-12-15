@@ -117,7 +117,7 @@
 
 .safety-why__priority-card:hover {
   transform: translateY(-4px);
-  border-color: var(--color-primary);
+  border-color: var(--color-safety-orange);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 

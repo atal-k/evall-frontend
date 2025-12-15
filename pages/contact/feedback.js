@@ -6,7 +6,7 @@ import SEOHead from '@/components/common/SEOHead';
 import FeedbackFormPageComponent from '@/components/pages/contact/FeedbackForm';
 
 export async function getStaticProps() {
-  const { seo } = await getSEOForPage('feedback');
+  const { seo } = await getSEOForPage('feedback-form');
   
   return {
     props: { seo },
