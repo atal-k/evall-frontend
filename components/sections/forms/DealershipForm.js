@@ -256,7 +256,7 @@ const DealershipForm = () => {
     <div className={styles['form-section']}>
     {/* Header */}
       <div style={{ marginBottom: '2rem' }}>
-        <h1 style={{ marginBottom: '0.5rem', color: 'var(--color-primary)' }}>
+      <h1 className={styles['form-heading']}>
           Dealership Enquiry Form
         </h1>
         <p style={{ color: 'var(--color-gray-600)', fontSize: '0.95rem', lineHeight: 1.6 }}>
@@ -493,7 +493,7 @@ const DealershipForm = () => {
         {/* Footer Note */}
         <p style={{ 
           marginTop: '0.75rem', 
-          fontSize: '0.875rem', 
+          fontSize: '0.75rem', 
           color: 'var(--color-gray-700)', 
           textAlign: 'center',
           fontStyle: 'italic'

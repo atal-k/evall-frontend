@@ -228,7 +228,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .test-drive-modal__title {
     font-size: var(--font-size-lg);
   }
@@ -240,5 +240,19 @@
   .test-drive-modal__close {
     width: 32px;
     height: 32px;
+  }
+  .form-field__group, .form__row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+@media (max-width: 480px) {
+  .test-drive-booking-form--modal {
+    padding: var(--spacing-sm);
+  }
+}
+@media (max-width: 375px) {
+  .test-drive-booking-form--modal {
+    padding: var(--spacing-xs);
   }
 }

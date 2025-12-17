@@ -189,4 +189,7 @@
   .custom-select__dropdown {
     max-height: 200px;
   }
+  .custom-select__trigger {
+    font-size: var(--font-size-sm);
+  }
 }

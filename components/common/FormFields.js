@@ -1171,7 +1171,7 @@ const CheckboxGroupField = ({
                     </svg>
                   )}
                 </span>
-                <span className={styles['form-field__checkbox-text']}>{option}</span>
+                <span className={`${styles['form-field__checkbox-text']} ${option?.length > 75 ? styles['form-field__checkbox-text-long'] : ''}`}>{option}</span>
               </label>
             </div>
           );

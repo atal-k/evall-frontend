@@ -241,7 +241,6 @@ return (
             onChange={handleFieldChange}
             onBlur={handleFieldBlur}
             error={errors.message}
-            placeholder="Message"
             required
             maxLength={1000}
           />

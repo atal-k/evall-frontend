@@ -185,6 +185,9 @@
   .customer-stories-intro {
     padding: var(--spacing-3xl) var(--spacing-md);
   }
+  .customer-stories-intro-text{
+    text-align: justify;
+  }
 
   .customer-stories-intro-highlight {
     padding: var(--spacing-xl);
@@ -193,28 +196,53 @@
   .customer-stories-testimonials {
     padding: var(--spacing-2xl) 0;
   }
+
 }
 
 @media (max-width: 480px) {
   .customer-stories-hero {
     min-height: 450px;
   }
+  .customer-stories-hero-title{
+    font-size: var(--font-size-3xl);
+  }
 
   .customer-stories-hero-content {
-    padding: var(--spacing-lg) var(--spacing-sm);
+    padding: var(--spacing-lg) var(--spacing-xs);
+    margin: 0 var(--spacing-sm);
   }
 
   .customer-stories-hero-btn {
     padding: var(--spacing-sm) var(--spacing-xl);
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
+  }
+  .customer-stories-container {
+    padding: 0;
   }
 
   .customer-stories-intro {
-    padding: var(--spacing-2xl) var(--spacing-sm);
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+  .customer-stories-intro-text{
+    font-size: var(--font-size-base);
+  }
+  .customer-stories-intro-cta {
+    margin-bottom: var(--spacing-lg);
   }
 
   .customer-stories-intro-highlight {
     padding: var(--spacing-lg);
+  }
+}
+@media (max-width: 375px) {
+  .customer-stories-hero {
+    max-height: 420px;
+  }
+  .customer-stories-hero-title{
+    font-size: var(--font-size-2-5xl);
+  }
+  .customer-stories-intro-highlight {
+    padding: var(--spacing-sm);
   }
 }
 

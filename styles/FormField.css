@@ -604,19 +604,20 @@
     .form-field {
       margin-bottom: var(--spacing-xs);
     }
+    .form-field__input {
+      font-size: var(--font-size-sm2);
+    }
     .form-field__radio-group--horizontal {
       gap: var(--spacing-sm);
     }
   
     .form-field__radio-group--inline {
-      gap: var(--spacing-md);
+      gap: var(--spacing-xs);
     }
   
     .form-field__radio-other-input {
       width: 100px;
     }
-  }
-  @media (max-width: 640px) {
     .form-field__input--with-country {
       padding-left: 90px;
     }
@@ -709,7 +710,19 @@
     }
   }
   @media (max-width: 480px) {
-    .form-field--floating .form-field__label {
+    .form-field--floating .form-field__label{
       font-size: var(--font-size-sm2);
+    }
+    .form-field__input:focus {
+      margin-top: 4px;
+    }
+    .form-field__radio-group--inline {
+      gap: var(--spacing-xs);
+    }
+  }
+  @media (max-width: 375px) {
+    .form-section {
+      margin: 1rem auto;
+      padding: 1rem 0.75rem;
     }
   }

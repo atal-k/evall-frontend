@@ -22,7 +22,9 @@ const Checkbox = ({ id, label, checked, onChange, count }) => {
             </svg>
           )}
         </span>
-        <span className={styles['checkbox__text']}>{label}</span>
+        <span className={`${styles['checkbox__text']} ${label?.length > 75 ? styles['checkbox__text-long'] : ''}`}>
+          {label}
+        </span>
         {count !== undefined && (
           <span className={styles['checkbox__count']}>[{count.toString().padStart(2, '0')}]</span>
         )}

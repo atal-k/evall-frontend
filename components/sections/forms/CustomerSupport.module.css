@@ -87,13 +87,21 @@
     transform: none;
   }
   
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     .contact-form__grid {
       grid-template-columns: 1fr;
     }
   
     .contact-form__heading {
       font-size: var(--font-size-xlg);
+    }
+    .contact-form__subtitle {
+      font-size: var(--font-size-xs);
+    }
+  }
+  @media (max-width: 480px) {
+    .contact-form__grid {
+      gap: var(--spacing-xxs);
     }
   }
    

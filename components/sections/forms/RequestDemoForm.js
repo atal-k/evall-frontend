@@ -262,7 +262,7 @@ const RequestDemoForm = () => {
   };
   return (
     <div className={styles['form-section']}>
-      <h1 style={{ marginBottom: '0.5rem', color: 'var(--color-primary)' }}>Request a Demo</h1>
+        <h1 className={styles['form-heading']}>Request a Demo</h1>
       <p style={{ marginBottom: '1rem', color: 'var(--color-gray-700)' }}>
         Electric Commercial Vehicles
       </p>

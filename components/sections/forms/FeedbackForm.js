@@ -230,7 +230,7 @@ const FeedbackForm = () => {
     <div className={styles['form-section']}>
     {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <h1 style={{ marginBottom: '0.5rem', color: 'var(--color-primary-dark)' }}>
+        <h1 className={styles['form-heading']}>
           Customer Feedback Form
         </h1>
         <p style={{ color: 'var(--color-gray-700)' }}>Electric Commercial Vehicle</p>
@@ -422,7 +422,7 @@ const FeedbackForm = () => {
           onChange={handleFieldChange}
           onBlur={handleFieldBlur}
           error={errors.likedMost}
-          label="What did you like most about our Electric Commercial Vehicle?"
+          label="What did you like most about our E-CV?"
           fieldType="text"
           required={true}
           minLength={10}
@@ -434,7 +434,7 @@ const FeedbackForm = () => {
           onChange={handleFieldChange}
           onBlur={handleFieldBlur}
           error={errors.areasToImprove}
-          label="What areas do you think we need to improve?"
+          label="Which areas need improvement?"
           fieldType="text"
           required={true}
           minLength={10}
