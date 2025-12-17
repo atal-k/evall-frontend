@@ -270,14 +270,12 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .warranty-terms-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-  }
-}
 
 @media (max-width: 768px) {
+  .warranty-terms-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
   .warranty-hero {
     padding: var(--spacing-2xl) var(--spacing-md);
   }
@@ -316,17 +314,32 @@
   .warranty-hero {
     padding: var(--spacing-xl) var(--spacing-sm);
   }
-
   .warranty-container {
     padding: 0 var(--spacing-sm);
   }
 
   .warranty-intro-card {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-sm);
+  }
+  .warranty-intro-title {
+    margin-bottom: var(--spacing-sm);
+  }
+  .warranty-terms {
+    padding: var(--spacing-lg) 0;
   }
 
   .warranty-terms-title {
     font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+  .warranty-terms-grid {
+    gap: var(--spacing-sm);
+  }
+  .warranty-term-card {
+    padding: var(--spacing-md);
+  }
+  .warranty-intro-text, .warranty-term-description {
+    font-size: var(--font-size-sm);
   }
 
   .warranty-term-icon {
@@ -341,6 +354,30 @@
 
   .warranty-contact-title {
     font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .warranty-contact-card {
+    padding: var(--spacing-lg) var(--spacing-xs);
+  }
+  .warranty-contact-text {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-md);
+  }
+  .warranty-contact-btn {
+    border-radius: var(--radius-full);
+    padding: var(--spacing-sm) var(--spacing-lg);
+  }
+  .warranty-contact-btn svg{
+    display: none;
+  }
+}
+@media (max-width: 375px) {
+  .warranty-hero-title {
+    font-size: var(--font-size-2xl);
+  }
+  .warranty-hero-subtitle {
+    font-size: var(--font-size-sm);
   }
 }
 

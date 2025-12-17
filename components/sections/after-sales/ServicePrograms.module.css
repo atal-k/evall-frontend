@@ -123,8 +123,26 @@
     padding: 0 var(--spacing-sm);
   }
 
+  .service-programs__tagline {
+    font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
+  }
+  .service-programs__content {
+    margin-bottom: var(--spacing-lg);
+}
+
+  .service-programs__title {
+    font-size: clamp(var(--font-size-2-5xl), 3vw, var(--font-size-3xl));
+  }
+  .service-programs__description {
+    font-size: var(--font-size-base);
+    text-align: justify;
+  }
+
   .service-programs__list {
-    padding: var(--spacing-lg);
-    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    gap: var(--spacing-xs);
+  }
+  .service-programs__item-text {
+    font-size: var(--font-size-sm);
   }
 }

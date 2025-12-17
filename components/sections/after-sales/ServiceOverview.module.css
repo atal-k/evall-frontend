@@ -148,6 +148,22 @@
     padding: 0 var(--spacing-sm);
   }
 
+  .service-overview__title {
+    font-size: clamp(var(--font-size-3xl), 3vw, var(--font-size-4xl));
+  }
+  .service-overview__tagline {
+    font-size: var(--font-size-lg);
+    margin: 0 0 var(--spacing-md);
+  }
+  .service-overview__description {
+    font-size: var(--font-size-sm);
+    text-align: justify;
+  }
+
+  .service-overview__img {
+    border-radius: var(--radius-xmd);
+  }
+
   .service-overview__features {
     flex-direction: column;
   }

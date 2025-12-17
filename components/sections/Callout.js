@@ -5,11 +5,15 @@
 import React, { useState } from 'react';
 import Button from '../common/Button';
 import styles from './Callout.module.css';
+import { useRouter } from 'next/router';
 import TestDriveModal from '../common/TestDriveModal';
 import Image from 'next/image';
+import { navMenuData } from '@/data/navMenuData';
 
 const Callout = () => {
   const [showTestDrive, setShowTestDrive] = useState(false);
+  const router = useRouter();
+  const dealerLocatorPath = navMenuData.find(item => item.id === 'contact-us')?.menu.groups[0].links.find(link => link.id === 'dealer-locator')?.path;
   return (
     <section className={styles['cta-section']}>
         <div className={styles['spacer']}></div>
@@ -42,7 +46,7 @@ const Callout = () => {
 
             <div className={styles['cta-section__buttons']}>
               <Button variant="primary" className="btn-callout" onClick={() => setShowTestDrive(true)}>Book a Test Ride</Button>
-              <Button variant="white" className="btn-callout">Find Dealer</Button>
+              <Button variant="white" className="btn-callout" onClick={() => router.push(dealerLocatorPath)}>Find a Dealer</Button>
             </div>
             <TestDriveModal
         isOpen={showTestDrive} 
