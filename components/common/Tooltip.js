@@ -15,7 +15,7 @@ const Tooltip = ({ position, index, isActive, onClick }) => {
       aria-label={`Tooltip for feature ${index}`}
     >
       <span className={styles['tooltip__spot']}></span>
-      {/* <span className={styles['tooltip__pulse']}></span> */}
+      <span className={styles['tooltip__pulse']}></span>
     </button>
   );
 };

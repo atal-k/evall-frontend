@@ -28,8 +28,8 @@ const exteriorFeaturesData = {
       description: "The LED Daytime Running Lights (DRL) and the high-precision headlamps not only give a bold and modern look but also provide the best visibility and safety in all weather conditions.",
       image: "/images/exterior-features/led-light.png",
       position: {
-        desktop: { top: "51.5%", right: "27.5%" },
-        tablet: { top: "51.5%", right: "27.5%" },
+        desktop: { top: "43%", right: "35%" },
+        tablet: { top: "43%", right: "35%" },
         mobile: { top: "41%", right: "27%" },
         small: { top: "41%", right: "27%" }
       }
@@ -40,8 +40,8 @@ const exteriorFeaturesData = {
       description: "Engineered for precision and reliability, this advanced disc brake system delivers superior stopping power and heat dissipation.",
       image: "/images/exterior-features/disc-brake.png",
       position: {
-        desktop: { top: "78.4%", right: "41.3%" },
-        tablet: { top: "78.4%", right: "41.3%" },
+        desktop: { top: "81%", right: "38%" },
+        tablet: { top: "81%", right: "38%" },
         mobile: { top: "71%", right: "34%" },
         small: { top: "71%", right: "34%" } 
       }
@@ -52,8 +52,8 @@ const exteriorFeaturesData = {
       description: "The rear carrier is well-designed to handle a great deal of weight—up to 1495 kg, thereby allowing for bigger and smarter daily deliveries.",
       image: "/images/exterior-features/cargo-carrier.png",
       position: {
-        desktop: { top: "48.1%", left: "23.1%" },
-        tablet: { top: "48.1%", left: "23.1%" },
+        desktop: { top: "42%", left: "22%" },
+        tablet: { top: "42%", left: "22%" },
         mobile: { top: "41%", left: "20%" }, 
         small: { top: "41%", left: "20%" }  
       }
@@ -64,8 +64,8 @@ const exteriorFeaturesData = {
       description: "The futuristic grille and the aerodynamic front fascia create a striking and modern look while ensuring maximum airflow, road presence, and style, and accentuating the confidence of next-generation mobility.",
       image: "/images/exterior-features/front-design.png",
       position: {
-        desktop: { top: "56.5%", right: "14.9%" },
-        tablet: { top: "56.5%", right: "14.9%" },
+        desktop: { top: "48%", right: "18%" },
+        tablet: { top: "48%", right: "18%" },
         mobile: { top: "46%", right: "8%" },
         small: { top: "46%", right: "8%" } 
       }
@@ -110,8 +110,8 @@ const interiorFeaturesData = {
       description: "Experience smart weather control system that adapts instantly, allowing you to fine-tune your ideal cabin climate.",
       image: "/images/interior-features/dashboard.jpg",
       position: {
-        desktop: { top: "65.7%", left: "33.1%" },
-        tablet: { top: "65.7%", left: "33.1%" },
+        desktop: { top: "69%", left: "33.5%" },
+        tablet: { top: "69%", left: "33.5%" },
         mobile: { top: "60%", left: "27%" }, 
         small: { top: "60%", left: "27%" }  
       }

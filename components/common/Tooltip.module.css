@@ -3,7 +3,7 @@
   width: 56px;
   height: 56px;
   background: var(--color-gray-spot);
-  /* border: 2px solid rgba(41, 11, 211, 0.4); */
+  border: 2px solid rgba(41, 11, 211, 0.4);
   box-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.3),
     0 0 20px rgba(41, 11, 211, 0.2);
@@ -57,7 +57,7 @@
   right: -3px;
   bottom: -3px;
   border-radius: var(--radius-full);
-  /* border: 2px solid var(--color-blue-spot); */
+  border: 2px solid var(--color-blue-spot);
   animation: pulseRing 2.5s ease-out infinite;
   opacity: 0;
 }
