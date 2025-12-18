@@ -223,6 +223,7 @@
     }
   
     .tab-view__tab {
+      padding: var(--spacing-xs) var(--spacing-md);
       min-width: auto;
       width: 100%;
     }
