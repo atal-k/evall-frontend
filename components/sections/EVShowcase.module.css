@@ -357,7 +357,7 @@
     
     
     .ev-showcase__footer {
-      bottom: 20px;
+      bottom: 30px;
     }
     
     .ev-showcase__cta-group {
@@ -366,6 +366,7 @@
     }
     
     .ev-showcase__cta-button {
+      padding: 6px 24px;
       min-width: 250px;
     }
     

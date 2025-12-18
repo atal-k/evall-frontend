@@ -172,4 +172,10 @@
   .blog-card__title {
     font-size: var(--font-size-lg);
   }
+  
+@media (max-width: 480px) {
+  .blog-card {
+    border-radius: var(--radius-md);
+  }
+}
 }
