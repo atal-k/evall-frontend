@@ -1,5 +1,3 @@
-/* // ======================== CSS STYLES ========================
-// File /@components/sections/FeaturesCarousel.css */
 .features-carousel {
   padding: var(--spacing-3xl) 0;
   background: var(--color-white);
@@ -7,30 +5,32 @@
 }
 
 .features-carousel__container {
-  max-width: 100%;
-  padding: 0;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
 }
 
 .features-carousel__track {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
   overflow-x: scroll;
-  /* scroll-snap-type: x proximity; */
+  /* scroll-snap-type: x mandatory; */
   scroll-behavior: smooth;
   scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 0 var(--spacing-md) var(--spacing-xs);
+  padding: 0 var(--spacing-lg) var(--spacing-md);
+  -ms-overflow-style: none; /* IE fallback */
 }
 
 .features-carousel__track::-webkit-scrollbar {
-  display: none;
+  display: none; /* Hide scrollbar on Webkit browsers */
 }
 
 .features-carousel__card {
   position: relative;
-  flex: 0 0 auto;
-  width: 650px;
-  height: 680px;
+  flex: 0 0 auto; /* Maintain static width and height for the card */
+  width: 40vw; /* Narrower width while maintaining aspect ratio */
+  max-width: 600px; /* Cap the maximum width for large screens */
+  height: calc(40vw * 4 / 3); /* Maintain a 3:4 aspect ratio (taller height, smaller width) */
+  max-height: 700px; /* Maximum height for taller screens */
   border-radius: var(--radius-xxl);
   background-size: cover;
   background-position: center;
@@ -46,48 +46,44 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 53%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 55%);
   pointer-events: none;
 }
 
 .features-carousel__content {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding:var(--spacing-xlg);
+  bottom: var(--spacing-lg);
+  left: var(--spacing-lg);
+  width: calc(100% - var(--spacing-lg) * 2); /* Ensure padding adjustment */
   z-index: 1;
 }
 
 .features-carousel__title {
-  font-size: 2.8rem;
+  font-size: var(--font-size-4xl);
   font-weight: 500;
   font-style: italic;
-  letter-spacing: 1.1px;
+  letter-spacing: 1px;
   color: var(--color-white);
-  margin-bottom: var(--spacing-xxs);
-  line-height: 1.4;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.3;
 }
 
 .features-carousel__subtitle {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: 300;
   font-style: italic;
-  letter-spacing: 0.9px;
-  text-align: start;
+  letter-spacing: 1px;
   color: var(--color-white);
   line-height: 1.4;
-  max-width: 90%;
 }
 
-@media (max-width: 768px) {
-  .features-carousel {
-    padding: var(--spacing-xl) 0;
-  }
+/* ======================= Responsive Design ======================= */
 
+/* Breakpoint: 1200px */
+@media (max-width: 1200px) {
   .features-carousel__card {
-    width: 85vw;
-    height: 500px;
+    width: 45vw; /* Slightly wider for mid-sized screens */
+    height: calc(45vw * 4 / 3); /* Maintain 3:4 aspect ratio */
   }
 
   .features-carousel__title {
@@ -96,10 +92,96 @@
 
   .features-carousel__subtitle {
     font-size: var(--font-size-base);
-    max-width: 100%;
+  }
+}
+
+/* Breakpoint: 1024px (Tablets) */
+@media (max-width: 1024px) {
+  .features-carousel__card {
+    width: 50vw;
+    height: calc(50vw * 4 / 3);
+    border-radius: var(--radius-xl);
+  }
+
+  .features-carousel__title {
+    font-size: var(--font-size-2-5xl);
+    letter-spacing: 0.7px;
+  }
+
+  .features-carousel__subtitle {
+    font-size: var(--font-size-base);
   }
 
   .features-carousel__content {
-    padding: var(--spacing-lg);
+    bottom: var(--spacing-md);
+    left: var(--spacing-md);
+    width: calc(100% - var(--spacing-md) * 2);
+  }
+}
+
+/* Breakpoint: 768px */
+@media (max-width: 768px) {
+  .features-carousel {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .features-carousel__card {
+    width: 65vw; /* Wider for smaller devices */
+    height: calc(65vw * 4 / 3); /* Maintain aspect ratio */
+    border-radius: var(--radius-lg);
+  }
+
+  .features-carousel__title {
+    font-size: var(--font-size-xl);
+    max-width: 90%; /* Reduce title width for narrow cards */
+  }
+
+  .features-carousel__subtitle {
+    font-size: var(--font-size-sm);
+    line-height: 1.3;
+  }
+
+  .features-carousel__content {
+    bottom: var(--spacing-sm);
+    left: var(--spacing-sm);
+    width: calc(100% - var(--spacing-sm) * 2);
+  }
+}
+
+/* Breakpoint: 480px (Mobile) */
+@media (max-width: 480px) {
+  .features-carousel__track {
+    gap: var(--spacing-xsm);
+    padding: 0 var(--spacing-xs) var(--spacing-sm);
+  }
+  .features-carousel__card {
+    width: 80vw; /* Wider for mobile */
+    height: calc(80vw * 4 / 3);
+    /* border-radius: var(--radius-xmd); */
+  }
+
+  .features-carousel__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .features-carousel__subtitle {
+    font-size: var(--font-size-xs);
+    line-height: 1.2;
+  }
+}
+
+/* Breakpoint: 375px (Smaller Phones) */
+@media (max-width: 375px) {
+  .features-carousel__card {
+    width: 90vw; /* Full width for small devices */
+    height: calc(90vw * 4 / 3);
+  }
+
+  .features-carousel__title {
+    font-size: var(--font-size-lg);
+  }
+
+  .features-carousel__subtitle {
+    font-size: var(--font-size-xs);
   }
 }
