@@ -39,12 +39,12 @@
   
   /* Size Variants */
   .logo--small .logo__icon {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
   
   .logo--small .logo__text {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
   
   .logo--medium .logo__icon {

@@ -1,7 +1,5 @@
 // FILE: components/sections/TechnicalDetails.js
-
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './TechnicalDetails.module.css';
 import Logo from "../common/Logo";
 import Image from 'next/image';
@@ -13,7 +11,7 @@ const technicalData = {
     specs: [
       { label: "Model Details", value: "EVALL EV UDAY" },
       { label: "Domain", value: "GVW (kg)" },
-      { label: "Payload (kg)", value: "1495" },
+      { label: "Payload (kg)", value: "1495 kg" },
       { label: "Length", value: "5190 Centimeter" },
       { label: "Breadth", value: "1770 Centimeter" },
       { label: "Height", value: "1995 Centimeter" }
@@ -23,10 +21,10 @@ const technicalData = {
     title: "EV Powertrain Details",
     specs: [
       { label: "Battery Type", value: "LFP (Lithium Iron Phosphate)" },
-      { label: "Battery Capacity (kw)", value: "42 kw" },
+      { label: "Battery Capacity", value: "42 kw" },
       { label: "Motor Power", value: "Permanent Magnet Synchronous Motor" },
-      { label: "Peak Power (kw)", value: "60" },
-      { label: "Peak Torque (Nm)", value: "220" }
+      { label: "Peak Power (kw)", value: "60 kw" },
+      { label: "Peak Torque (Nm)", value: "220 Nm" }
     ]
   },
   performance: {
@@ -55,8 +53,9 @@ const keyHighlights = [
 const TechnicalDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalLeft, setModalLeft] = useState(0);
+  const [logoSize, setLogoSize] = useState('large');
   const contentRef = React.useRef(null);
-  const [isClosing, setIsClosing] = useState(false);  // ADD THIS
+  const [isClosing, setIsClosing] = useState(false);
 
   const openModal = () => {
     if (contentRef.current) {
@@ -66,12 +65,28 @@ const TechnicalDetails = () => {
     setIsModalOpen(true);
   };
   const closeModal = () => {
-    setIsClosing(true);  // ADD THIS
+    setIsClosing(true);
     setTimeout(() => {
       setIsModalOpen(false);
       setIsClosing(false);
     }, 300);  // Match animation duration
   };
+
+  useEffect(() => {
+    const updateLogoSize = () => {
+      if (window.innerWidth <= 375) {
+        setLogoSize('small');
+      } else if (window.innerWidth <= 480) {
+        setLogoSize('medium');
+      } else {
+        setLogoSize('large');
+      }
+    };
+  
+    updateLogoSize();
+    window.addEventListener('resize', updateLogoSize);
+    return () => window.removeEventListener('resize', updateLogoSize);
+  }, []);
   return (
       <section className={styles['technical-details']}>
       <div className={styles['technical-details__container']}>
@@ -102,7 +117,7 @@ const TechnicalDetails = () => {
       </div>
 
       {isModalOpen && (
-        <div className={styles['modal-overlay']} onClick={closeModal} style={{ left: `${modalLeft}px` }}>
+        <div className={styles['modal-overlay']} onClick={closeModal}>
             <div 
             className={`${styles['modal-content']} ${isClosing ? styles['modal-closing'] : ''}`}  // ADD isClosing class
             onClick={(e) => e.stopPropagation()}
@@ -114,11 +129,11 @@ const TechnicalDetails = () => {
             </button>
 
             <div className={styles['modal-header']}>
-              <Logo size="large" />
+              <Logo size={logoSize} />
             </div>
 
             <div className={styles['modal-body']}>
-              <div className="specs-section">
+              <div className={styles['specs-section']}>
                 <h3 className={styles['specs-section__title']}>{technicalData.modelDetails.title}</h3>
                 {technicalData.modelDetails.specs.map((spec, index) => (
                   <div key={index} className={styles['spec-row']}>

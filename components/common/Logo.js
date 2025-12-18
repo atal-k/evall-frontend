@@ -10,7 +10,7 @@ const Logo = ({ size = 'medium', color = 'black', className = '' }) => {
   
   // Map size to actual pixel dimensions
   const sizeMap = {
-    small: 24,
+    small: 28,
     medium: 32,
     large: 38,
     XLarge: 48
