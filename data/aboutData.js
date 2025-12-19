@@ -124,22 +124,6 @@ const leadershipData = {
         "Led by a team with deep expertise in vehicle engineering, battery technology, and automotive manufacturing, our leadership drives innovation with a commitment to quality, sustainability, and the transformation of India’s commercial mobility ecosystem.",
     persons: [
         {
-          name: "Manohar Lal",
-          position: "Head – R&D, Electric Trucks",
-          about:
-              "Heading R&D for electric trucks and buses, Manohar Lal drives innovation in design, performance, and sustainability. With deep expertise in powertrain technologies and EV system integration, he leads development of next-gen zero-emission vehicles.",
-          img: {
-              src: "/images/leadership/manohar-lal.webp",
-              alt: "Manohar Lal - Head – R&D, Electric Trucks & Buses",
-          },
-          links: {
-              linkedin: "#",
-              facebook: "#",
-              x: "#",
-              youtube: "#",
-          },
-          },
-        {
         name: "Ajit Kumar",
         position: "Vice President – Operations",
         about:
@@ -154,6 +138,22 @@ const leadershipData = {
             x: "#",
             youtube: "#",
         },
+        },
+        {
+          name: "Manohar Lal",
+          position: "Head – R&D, Electric Trucks",
+          about:
+              "Heading R&D for electric trucks and buses, Manohar Lal drives innovation in design, performance, and sustainability. With deep expertise in powertrain technologies and EV system integration, he leads development of next-gen zero-emission vehicles.",
+          img: {
+              src: "/images/leadership/manohar-lal.webp",
+              alt: "Manohar Lal - Head – R&D, Electric Trucks & Buses",
+          },
+          links: {
+              linkedin: "#",
+              facebook: "#",
+              x: "#",
+              youtube: "#",
+          },
         },
         {
           name: "Satyendra Pal",
