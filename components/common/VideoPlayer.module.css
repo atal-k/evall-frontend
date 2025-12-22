@@ -14,7 +14,7 @@
     background: var(--color-black);
     border-radius: var(--radius-xmd);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
     margin: 0 auto;
   }
   

@@ -34,19 +34,23 @@ const About = () => {
   const features = [
     {
       title: 'Reliable by Design',
-      description: 'Engineered for maximum uptime and long service life to keep your operations running smoothly.'
+      description: 'Engineered for maximum uptime and long service life to keep your operations running smoothly.',
+      icon: 'shieldCheck'
     },
     {
       title: 'Efficient & Productive',
-      description: 'Higher productivity and meaningful cost savings for businesses across every sector.'
+      description: 'Higher productivity and meaningful cost savings for businesses across every sector.',
+      icon: 'barChart'
     },
     {
       title: 'Sustainable Impact',
-      description: 'Purpose-built electric vehicles that cut emissions and move India closer to a greener tomorrow.'
+      description: 'Purpose-built electric vehicles that cut emissions and move India closer to a greener tomorrow.',
+      icon: 'leaf'
     },
     {
-      title: 'Technology-Driven',
-      description: 'Smart features, connected architecture, and relentless innovation that evolve with your needs.'
+      title: 'Technology Driven',
+      description: 'Smart features, connected architecture, and relentless innovation that evolve with your needs.',
+      icon: 'cpu'
     }
   ];
 
@@ -84,23 +88,28 @@ const About = () => {
             </button>
 
             {shouldShowFeatures && (
-              <div className={styles['about-section__features']}>
-                {features.map((feature, index) => (
-                  <div key={index} className={styles['about-section__feature']}>
-                    <div className={styles['about-section__feature-header']}>
-                      <span className={styles['about-section__feature-icon']}>
-                        {getIcon('arrow', 22)}
-                      </span>
-                      <h3 className={styles['about-section__feature-title']}>
-                        {feature.title}
-                      </h3>
-                    </div>
-                    <p className={styles['about-section__feature-description']}>
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                   <div className={styles['about-section__features']}>
+                   {features.map((feature, index) => (
+                     <div key={index} className={styles['about-section__feature-card']}>
+                       {/* Icon and Title Row */}
+                       <div className={styles['about-section__feature-header']}>
+                         <div className={styles['about-section__feature-icon-wrapper']}>
+                           <span className={styles['about-section__feature-icon']}>
+                             {getIcon(feature.icon, 24)}
+                           </span>
+                         </div>
+                         <h3 className={styles['about-section__feature-title']}>
+                           {feature.title}
+                         </h3>
+                       </div>
+             
+                       {/* Description */}
+                       <p className={styles['about-section__feature-description']}>
+                         {feature.description}
+                       </p>
+                     </div>
+                   ))}
+                 </div>
             )}
           </div>
 
