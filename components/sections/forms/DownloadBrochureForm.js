@@ -30,8 +30,8 @@ const DownloadBrochureForm = ({ isModal, onSuccess }) => {
       toast.success('Downloading brochure...');
       // Trigger brochure download
       const link = document.createElement('a');
-      link.href = '/assets/evall-mobility-brochure-1.5T.pdf';
-      link.download = 'EVall-Mobility-Brochure-1.5T.pdf';
+      link.href = '/assets/EVALL-brochure.pdf';
+      link.download = 'EVALL-Brochure.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

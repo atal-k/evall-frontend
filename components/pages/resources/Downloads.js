@@ -16,9 +16,9 @@ const DownloadsPageComponent = () => {
   const downloads = [
     {
       id: 1,
-      title: 'EVall Mobility Brochure 1.5T',
+      title: 'EVall Mobility Brochure',
       description: 'Complete overview of our electric Mobility vehicle and features',
-      filePath: '/assets/evall-mobility-brochure-1.5T.pdf'
+      filePath: '/assets/EVALL-brochure.pdf'
     }
   ];
 
