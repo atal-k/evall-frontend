@@ -31,7 +31,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(55, 55, 55, 0.55) 50%, rgba(80, 80, 80, 0.45) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(55, 55, 55, 0.40) 50%, rgba(80, 80, 80, 0.25) 100%);
   z-index: 1;
 }
 

@@ -73,7 +73,7 @@ const About = () => {
               {points.map((point, idx) => (
                 <li key={idx} className={styles['about-section__point']}>
                   <span className={styles['about-section__point-icon']}>
-                    {getIcon('arrow', 22)}
+                    {getIcon('bullet', 22)}
                   </span>
                   <span className={styles['about-section__point-text']}>{point}</span>
                 </li>
