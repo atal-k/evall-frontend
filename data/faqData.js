@@ -12,8 +12,8 @@ export const FAQdata = [
         },
         {
           id: "g2",
-          ques: "What is the EVALL T3EV Uday?",
-          ans: "The T3EV Uday is EVall's premier electric small commercial vehicle (e-SCV) designed for cargo transportation, logistics, and urban delivery, combining efficiency, sustainability, and reliability."
+          ques: "What is the EVALL EV Uday?",
+          ans: "The EV Uday is EVall's premier electric small commercial vehicle (e-SCV) designed for cargo transportation, logistics, and urban delivery, combining efficiency, sustainability, and reliability."
         },
         {
           id: "g3",
@@ -33,7 +33,7 @@ export const FAQdata = [
         },
         {
           id: "t2",
-          ques: "What are the dimensions of the EVALL T3EV Uday?",
+          ques: "What are the dimensions of the EVALL EV Uday?",
           ans: "Length: 5190 mm, Width: 1770 mm, Height: 1995 mm."
         },
         {
